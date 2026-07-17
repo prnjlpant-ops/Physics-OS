@@ -1,3 +1,6 @@
+import { Link } from 'react-router-dom'
+import { FileStack, ChevronRight } from 'lucide-react'
+
 const STATUS_STYLES = {
   Completed: 'border-[#89d185]/30 bg-[#89d185]/10 text-[#89d185]',
   'In Progress': 'border-[#e2c08d]/30 bg-[#e2c08d]/10 text-[#e2c08d]',
@@ -21,9 +24,12 @@ function MiniStat({ label, value }) {
   )
 }
 
-export default function ChapterCard({ chapter }) {
+export default function ChapterCard({ subjectId, chapter }) {
   return (
-    <div className="flex flex-col gap-3 rounded-lg border border-[#3c3c3c] bg-[#252526] px-4 py-3.5 transition-colors duration-150 hover:border-[#4a4a4a]">
+    <Link
+      to={`/subjects/${subjectId}/chapters/${chapter.slug}`}
+      className="group flex flex-col gap-3 rounded-lg border border-[#3c3c3c] bg-[#252526] px-4 py-3.5 transition-colors duration-150 hover:border-[#4a4a4a]"
+    >
       <div className="flex items-start justify-between gap-3">
         <h3 className="text-sm font-medium text-[#e8e8e8]">{chapter.name}</h3>
         <span
@@ -50,6 +56,14 @@ export default function ChapterCard({ chapter }) {
         <MiniStat label="Problems" value={chapter.problems} />
         <MiniStat label="Revision" value={chapter.revision} />
       </div>
-    </div>
+
+      <div className="flex items-center justify-between border-t border-[#3c3c3c] pt-2.5 text-xs text-[#858585] transition-colors duration-150 group-hover:text-[#cccccc]">
+        <span className="inline-flex items-center gap-1.5">
+          <FileStack size={13} strokeWidth={1.75} />
+          Resources
+        </span>
+        <ChevronRight size={14} strokeWidth={1.75} />
+      </div>
+    </Link>
   )
 }

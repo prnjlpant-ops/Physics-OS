@@ -7,7 +7,7 @@ export default function SubjectChaptersPage() {
   return (
     <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-3">
       {subject.chapters.map((chapter) => (
-        <ChapterCard key={chapter.name} chapter={chapter} />
+        <ChapterCard key={chapter.slug} subjectId={subject.id} chapter={chapter} />
       ))}
     </div>
   )

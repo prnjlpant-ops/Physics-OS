@@ -1,4 +1,4 @@
-import { createBrowserRouter } from 'react-router-dom'
+import { createBrowserRouter, Navigate } from 'react-router-dom'
 import AppLayout from '../layouts/AppLayout'
 import HomePage from '../pages/HomePage'
 import CalendarPage from '../pages/CalendarPage'
@@ -8,10 +8,13 @@ import SubjectLayout from '../pages/subject/SubjectLayout'
 import SubjectOverviewPage from '../pages/subject/SubjectOverviewPage'
 import SubjectChaptersPage from '../pages/subject/SubjectChaptersPage'
 import SubjectResourcesPage from '../pages/subject/SubjectResourcesPage'
+import ChapterResourceLayout from '../pages/subject/chapter/ChapterResourceLayout'
+import ChapterResourceTypePage from '../pages/subject/chapter/ChapterResourceTypePage'
 import SubjectBooksPage from '../pages/subject/SubjectBooksPage'
 import SubjectVideosPage from '../pages/subject/SubjectVideosPage'
 import SubjectPyqsPage from '../pages/subject/SubjectPyqsPage'
 import SubjectFormulaSheetPage from '../pages/subject/SubjectFormulaSheetPage'
+import ChapterFormulaSheetPage from '../pages/subject/chapter/ChapterFormulaSheetPage'
 import SubjectMemorySheetPage from '../pages/subject/SubjectMemorySheetPage'
 import SubjectNotesPage from '../pages/subject/SubjectNotesPage'
 import SubjectProgressPage from '../pages/subject/SubjectProgressPage'
@@ -45,6 +48,32 @@ const router = createBrowserRouter([
               { index: true, element: <SubjectOverviewPage /> },
               { path: 'chapters', element: <SubjectChaptersPage /> },
               { path: 'resources', element: <SubjectResourcesPage /> },
+              {
+                path: 'chapters/:chapterSlug',
+                element: <ChapterResourceLayout />,
+                children: [
+                  { index: true, element: <Navigate to="books" replace /> },
+                  { path: 'books', element: <ChapterResourceTypePage type="books" /> },
+                  { path: 'videos', element: <ChapterResourceTypePage type="videos" /> },
+                  { path: 'pdfs', element: <ChapterResourceTypePage type="pdfs" /> },
+                  {
+                    path: 'solution-manuals',
+                    element: <ChapterResourceTypePage type="solutionManuals" />,
+                  },
+                  {
+                    path: 'reference-material',
+                    element: <ChapterResourceTypePage type="referenceMaterial" />,
+                  },
+                  {
+                    path: 'external-links',
+                    element: <ChapterResourceTypePage type="externalLinks" />,
+                  },
+                ],
+              },
+              {
+                path: 'chapters/:chapterSlug/formula-sheet',
+                element: <ChapterFormulaSheetPage />,
+              },
               { path: 'books', element: <SubjectBooksPage /> },
               { path: 'videos', element: <SubjectVideosPage /> },
               { path: 'pyqs', element: <SubjectPyqsPage /> },

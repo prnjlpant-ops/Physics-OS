@@ -1,15 +1,16 @@
 import { useOutletContext } from 'react-router-dom'
-import { FileText } from 'lucide-react'
-import EmptyState from './EmptyState'
+import { getSubjectFormulaSheets } from '../../data/formulaSheetsData'
+import ChapterFormulaSheetCard from '../../components/formulaSheets/ChapterFormulaSheetCard'
 
 export default function SubjectFormulaSheetPage() {
   const { subject } = useOutletContext()
+  const sheets = getSubjectFormulaSheets(subject)
 
   return (
-    <EmptyState
-      icon={FileText}
-      title="No formula sheet yet"
-      description={`A formula sheet for ${subject.name} will appear here.`}
-    />
+    <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-3">
+      {sheets.map((sheet) => (
+        <ChapterFormulaSheetCard key={sheet.chapterSlug} subjectId={subject.id} sheet={sheet} />
+      ))}
+    </div>
   )
 }

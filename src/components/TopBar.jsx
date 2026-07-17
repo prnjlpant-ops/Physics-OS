@@ -14,7 +14,7 @@ export default function TopBar() {
 
   return (
     <>
-      <header className="flex h-12 shrink-0 items-center gap-3 border-b border-[#3c3c3c] bg-[#2d2d2d] px-4">
+      <header className="flex h-12 shrink-0 items-center gap-3 border-b border-[#3c3c3c] bg-[#2d2d2d] px-4 print:hidden">
         <button
           type="button"
           onClick={() => setMobileOpen((open) => !open)}

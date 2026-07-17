@@ -1,22 +1,57 @@
-import { Library, Video, FileStack, BookMarked } from 'lucide-react'
-import EmptyState from './EmptyState'
+import { useMemo, useState } from 'react'
+import { useOutletContext } from 'react-router-dom'
+import { getSubjectResources } from '../../data/resourcesData'
+import { RESOURCE_TYPE_ORDER, RESOURCE_TYPE_META } from '../../constants/resourceTypes'
+import { useFavorites } from '../../hooks/useFavorites'
+import SearchBar from '../../components/resources/SearchBar'
+import FilterBar from '../../components/resources/FilterBar'
+import ResourceGrid from '../../components/resources/ResourceGrid'
 
-const SECTIONS = [
-  { label: 'Books', icon: Library },
-  { label: 'Videos', icon: Video },
-  { label: 'Reference Material', icon: FileStack },
-  { label: 'Solution Manual', icon: BookMarked },
-]
+const TYPE_OPTIONS = RESOURCE_TYPE_ORDER.map((key) => ({
+  key,
+  label: RESOURCE_TYPE_META[key].label,
+}))
 
 export default function SubjectResourcesPage() {
+  const { subject } = useOutletContext()
+  const [search, setSearch] = useState('')
+  const [chapterSlug, setChapterSlug] = useState('all')
+  const [type, setType] = useState('all')
+  const { favoriteIds, toggleFavorite } = useFavorites()
+
+  const allResources = useMemo(() => getSubjectResources(subject), [subject])
+
+  const filtered = useMemo(() => {
+    const query = search.trim().toLowerCase()
+    return allResources.filter((resource) => {
+      if (chapterSlug !== 'all' && resource.chapterSlug !== chapterSlug) return false
+      if (type !== 'all' && resource.type !== type) return false
+      if (query && !`${resource.title} ${resource.chapterName}`.toLowerCase().includes(query)) {
+        return false
+      }
+      return true
+    })
+  }, [allResources, search, chapterSlug, type])
+
   return (
-    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-      {SECTIONS.map(({ label, icon: Icon }) => (
-        <section key={label}>
-          <h3 className="mb-3 text-sm font-semibold text-[#e8e8e8]">{label}</h3>
-          <EmptyState icon={Icon} title={`No ${label.toLowerCase()} added yet`} />
-        </section>
-      ))}
+    <div className="flex flex-col gap-4">
+      <SearchBar value={search} onChange={setSearch} placeholder={`Search ${subject.name} resources...`} />
+      <FilterBar
+        hideSubject
+        chapters={subject.chapters}
+        chapterSlug={chapterSlug}
+        onChapterChange={setChapterSlug}
+        type={type}
+        onTypeChange={setType}
+        typeOptions={TYPE_OPTIONS}
+      />
+      <ResourceGrid
+        resources={filtered}
+        favoriteIds={favoriteIds}
+        onToggleFavorite={toggleFavorite}
+        showChapter
+        emptyLabel="No resources match your search"
+      />
     </div>
   )
 }

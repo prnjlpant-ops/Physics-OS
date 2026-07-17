@@ -8,6 +8,7 @@ import {
   CircuitBoard,
   FlaskConical,
 } from 'lucide-react'
+import { slugify } from '../utils/slugify'
 
 const CHAPTER_PATTERN = [
   {
@@ -36,6 +37,7 @@ const CHAPTER_PATTERN = [
 function buildChapters(names) {
   return names.map((name, index) => ({
     name,
+    slug: slugify(name),
     ...CHAPTER_PATTERN[index % CHAPTER_PATTERN.length],
   }))
 }
@@ -173,4 +175,14 @@ export const subjects = [
 
 export function getSubjectById(id) {
   return subjects.find((subject) => subject.id === id)
+}
+
+export function getChapterBySlug(subjectId, chapterSlug) {
+  const subject = getSubjectById(subjectId)
+  if (!subject) return null
+
+  const chapter = subject.chapters.find((item) => item.slug === chapterSlug)
+  if (!chapter) return null
+
+  return { subject, chapter }
 }
