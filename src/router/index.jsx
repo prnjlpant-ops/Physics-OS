@@ -16,6 +16,8 @@ import SubjectPyqsPage from '../pages/subject/SubjectPyqsPage'
 import SubjectFormulaSheetPage from '../pages/subject/SubjectFormulaSheetPage'
 import ChapterFormulaSheetPage from '../pages/subject/chapter/ChapterFormulaSheetPage'
 import SubjectMemorySheetPage from '../pages/subject/SubjectMemorySheetPage'
+import ChapterMemorySheetPage from '../pages/subject/chapter/ChapterMemorySheetPage'
+import ChapterMemoryRevisionPage from '../pages/subject/chapter/ChapterMemoryRevisionPage'
 import SubjectNotesPage from '../pages/subject/SubjectNotesPage'
 import SubjectProgressPage from '../pages/subject/SubjectProgressPage'
 import ResourcesPage from '../pages/ResourcesPage'
@@ -73,6 +75,14 @@ const router = createBrowserRouter([
               {
                 path: 'chapters/:chapterSlug/formula-sheet',
                 element: <ChapterFormulaSheetPage />,
+              },
+              {
+                path: 'chapters/:chapterSlug/memory-sheet',
+                element: <ChapterMemorySheetPage />,
+              },
+              {
+                path: 'chapters/:chapterSlug/memory-sheet/revise',
+                element: <ChapterMemoryRevisionPage />,
               },
               { path: 'books', element: <SubjectBooksPage /> },
               { path: 'videos', element: <SubjectVideosPage /> },

@@ -1,15 +1,16 @@
 import { useOutletContext } from 'react-router-dom'
-import { Brain } from 'lucide-react'
-import EmptyState from './EmptyState'
+import { getSubjectMemorySheets } from '../../data/memorySheetsData'
+import ChapterMemorySheetCard from '../../components/memorySheets/ChapterMemorySheetCard'
 
 export default function SubjectMemorySheetPage() {
   const { subject } = useOutletContext()
+  const sheets = getSubjectMemorySheets(subject)
 
   return (
-    <EmptyState
-      icon={Brain}
-      title="No memory sheet yet"
-      description={`A memory sheet for ${subject.name} will appear here.`}
-    />
+    <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-3">
+      {sheets.map((sheet) => (
+        <ChapterMemorySheetCard key={sheet.chapterSlug} subjectId={subject.id} sheet={sheet} />
+      ))}
+    </div>
   )
 }
