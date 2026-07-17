@@ -1,9 +1,22 @@
-import { createBrowserRouter } from 'react-router-dom'
+import { createBrowserRouter, Navigate } from 'react-router-dom'
 import AppLayout from '../layouts/AppLayout'
 import HomePage from '../pages/HomePage'
 import CalendarPage from '../pages/CalendarPage'
 import TodaysMissionPage from '../pages/TodaysMissionPage'
 import SubjectsPage from '../pages/SubjectsPage'
+import SubjectLayout from '../pages/subject/SubjectLayout'
+import SubjectOverviewPage from '../pages/subject/SubjectOverviewPage'
+import SubjectChaptersPage from '../pages/subject/SubjectChaptersPage'
+import SubjectResourcesPage from '../pages/subject/SubjectResourcesPage'
+import ChapterResourceLayout from '../pages/subject/chapter/ChapterResourceLayout'
+import ChapterResourceTypePage from '../pages/subject/chapter/ChapterResourceTypePage'
+import SubjectBooksPage from '../pages/subject/SubjectBooksPage'
+import SubjectVideosPage from '../pages/subject/SubjectVideosPage'
+import SubjectPyqsPage from '../pages/subject/SubjectPyqsPage'
+import SubjectFormulaSheetPage from '../pages/subject/SubjectFormulaSheetPage'
+import SubjectMemorySheetPage from '../pages/subject/SubjectMemorySheetPage'
+import SubjectNotesPage from '../pages/subject/SubjectNotesPage'
+import SubjectProgressPage from '../pages/subject/SubjectProgressPage'
 import ResourcesPage from '../pages/ResourcesPage'
 import PyqsPage from '../pages/PyqsPage'
 import NotesPage from '../pages/NotesPage'
@@ -23,7 +36,50 @@ const router = createBrowserRouter([
       { index: true, element: <HomePage /> },
       { path: 'calendar', element: <CalendarPage /> },
       { path: 'todays-mission', element: <TodaysMissionPage /> },
-      { path: 'subjects', element: <SubjectsPage /> },
+      {
+        path: 'subjects',
+        children: [
+          { index: true, element: <SubjectsPage /> },
+          {
+            path: ':subjectId',
+            element: <SubjectLayout />,
+            children: [
+              { index: true, element: <SubjectOverviewPage /> },
+              { path: 'chapters', element: <SubjectChaptersPage /> },
+              { path: 'resources', element: <SubjectResourcesPage /> },
+              {
+                path: 'chapters/:chapterSlug',
+                element: <ChapterResourceLayout />,
+                children: [
+                  { index: true, element: <Navigate to="books" replace /> },
+                  { path: 'books', element: <ChapterResourceTypePage type="books" /> },
+                  { path: 'videos', element: <ChapterResourceTypePage type="videos" /> },
+                  { path: 'pdfs', element: <ChapterResourceTypePage type="pdfs" /> },
+                  {
+                    path: 'solution-manuals',
+                    element: <ChapterResourceTypePage type="solutionManuals" />,
+                  },
+                  {
+                    path: 'reference-material',
+                    element: <ChapterResourceTypePage type="referenceMaterial" />,
+                  },
+                  {
+                    path: 'external-links',
+                    element: <ChapterResourceTypePage type="externalLinks" />,
+                  },
+                ],
+              },
+              { path: 'books', element: <SubjectBooksPage /> },
+              { path: 'videos', element: <SubjectVideosPage /> },
+              { path: 'pyqs', element: <SubjectPyqsPage /> },
+              { path: 'formula-sheet', element: <SubjectFormulaSheetPage /> },
+              { path: 'memory-sheet', element: <SubjectMemorySheetPage /> },
+              { path: 'notes', element: <SubjectNotesPage /> },
+              { path: 'progress', element: <SubjectProgressPage /> },
+            ],
+          },
+        ],
+      },
       { path: 'resources', element: <ResourcesPage /> },
       { path: 'pyqs', element: <PyqsPage /> },
       { path: 'notes', element: <NotesPage /> },
