@@ -19,6 +19,8 @@ import SubjectMemorySheetPage from '../pages/subject/SubjectMemorySheetPage'
 import ChapterMemorySheetPage from '../pages/subject/chapter/ChapterMemorySheetPage'
 import ChapterMemoryRevisionPage from '../pages/subject/chapter/ChapterMemoryRevisionPage'
 import SubjectNotesPage from '../pages/subject/SubjectNotesPage'
+import ChapterNotesPage from '../pages/subject/chapter/ChapterNotesPage'
+import NoteEditorPage from '../pages/subject/chapter/NoteEditorPage'
 import SubjectProgressPage from '../pages/subject/SubjectProgressPage'
 import ResourcesPage from '../pages/ResourcesPage'
 import PyqsPage from '../pages/PyqsPage'
@@ -90,6 +92,14 @@ const router = createBrowserRouter([
               { path: 'formula-sheet', element: <SubjectFormulaSheetPage /> },
               { path: 'memory-sheet', element: <SubjectMemorySheetPage /> },
               { path: 'notes', element: <SubjectNotesPage /> },
+              {
+                path: 'chapters/:chapterSlug/notes',
+                element: <ChapterNotesPage />,
+              },
+              {
+                path: 'chapters/:chapterSlug/notes/:noteId',
+                element: <NoteEditorPage />,
+              },
               { path: 'progress', element: <SubjectProgressPage /> },
             ],
           },

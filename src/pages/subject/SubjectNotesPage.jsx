@@ -1,15 +1,25 @@
 import { useOutletContext } from 'react-router-dom'
-import { NotebookPen } from 'lucide-react'
-import EmptyState from './EmptyState'
+import { useNotes } from '../../hooks/useNotes'
+import { getSubjectNoteStats } from '../../data/notesData'
+import ChapterNotesCard from '../../components/notes/ChapterNotesCard'
 
 export default function SubjectNotesPage() {
   const { subject } = useOutletContext()
+  const { notes } = useNotes()
+  const stats = getSubjectNoteStats(notes, subject)
 
   return (
-    <EmptyState
-      icon={NotebookPen}
-      title="No notes added yet"
-      description={`Notes for ${subject.name} will appear here.`}
-    />
+    <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-3">
+      {stats.map(({ chapter, totalNotes, lastEdited, revisionStatus }) => (
+        <ChapterNotesCard
+          key={chapter.slug}
+          subjectId={subject.id}
+          chapter={chapter}
+          totalNotes={totalNotes}
+          lastEdited={lastEdited}
+          revisionStatus={revisionStatus}
+        />
+      ))}
+    </div>
   )
 }
