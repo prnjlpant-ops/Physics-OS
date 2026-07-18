@@ -13,6 +13,8 @@ import ChapterResourceTypePage from '../pages/subject/chapter/ChapterResourceTyp
 import SubjectBooksPage from '../pages/subject/SubjectBooksPage'
 import SubjectVideosPage from '../pages/subject/SubjectVideosPage'
 import SubjectPyqsPage from '../pages/subject/SubjectPyqsPage'
+import ChapterPyqsPage from '../pages/subject/chapter/ChapterPyqsPage'
+import PyqDetailPage from '../pages/subject/chapter/PyqDetailPage'
 import SubjectFormulaSheetPage from '../pages/subject/SubjectFormulaSheetPage'
 import ChapterFormulaSheetPage from '../pages/subject/chapter/ChapterFormulaSheetPage'
 import SubjectMemorySheetPage from '../pages/subject/SubjectMemorySheetPage'
@@ -89,6 +91,14 @@ const router = createBrowserRouter([
               { path: 'books', element: <SubjectBooksPage /> },
               { path: 'videos', element: <SubjectVideosPage /> },
               { path: 'pyqs', element: <SubjectPyqsPage /> },
+              {
+                path: 'chapters/:chapterSlug/pyqs',
+                element: <ChapterPyqsPage />,
+              },
+              {
+                path: 'chapters/:chapterSlug/pyqs/:pyqId',
+                element: <PyqDetailPage />,
+              },
               { path: 'formula-sheet', element: <SubjectFormulaSheetPage /> },
               { path: 'memory-sheet', element: <SubjectMemorySheetPage /> },
               { path: 'notes', element: <SubjectNotesPage /> },
