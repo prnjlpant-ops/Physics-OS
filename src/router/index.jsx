@@ -35,6 +35,13 @@ import ResultPage from '../pages/mockTests/ResultPage'
 import AnalysisPage from '../pages/mockTests/AnalysisPage'
 import RevisionQueuePage from '../pages/mockTests/RevisionQueuePage'
 import MockSettingsPage from '../pages/mockTests/MockSettingsPage'
+import ErrorLearningLayout from '../pages/errorLearning/ErrorLearningLayout'
+import ErrorDashboardPage from '../pages/errorLearning/ErrorDashboardPage'
+import ErrorLibraryPage from '../pages/errorLearning/ErrorLibraryPage'
+import WeakTopicsPage from '../pages/errorLearning/WeakTopicsPage'
+import StatisticsPage from '../pages/errorLearning/StatisticsPage'
+import ErrorRevisionQueuePage from '../pages/errorLearning/ErrorRevisionQueuePage'
+import ErrorDetailsPage from '../pages/errorLearning/ErrorDetailsPage'
 import StudyTimerPage from '../pages/StudyTimerPage'
 import AnalyticsPage from '../pages/AnalyticsPage'
 import SettingsPage from '../pages/SettingsPage'
@@ -120,6 +127,18 @@ const router = createBrowserRouter([
       { path: 'mock-tests/:testId', element: <MockDetailsPage /> },
       { path: 'mock-tests/:testId/attempt', element: <AttemptPage /> },
       { path: 'mock-tests/:testId/result', element: <ResultPage /> },
+      {
+        path: 'error-learning',
+        element: <ErrorLearningLayout />,
+        children: [
+          { index: true, element: <ErrorDashboardPage /> },
+          { path: 'library', element: <ErrorLibraryPage /> },
+          { path: 'weak-topics', element: <WeakTopicsPage /> },
+          { path: 'statistics', element: <StatisticsPage /> },
+          { path: 'revision-queue', element: <ErrorRevisionQueuePage /> },
+        ],
+      },
+      { path: 'error-learning/:errorId', element: <ErrorDetailsPage /> },
       { path: 'study-timer', element: <StudyTimerPage /> },
       { path: 'analytics', element: <AnalyticsPage /> },
       { path: 'settings', element: <SettingsPage /> },
