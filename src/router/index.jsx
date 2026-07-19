@@ -13,16 +13,12 @@ import ChapterResourceTypePage from '../pages/subject/chapter/ChapterResourceTyp
 import SubjectBooksPage from '../pages/subject/SubjectBooksPage'
 import SubjectVideosPage from '../pages/subject/SubjectVideosPage'
 import SubjectPyqsPage from '../pages/subject/SubjectPyqsPage'
-import ChapterPyqsPage from '../pages/subject/chapter/ChapterPyqsPage'
-import PyqDetailPage from '../pages/subject/chapter/PyqDetailPage'
 import SubjectFormulaSheetPage from '../pages/subject/SubjectFormulaSheetPage'
-import ChapterFormulaSheetPage from '../pages/subject/chapter/ChapterFormulaSheetPage'
 import SubjectMemorySheetPage from '../pages/subject/SubjectMemorySheetPage'
-import ChapterMemorySheetPage from '../pages/subject/chapter/ChapterMemorySheetPage'
-import ChapterMemoryRevisionPage from '../pages/subject/chapter/ChapterMemoryRevisionPage'
 import SubjectNotesPage from '../pages/subject/SubjectNotesPage'
-import ChapterNotesPage from '../pages/subject/chapter/ChapterNotesPage'
-import NoteEditorPage from '../pages/subject/chapter/NoteEditorPage'
+import SubjectActiveRecallPage from '../pages/subject/SubjectActiveRecallPage'
+import ChapterActiveRecallPage from '../pages/subject/chapter/ChapterActiveRecallPage'
+import ChapterActiveRecallStudyPage from '../pages/subject/chapter/ChapterActiveRecallStudyPage'
 import SubjectProgressPage from '../pages/subject/SubjectProgressPage'
 import ResourcesPage from '../pages/ResourcesPage'
 import PyqsPage from '../pages/PyqsPage'
@@ -30,7 +26,15 @@ import NotesPage from '../pages/NotesPage'
 import FormulaSheetsPage from '../pages/FormulaSheetsPage'
 import MemorySheetsPage from '../pages/MemorySheetsPage'
 import ActiveRecallPage from '../pages/ActiveRecallPage'
-import MockTestsPage from '../pages/MockTestsPage'
+import MockTestsLayout from '../pages/mockTests/MockTestsLayout'
+import MockDashboardPage from '../pages/mockTests/MockDashboardPage'
+import TestLibraryPage from '../pages/mockTests/TestLibraryPage'
+import MockDetailsPage from '../pages/mockTests/MockDetailsPage'
+import AttemptPage from '../pages/mockTests/AttemptPage'
+import ResultPage from '../pages/mockTests/ResultPage'
+import AnalysisPage from '../pages/mockTests/AnalysisPage'
+import RevisionQueuePage from '../pages/mockTests/RevisionQueuePage'
+import MockSettingsPage from '../pages/mockTests/MockSettingsPage'
 import StudyTimerPage from '../pages/StudyTimerPage'
 import AnalyticsPage from '../pages/AnalyticsPage'
 import SettingsPage from '../pages/SettingsPage'
@@ -76,41 +80,22 @@ const router = createBrowserRouter([
                   },
                 ],
               },
-              {
-                path: 'chapters/:chapterSlug/formula-sheet',
-                element: <ChapterFormulaSheetPage />,
-              },
-              {
-                path: 'chapters/:chapterSlug/memory-sheet',
-                element: <ChapterMemorySheetPage />,
-              },
-              {
-                path: 'chapters/:chapterSlug/memory-sheet/revise',
-                element: <ChapterMemoryRevisionPage />,
-              },
               { path: 'books', element: <SubjectBooksPage /> },
               { path: 'videos', element: <SubjectVideosPage /> },
               { path: 'pyqs', element: <SubjectPyqsPage /> },
-              {
-                path: 'chapters/:chapterSlug/pyqs',
-                element: <ChapterPyqsPage />,
-              },
-              {
-                path: 'chapters/:chapterSlug/pyqs/:pyqId',
-                element: <PyqDetailPage />,
-              },
               { path: 'formula-sheet', element: <SubjectFormulaSheetPage /> },
               { path: 'memory-sheet', element: <SubjectMemorySheetPage /> },
               { path: 'notes', element: <SubjectNotesPage /> },
-              {
-                path: 'chapters/:chapterSlug/notes',
-                element: <ChapterNotesPage />,
-              },
-              {
-                path: 'chapters/:chapterSlug/notes/:noteId',
-                element: <NoteEditorPage />,
-              },
+              { path: 'active-recall', element: <SubjectActiveRecallPage /> },
               { path: 'progress', element: <SubjectProgressPage /> },
+              {
+                path: 'chapters/:chapterSlug/active-recall',
+                element: <ChapterActiveRecallPage />,
+              },
+              {
+                path: 'chapters/:chapterSlug/active-recall/study',
+                element: <ChapterActiveRecallStudyPage />,
+              },
             ],
           },
         ],
@@ -121,7 +106,20 @@ const router = createBrowserRouter([
       { path: 'formula-sheets', element: <FormulaSheetsPage /> },
       { path: 'memory-sheets', element: <MemorySheetsPage /> },
       { path: 'active-recall', element: <ActiveRecallPage /> },
-      { path: 'mock-tests', element: <MockTestsPage /> },
+      {
+        path: 'mock-tests',
+        element: <MockTestsLayout />,
+        children: [
+          { index: true, element: <MockDashboardPage /> },
+          { path: 'library', element: <TestLibraryPage /> },
+          { path: 'analysis', element: <AnalysisPage /> },
+          { path: 'revision-queue', element: <RevisionQueuePage /> },
+          { path: 'settings', element: <MockSettingsPage /> },
+        ],
+      },
+      { path: 'mock-tests/:testId', element: <MockDetailsPage /> },
+      { path: 'mock-tests/:testId/attempt', element: <AttemptPage /> },
+      { path: 'mock-tests/:testId/result', element: <ResultPage /> },
       { path: 'study-timer', element: <StudyTimerPage /> },
       { path: 'analytics', element: <AnalyticsPage /> },
       { path: 'settings', element: <SettingsPage /> },

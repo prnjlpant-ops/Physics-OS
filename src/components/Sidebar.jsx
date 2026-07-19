@@ -3,7 +3,7 @@ import { navigationItems } from '../constants/navigation'
 
 export default function Sidebar() {
   return (
-    <aside className="hidden h-full w-56 shrink-0 flex-col border-r border-[#3c3c3c] bg-[#252526] md:flex print:hidden">
+    <aside className="hidden h-full w-56 shrink-0 flex-col border-r border-[#3c3c3c] bg-[#252526] md:flex">
       <div className="flex h-12 shrink-0 items-center border-b border-[#3c3c3c] px-4">
         <span className="text-sm font-semibold tracking-wide text-[#cccccc]">
           Physics OS

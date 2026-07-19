@@ -7,11 +7,11 @@ import EndSessionModal from '../components/timer/EndSessionModal'
 export default function AppLayout() {
   return (
     <StudyTimerProvider>
-      <div className="flex h-dvh overflow-hidden bg-[#1e1e1e] print:h-auto print:overflow-visible print:bg-white">
+      <div className="flex h-dvh overflow-hidden bg-[#1e1e1e]">
         <Sidebar />
-        <div className="flex min-w-0 flex-1 flex-col print:w-full">
+        <div className="flex min-w-0 flex-1 flex-col">
           <TopBar />
-          <main className="flex-1 overflow-y-auto print:overflow-visible">
+          <main className="flex-1 overflow-y-auto">
             <Outlet />
           </main>
         </div>

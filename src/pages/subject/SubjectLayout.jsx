@@ -13,6 +13,7 @@ const TABS = [
   { label: 'Formula Sheet', to: 'formula-sheet' },
   { label: 'Memory Sheet', to: 'memory-sheet' },
   { label: 'Notes', to: 'notes' },
+  { label: 'Active Recall', to: 'active-recall' },
   { label: 'Progress', to: 'progress' },
 ]
 
