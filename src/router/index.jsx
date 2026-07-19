@@ -43,7 +43,15 @@ import StatisticsPage from '../pages/errorLearning/StatisticsPage'
 import ErrorRevisionQueuePage from '../pages/errorLearning/ErrorRevisionQueuePage'
 import ErrorDetailsPage from '../pages/errorLearning/ErrorDetailsPage'
 import StudyTimerPage from '../pages/StudyTimerPage'
-import AnalyticsPage from '../pages/AnalyticsPage'
+import AnalyticsLayout from '../pages/analytics/AnalyticsLayout'
+import AnalyticsDashboardPage from '../pages/analytics/AnalyticsDashboardPage'
+import StudyAnalyticsPage from '../pages/analytics/StudyAnalyticsPage'
+import SubjectAnalyticsPage from '../pages/analytics/SubjectAnalyticsPage'
+import RevisionAnalyticsPage from '../pages/analytics/RevisionAnalyticsPage'
+import MockAnalyticsPage from '../pages/analytics/MockAnalyticsPage'
+import ErrorAnalyticsPage from '../pages/analytics/ErrorAnalyticsPage'
+import ConsistencyPage from '../pages/analytics/ConsistencyPage'
+import GoalsPage from '../pages/analytics/GoalsPage'
 import SettingsPage from '../pages/SettingsPage'
 
 const router = createBrowserRouter([
@@ -140,7 +148,20 @@ const router = createBrowserRouter([
       },
       { path: 'error-learning/:errorId', element: <ErrorDetailsPage /> },
       { path: 'study-timer', element: <StudyTimerPage /> },
-      { path: 'analytics', element: <AnalyticsPage /> },
+      {
+        path: 'analytics',
+        element: <AnalyticsLayout />,
+        children: [
+          { index: true, element: <AnalyticsDashboardPage /> },
+          { path: 'study', element: <StudyAnalyticsPage /> },
+          { path: 'subjects', element: <SubjectAnalyticsPage /> },
+          { path: 'revision', element: <RevisionAnalyticsPage /> },
+          { path: 'mocks', element: <MockAnalyticsPage /> },
+          { path: 'errors', element: <ErrorAnalyticsPage /> },
+          { path: 'consistency', element: <ConsistencyPage /> },
+          { path: 'goals', element: <GoalsPage /> },
+        ],
+      },
       { path: 'settings', element: <SettingsPage /> },
     ],
   },
