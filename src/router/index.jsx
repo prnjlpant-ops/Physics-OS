@@ -4,6 +4,9 @@ import HomePage from '../pages/HomePage'
 import CalendarPage from '../pages/CalendarPage'
 import TodaysMissionPage from '../pages/TodaysMissionPage'
 import SubjectsPage from '../pages/SubjectsPage'
+import SyllabusLayout from '../pages/syllabus/SyllabusLayout'
+import SyllabusExplorerPage from '../pages/syllabus/SyllabusExplorerPage'
+import SyllabusProgressPage from '../pages/syllabus/SyllabusProgressPage'
 import SubjectLayout from '../pages/subject/SubjectLayout'
 import SubjectOverviewPage from '../pages/subject/SubjectOverviewPage'
 import SubjectChaptersPage from '../pages/subject/SubjectChaptersPage'
@@ -113,6 +116,14 @@ const router = createBrowserRouter([
               },
             ],
           },
+        ],
+      },
+      {
+        path: 'syllabus',
+        element: <SyllabusLayout />,
+        children: [
+          { index: true, element: <SyllabusExplorerPage /> },
+          { path: 'progress', element: <SyllabusProgressPage /> },
         ],
       },
       { path: 'resources', element: <ResourcesPage /> },
