@@ -1,58 +1,68 @@
-import { CalendarClock, Flag } from 'lucide-react'
-import { getBlueprintRoadmap, getBlueprintHighYieldChecklist } from '../../engine/blueprintService'
-import SyllabusBadge from '../../components/syllabus/SyllabusBadge'
+import { useMemo } from 'react'
+import { Flag } from 'lucide-react'
+import { buildRoadmap, getRoadmapProgressCards, getUpcomingTasks } from '../../engine/roadmapEngine'
+import { getBlueprintHighYieldChecklist } from '../../engine/blueprintService'
+import { useSyllabusStatus } from '../../hooks/useSyllabusStatus'
+import RoadmapProgressCard from '../../components/roadmap/RoadmapProgressCard'
+import MonthlyTimeline from '../../components/roadmap/MonthlyTimeline'
+import UpcomingTasks from '../../components/roadmap/UpcomingTasks'
 
 /**
- * Roadmap — Sprint 17.
- * ====================
- * The study roadmap is generated automatically from the imported JEST
- * blueprint's month-by-month plan (see engine/blueprintService.js ->
- * getBlueprintRoadmap). Nothing here is hand-authored — replacing the
- * blueprint file updates this page automatically.
+ * Roadmap Dashboard — Sprint 18B.
+ * ================================
+ * The Roadmap Engine (`engine/roadmapEngine.js`) reads the imported JEST
+ * blueprint's month-by-month plan and joins it to the syllabus, producing
+ * a Phase -> Month -> Subject -> Chapter -> Topic hierarchy. This page
+ * composes that data into four pieces: Progress Cards (overall + per
+ * phase), Upcoming Tasks, the Monthly Timeline itself, and the
+ * blueprint's High-Yield Checklist carried over from Sprint 17.
+ *
+ * Completion is driven by real, live topic status (`useSyllabusStatus`) —
+ * the same local-first tracker the rest of Syllabus already uses. Nothing
+ * here schedules or adapts anything; it only reflects the blueprint's own
+ * plan against where the person actually is.
  */
-
-const INTENSITY_STYLES = {
-  low: 'border-[#3c3c3c] bg-[#3c3c3c]/40 text-[#858585]',
-  moderate: 'border-[#e2c08d]/30 bg-[#e2c08d]/10 text-[#e2c08d]',
-  high: 'border-[#f48771]/30 bg-[#f48771]/10 text-[#f48771]',
-  'very high': 'border-[#f48771]/50 bg-[#f48771]/20 text-[#f48771]',
-}
-
-function intensityStyle(intensity) {
-  const key = String(intensity ?? '').toLowerCase()
-  const matched = Object.keys(INTENSITY_STYLES).find((k) => key.includes(k))
-  return INTENSITY_STYLES[matched] ?? INTENSITY_STYLES.low
-}
-
 export default function SyllabusRoadmapPage() {
-  const roadmap = getBlueprintRoadmap()
+  const { overrides } = useSyllabusStatus()
+
+  const phases = useMemo(() => buildRoadmap(overrides), [overrides])
+  const progressCards = useMemo(() => getRoadmapProgressCards(phases), [phases])
+  const upcomingTasks = useMemo(() => getUpcomingTasks(phases, 8), [phases])
   const highYield = getBlueprintHighYieldChecklist()
 
   return (
     <div className="flex flex-col gap-6">
       <section className="flex flex-col gap-3">
-        <div className="flex items-center gap-2">
-          <CalendarClock size={16} strokeWidth={1.75} className="text-[#858585]" />
-          <h3 className="text-sm font-semibold text-[#e8e8e8]">Eight-Month Strategic Timeline</h3>
-        </div>
-        <div className="flex flex-col gap-2">
-          {roadmap.map((phase) => (
-            <div
-              key={phase.month}
-              className="flex flex-col gap-1.5 rounded-lg border border-[#3c3c3c] bg-[#252526] px-4 py-3 transition-colors duration-150 hover:border-[#4a4a4a]"
-            >
-              <div className="flex flex-wrap items-center justify-between gap-2">
-                <p className="text-xs font-semibold text-[#e8e8e8]">{phase.month}</p>
-                <div className="flex items-center gap-2">
-                  <SyllabusBadge label={phase.phase} styleClass="border-[#4fc1ff]/30 bg-[#4fc1ff]/10 text-[#4fc1ff]" />
-                  <SyllabusBadge label={phase.intensity} styleClass={intensityStyle(phase.intensity)} />
-                </div>
-              </div>
-              <p className="text-xs leading-relaxed text-[#9d9d9d]">{phase.focus}</p>
-              {phase.notes && <p className="text-[11px] leading-relaxed text-[#6e6e6e]">{phase.notes}</p>}
-            </div>
+        <h3 className="text-sm font-semibold text-[#e8e8e8]">Progress</h3>
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          <RoadmapProgressCard
+            title="Overall Roadmap"
+            subtitle={`${progressCards.overall.monthCount} months`}
+            completion={progressCards.overall.completion}
+            chapterCount={progressCards.overall.chapterCount}
+            estimatedHours={progressCards.overall.estimatedHours}
+          />
+          {progressCards.perPhase.map((phase) => (
+            <RoadmapProgressCard
+              key={phase.id}
+              title={phase.phaseName}
+              subtitle={phase.months.join(', ')}
+              completion={phase.completion}
+              chapterCount={phase.chapterCount}
+              estimatedHours={phase.estimatedHours}
+            />
           ))}
         </div>
+      </section>
+
+      <section className="flex flex-col gap-3">
+        <h3 className="text-sm font-semibold text-[#e8e8e8]">Upcoming Tasks</h3>
+        <UpcomingTasks tasks={upcomingTasks} />
+      </section>
+
+      <section className="flex flex-col gap-3">
+        <h3 className="text-sm font-semibold text-[#e8e8e8]">Monthly Timeline</h3>
+        <MonthlyTimeline phases={phases} />
       </section>
 
       <section className="flex flex-col gap-3">

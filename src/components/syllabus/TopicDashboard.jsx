@@ -1,7 +1,9 @@
-import { ChevronRight, ListChecks, FolderTree } from 'lucide-react'
+import { ChevronRight, ListChecks, FolderTree, Library } from 'lucide-react'
 import TopicStatusSelect from './TopicStatusSelect'
 import TopicMetadataPanel from './TopicMetadataPanel'
 import LinkedModulesPanel from './LinkedModulesPanel'
+import TopicResourceSection from '../resources/TopicResourceSection'
+import { getTopicResources } from '../../engine/resourceMappingService'
 
 export default function TopicDashboard({ topic, status, onStatusChange }) {
   if (!topic) {
@@ -14,6 +16,7 @@ export default function TopicDashboard({ topic, status, onStatusChange }) {
   }
 
   const breadcrumb = [...topic.ancestors, topic].map((node) => node.name)
+  const topicResources = getTopicResources(topic)
 
   return (
     <div className="flex flex-col gap-5 rounded-lg border border-[#3c3c3c] bg-[#252526] p-4">
@@ -58,6 +61,14 @@ export default function TopicDashboard({ topic, status, onStatusChange }) {
           </ul>
         </div>
       )}
+
+      <div className="flex flex-col gap-2">
+        <p className="flex items-center gap-1.5 text-[10px] uppercase tracking-wide text-[#6e6e6e]">
+          <Library size={12} strokeWidth={1.75} />
+          Resources
+        </p>
+        <TopicResourceSection resources={topicResources} />
+      </div>
 
       <div className="flex flex-col gap-2">
         <p className="text-[10px] uppercase tracking-wide text-[#6e6e6e]">Linked Modules</p>
