@@ -7,6 +7,7 @@ import SubjectsPage from '../pages/SubjectsPage'
 import SyllabusLayout from '../pages/syllabus/SyllabusLayout'
 import SyllabusExplorerPage from '../pages/syllabus/SyllabusExplorerPage'
 import SyllabusProgressPage from '../pages/syllabus/SyllabusProgressPage'
+import SyllabusRoadmapPage from '../pages/syllabus/SyllabusRoadmapPage'
 import SubjectLayout from '../pages/subject/SubjectLayout'
 import SubjectOverviewPage from '../pages/subject/SubjectOverviewPage'
 import SubjectChaptersPage from '../pages/subject/SubjectChaptersPage'
@@ -124,6 +125,7 @@ const router = createBrowserRouter([
         children: [
           { index: true, element: <SyllabusExplorerPage /> },
           { path: 'progress', element: <SyllabusProgressPage /> },
+          { path: 'roadmap', element: <SyllabusRoadmapPage /> },
         ],
       },
       { path: 'resources', element: <ResourcesPage /> },

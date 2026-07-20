@@ -1,26 +1,28 @@
 import { subjects } from '../constants/subjects'
+import { getBlueprintResourcesForSubject } from '../engine/blueprintMappingLayer'
 
 /**
- * Resources are attached to chapters, not books. This module produces
- * placeholder resource entries per chapter, grouped by type. The shape
- * matches what a future `resources.json` (loaded per chapter) would
- * provide, so the UI layer never needs to change when real data arrives.
+ * Resources — Sprint 17.
+ * =======================
+ * Books, Videos and Solution Manuals are now populated from the imported
+ * JEST blueprint wherever it has data for a subject (see
+ * `engine/blueprintMappingLayer.js` -> `getBlueprintResourcesForSubject`).
+ * Blueprint resources are recorded per *subject* (a book covers a whole
+ * subject, not one chapter), so the same subject-level list is attached to
+ * every chapter of that subject, with the chapter name folded into the
+ * title for context — this keeps the existing per-chapter resource shape
+ * every page/component already consumes.
+ *
+ * PDFs, Reference Material and External Links have no equivalent in the
+ * blueprint (it is a study-strategy document, not a file index), so those
+ * three types remain placeholder entries, as they were in Sprint 16 —
+ * "populate wherever possible" per the Sprint 17 brief.
  */
-const TYPE_TEMPLATES = {
-  books: [
-    { suffix: 'Core Text', fields: { author: 'Author to be added', edition: '—', status: 'Not Added' } },
-    { suffix: 'Problem Book', fields: { author: 'Author to be added', edition: '—', status: 'Not Added' } },
-  ],
-  videos: [
-    { suffix: 'Lecture 1', fields: { duration: '—', source: 'Not Linked' } },
-    { suffix: 'Lecture 2', fields: { duration: '—', source: 'Not Linked' } },
-  ],
+
+const PLACEHOLDER_TEMPLATES = {
   pdfs: [
     { suffix: 'Notes.pdf', fields: { size: '—' } },
     { suffix: 'Summary.pdf', fields: { size: '—' } },
-  ],
-  solutionManuals: [
-    { suffix: 'Solved Problems', fields: { author: 'Author to be added', edition: '—', status: 'Not Added' } },
   ],
   referenceMaterial: [
     { suffix: 'Reference Notes', fields: { description: 'Reference material for this chapter will appear here.' } },
@@ -30,12 +32,77 @@ const TYPE_TEMPLATES = {
   ],
 }
 
-export function getChapterResources(subject, chapter) {
-  const grouped = {}
+const FALLBACK_BOOK_TEMPLATE = { suffix: 'Core Text', fields: { author: 'Author to be added', edition: '—', status: 'Not Added' } }
+const FALLBACK_VIDEO_TEMPLATE = { suffix: 'Lecture', fields: { duration: '—', source: 'Not Linked' } }
+const FALLBACK_SOLUTION_TEMPLATE = { suffix: 'Solved Problems', fields: { author: 'Author to be added', edition: '—', status: 'Not Added' } }
 
-  for (const [type, templates] of Object.entries(TYPE_TEMPLATES)) {
-    grouped[type] = templates.map((template, index) => ({
-      id: `${subject.id}__${chapter.slug}__${type}__${index}`,
+function bookToResource(book, subject, chapter, index) {
+  return {
+    id: `${subject.id}__${chapter.slug}__books__${index}`,
+    type: 'books',
+    subjectId: subject.id,
+    subjectName: subject.name,
+    chapterSlug: chapter.slug,
+    chapterName: chapter.name,
+    title: `${chapter.name} — ${book.title}`,
+    author: book.author ?? 'Author to be added',
+    edition: book.tier ?? '—',
+    status: 'Recommended (JEST 2027 Blueprint)',
+  }
+}
+
+function videoToResource(video, subject, chapter, index) {
+  return {
+    id: `${subject.id}__${chapter.slug}__videos__${index}`,
+    type: 'videos',
+    subjectId: subject.id,
+    subjectName: subject.name,
+    chapterSlug: chapter.slug,
+    chapterName: chapter.name,
+    title: `${chapter.name} — ${video.title}`,
+    duration: video.duration ?? '—',
+    source: video.title,
+  }
+}
+
+/** Picks a "practice/exercise-oriented" book from a subject's list to stand in as its solution-manual entry. */
+function pickSolutionManualBook(books) {
+  if (!books.length) return null
+  return books.length > 1 ? books[1] : books[0]
+}
+
+function solutionManualToResource(book, subject, chapter, index) {
+  return {
+    id: `${subject.id}__${chapter.slug}__solutionManuals__${index}`,
+    type: 'solutionManuals',
+    subjectId: subject.id,
+    subjectName: subject.name,
+    chapterSlug: chapter.slug,
+    chapterName: chapter.name,
+    title: `${chapter.name} — ${book.title} (Practice & Exercises)`,
+    author: book.author ?? 'Author to be added',
+    edition: book.tier ?? '—',
+    status: 'Recommended (JEST 2027 Blueprint)',
+  }
+}
+
+function placeholderResources(subject, chapter, type) {
+  return PLACEHOLDER_TEMPLATES[type].map((template, index) => ({
+    id: `${subject.id}__${chapter.slug}__${type}__${index}`,
+    type,
+    subjectId: subject.id,
+    subjectName: subject.name,
+    chapterSlug: chapter.slug,
+    chapterName: chapter.name,
+    title: `${chapter.name} — ${template.suffix}`,
+    ...template.fields,
+  }))
+}
+
+function fallbackResource(subject, chapter, type, template) {
+  return [
+    {
+      id: `${subject.id}__${chapter.slug}__${type}__0`,
       type,
       subjectId: subject.id,
       subjectName: subject.name,
@@ -43,10 +110,34 @@ export function getChapterResources(subject, chapter) {
       chapterName: chapter.name,
       title: `${chapter.name} — ${template.suffix}`,
       ...template.fields,
-    }))
-  }
+    },
+  ]
+}
 
-  return grouped
+export function getChapterResources(subject, chapter) {
+  const blueprintResources = getBlueprintResourcesForSubject(subject.id)
+
+  const books = blueprintResources.books.length
+    ? blueprintResources.books.map((book, index) => bookToResource(book, subject, chapter, index))
+    : fallbackResource(subject, chapter, 'books', FALLBACK_BOOK_TEMPLATE)
+
+  const videos = blueprintResources.videos.length
+    ? blueprintResources.videos.map((video, index) => videoToResource(video, subject, chapter, index))
+    : fallbackResource(subject, chapter, 'videos', FALLBACK_VIDEO_TEMPLATE)
+
+  const solutionManualBook = pickSolutionManualBook(blueprintResources.books)
+  const solutionManuals = solutionManualBook
+    ? [solutionManualToResource(solutionManualBook, subject, chapter, 0)]
+    : fallbackResource(subject, chapter, 'solutionManuals', FALLBACK_SOLUTION_TEMPLATE)
+
+  return {
+    books,
+    videos,
+    pdfs: placeholderResources(subject, chapter, 'pdfs'),
+    solutionManuals,
+    referenceMaterial: placeholderResources(subject, chapter, 'referenceMaterial'),
+    externalLinks: placeholderResources(subject, chapter, 'externalLinks'),
+  }
 }
 
 export function getChapterResourcesFlat(subject, chapter) {

@@ -4,6 +4,7 @@ import { ListTree } from 'lucide-react'
 const TABS = [
   { label: 'Explorer', to: '.' },
   { label: 'Progress', to: 'progress' },
+  { label: 'Roadmap', to: 'roadmap' },
 ]
 
 export default function SyllabusLayout() {

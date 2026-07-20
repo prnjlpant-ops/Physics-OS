@@ -1,0 +1,313 @@
+{
+  "meta": {
+    "title": "JEST Physics 2027 — Master Strategic Blueprint",
+    "track": "Concurrent Preparation Track: JEST + IIT JAM Physics",
+    "sourceFormat": "json"
+  },
+  "examPattern": {
+    "duration": "3 hours (180 minutes)",
+    "mode": "Predominantly offline (pen-and-paper)",
+    "medium": "English",
+    "calculatorAllowed": false,
+    "sections": [
+      { "name": "Part A", "questions": 10, "type": "MCQ", "marksCorrect": 1, "marksIncorrect": -0.3333, "totalMarks": 10 },
+      { "name": "Part B", "questions": 20, "type": "MCQ", "marksCorrect": 3, "marksIncorrect": -1, "totalMarks": 60 },
+      { "name": "Part C", "questions": 10, "type": "NAT", "marksCorrect": 3, "marksIncorrect": 0, "totalMarks": 30 }
+    ],
+    "totalQuestions": 40,
+    "totalMarks": 100
+  },
+  "subjects": [
+    {
+      "name": "Mathematical Methods",
+      "weightageRange": "10–12%",
+      "priority": "High (foundational)",
+      "jamOverlap": "High",
+      "deadline": "September 2026",
+      "primaryBook": "Arfken, Weber & Harris",
+      "primaryVideo": "NPTEL — Mathematical Physics",
+      "difficultyOverall": "High",
+      "chapters": [
+        { "name": "Complex Analysis (Contour Integration)", "weightage": "Medium", "pyqFrequency": "Frequently Tested", "mathPrerequisites": "Residue theorem", "difficulty": "High", "highYieldStars": 5, "commonMisconceptions": "Pole order miscount", "questionStyle": "Definite integral NAT" },
+        { "name": "Linear Algebra & Matrices", "weightage": "Medium", "pyqFrequency": "Frequently Tested", "mathPrerequisites": "Eigenvalues, diagonalization", "difficulty": "Medium", "highYieldStars": 4, "commonMisconceptions": "Non-diagonalizable case confusion", "questionStyle": "Matrix property MCQ" },
+        { "name": "Fourier & Laplace Transforms", "weightage": "Medium", "pyqFrequency": "Frequently Tested", "mathPrerequisites": "Integral transforms", "difficulty": "Medium", "highYieldStars": 4, "commonMisconceptions": "Convolution theorem errors", "questionStyle": "Transform evaluation" },
+        { "name": "Special Functions (Legendre, Bessel)", "weightage": "Low", "pyqFrequency": "Occasionally Tested", "mathPrerequisites": "ODE series solutions", "difficulty": "High", "highYieldStars": 3, "commonMisconceptions": "Recurrence relation errors", "questionStyle": "Orthogonality property MCQ" },
+        { "name": "Probability & Statistics", "weightage": "Low–Medium", "pyqFrequency": "Occasionally Tested", "mathPrerequisites": "Basic probability", "difficulty": "Low–Medium", "highYieldStars": 3, "commonMisconceptions": "Independent vs mutually exclusive confusion", "questionStyle": "Distribution NAT" }
+      ],
+      "coreOverlapTopics": "Vector calculus, linear algebra, complex analysis, ODEs/PDEs, Fourier/Laplace transforms, special functions",
+      "jestExclusiveTopics": "Advanced contour integration (multi-pole, branch cuts), tensor calculus",
+      "resources": {
+        "books": [
+          { "title": "Mathematical Methods for Physicists", "author": "Arfken, Weber, Harris", "tier": "Tier 1", "difficulty": "High", "mustRead": "Vector Analysis; Determinants & Matrices; Vector Analysis in Curved Coordinates; Complex Variables; ODEs; Special Functions" },
+          { "title": "Mathematical Physics", "author": "Satya Prakash", "tier": "Tier 1 (exam-oriented)", "difficulty": "Medium", "mustRead": "Vector Calculus; Matrices; Complex Analysis; Fourier Series & Transforms; Special Functions" },
+          { "title": "Complex Variables and Applications", "author": "Brown & Churchill", "tier": "Tier 2 (supplementary)", "difficulty": "Medium", "mustRead": "Analytic Functions; Cauchy-Riemann Equations; Cauchy Integral Formula; Residues and Poles" }
+        ],
+        "videos": [
+          { "title": "NPTEL — Mathematical Physics", "duration": "30–35 hrs", "depth": "Medium–High", "useCase": "Strong for contour integration and special functions" }
+        ]
+      }
+    },
+    {
+      "name": "Classical Mechanics",
+      "weightageRange": "15–18%",
+      "priority": "High",
+      "jamOverlap": "High",
+      "deadline": "November 2026",
+      "primaryBook": "Goldstein, Poole & Safko",
+      "primaryVideo": "MIT OCW 8.01 / NPTEL Classical Mechanics",
+      "difficultyOverall": "Medium–High",
+      "chapters": [
+        { "name": "Lagrangian & Hamiltonian Mechanics", "weightage": "High", "pyqFrequency": "Frequently Tested", "mathPrerequisites": "Calculus of variations, partial derivatives", "difficulty": "High", "highYieldStars": 5, "commonMisconceptions": "Confusing generalized coordinates with Cartesian; sign errors in Euler-Lagrange", "questionStyle": "Derive EOM / find conserved quantity" },
+        { "name": "Central Force & Kepler Problem", "weightage": "Medium", "pyqFrequency": "Frequently Tested", "mathPrerequisites": "Vector calculus, ODEs", "difficulty": "Medium", "highYieldStars": 4, "commonMisconceptions": "Misapplying effective potential", "questionStyle": "Orbit stability, effective potential NAT" },
+        { "name": "Small Oscillations & Normal Modes", "weightage": "Medium", "pyqFrequency": "Occasionally Tested", "mathPrerequisites": "Linear algebra (eigenvalues)", "difficulty": "Medium–High", "highYieldStars": 4, "commonMisconceptions": "Matrix setup errors", "questionStyle": "Coupled oscillator frequency (NAT)" },
+        { "name": "Rigid Body Dynamics", "weightage": "Low–Medium", "pyqFrequency": "Occasionally Tested", "mathPrerequisites": "Tensor basics", "difficulty": "High", "highYieldStars": 3, "commonMisconceptions": "Confusing principal axes", "questionStyle": "Moment of inertia MCQ" },
+        { "name": "Special Relativity (Mechanics)", "weightage": "Medium", "pyqFrequency": "Frequently Tested", "mathPrerequisites": "Lorentz transformations", "difficulty": "Medium", "highYieldStars": 4, "commonMisconceptions": "Sign/frame confusion", "questionStyle": "Velocity addition, energy-momentum NAT" }
+      ],
+      "coreOverlapTopics": "Lagrangian/Hamiltonian, central forces, oscillations, SR",
+      "jestExclusiveTopics": "Advanced rigid body/chaos (rare)",
+      "resources": {
+        "books": [
+          { "title": "Classical Mechanics", "author": "Goldstein, Poole, Safko", "tier": "Tier 1", "difficulty": "High", "mustRead": "Survey of Elementary Principles; Lagrangian Formulation; Central Force Problem; Small Oscillations; Rigid Body Dynamics; Hamiltonian Formulation" },
+          { "title": "Classical Mechanics", "author": "J.C. Upadhyaya", "tier": "Tier 1 (numerical practice)", "difficulty": "Medium", "mustRead": "Lagrangian Mechanics; Central Forces; Small Oscillations; Special Theory of Relativity" },
+          { "title": "Introduction to Classical Mechanics", "author": "David Morin", "tier": "Tier 2 (conceptual building)", "difficulty": "Medium", "mustRead": "Lagrangian methods introduction; Oscillations" }
+        ],
+        "videos": [
+          { "title": "MIT OCW 8.01 (Classical Mechanics)", "duration": "40–50 hrs combined with E&M", "depth": "High", "useCase": "Building first-principles intuition; ideal during foundation months" },
+          { "title": "NPTEL — Classical Mechanics", "duration": "30–40 hrs", "depth": "Medium–High", "useCase": "Aligned with Indian exam conventions (JAM/JEST style problems)" },
+          { "title": "Walter Lewin's Classical Mechanics Lectures", "duration": "~30 hrs combined with E&M", "depth": "Medium", "useCase": "Excellent conceptual/demonstration-based intuition building for beginners" }
+        ]
+      }
+    },
+    {
+      "name": "Electromagnetism",
+      "weightageRange": "15–18%",
+      "priority": "High",
+      "jamOverlap": "High",
+      "deadline": "Late Dec 2026 – Early Jan 2027",
+      "primaryBook": "Griffiths",
+      "primaryVideo": "MIT OCW 8.02",
+      "difficultyOverall": "High",
+      "chapters": [
+        { "name": "Electrostatics & Boundary Value Problems", "weightage": "Medium", "pyqFrequency": "Frequently Tested", "mathPrerequisites": "PDEs, Legendre polynomials", "difficulty": "High", "highYieldStars": 5, "commonMisconceptions": "Misapplying uniqueness theorem", "questionStyle": "Potential in bounded region" },
+        { "name": "Magnetostatics & Induction", "weightage": "Medium", "pyqFrequency": "Frequently Tested", "mathPrerequisites": "Vector calculus", "difficulty": "Medium", "highYieldStars": 4, "commonMisconceptions": "Sign errors in Faraday's law", "questionStyle": "Induced EMF NAT" },
+        { "name": "Maxwell's Equations & EM Waves", "weightage": "High", "pyqFrequency": "Frequently Tested", "mathPrerequisites": "Vector calculus, wave equations", "difficulty": "High", "highYieldStars": 5, "commonMisconceptions": "Confusing gauge choices", "questionStyle": "Wave propagation in media" },
+        { "name": "Radiation (Dipole, Larmor)", "weightage": "Low–Medium", "pyqFrequency": "Occasionally Tested", "mathPrerequisites": "Multipole expansion", "difficulty": "High", "highYieldStars": 3, "commonMisconceptions": "Formula misapplication", "questionStyle": "Power radiated NAT" }
+      ],
+      "coreOverlapTopics": "Electrostatics, magnetostatics, Maxwell, EM waves",
+      "jestExclusiveTopics": "Advanced radiation theory",
+      "resources": {
+        "books": [
+          { "title": "Introduction to Electrodynamics", "author": "David J. Griffiths", "tier": "Tier 1", "difficulty": "Medium–High", "mustRead": "Electrostatics; Special Techniques; Magnetostatics; Electrodynamics; Electromagnetic Waves" },
+          { "title": "Classical Electrodynamics", "author": "J.D. Jackson", "tier": "Tier 2 (advanced supplement)", "difficulty": "Very High", "mustRead": "Boundary Value Problems in Electrostatics; Waveguides; Radiation (selectively)" }
+        ],
+        "videos": [
+          { "title": "MIT OCW 8.02 (E&M)", "duration": "40–50 hrs combined with CM", "depth": "High", "useCase": "Building first-principles intuition; ideal during foundation months" },
+          { "title": "Yale OYC — Fundamentals of Physics II (Shankar)", "duration": "~24 hrs", "depth": "Medium", "useCase": "Good for conceptual refreshers, less exam-technique focused" },
+          { "title": "Walter Lewin's E&M Lectures", "duration": "~30 hrs combined with CM", "depth": "Medium", "useCase": "Excellent conceptual/demonstration-based intuition building for beginners" }
+        ]
+      }
+    },
+    {
+      "name": "Quantum Mechanics",
+      "weightageRange": "15–20%",
+      "priority": "Very High",
+      "jamOverlap": "High",
+      "deadline": "Mid-January 2027",
+      "primaryBook": "Zettili",
+      "primaryVideo": "MIT OCW 8.04/8.05, NPTEL QM I & II",
+      "difficultyOverall": "Very High",
+      "chapters": [
+        { "name": "Postulates, Operators & Hilbert Space", "weightage": "Medium", "pyqFrequency": "Frequently Tested", "mathPrerequisites": "Linear algebra", "difficulty": "Medium", "highYieldStars": 5, "commonMisconceptions": "Confusing Hermitian vs unitary", "questionStyle": "Eigenvalue MCQ" },
+        { "name": "1D Potentials (well, barrier, harmonic oscillator)", "weightage": "High", "pyqFrequency": "Frequently Tested", "mathPrerequisites": "ODEs", "difficulty": "Medium–High", "highYieldStars": 5, "commonMisconceptions": "Boundary condition errors", "questionStyle": "Energy level NAT" },
+        { "name": "Angular Momentum & Spin", "weightage": "High", "pyqFrequency": "Frequently Tested", "mathPrerequisites": "Matrix mechanics", "difficulty": "High", "highYieldStars": 5, "commonMisconceptions": "Clebsch-Gordan confusion", "questionStyle": "Addition of angular momenta" },
+        { "name": "Perturbation Theory", "weightage": "Medium", "pyqFrequency": "Frequently Tested", "mathPrerequisites": "Series expansion", "difficulty": "High", "highYieldStars": 4, "commonMisconceptions": "First vs second order confusion", "questionStyle": "Energy correction NAT" },
+        { "name": "Identical Particles & Symmetry", "weightage": "Low–Medium", "pyqFrequency": "Occasionally Tested", "mathPrerequisites": "Permutation symmetry", "difficulty": "High", "highYieldStars": 3, "commonMisconceptions": "Boson/fermion mix-up", "questionStyle": "Wavefunction symmetry MCQ" },
+        { "name": "Scattering Theory", "weightage": "Low", "pyqFrequency": "Rare but Difficult", "mathPrerequisites": "Partial wave analysis", "difficulty": "Very High", "highYieldStars": 2, "commonMisconceptions": "Born approximation misuse", "questionStyle": "Cross-section MCQ" }
+      ],
+      "coreOverlapTopics": "Postulates, 1D potentials, angular momentum, perturbation",
+      "jestExclusiveTopics": "Scattering theory, advanced symmetry",
+      "resources": {
+        "books": [
+          { "title": "Quantum Mechanics: Concepts and Applications", "author": "Nouredine Zettili", "tier": "Tier 1", "difficulty": "Medium", "mustRead": "Mathematical Tools; Postulates; 1D Problems; Angular Momentum; Perturbation Theory" },
+          { "title": "Modern Quantum Mechanics", "author": "J.J. Sakurai", "tier": "Tier 1 (depth beyond Zettili)", "difficulty": "High", "mustRead": "Fundamental Concepts; Angular Momentum; Approximation Methods" },
+          { "title": "Quantum Mechanics", "author": "David J. Griffiths", "tier": "Tier 2 (entry point)", "difficulty": "Medium", "mustRead": "Time-Independent Schrödinger Equation; Formalism; 3D problems; Angular Momentum" }
+        ],
+        "videos": [
+          { "title": "MIT OCW 8.04/8.05 (Quantum Physics I/II)", "duration": "~45 hrs", "depth": "Very High", "useCase": "Core QM conceptual depth; pairs well with Zettili" },
+          { "title": "NPTEL — Quantum Mechanics I & II", "duration": "40–50 hrs", "depth": "High", "useCase": "Exam-oriented problem framing; useful supplement to Zettili" }
+        ]
+      }
+    },
+    {
+      "name": "Thermodynamics",
+      "weightageRange": "12–15% (shared with Statistical Mechanics)",
+      "priority": "High",
+      "jamOverlap": "High",
+      "deadline": "Mid-January 2027",
+      "primaryBook": "Pathria & Beale",
+      "primaryVideo": "MIT OCW 8.044/8.333",
+      "difficultyOverall": "Medium–High",
+      "chapters": [
+        { "name": "Laws of Thermodynamics & Maxwell Relations", "weightage": "Medium", "pyqFrequency": "Frequently Tested", "mathPrerequisites": "Partial derivatives", "difficulty": "Medium", "highYieldStars": 4, "commonMisconceptions": "Sign convention errors", "questionStyle": "Derive relation MCQ" },
+        { "name": "Phase Transitions", "weightage": "Low", "pyqFrequency": "Rare but Difficult", "mathPrerequisites": "Critical exponents", "difficulty": "High", "highYieldStars": 2, "commonMisconceptions": "Confusing order parameters", "questionStyle": "Conceptual MCQ" }
+      ],
+      "coreOverlapTopics": "Laws of thermodynamics (core)",
+      "jestExclusiveTopics": "Phase transitions, critical phenomena",
+      "resources": {
+        "books": [
+          { "title": "Thermal Physics", "author": "Charles Kittel, Herbert Kroemer", "tier": "Tier 1 (build intuition before Pathria)", "difficulty": "Medium", "mustRead": "Entropy and Temperature; Boltzmann Distribution; Fermi-Dirac Statistics" },
+          { "title": "Statistical Mechanics", "author": "R.K. Pathria, Paul Beale", "tier": "Tier 1", "difficulty": "High", "mustRead": "Statistical Basis of Thermodynamics; Ensembles; Quantum Statistics" }
+        ],
+        "videos": [
+          { "title": "MIT OCW 8.044 (Statistical Physics I)", "duration": "~35 hrs combined", "depth": "High", "useCase": "Ensemble theory and quantum statistics derivations" }
+        ]
+      }
+    },
+    {
+      "name": "Statistical Mechanics",
+      "weightageRange": "12–15% (shared with Thermodynamics)",
+      "priority": "High",
+      "jamOverlap": "High",
+      "deadline": "Mid-January 2027",
+      "primaryBook": "Pathria & Beale",
+      "primaryVideo": "MIT OCW 8.333",
+      "difficultyOverall": "High",
+      "chapters": [
+        { "name": "Ensembles (Micro/Canonical/Grand)", "weightage": "High", "pyqFrequency": "Frequently Tested", "mathPrerequisites": "Combinatorics, integration", "difficulty": "High", "highYieldStars": 5, "commonMisconceptions": "Confusing ensemble applicability", "questionStyle": "Partition function NAT" },
+        { "name": "Quantum Statistics (Fermi-Dirac, Bose-Einstein)", "weightage": "Medium–High", "pyqFrequency": "Frequently Tested", "mathPrerequisites": "Integral approximations", "difficulty": "High", "highYieldStars": 5, "commonMisconceptions": "Classical limit misapplication", "questionStyle": "Density of states NAT" }
+      ],
+      "coreOverlapTopics": "Ensembles, quantum statistics",
+      "jestExclusiveTopics": "Phase transitions, critical phenomena (shared with Thermodynamics)",
+      "resources": {
+        "books": [
+          { "title": "Statistical Mechanics", "author": "R.K. Pathria, Paul Beale", "tier": "Tier 1", "difficulty": "High", "mustRead": "Microcanonical/Canonical/Grand Canonical Ensembles; Quantum Statistics" },
+          { "title": "Thermal Physics", "author": "Charles Kittel, Herbert Kroemer", "tier": "Tier 1 (build intuition first)", "difficulty": "Medium", "mustRead": "Boltzmann Distribution; Fermi-Dirac Statistics" }
+        ],
+        "videos": [
+          { "title": "MIT OCW 8.333 (Statistical Mechanics I)", "duration": "~35 hrs combined", "depth": "High", "useCase": "Ensemble theory and quantum statistics derivations" },
+          { "title": "Stanford — Modern Physics: Statistical Mechanics (Susskind)", "duration": "~20 hrs", "depth": "High (conceptual)", "useCase": "Deep conceptual grounding; supplement, not primary problem-solving resource" }
+        ]
+      }
+    },
+    {
+      "name": "Electronics",
+      "weightageRange": "6–10%",
+      "priority": "Medium",
+      "jamOverlap": "Medium",
+      "deadline": "Mid-January 2027",
+      "primaryBook": "Boylestad & Nashelsky",
+      "primaryVideo": "— (textbook-driven)",
+      "difficultyOverall": "Medium",
+      "chapters": [
+        { "name": "Semiconductor Devices (diodes, transistors)", "weightage": "Medium", "pyqFrequency": "Occasionally Tested", "mathPrerequisites": "Basic circuit theory", "difficulty": "Medium", "highYieldStars": 3, "commonMisconceptions": "Biasing region confusion", "questionStyle": "Circuit output MCQ" },
+        { "name": "Op-Amp Circuits", "weightage": "Medium", "pyqFrequency": "Occasionally Tested", "mathPrerequisites": "Circuit analysis", "difficulty": "Medium", "highYieldStars": 3, "commonMisconceptions": "Virtual ground misapplication", "questionStyle": "Gain calculation NAT" },
+        { "name": "Digital Logic (gates, flip-flops)", "weightage": "Low–Medium", "pyqFrequency": "Occasionally Tested", "mathPrerequisites": "Boolean algebra", "difficulty": "Low", "highYieldStars": 3, "commonMisconceptions": "Truth table errors", "questionStyle": "Logic circuit MCQ" }
+      ],
+      "coreOverlapTopics": "Semiconductor devices, op-amps, digital logic",
+      "jestExclusiveTopics": "—",
+      "resources": {
+        "books": [
+          { "title": "Electronic Devices and Circuit Theory", "author": "Boylestad, Nashelsky", "tier": "Tier 1", "difficulty": "Medium", "mustRead": "Diodes; BJT/FET Biasing; Operational Amplifiers" },
+          { "title": "Digital Logic and Computer Design", "author": "Morris Mano", "tier": "Tier 2", "difficulty": "Low–Medium", "mustRead": "Boolean Algebra; Combinational Logic; Sequential Logic (flip-flops)" }
+        ],
+        "videos": []
+      }
+    },
+    {
+      "name": "Solid State Physics",
+      "weightageRange": "5–8%",
+      "priority": "Medium",
+      "jamOverlap": "Low–Medium",
+      "deadline": "March 2027 (advanced portion)",
+      "primaryBook": "Kittel",
+      "primaryVideo": "— (textbook-driven)",
+      "difficultyOverall": "High",
+      "chapters": [
+        { "name": "Crystal Structure & Reciprocal Lattice", "weightage": "Low–Medium", "pyqFrequency": "Occasionally Tested", "mathPrerequisites": "Vector geometry", "difficulty": "Medium", "highYieldStars": 3, "commonMisconceptions": "Confusing real/reciprocal lattice", "questionStyle": "Bragg condition NAT" },
+        { "name": "Band Theory", "weightage": "Medium", "pyqFrequency": "Occasionally Tested", "mathPrerequisites": "Bloch theorem", "difficulty": "High", "highYieldStars": 4, "commonMisconceptions": "Free vs nearly-free electron confusion", "questionStyle": "Band gap conceptual MCQ" },
+        { "name": "Lattice Vibrations (Phonons)", "weightage": "Low", "pyqFrequency": "Rare but Difficult", "mathPrerequisites": "Dispersion relations", "difficulty": "High", "highYieldStars": 2, "commonMisconceptions": "Acoustic vs optical branch confusion", "questionStyle": "Dispersion relation MCQ" }
+      ],
+      "coreOverlapTopics": "Crystal structure, basic band theory",
+      "jestExclusiveTopics": "Phonon dispersion, advanced band theory",
+      "resources": {
+        "books": [
+          { "title": "Introduction to Solid State Physics", "author": "Charles Kittel", "tier": "Tier 1", "difficulty": "High", "mustRead": "Crystal Structure; Reciprocal Lattice; Crystal Vibrations (Phonons); Band Theory" }
+        ],
+        "videos": []
+      }
+    },
+    {
+      "name": "Atomic, Molecular, Nuclear & Particle Physics",
+      "weightageRange": "6–10%",
+      "priority": "Medium",
+      "jamOverlap": "Medium",
+      "deadline": "March 2027 (advanced portion)",
+      "primaryBook": "Arthur Beiser",
+      "primaryVideo": "— (textbook-driven)",
+      "difficultyOverall": "High",
+      "chapters": [
+        { "name": "Atomic Spectra & Fine Structure", "weightage": "Medium", "pyqFrequency": "Occasionally Tested", "mathPrerequisites": "Angular momentum coupling", "difficulty": "High", "highYieldStars": 3, "commonMisconceptions": "Selection rule errors", "questionStyle": "Term symbol MCQ" },
+        { "name": "Nuclear Models & Radioactivity", "weightage": "Low–Medium", "pyqFrequency": "Occasionally Tested", "mathPrerequisites": "Basic calculus", "difficulty": "Medium", "highYieldStars": 3, "commonMisconceptions": "Decay law misapplication", "questionStyle": "Half-life NAT" },
+        { "name": "Particle Physics Basics", "weightage": "Low", "pyqFrequency": "Rare but Difficult", "mathPrerequisites": "Conservation laws", "difficulty": "High", "highYieldStars": 2, "commonMisconceptions": "Quantum number confusion", "questionStyle": "Conceptual MCQ" }
+      ],
+      "coreOverlapTopics": "Atomic structure, nuclear models",
+      "jestExclusiveTopics": "Particle physics conservation laws",
+      "resources": {
+        "books": [
+          { "title": "Concepts of Modern Physics", "author": "Arthur Beiser", "tier": "Tier 1 (accessible entry point)", "difficulty": "Medium", "mustRead": "Atomic Structure; Nuclear Physics; Particle Physics basics" }
+        ],
+        "videos": []
+      }
+    },
+    {
+      "name": "Optics",
+      "weightageRange": "3–6%",
+      "priority": "Low–Medium",
+      "jamOverlap": "Medium",
+      "deadline": "Ongoing (light coverage)",
+      "primaryBook": "— (chapter of general/optics texts)",
+      "primaryVideo": "— (textbook-driven)",
+      "difficultyOverall": "Medium",
+      "chapters": [
+        { "name": "Interference & Diffraction", "weightage": "Low–Medium", "pyqFrequency": "Occasionally Tested", "mathPrerequisites": "Wave optics math", "difficulty": "Medium", "highYieldStars": 3, "commonMisconceptions": "Path difference errors", "questionStyle": "Fringe width NAT" },
+        { "name": "Polarization", "weightage": "Low", "pyqFrequency": "Rare but Difficult", "mathPrerequisites": "Jones vectors (advanced)", "difficulty": "Medium", "highYieldStars": 2, "commonMisconceptions": "Malus's law misapplication", "questionStyle": "Conceptual MCQ" }
+      ],
+      "coreOverlapTopics": "Interference, diffraction, polarization",
+      "jestExclusiveTopics": "—",
+      "resources": { "books": [], "videos": [] }
+    }
+  ],
+  "roadmap": [
+    { "month": "August 2026", "phase": "Foundation Build I", "focus": "Mathematical Methods (vector calculus, linear algebra, ODEs)", "intensity": "Moderate–High", "notes": "New semester begins; establish lab-day/non-lab-day rhythm early" },
+    { "month": "September 2026", "phase": "Foundation Build II", "focus": "Mathematical Methods (complex analysis, transforms) + begin Classical Mechanics (Newtonian → Lagrangian)", "intensity": "High", "notes": "Push math to completion before mechanics deepens" },
+    { "month": "October 2026", "phase": "Core Mechanics", "focus": "Classical Mechanics (Lagrangian, Hamiltonian, central forces, small oscillations, special relativity)", "intensity": "High", "notes": "Heaviest derivation load — schedule on non-lab days where possible" },
+    { "month": "November 2026 (first half)", "phase": "Core Mechanics Completion", "focus": "Finish Classical Mechanics; begin light Electromagnetism (electrostatics only)", "intensity": "Moderate", "notes": "Taper mathematically intensive work before exam buffer begins" },
+    { "month": "November 2026 (late) – mid-December 2026", "phase": "Semester Exam Buffer", "focus": "University preparation, formula revision sheets, active recall, light PYQ (conceptual, non-derivation)", "intensity": "Low (Physics-prep) / High (University)", "notes": "No advanced or math-intensive JEST topics per constraint" },
+    { "month": "Mid-December 2026 – End December 2026", "phase": "Resume & Ramp-Up", "focus": "Complete Electrostatics/Magnetostatics; begin Maxwell's Equations", "intensity": "Moderate", "notes": "Winter break — use extra non-lab time for catch-up" },
+    { "month": "January 2027 (1st–2nd week)", "phase": "JAM Overlap Completion", "focus": "Finish Electromagnetism (EM waves), begin/complete Quantum Mechanics core and Thermodynamics & Stat Mech core", "intensity": "Very High", "notes": "Hard deadline: entire JAM-overlap syllabus complete by mid-January" },
+    { "month": "Late January – Early February 2027", "phase": "JAM Revision Phase", "focus": "Full-syllabus JAM revision — PYQ-driven, no new topics", "intensity": "High (revision, not new learning)", "notes": "Strict constraint: zero new content introduced" },
+    { "month": "February 2027 (post-JAM exam)", "phase": "Transition Phase", "focus": "Short recovery, then begin JEST-exclusive topics: Scattering Theory, Phase Transitions", "intensity": "Moderate → High", "notes": "JEST-exclusive topics permitted only after JAM revision concludes" },
+    { "month": "March 2027", "phase": "JEST-Exclusive Deep Dive", "focus": "Advanced Solid State (phonons, band theory depth), Particle Physics basics, advanced contour integration/tensor methods", "intensity": "High", "notes": "Core JEST-differentiator content" },
+    { "month": "April 2027", "phase": "Integration & Synthesis", "focus": "Cross-subject PYQ solving (2012–2026 papers), timed mock tests, weak-area diagnostic review", "intensity": "Very High", "notes": "Begin full-length timed practice under JEST marking scheme" }
+  ],
+  "highYieldChecklist": [
+    { "rank": 1, "topic": "1D Potentials & Angular Momentum", "subject": "Quantum Mechanics", "rationale": "Highest combined weightage + frequency + dual exam relevance" },
+    { "rank": 2, "topic": "Lagrangian & Hamiltonian Mechanics", "subject": "Classical Mechanics", "rationale": "Foundational, frequently tested, high dual relevance" },
+    { "rank": 3, "topic": "Ensembles & Quantum Statistics", "subject": "Statistical Mechanics", "rationale": "High weightage, frequent, strong JAM+JEST overlap" },
+    { "rank": 4, "topic": "Maxwell's Equations & EM Waves", "subject": "Electromagnetism", "rationale": "High weightage, frequent, strong conceptual carryover" },
+    { "rank": 5, "topic": "Complex Analysis (Contour Integration)", "subject": "Mathematical Methods", "rationale": "Recurs across multiple subjects as an applied tool" },
+    { "rank": 6, "topic": "Electrostatics & Boundary Value Problems", "subject": "Electromagnetism", "rationale": "Frequently tested, moderate-high difficulty but high reward" },
+    { "rank": 7, "topic": "Perturbation Theory", "subject": "Quantum Mechanics", "rationale": "Frequently tested, high dual relevance" },
+    { "rank": 8, "topic": "Linear Algebra & Matrices", "subject": "Mathematical Methods", "rationale": "Frequently tested, foundational for QM and mechanics" },
+    { "rank": 9, "topic": "Laws of Thermodynamics & Maxwell Relations", "subject": "Thermodynamics", "rationale": "Frequently tested, moderate difficulty" },
+    { "rank": 10, "topic": "Central Force & Kepler Problem", "subject": "Classical Mechanics", "rationale": "Frequently tested, moderate difficulty" },
+    { "rank": 11, "topic": "Band Theory", "subject": "Solid State Physics", "rationale": "Occasionally tested but high-difficulty differentiator" },
+    { "rank": 12, "topic": "Semiconductor Devices & Op-Amps", "subject": "Electronics", "rationale": "Moderate frequency, moderate difficulty, steady scorer" },
+    { "rank": 13, "topic": "Atomic Spectra & Fine Structure", "subject": "Atomic, Molecular, Nuclear & Particle Physics", "rationale": "Occasionally tested, moderate reward" },
+    { "rank": 14, "topic": "Scattering Theory", "subject": "Quantum Mechanics", "rationale": "Rare but difficult — JEST-exclusive differentiator, high effort/reward tradeoff" },
+    { "rank": 15, "topic": "Phase Transitions & Critical Phenomena", "subject": "Statistical Mechanics", "rationale": "Rare but difficult — JEST-exclusive, lower priority until advanced phase" },
+    { "rank": 16, "topic": "Interference & Diffraction", "subject": "Optics", "rationale": "Occasionally tested, lower overall weightage" },
+    { "rank": 17, "topic": "Lattice Vibrations (Phonons)", "subject": "Solid State Physics", "rationale": "Rare but difficult — attempt only after core subjects are secure" },
+    { "rank": 18, "topic": "Particle Physics Basics", "subject": "Atomic, Molecular, Nuclear & Particle Physics", "rationale": "Rare but difficult — lowest priority, attempt last" }
+  ]
+}

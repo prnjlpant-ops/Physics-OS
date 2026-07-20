@@ -1,4 +1,12 @@
-import { SYLLABUS_LEVELS } from '../constants/syllabusConstants'
+import { SYLLABUS_LEVELS, TOPIC_STATUS } from '../constants/syllabusConstants'
+import {
+  mapDifficulty,
+  mapImportance,
+  mapPriority,
+  mapRevisionStatus,
+  estimateStudyTime,
+  estimateProblemSolvingTime,
+} from './blueprintModel'
 
 /**
  * SYLLABUS ENGINE
@@ -116,18 +124,243 @@ export function pruneTree(roots, predicate) {
 
 /**
  * ---------------------------------------------------------------------
- * Future data loaders (Sprint 17)
+ * Data loaders (Sprint 17 — JEST Blueprint Import Engine)
  * ---------------------------------------------------------------------
- * These are intentionally NOT implemented in Sprint 16. They exist only
- * to document the extension point: once implemented, each must return
- * an array of root nodes built with `createNode`, in the exact same
- * shape the placeholder data in `syllabusData.js` already produces —
- * so no UI code needs to change.
+ * Implemented for real in Sprint 17. Both loaders take a normalized
+ * `BlueprintData` object (see engine/blueprintModel.js — the same shape
+ * regardless of whether it came from Markdown or JSON) and build the
+ * Exam -> Subject -> Unit -> Chapter -> Topic -> Subtopic tree using the
+ * exact `createNode` shape the placeholder tree already used, so no
+ * component in src/pages/syllabus or src/components/syllabus needed to
+ * change when real data arrived.
+ *
+ * "Unit" here maps to the blueprint's own Core JAM+JEST Overlap vs
+ * JEST-Exclusive/Advanced grouping (blueprint section 3) — the one
+ * structural subdivision above Chapter the blueprint actually defines.
+ * "Topic" and "Subtopic" are generated per chapter from its own
+ * weightage/difficulty/PYQ-frequency/math-prerequisite fields, since the
+ * blueprint does not subdivide further than Chapter.
  */
-export function loadSyllabusFromJSON() {
-  throw new Error('loadSyllabusFromJSON is not implemented yet — planned for Sprint 17.')
+const EXAM_DEFINITIONS = [
+  { id: 'iit-jam', name: 'IIT JAM Physics' },
+  { id: 'jest', name: 'JEST Physics' },
+]
+
+function buildLinkedModules(subjectId, chapterSlug) {
+  return {
+    resources: `/subjects/${subjectId}/chapters/${chapterSlug}`,
+    notes: `/subjects/${subjectId}/chapters/${chapterSlug}/notes`,
+    formulaSheet: `/subjects/${subjectId}/chapters/${chapterSlug}/formula-sheet`,
+    memorySheet: `/subjects/${subjectId}/chapters/${chapterSlug}/memory-sheet`,
+    pyqs: `/subjects/${subjectId}/pyqs`,
+    mockTests: '/mock-tests',
+    activeRecall: `/subjects/${subjectId}/chapters/${chapterSlug}/active-recall`,
+    errorLearning: '/error-learning',
+  }
 }
 
-export function loadSyllabusFromMarkdown() {
-  throw new Error('loadSyllabusFromMarkdown is not implemented yet — planned for Sprint 17.')
+function buildSubtopics(parentId, chapter) {
+  const entries = [
+    { label: 'Math Prerequisites', summary: chapter.mathPrerequisites || 'Not specified in the blueprint.' },
+    { label: 'Typical Question Style', summary: chapter.questionStyle || 'Not specified in the blueprint.' },
+  ]
+  return entries.map((entry, index) =>
+    createNode({
+      level: 'subtopic',
+      name: entry.label,
+      slug: `${chapter.slug}-subtopic-${index}`,
+      parentId,
+      metadata: { summary: entry.summary },
+    }),
+  )
+}
+
+function buildTopicsForChapter(parentId, subjectId, subjectName, chapter) {
+  const difficulty = mapDifficulty(chapter.difficulty)
+  const importance = mapImportance(chapter.highYieldStars)
+  const priority = mapPriority(chapter.pyqFrequency?.includes('Frequently') ? 'High' : chapter.weightage)
+
+  const topicDefinitions = [
+    {
+      label: 'Concept & Derivation',
+      summary: `Core concepts and derivations for ${chapter.name}.`,
+    },
+    {
+      label: 'Problem Solving & PYQs',
+      summary: `Problem-solving practice and PYQ-style application of ${chapter.name}.`,
+    },
+  ]
+
+  return topicDefinitions.map((definition, index) => {
+    const slug = `${chapter.slug}-${index === 0 ? 'concept' : 'practice'}`
+    const topicId = buildNodeId(parentId, slug)
+
+    return createNode({
+      level: 'topic',
+      name: `${chapter.name}: ${definition.label}`,
+      slug,
+      parentId,
+      metadata: {
+        estimatedStudyTime: estimateStudyTime(difficulty),
+        estimatedProblemSolvingTime: estimateProblemSolvingTime(difficulty),
+        importance,
+        difficulty,
+        priority,
+        status: TOPIC_STATUS.NOT_STARTED,
+        revisionStatus: mapRevisionStatus(),
+        subjectId,
+        subjectName,
+        chapterSlug: chapter.slug,
+        chapterName: chapter.name,
+        weightage: chapter.weightage,
+        pyqFrequency: chapter.pyqFrequency,
+        highYieldStars: chapter.highYieldStars,
+        commonMisconceptions: chapter.commonMisconceptions,
+        linkedModules: buildLinkedModules(subjectId, chapter.slug),
+      },
+      children: index === 0 ? buildSubtopics(topicId, chapter) : [],
+    })
+  })
+}
+
+function buildChapterNode(parentId, subjectId, subjectName, chapter) {
+  const chapterId = buildNodeId(parentId, chapter.slug)
+
+  return createNode({
+    level: 'chapter',
+    name: chapter.name,
+    slug: chapter.slug,
+    parentId,
+    metadata: {
+      subjectId,
+      weightage: chapter.weightage,
+      pyqFrequency: chapter.pyqFrequency,
+      difficulty: chapter.difficulty,
+      highYieldStars: chapter.highYieldStars,
+    },
+    children: buildTopicsForChapter(chapterId, subjectId, subjectName, chapter),
+  })
+}
+
+/** Splits a subject's chapters into the blueprint's own Core Overlap vs JEST-Exclusive grouping (section 3). */
+function splitCoreAndExclusive(subject) {
+  const exclusiveNames = new Set(
+    (subject.jestExclusiveTopics || '')
+      .split(',')
+      .map((s) => s.trim().toLowerCase())
+      .filter(Boolean),
+  )
+
+  const isExclusive = (chapterName) => {
+    const lower = chapterName.toLowerCase()
+    for (const fragment of exclusiveNames) {
+      if (fragment && (lower.includes(fragment) || fragment.includes(lower))) return true
+    }
+    return false
+  }
+
+  const exclusive = subject.chapters.filter((c) => isExclusive(c.name))
+  const core = subject.chapters.filter((c) => !isExclusive(c.name))
+  // Guarantee every chapter appears somewhere even if the free-text match misses.
+  return core.length ? { core, exclusive } : { core: subject.chapters, exclusive: [] }
+}
+
+function buildUnitsForSubject(parentId, subjectId, subject) {
+  const { core, exclusive } = splitCoreAndExclusive(subject)
+  const units = []
+
+  if (core.length) {
+    const unitSlug = `${subject.id}-core-overlap`
+    const unitId = buildNodeId(parentId, unitSlug)
+    units.push(
+      createNode({
+        level: 'unit',
+        name: 'Core JAM + JEST Overlap',
+        slug: unitSlug,
+        parentId,
+        metadata: { subjectId },
+        children: core.map((chapter) => buildChapterNode(unitId, subjectId, subject.name, chapter)),
+      }),
+    )
+  }
+
+  if (exclusive.length) {
+    const unitSlug = `${subject.id}-jest-exclusive`
+    const unitId = buildNodeId(parentId, unitSlug)
+    units.push(
+      createNode({
+        level: 'unit',
+        name: 'JEST-Exclusive / Advanced',
+        slug: unitSlug,
+        parentId,
+        metadata: { subjectId },
+        children: exclusive.map((chapter) => buildChapterNode(unitId, subjectId, subject.name, chapter)),
+      }),
+    )
+  }
+
+  return units
+}
+
+function buildSubjectNode(parentId, subject) {
+  const subjectId = buildNodeId(parentId, subject.id)
+
+  return createNode({
+    level: 'subject',
+    name: subject.name,
+    slug: subject.id,
+    parentId,
+    metadata: { subjectId: subject.id, icon: subject.icon },
+    children: buildUnitsForSubject(subjectId, subject.id, subject),
+  })
+}
+
+function buildExamNode(examDefinition, subjectsWithIcons) {
+  const examId = buildNodeId(null, examDefinition.id)
+
+  return createNode({
+    level: 'exam',
+    name: examDefinition.name,
+    slug: examDefinition.id,
+    parentId: null,
+    metadata: {},
+    children: subjectsWithIcons.map((subject) => buildSubjectNode(examId, subject)),
+  })
+}
+
+/**
+ * Builds the full Exam -> Subject -> Unit -> Chapter -> Topic -> Subtopic
+ * tree from an already-normalized `BlueprintData` object, regardless of
+ * whether it was parsed from Markdown or JSON.
+ *
+ * `subjectsWithIcons` additionally carries the app-shaped `icon` per
+ * subject (from blueprintMappingLayer) purely for the tree's `metadata.icon`
+ * — the blueprint itself has no concept of an icon.
+ */
+function buildTreeFromBlueprintData(blueprintData, subjectsWithIcons) {
+  const iconById = Object.fromEntries(subjectsWithIcons.map((s) => [s.id, s.icon]))
+  const subjectsForTree = blueprintData.subjects.map((subject) => ({
+    ...subject,
+    icon: iconById[subject.id] ?? null,
+  }))
+
+  return EXAM_DEFINITIONS.map((exam) => buildExamNode(exam, subjectsForTree))
+}
+
+/**
+ * Loads the syllabus tree from an already-normalized BlueprintData object
+ * that was parsed from a JSON blueprint source.
+ */
+export function loadSyllabusFromJSON(blueprintData, subjectsWithIcons) {
+  return buildTreeFromBlueprintData(blueprintData, subjectsWithIcons)
+}
+
+/**
+ * Loads the syllabus tree from an already-normalized BlueprintData object
+ * that was parsed from a Markdown blueprint source. Both loaders are
+ * identical once the source has been normalized — the distinction is kept
+ * as two named entry points so callers can be explicit about provenance.
+ */
+export function loadSyllabusFromMarkdown(blueprintData, subjectsWithIcons) {
+  return buildTreeFromBlueprintData(blueprintData, subjectsWithIcons)
 }
