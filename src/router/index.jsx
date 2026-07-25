@@ -12,6 +12,7 @@ import SubjectLayout from '../pages/subject/SubjectLayout'
 import SubjectOverviewPage from '../pages/subject/SubjectOverviewPage'
 import SubjectChaptersPage from '../pages/subject/SubjectChaptersPage'
 import SubjectResourcesPage from '../pages/subject/SubjectResourcesPage'
+import SubjectKnowledgeBasePage from '../pages/subject/SubjectKnowledgeBasePage'
 import ChapterResourceLayout from '../pages/subject/chapter/ChapterResourceLayout'
 import ChapterResourceTypePage from '../pages/subject/chapter/ChapterResourceTypePage'
 import SubjectBooksPage from '../pages/subject/SubjectBooksPage'
@@ -57,6 +58,7 @@ import ErrorAnalyticsPage from '../pages/analytics/ErrorAnalyticsPage'
 import ConsistencyPage from '../pages/analytics/ConsistencyPage'
 import GoalsPage from '../pages/analytics/GoalsPage'
 import SettingsPage from '../pages/SettingsPage'
+import MasterIndexPage from '../pages/MasterIndexPage'
 
 const router = createBrowserRouter([
   {
@@ -77,6 +79,7 @@ const router = createBrowserRouter([
               { index: true, element: <SubjectOverviewPage /> },
               { path: 'chapters', element: <SubjectChaptersPage /> },
               { path: 'resources', element: <SubjectResourcesPage /> },
+              { path: 'knowledge-base', element: <SubjectKnowledgeBasePage /> },
               {
                 path: 'chapters/:chapterSlug',
                 element: <ChapterResourceLayout />,
@@ -176,6 +179,7 @@ const router = createBrowserRouter([
         ],
       },
       { path: 'settings', element: <SettingsPage /> },
+      { path: 'settings/master-index', element: <MasterIndexPage /> },
     ],
   },
 ])

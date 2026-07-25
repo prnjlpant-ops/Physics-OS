@@ -7,6 +7,7 @@ const TABS = [
   { label: 'Overview', to: '.' },
   { label: 'Chapters', to: 'chapters' },
   { label: 'Resources', to: 'resources' },
+  { label: 'Knowledge Base', to: 'knowledge-base' },
   { label: 'Books', to: 'books' },
   { label: 'Videos', to: 'videos' },
   { label: 'PYQs', to: 'pyqs' },

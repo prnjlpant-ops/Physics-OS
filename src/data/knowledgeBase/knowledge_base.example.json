@@ -1,0 +1,36 @@
+{
+  "version": 1,
+  "updatedAt": "2026-01-01T00:00:00.000Z",
+  "subjects": {
+    "classical-mechanics": {
+      "subjectName": "Classical Mechanics",
+      "categories": {
+        "books": [
+          {
+            "id": "classical-mechanics-books-1",
+            "subjectId": "classical-mechanics",
+            "subjectName": "Classical Mechanics",
+            "category": "Books",
+            "categoryKey": "books",
+            "title": "Classical Mechanics",
+            "author": "Herbert Goldstein",
+            "edition": "3rd Edition",
+            "priority": "High",
+            "tags": ["core-text", "lagrangian"],
+            "status": "Pending",
+            "localPath": "D:\\Knowledge Base\\Classical Mechanics\\Books\\Goldstein - Classical Mechanics 3rd Ed.pdf",
+            "notes": "Chapters 1-8 map to the JEST syllabus."
+          }
+        ],
+        "solutionManuals": [],
+        "formulaSheets": [],
+        "memorySheets": [],
+        "notes": [],
+        "videos": [],
+        "researchPapers": [],
+        "conceptualResources": [],
+        "assets": []
+      }
+    }
+  }
+}
