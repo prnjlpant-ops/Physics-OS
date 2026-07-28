@@ -59,6 +59,9 @@ import ConsistencyPage from '../pages/analytics/ConsistencyPage'
 import GoalsPage from '../pages/analytics/GoalsPage'
 import SettingsPage from '../pages/SettingsPage'
 import MasterIndexPage from '../pages/MasterIndexPage'
+import LibraryPage from '../pages/library/LibraryPage'
+import LibrarySettingsPage from '../pages/library/LibrarySettingsPage'
+import ResourceDetailsPage from '../pages/library/ResourceDetailsPage'
 
 const router = createBrowserRouter([
   {
@@ -178,6 +181,9 @@ const router = createBrowserRouter([
           { path: 'goals', element: <GoalsPage /> },
         ],
       },
+      { path: 'library', element: <LibraryPage /> },
+      { path: 'library/settings', element: <LibrarySettingsPage /> },
+      { path: 'library/resource/:resourceId', element: <ResourceDetailsPage /> },
       { path: 'settings', element: <SettingsPage /> },
       { path: 'settings/master-index', element: <MasterIndexPage /> },
     ],

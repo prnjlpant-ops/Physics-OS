@@ -1,0 +1,143 @@
+{
+  "version": "1.0.0",
+  "books": [
+    {
+      "id": "boas_math_methods",
+      "title": "Mathematical Methods in the Physical Sciences",
+      "author": "Mary L. Boas",
+      "subject": "Mathematical Physics",
+      "edition": "3rd",
+      "priority": "Essential",
+      "path": "Mathematical Physics/Books/Mathematical Methods in the Physical Sciences - Mary L. Boas.pdf"
+    },
+    {
+      "id": "vector_analysis",
+      "title": "Vector Analysis",
+      "author": "Murray R. Spiegel",
+      "subject": "Mathematical Physics",
+      "edition": "2nd",
+      "priority": "High",
+      "path": "Mathematical Physics/Books/Vector Analysis.pdf"
+    },
+    {
+      "id": "kleppner",
+      "title": "An Introduction to Mechanics",
+      "author": "Kleppner & Kolenkow",
+      "subject": "Classical Mechanics",
+      "priority": "Essential",
+      "path": "Classical Mechanics/Books/An Introduction to Mechanics.pdf"
+    },
+    {
+      "id": "goldstein",
+      "title": "Classical Mechanics",
+      "author": "Herbert Goldstein",
+      "subject": "Classical Mechanics",
+      "priority": "Reference",
+      "path": "Classical Mechanics/Books/Classical Mechanics - Goldstein.pdf"
+    },
+    {
+      "id": "ap_french",
+      "title": "Vibrations and Waves",
+      "author": "A. P. French",
+      "subject": "Oscillations & Waves",
+      "priority": "Essential",
+      "path": "Oscillations & Waves/Books/A.P. French - Vibrations and Waves.pdf"
+    },
+    {
+      "id": "griffiths_em",
+      "title": "Introduction to Electrodynamics",
+      "author": "David J. Griffiths",
+      "subject": "Electrodynamics",
+      "priority": "Essential",
+      "path": "Electrodynamics/Books/Introduction to Electrodynamics.pdf"
+    },
+    {
+      "id": "purcell",
+      "title": "Electricity and Magnetism",
+      "author": "Edward M. Purcell",
+      "subject": "Electrodynamics",
+      "priority": "High",
+      "path": "Electrodynamics/Books/Electricity and Magnetism.pdf"
+    },
+    {
+      "id": "griffiths_qm",
+      "title": "Introduction to Quantum Mechanics",
+      "author": "David J. Griffiths",
+      "subject": "Quantum Mechanics",
+      "priority": "Essential",
+      "path": "Quantum Mechanics/Books/Introduction to Quantum Mechanics.pdf"
+    },
+    {
+      "id": "zettili",
+      "title": "Quantum Mechanics: Concepts and Applications",
+      "author": "Nouredine Zettili",
+      "subject": "Quantum Mechanics",
+      "priority": "High",
+      "path": "Quantum Mechanics/Books/Quantum Mechanics Concepts and Applications.pdf"
+    },
+    {
+      "id": "mcquarrie",
+      "title": "Quantum Chemistry",
+      "author": "Donald A. McQuarrie",
+      "subject": "Quantum Mechanics",
+      "priority": "Reference",
+      "path": "Quantum Mechanics/Books/Quantum Chemistry.pdf"
+    },
+    {
+      "id": "zare",
+      "title": "Angular Momentum",
+      "author": "Richard N. Zare",
+      "subject": "Quantum Mechanics",
+      "priority": "Reference",
+      "path": "Quantum Mechanics/Books/Angular Momentum.pdf"
+    },
+    {
+      "id": "reif",
+      "title": "Fundamentals of Statistical and Thermal Physics",
+      "author": "F. Reif",
+      "subject": "Thermodynamics",
+      "priority": "Essential",
+      "path": "Thermodynamics/Books/Fundamentals of Statistical and Thermal Physics.pdf"
+    },
+    {
+      "id": "pathria",
+      "title": "Statistical Mechanics",
+      "author": "Pathria & Beale",
+      "subject": "Statistical Mechanics",
+      "priority": "Essential",
+      "path": "Statistical Mechanics/Books/Statistical Mechanics.pdf"
+    },
+    {
+      "id": "hecht",
+      "title": "Optics",
+      "author": "Eugene Hecht",
+      "subject": "Optics",
+      "priority": "Essential",
+      "path": "Optics/Books/Optics - Hecht.pdf"
+    },
+    {
+      "id": "kittel",
+      "title": "Introduction to Solid State Physics",
+      "author": "Charles Kittel",
+      "subject": "Solid State Physics",
+      "priority": "Essential",
+      "path": "Solid State Physics/Books/Introduction to Solid State Physics.pdf"
+    },
+    {
+      "id": "sedra_smith",
+      "title": "Microelectronic Circuits",
+      "author": "Sedra & Smith",
+      "subject": "Electronics",
+      "priority": "Essential",
+      "path": "Electronics/Books/Microelectronic Circuits.pdf"
+    },
+    {
+      "id": "horowitz",
+      "title": "The Art of Electronics Student Manual",
+      "author": "Horowitz & Hayes",
+      "subject": "Electronics",
+      "priority": "Reference",
+      "path": "Electronics/Books/The Art of Electronics Student Manual.pdf"
+    }
+  ]
+}

@@ -1,0 +1,177 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2026-07-28",
+  "root": "Z:/Academics/Knowledge Base",
+  "subjects": [
+    {
+      "id": "mathematical_physics",
+      "name": "Mathematical Physics",
+      "folder": "Mathematical Physics",
+      "categories": [
+        "Books",
+        "Solution Manuals",
+        "Formula Sheets",
+        "Memory Sheets",
+        "Notes",
+        "Videos",
+        "Research Papers",
+        "Conceptual Resources",
+        "Assets",
+        "PYQs"
+      ]
+    },
+    {
+      "id": "classical_mechanics",
+      "name": "Classical Mechanics",
+      "folder": "Classical Mechanics",
+      "categories": [
+        "Books",
+        "Solution Manuals",
+        "Formula Sheets",
+        "Memory Sheets",
+        "Notes",
+        "Videos",
+        "Research Papers",
+        "Conceptual Resources",
+        "Assets",
+        "PYQs"
+      ]
+    },
+    {
+      "id": "oscillations_waves",
+      "name": "Oscillations & Waves",
+      "folder": "Oscillations & Waves",
+      "categories": [
+        "Books",
+        "Formula Sheets",
+        "Memory Sheets",
+        "Notes",
+        "Videos",
+        "Research Papers",
+        "Assets",
+        "PYQs"
+      ]
+    },
+    {
+      "id": "electrodynamics",
+      "name": "Electrodynamics",
+      "folder": "Electrodynamics",
+      "categories": [
+        "Books",
+        "Formula Sheets",
+        "Memory Sheets",
+        "Notes",
+        "Videos",
+        "Research Papers",
+        "Assets",
+        "PYQs"
+      ]
+    },
+    {
+      "id": "quantum_mechanics",
+      "name": "Quantum Mechanics",
+      "folder": "Quantum Mechanics",
+      "categories": [
+        "Books",
+        "Solution Manuals",
+        "Formula Sheets",
+        "Memory Sheets",
+        "Notes",
+        "Videos",
+        "Research Papers",
+        "Assets",
+        "PYQs"
+      ]
+    },
+    {
+      "id": "thermodynamics",
+      "name": "Thermodynamics",
+      "folder": "Thermodynamics",
+      "categories": [
+        "Books",
+        "Formula Sheets",
+        "Memory Sheets",
+        "Notes",
+        "Videos",
+        "Research Papers",
+        "Assets",
+        "PYQs"
+      ]
+    },
+    {
+      "id": "statistical_mechanics",
+      "name": "Statistical Mechanics",
+      "folder": "Statistical Mechanics",
+      "categories": [
+        "Books",
+        "Formula Sheets",
+        "Memory Sheets",
+        "Notes",
+        "Videos",
+        "Research Papers",
+        "Assets",
+        "PYQs"
+      ]
+    },
+    {
+      "id": "optics",
+      "name": "Optics",
+      "folder": "Optics",
+      "categories": [
+        "Books",
+        "Formula Sheets",
+        "Memory Sheets",
+        "Notes",
+        "Videos",
+        "Research Papers",
+        "Assets",
+        "PYQs"
+      ]
+    },
+    {
+      "id": "solid_state_physics",
+      "name": "Solid State Physics",
+      "folder": "Solid State Physics",
+      "categories": [
+        "Books",
+        "Formula Sheets",
+        "Memory Sheets",
+        "Notes",
+        "Videos",
+        "Research Papers",
+        "Assets",
+        "PYQs"
+      ]
+    },
+    {
+      "id": "electronics",
+      "name": "Electronics",
+      "folder": "Electronics",
+      "categories": [
+        "Books",
+        "Formula Sheets",
+        "Memory Sheets",
+        "Notes",
+        "Videos",
+        "Research Papers",
+        "Assets",
+        "PYQs"
+      ]
+    },
+    {
+      "id": "experimental_physics",
+      "name": "Experimental Physics",
+      "folder": "Experimental Physics",
+      "categories": [
+        "Books",
+        "Formula Sheets",
+        "Memory Sheets",
+        "Notes",
+        "Videos",
+        "Research Papers",
+        "Assets",
+        "PYQs"
+      ]
+    }
+  ]
+}
