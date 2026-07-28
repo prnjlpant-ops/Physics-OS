@@ -43,6 +43,9 @@ const routes = {
   mockTestAttempt: (testId) => `/mock-tests/${testId}/attempt`,
   mockTestResult: (testId) => `/mock-tests/${testId}/result`,
 
+  pyqLibrary: () => '/pyqs',
+  pyqPaper: (paperId) => `/pyqs/${paperId}`,
+
   errorDetails: (errorId) => `/error-learning/${errorId}`,
 
   settingsMasterIndex: () => '/settings/master-index',

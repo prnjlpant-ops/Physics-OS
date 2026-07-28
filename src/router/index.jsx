@@ -27,6 +27,7 @@ import ChapterActiveRecallStudyPage from '../pages/subject/chapter/ChapterActive
 import SubjectProgressPage from '../pages/subject/SubjectProgressPage'
 import ResourcesPage from '../pages/ResourcesPage'
 import PyqsPage from '../pages/PyqsPage'
+import PyqPaperDetailsPage from '../pages/PyqPaperDetailsPage'
 import NotesPage from '../pages/NotesPage'
 import FormulaSheetsPage from '../pages/FormulaSheetsPage'
 import MemorySheetsPage from '../pages/MemorySheetsPage'
@@ -135,7 +136,13 @@ const router = createBrowserRouter([
         ],
       },
       { path: 'resources', element: <ResourcesPage /> },
-      { path: 'pyqs', element: <PyqsPage /> },
+      {
+        path: 'pyqs',
+        children: [
+          { index: true, element: <PyqsPage /> },
+          { path: ':paperId', element: <PyqPaperDetailsPage /> },
+        ],
+      },
       { path: 'notes', element: <NotesPage /> },
       { path: 'formula-sheets', element: <FormulaSheetsPage /> },
       { path: 'memory-sheets', element: <MemorySheetsPage /> },
