@@ -1,7 +1,9 @@
+import { useEffect } from 'react'
 import { Link, NavLink, Outlet, useParams } from 'react-router-dom'
 import { ArrowLeft } from 'lucide-react'
 import { getSubjectById } from '../../constants/subjects'
 import PageTitle from '../../components/PageTitle'
+import WorkspaceService from '../../services/WorkspaceService'
 
 const TABS = [
   { label: 'Overview', to: '.' },
@@ -21,6 +23,13 @@ const TABS = [
 export default function SubjectLayout() {
   const { subjectId } = useParams()
   const subject = getSubjectById(subjectId)
+
+  // Sprint 28 — Desktop Readiness Layer: records "where the user is" so
+  // ContinueStudyingCard (and future consumers) can restore it after a
+  // refresh. Purely additive — nothing here changes what's rendered.
+  useEffect(() => {
+    if (subject) WorkspaceService.setCurrentSubject(subject.id)
+  }, [subject])
 
   if (!subject) {
     return <PageTitle title="Subject Not Found" />

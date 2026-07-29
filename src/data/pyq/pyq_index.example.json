@@ -1,0 +1,49 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2026-07-28",
+  "topics": [
+    {
+      "id": "cm_lagrangian_mechanics",
+      "name": "Lagrangian Mechanics",
+      "chapter": "Variational Principles & Lagrangian Formulation",
+      "subject": "Classical Mechanics",
+      "description": "Generalized coordinates, the Euler-Lagrange equation, constraints, and conservation laws derived from symmetries.",
+      "relatedBooks": ["kleppner", "goldstein"],
+      "relatedFormulaSheets": [],
+      "relatedMemorySheets": [],
+      "relatedNotes": [],
+      "relatedVideos": [],
+      "relatedResearchPapers": [],
+      "relatedPYQs": ["gate_ph_2022", "jam_ph_2021"]
+    },
+    {
+      "id": "qm_time_independent_perturbation_theory",
+      "name": "Time-Independent Perturbation Theory",
+      "chapter": "Approximation Methods",
+      "subject": "Quantum Mechanics",
+      "description": "Non-degenerate and degenerate perturbation theory, first and second order energy corrections.",
+      "relatedBooks": ["griffiths_qm", "zettili"],
+      "relatedFormulaSheets": [],
+      "relatedMemorySheets": [],
+      "relatedNotes": [],
+      "relatedVideos": [],
+      "relatedResearchPapers": [],
+      "relatedPYQs": ["gate_ph_2023", "jest_2022"]
+    },
+    {
+      "id": "ed_maxwells_equations",
+      "name": "Maxwell's Equations & Wave Propagation",
+      "chapter": "Electrodynamics of Fields & Waves",
+      "subject": "Electrodynamics",
+      "description": "Maxwell's equations in vacuum and matter, boundary conditions, and electromagnetic wave propagation.",
+      "relatedBooks": ["griffiths_em", "purcell"],
+      "relatedFormulaSheets": [],
+      "relatedMemorySheets": [],
+      "relatedNotes": [],
+      "relatedVideos": [],
+      "relatedResearchPapers": [],
+      "relatedPYQs": ["gate_ph_2021"]
+    }
+  ],
+  "papers": {}
+}

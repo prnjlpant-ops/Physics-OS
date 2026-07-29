@@ -28,6 +28,20 @@ export const DEFAULT_SETTINGS = {
   defaultStudyHours: 6,
   defaultSessionLength: 50,
   appVersion: '0.0.0',
+  // Sprint 27 — Study Engine & Today's Mission: Study Preferences.
+  dailyStudyGoalMinutes: 240,
+  autoSaveNotes: true,
+  defaultSubject: '',
+  rememberLastTopic: true,
+  // Sprint 28 — Desktop Readiness Layer: Desktop Settings.
+  // `defaultExportFolder` is a placeholder only — Browser mode has no
+  // folder to remember (every export goes through the browser's own
+  // download prompt); it exists so Sprint 29 (Electron) has a setting to
+  // wire up without introducing a new key.
+  defaultExportFolder: '',
+  maxRecentItems: 10,
+  restoreLastWorkspace: true,
+  openResourcesInNewTab: true,
 }
 
 function readAll() {

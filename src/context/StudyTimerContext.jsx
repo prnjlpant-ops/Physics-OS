@@ -18,6 +18,10 @@ const defaultSessionMeta = {
   subject: 'Not Selected',
   chapter: 'None',
   task: 'No active task',
+  // Sprint 27: when set, links this session to a Topic Index record so the
+  // Study Session workspace can surface that topic's mapped resources
+  // (see components/timer/SessionResourceLinks.jsx + engine/topics/studyMappingService.js).
+  topicId: null,
 }
 
 const idleState = {
@@ -30,6 +34,10 @@ const idleState = {
   endTime: null,
   finalElapsedMs: null,
   finalBreakMs: null,
+  // Sprint 27: resources opened during this session (Session Model field
+  // `resourcesOpened`) and autosaved session notes.
+  resourcesOpened: [],
+  notes: '',
   ...defaultSessionMeta,
 }
 
@@ -48,6 +56,29 @@ function reducer(state, action) {
   const now = Date.now()
 
   switch (action.type) {
+    case 'SET_TOPIC': {
+      // Only meaningful before a session starts — mid-session topic changes
+      // would make "resourcesOpened" and the reflection ambiguous.
+      if (state.status !== 'idle') return state
+      return {
+        ...state,
+        subject: action.subject ?? state.subject,
+        chapter: action.chapter ?? state.chapter,
+        task: action.task ?? state.task,
+        topicId: action.topicId ?? null,
+      }
+    }
+
+    case 'LOG_RESOURCE': {
+      if (state.status !== 'running' && state.status !== 'paused') return state
+      if (state.resourcesOpened.some((r) => r.id === action.resource.id)) return state
+      return { ...state, resourcesOpened: [...state.resourcesOpened, action.resource] }
+    }
+
+    case 'SET_NOTES': {
+      return { ...state, notes: action.notes }
+    }
+
     case 'START': {
       if (state.status !== 'idle') return state
       return {
@@ -55,6 +86,7 @@ function reducer(state, action) {
         subject: state.subject,
         chapter: state.chapter,
         task: state.task,
+        topicId: state.topicId,
         status: 'running',
         startTime: now,
         lastResumeTime: now,
@@ -109,12 +141,13 @@ function reducer(state, action) {
         subject: state.subject,
         chapter: state.chapter,
         task: state.task,
+        topicId: state.topicId,
       }
     }
 
     case 'RESET': {
       if (state.status !== 'idle') return state
-      return { ...idleState, subject: state.subject, chapter: state.chapter, task: state.task }
+      return { ...idleState, subject: state.subject, chapter: state.chapter, task: state.task, topicId: state.topicId }
     }
 
     default:
@@ -164,6 +197,15 @@ export function StudyTimerProvider({ children }) {
     () => dispatch({ type: 'DISCARD_SESSION' }),
     [],
   )
+  const setTopic = useCallback(
+    ({ subject, chapter, task, topicId }) => dispatch({ type: 'SET_TOPIC', subject, chapter, task, topicId }),
+    [],
+  )
+  const logResourceOpened = useCallback(
+    (resource) => dispatch({ type: 'LOG_RESOURCE', resource }),
+    [],
+  )
+  const setNotes = useCallback((notes) => dispatch({ type: 'SET_NOTES', notes }), [])
 
   const completeSession = useCallback(
     (reflection) => {
@@ -175,14 +217,28 @@ export function StudyTimerProvider({ children }) {
         date: new Date(state.startTime ?? Date.now()).toISOString().slice(0, 10),
         startTime: state.startTime,
         endTime: state.endTime ?? Date.now(),
+        duration: totalStudyTime,
         totalStudyTime,
         breakTime,
         subject: state.subject,
         chapter: state.chapter,
         task: state.task,
-        completedSummary: reflection.completedSummary,
-        nextAction: reflection.nextAction,
-        conceptualTakeaway: reflection.conceptualTakeaway,
+        topic: state.topicId,
+        resourcesOpened: state.resourcesOpened,
+        tasksCompleted: reflection.tasksCompleted ?? [],
+        notes: state.notes,
+        // Sprint 27 Reflection fields (see services/ReflectionService.js).
+        reflection: {
+          whatStudied: reflection.whatStudied ?? reflection.completedSummary ?? '',
+          whatWasDifficult: reflection.whatWasDifficult ?? '',
+          whatToRevise: reflection.whatToRevise ?? reflection.nextAction ?? '',
+        },
+        confidence: reflection.confidence ?? null,
+        // Legacy fields kept for backward compatibility with sessions saved
+        // before this sprint and existing renderers (e.g. DayDetailPanel).
+        completedSummary: reflection.whatStudied ?? reflection.completedSummary ?? '',
+        nextAction: reflection.whatToRevise ?? reflection.nextAction ?? '',
+        conceptualTakeaway: reflection.conceptualTakeaway ?? '',
       })
 
       dispatch({ type: 'COMPLETE_SESSION' })
@@ -198,6 +254,9 @@ export function StudyTimerProvider({ children }) {
       subject: state.subject,
       chapter: state.chapter,
       task: state.task,
+      topicId: state.topicId,
+      resourcesOpened: state.resourcesOpened,
+      notes: state.notes,
       startTime: state.startTime,
       elapsedMs,
       breakMs: state.status === 'ending' ? state.finalBreakMs ?? state.breakMs : state.breakMs,
@@ -210,12 +269,18 @@ export function StudyTimerProvider({ children }) {
       reset,
       discardSession,
       completeSession,
+      setTopic,
+      logResourceOpened,
+      setNotes,
     }),
     [
       state.status,
       state.subject,
       state.chapter,
       state.task,
+      state.topicId,
+      state.resourcesOpened,
+      state.notes,
       state.startTime,
       state.breakMs,
       state.finalBreakMs,
@@ -227,6 +292,9 @@ export function StudyTimerProvider({ children }) {
       reset,
       discardSession,
       completeSession,
+      setTopic,
+      logResourceOpened,
+      setNotes,
     ],
   )
 

@@ -2,6 +2,9 @@ import { useStudyTimer } from '../context/StudyTimerContext'
 import TimerDisplay from '../components/timer/TimerDisplay'
 import TimerControls from '../components/timer/TimerControls'
 import SessionPanel from '../components/timer/SessionPanel'
+import TopicLinkSelector from '../components/timer/TopicLinkSelector'
+import SessionResourceLinks from '../components/timer/SessionResourceLinks'
+import SessionNotesPanel from '../components/timer/SessionNotesPanel'
 
 const statusLabel = {
   idle: 'Idle',
@@ -33,7 +36,13 @@ export default function StudyTimerPage() {
         <TimerControls />
       </section>
 
+      <TopicLinkSelector />
+
       <SessionPanel />
+
+      <SessionResourceLinks />
+
+      <SessionNotesPanel />
     </div>
   )
 }

@@ -2,11 +2,15 @@ import { Target, PartyPopper } from 'lucide-react'
 import { RotateCcw } from 'lucide-react'
 import { useDailyPlanner } from '../hooks/useDailyPlanner'
 import { usePlannerSettings } from '../hooks/usePlannerSettings'
+import { useProgress } from '../hooks/useProgress'
 import { TIME_BLOCK_ORDER } from '../constants/plannerConstants'
+import { toDateKey } from '../utils/calendarStats'
 import PlannerSummaryBar from '../components/planner/PlannerSummaryBar'
 import PlannerBlockColumn from '../components/planner/PlannerBlockColumn'
 import TomorrowPreviewList from '../components/planner/TomorrowPreviewList'
 import PlannerSettingsPanel from '../components/planner/PlannerSettingsPanel'
+import ProgressSummaryBar from '../components/dailyStudy/ProgressSummaryBar'
+import CustomTaskList from '../components/dailyStudy/CustomTaskList'
 import EmptyState from './subject/EmptyState'
 
 /**
@@ -22,9 +26,13 @@ import EmptyState from './subject/EmptyState'
 export default function TodaysMissionPage() {
   const { plan, moveUp, moveDown, markComplete, skipTask, resetToday } = useDailyPlanner()
   const { settings, updateSetting, resetSettings } = usePlannerSettings()
+  const progress = useProgress()
+  const todayKey = toDateKey(new Date())
 
   return (
     <div className="flex flex-col gap-5 px-4 py-5 sm:px-6 lg:px-8">
+      <ProgressSummaryBar progress={progress} />
+
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div>
           <h2 className="text-lg font-semibold text-[#e8e8e8]">Today&apos;s Mission</h2>
@@ -91,6 +99,8 @@ export default function TodaysMissionPage() {
           <PlannerSettingsPanel settings={settings} onChange={updateSetting} onReset={resetSettings} />
         </div>
       )}
+
+      <CustomTaskList dateKey={todayKey} />
     </div>
   )
 }

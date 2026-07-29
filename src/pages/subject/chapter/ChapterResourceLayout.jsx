@@ -1,9 +1,11 @@
+import { useEffect } from 'react'
 import { Link, NavLink, Outlet, useParams } from 'react-router-dom'
 import { ArrowLeft } from 'lucide-react'
 import { getChapterBySlug } from '../../../constants/subjects'
 import { getChapterResources } from '../../../data/resourcesData'
 import { RESOURCE_TYPE_ORDER, RESOURCE_TYPE_META } from '../../../constants/resourceTypes'
 import PageTitle from '../../../components/PageTitle'
+import WorkspaceService from '../../../services/WorkspaceService'
 
 const TAB_PATHS = {
   books: 'books',
@@ -17,6 +19,16 @@ const TAB_PATHS = {
 export default function ChapterResourceLayout() {
   const { subjectId, chapterSlug } = useParams()
   const found = getChapterBySlug(subjectId, chapterSlug)
+
+  // Sprint 28 — Desktop Readiness Layer: records "where the user is" so
+  // ContinueStudyingCard (and future consumers) can restore it after a
+  // refresh. Purely additive — nothing here changes what's rendered.
+  useEffect(() => {
+    if (found) {
+      WorkspaceService.setCurrentSubject(found.subject.id)
+      WorkspaceService.setCurrentChapter(found.chapter.slug)
+    }
+  }, [found])
 
   if (!found) {
     return <PageTitle title="Chapter Not Found" />

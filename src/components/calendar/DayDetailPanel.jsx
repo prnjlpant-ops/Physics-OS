@@ -1,7 +1,7 @@
 import { X } from 'lucide-react'
 import { formatDuration, formatClockTime } from '../../utils/formatDuration'
 
-export default function DayDetailPanel({ day, sessions, onClose }) {
+export default function DayDetailPanel({ day, sessions, tasks = [], onClose }) {
   if (!day) return null
 
   const totalMs = sessions.reduce((sum, s) => sum + (s.totalStudyTime || 0), 0)
@@ -62,7 +62,14 @@ export default function DayDetailPanel({ day, sessions, onClose }) {
               </div>
 
               <p className="mt-1 truncate text-xs text-[#858585]">{session.chapter}</p>
-              <p className="mt-2 text-sm text-[#cccccc]">{session.task}</p>
+              <div className="mt-2 flex items-center justify-between gap-2">
+                <p className="text-sm text-[#cccccc]">{session.task}</p>
+                {session.confidence && (
+                  <span className="flex-shrink-0 rounded-full border border-[#3c3c3c] bg-[#2d2d2d] px-2 py-0.5 text-[10px] text-[#cccccc]">
+                    Confidence {session.confidence}/5
+                  </span>
+                )}
+              </div>
 
               <div className="mt-3 flex items-center gap-2 font-mono text-xs text-[#858585]">
                 <span>{formatClockTime(session.startTime)}</span>
@@ -101,6 +108,25 @@ export default function DayDetailPanel({ day, sessions, onClose }) {
             </div>
           ))}
         </div>
+
+        {tasks.length > 0 && (
+          <div className="mt-6 border-t border-[#3c3c3c] pt-4">
+            <h3 className="text-xs font-semibold uppercase tracking-wide text-[#858585]">
+              Tasks Completed ({tasks.length})
+            </h3>
+            <div className="mt-2 flex flex-col gap-1.5">
+              {tasks.map((task) => (
+                <div
+                  key={task.id}
+                  className="rounded-md border border-[#3c3c3c] bg-[#1e1e1e] px-3 py-2 text-xs text-[#cccccc]"
+                >
+                  {task.title}
+                  {task.subject && <span className="text-[#858585]"> · {task.subject}</span>}
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   )

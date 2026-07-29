@@ -4,6 +4,8 @@ import { ArrowLeft, Copy, Check, FolderOpen } from 'lucide-react'
 import { usePyqLibrary } from '../hooks/usePyqLibrary'
 import { EXAM_META, PAPER_STATUS_ORDER, PAPER_STATUS_STYLES } from '../constants/pyqLibraryConstants'
 import PaperBookmarkButton from '../components/paperLibrary/PaperBookmarkButton'
+import ClipboardService from '../services/ClipboardService'
+import ResourceLauncherService from '../services/ResourceLauncherService'
 
 function Field({ label, value }) {
   return (
@@ -19,10 +21,15 @@ function Field({ label, value }) {
  *
  * A reusable details page for any paper in the Master Index — not tied to
  * one exam, so JEST/IIT JAM/GATE (and TIFR GS / CSIR NET once pyqs.json
- * grows to include them) all route here. "Open Paper" stays disabled — no
- * desktop file integration exists (out of scope, see Sprint 25's DO NOT
- * IMPLEMENT list) — so it degrades gracefully with an explanatory tooltip
- * rather than being hidden.
+ * grows to include them) all route here.
+ *
+ * Sprint 28 — Desktop Readiness Layer: "Open Paper" now goes through
+ * ResourceLauncherService instead of being permanently disabled. There is
+ * still no real desktop file integration (out of scope — see Sprint 28's
+ * DO NOT IMPLEMENT list), so in Browser mode this resolves to a
+ * NotificationService message explaining that, rather than silently doing
+ * nothing. Once Physics OS runs as a desktop app (Sprint 29), the exact
+ * same button opens the file directly.
  */
 export default function PyqPaperDetailsPage() {
   const { paperId } = useParams()
@@ -48,13 +55,15 @@ export default function PyqPaperDetailsPage() {
 
   const handleCopyPath = async () => {
     if (!paper.fullPath) return
-    try {
-      await navigator.clipboard.writeText(paper.fullPath)
+    const ok = await ClipboardService.copy(paper.fullPath)
+    if (ok) {
       setCopied(true)
       setTimeout(() => setCopied(false), 1500)
-    } catch {
-      // Clipboard API unavailable (e.g. insecure context) — fail silently.
     }
+  }
+
+  const handleOpenPaper = () => {
+    ResourceLauncherService.openPyqPaper(paper)
   }
 
   return (
@@ -141,9 +150,9 @@ export default function PyqPaperDetailsPage() {
 
         <button
           type="button"
-          disabled
-          title="No desktop integration yet — this paper can't be opened from within Physics OS."
-          className="flex items-center gap-1.5 rounded-md border border-[#3c3c3c] bg-[#2d2d2d] px-3 py-1.5 text-xs font-medium text-[#6e6e6e]"
+          onClick={handleOpenPaper}
+          title={paper.fullPath ? 'Open this paper' : 'No path is set for this paper yet'}
+          className="flex items-center gap-1.5 rounded-md border border-[#3c3c3c] bg-[#2d2d2d] px-3 py-1.5 text-xs font-medium text-[#cccccc] transition-colors duration-150 hover:border-[#4a4a4a]"
         >
           <FolderOpen size={13} strokeWidth={1.75} />
           Open Paper

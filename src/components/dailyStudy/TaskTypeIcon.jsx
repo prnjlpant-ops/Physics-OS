@@ -1,4 +1,15 @@
-import { BookOpen, Video, FlaskConical, FileText, Brain, RefreshCw, NotebookPen, ListChecks } from 'lucide-react'
+import {
+  BookOpen,
+  Video,
+  FlaskConical,
+  FileText,
+  Brain,
+  RefreshCw,
+  NotebookPen,
+  ListChecks,
+  ScrollText,
+  ClipboardCheck,
+} from 'lucide-react'
 
 const ICON_MAP = {
   book: BookOpen,
@@ -9,6 +20,10 @@ const ICON_MAP = {
   recall: RefreshCw,
   notes: NotebookPen,
   task: ListChecks,
+  // Added in Sprint 27 for CustomTask types the auto-generated Planner
+  // never produces (see constants/taskConstants.js).
+  research: ScrollText,
+  mock: ClipboardCheck,
 }
 
 export default function TaskTypeIcon({ iconKey, size = 15, strokeWidth = 1.75, className = '' }) {

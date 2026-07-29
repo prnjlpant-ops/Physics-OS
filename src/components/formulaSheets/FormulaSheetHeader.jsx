@@ -1,5 +1,6 @@
 import { Clock, Printer } from 'lucide-react'
 import { DIFFICULTY_STYLES } from '../../constants/formulaSheetSections'
+import WindowService from '../../services/WindowService'
 
 function MetaField({ label, value }) {
   return (
@@ -27,7 +28,7 @@ export default function FormulaSheetHeader({ sheet }) {
 
         <button
           type="button"
-          onClick={() => window.print()}
+          onClick={() => WindowService.print()}
           className="flex items-center gap-1.5 rounded-md border border-[#3c3c3c] bg-[#2d2d2d] px-3 py-1.5 text-xs font-medium text-[#cccccc] transition-colors duration-150 hover:border-[#4a4a4a] hover:text-[#ffffff] print:hidden"
         >
           <Printer size={14} strokeWidth={1.75} />

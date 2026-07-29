@@ -4,6 +4,8 @@ import TopBar from '../components/TopBar'
 import { StudyTimerProvider } from '../context/StudyTimerContext'
 import { MasterIndexProvider } from '../context/MasterIndexProvider'
 import EndSessionModal from '../components/timer/EndSessionModal'
+import NotificationHost from '../components/notifications/NotificationHost'
+import DialogHost from '../components/dialogs/DialogHost'
 
 export default function AppLayout() {
   return (
@@ -19,6 +21,10 @@ export default function AppLayout() {
           </div>
         </div>
         <EndSessionModal />
+        {/* Sprint 28 — Desktop Readiness Layer: single mount points for the
+            NotificationService/DialogService pub-subs. */}
+        <NotificationHost />
+        <DialogHost />
       </StudyTimerProvider>
     </MasterIndexProvider>
   )

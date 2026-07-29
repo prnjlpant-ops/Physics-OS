@@ -5,6 +5,7 @@ import { useLibraryBookmarks } from '../../hooks/useLibraryBookmarks'
 import { LIBRARY_CATEGORY_META } from '../../constants/libraryConstants'
 import BookmarkButton from '../../components/library/BookmarkButton'
 import PriorityBadge from '../../components/library/PriorityBadge'
+import ResourceLauncherService from '../../services/ResourceLauncherService'
 
 function Field({ label, value }) {
   return (
@@ -18,10 +19,14 @@ function Field({ label, value }) {
 /**
  * Sprint 24 — a reusable details page for any Master Index resource, not
  * just Books, so future categories (Solution Manuals, Formula Sheets, ...)
- * can route here too once they're populated. "Open" stays disabled — no
- * desktop file integration exists yet (out of scope, see Sprint 24's DO
- * NOT IMPLEMENT list) — unless the resource carries an external `url`, in
- * which case it opens in a new browser tab.
+ * can route here too once they're populated.
+ *
+ * Sprint 28 — Desktop Readiness Layer: "Open" now goes through
+ * ResourceLauncherService for every resource, not only ones with a `url`.
+ * A `url` resource still opens in a new browser tab; a `path`-only
+ * resource degrades gracefully with a NotificationService message instead
+ * of a permanently disabled button (no real desktop file integration
+ * exists yet — out of scope, see Sprint 28's DO NOT IMPLEMENT list).
  */
 export default function ResourceDetailsPage() {
   const { resourceId } = useParams()
@@ -120,9 +125,9 @@ export default function ResourceDetailsPage() {
         ) : (
           <button
             type="button"
-            disabled
-            title="No desktop integration yet — this file can't be opened from within Physics OS."
-            className="flex items-center gap-1.5 rounded-md border border-[#3c3c3c] bg-[#2d2d2d] px-3 py-1.5 text-xs font-medium text-[#6e6e6e]"
+            onClick={() => ResourceLauncherService.openLibraryResource(resource)}
+            title={resource.path ? 'Open this resource' : 'No path is set for this resource yet'}
+            className="flex items-center gap-1.5 rounded-md border border-[#3c3c3c] bg-[#2d2d2d] px-3 py-1.5 text-xs font-medium text-[#cccccc] transition-colors duration-150 hover:border-[#4a4a4a]"
           >
             <FolderOpen size={13} strokeWidth={1.75} />
             Open

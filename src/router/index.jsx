@@ -26,6 +26,8 @@ import ChapterActiveRecallPage from '../pages/subject/chapter/ChapterActiveRecal
 import ChapterActiveRecallStudyPage from '../pages/subject/chapter/ChapterActiveRecallStudyPage'
 import SubjectProgressPage from '../pages/subject/SubjectProgressPage'
 import ResourcesPage from '../pages/ResourcesPage'
+import TopicIndexPage from '../pages/topics/TopicIndexPage'
+import TopicDetailsPage from '../pages/topics/TopicDetailsPage'
 import PyqsPage from '../pages/PyqsPage'
 import PyqPaperDetailsPage from '../pages/PyqPaperDetailsPage'
 import NotesPage from '../pages/NotesPage'
@@ -191,6 +193,13 @@ const router = createBrowserRouter([
       { path: 'library', element: <LibraryPage /> },
       { path: 'library/settings', element: <LibrarySettingsPage /> },
       { path: 'library/resource/:resourceId', element: <ResourceDetailsPage /> },
+      {
+        path: 'topics',
+        children: [
+          { index: true, element: <TopicIndexPage /> },
+          { path: ':topicId', element: <TopicDetailsPage /> },
+        ],
+      },
       { path: 'settings', element: <SettingsPage /> },
       { path: 'settings/master-index', element: <MasterIndexPage /> },
     ],

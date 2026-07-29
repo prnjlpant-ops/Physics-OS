@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { Clock, Printer, Play } from 'lucide-react'
 import { IMPORTANCE_STYLES, REVISION_STATUS_STYLES } from '../../constants/memorySheetSections'
+import WindowService from '../../services/WindowService'
 
 function MetaField({ label, value }) {
   return (
@@ -38,7 +39,7 @@ export default function MemorySheetHeader({ sheet, revisionPath }) {
           )}
           <button
             type="button"
-            onClick={() => window.print()}
+            onClick={() => WindowService.print()}
             className="flex items-center gap-1.5 rounded-md border border-[#3c3c3c] bg-[#2d2d2d] px-3 py-1.5 text-xs font-medium text-[#cccccc] transition-colors duration-150 hover:border-[#4a4a4a] hover:text-[#ffffff]"
           >
             <Printer size={14} strokeWidth={1.75} />

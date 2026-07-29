@@ -5,6 +5,8 @@ import DayDetailPanel from '../components/calendar/DayDetailPanel'
 import CalendarFilters from '../components/calendar/CalendarFilters'
 import RecentSessions from '../components/calendar/RecentSessions'
 import { getAllStudySessions } from '../utils/studySessionsStorage'
+import TaskService from '../services/TaskService'
+import { TASK_STATUS } from '../constants/dailyStudyConstants'
 import {
   groupSessionsByDate,
   getTodayTotalMs,
@@ -13,11 +15,27 @@ import {
   computeStreaks,
   filterSessionsByRange,
   searchSessions,
+  toDateKey,
 } from '../utils/calendarStats'
+
+/** Sprint 27: groups completed custom tasks by the date they were completed on. */
+function groupCompletedTasksByDate(tasks) {
+  const map = new Map()
+  tasks
+    .filter((task) => task.status === TASK_STATUS.COMPLETED && task.completedAt)
+    .forEach((task) => {
+      const key = toDateKey(task.completedAt)
+      if (!map.has(key)) map.set(key, [])
+      map.get(key).push(task)
+    })
+  return map
+}
 
 export default function CalendarPage() {
   const allSessions = useMemo(() => getAllStudySessions(), [])
   const sessionsByDate = useMemo(() => groupSessionsByDate(allSessions), [allSessions])
+  const allTasks = useMemo(() => TaskService.getAllTasks(), [])
+  const tasksByDate = useMemo(() => groupCompletedTasksByDate(allTasks), [allTasks])
 
   const [selectedDay, setSelectedDay] = useState(null)
   const [filter, setFilter] = useState('all')
@@ -38,6 +56,7 @@ export default function CalendarPage() {
   }, [allSessions, filter, customRange, search])
 
   const selectedDaySessions = selectedDay ? sessionsByDate.get(selectedDay.key) || [] : []
+  const selectedDayTasks = selectedDay ? tasksByDate.get(selectedDay.key) || [] : []
 
   return (
     <div className="flex flex-col gap-5 px-4 py-5 sm:px-6 lg:px-8">
@@ -76,6 +95,7 @@ export default function CalendarPage() {
       <DayDetailPanel
         day={selectedDay}
         sessions={selectedDaySessions}
+        tasks={selectedDayTasks}
         onClose={() => setSelectedDay(null)}
       />
     </div>

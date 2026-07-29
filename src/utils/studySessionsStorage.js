@@ -1,4 +1,8 @@
 const SESSIONS_STORAGE_KEY = 'physicsOS.studySessions'
+// Sprint 27: lets same-tab consumers (ProgressService/useProgress, Calendar)
+// react immediately when a session is saved, instead of only picking it up
+// on next mount or via the native cross-tab `storage` event.
+export const SESSIONS_CHANGED_EVENT = 'physicsOS.studySessionsChanged'
 
 /**
  * Returns every completed study session stored locally, oldest first.
@@ -23,6 +27,7 @@ export function saveStudySession(session) {
   const updated = [...sessions, session]
   try {
     localStorage.setItem(SESSIONS_STORAGE_KEY, JSON.stringify(updated))
+    window.dispatchEvent(new Event(SESSIONS_CHANGED_EVENT))
   } catch {
     // Local storage unavailable or full; fail silently, no cloud fallback.
   }
