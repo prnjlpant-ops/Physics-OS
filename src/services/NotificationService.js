@@ -1,17 +1,19 @@
 import { NOTIFICATION_TYPES } from '../constants/desktopConstants'
+import EnvironmentService from './EnvironmentService'
 
 /**
  * NOTIFICATION SERVICE
  * ====================
- * Sprint 28 — Desktop Readiness Layer.
- *
- * A tiny pub-sub so any service or component can raise a Success/Warning/
- * Error/Info notification without importing a UI component — the actual
- * rendering lives in `components/notifications/NotificationHost.jsx`,
- * mounted once in `AppLayout`. This is the Browser implementation; a
- * future Electron build can replace it with native OS notifications
- * without touching any of the ~dozen call sites that will use this
- * service (ResourceLauncherService, ImportService, ExportService, ...).
+ * Sprint 28 — Desktop Readiness Layer: in-app toasts only, rendered by
+ * `components/notifications/NotificationHost.jsx`.
+ * Sprint 29B — Native Desktop Integration: additionally fires a real OS
+ * notification (see electron/services/notificationService.cjs) when
+ * running as a desktop app AND the window is unfocused/hidden — e.g. a
+ * long Study Session ends while Physics OS is in the background. When the
+ * window is focused, the in-app toast alone is enough; a duplicate native
+ * popup on top of a toast the user is already looking at would just be
+ * noise. Every existing call site (ResourceLauncherService,
+ * ImportService, ExportService, ...) is unaffected — this is additive.
  */
 
 let listeners = new Set()
@@ -25,6 +27,17 @@ function emit(notification) {
   listeners.forEach((callback) => callback(notification))
 }
 
+/** Best-effort native notification — never blocks or throws into the caller. */
+function notifyNative(type, message) {
+  if (!EnvironmentService.isElectron()) return
+  if (typeof document !== 'undefined' && !document.hidden) return
+  window.physicsOSDesktop.notification
+    .show({ title: 'Physics OS', message, type })
+    .catch(() => {
+      // Native notifications are a nice-to-have — the in-app toast already covered it.
+    })
+}
+
 function notify(type, message, options = {}) {
   const notification = {
     id: `notif-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
@@ -33,6 +46,7 @@ function notify(type, message, options = {}) {
     duration: options.duration ?? 4000,
   }
   emit(notification)
+  notifyNative(type, message)
   return notification.id
 }
 

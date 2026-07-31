@@ -1,4 +1,4 @@
-import { createBrowserRouter, Navigate } from 'react-router-dom'
+import { createHashRouter, Navigate } from 'react-router-dom'
 import AppLayout from '../layouts/AppLayout'
 import HomePage from '../pages/HomePage'
 import CalendarPage from '../pages/CalendarPage'
@@ -66,7 +66,7 @@ import LibraryPage from '../pages/library/LibraryPage'
 import LibrarySettingsPage from '../pages/library/LibrarySettingsPage'
 import ResourceDetailsPage from '../pages/library/ResourceDetailsPage'
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: '/',
     element: <AppLayout />,

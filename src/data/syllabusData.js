@@ -3,8 +3,7 @@ import {
   getNodesAtLevel,
   flattenTree,
 } from '../engine/syllabusEngine'
-import { getBlueprintData } from '../engine/blueprintService'
-import { buildSubjectsFromBlueprint } from '../engine/blueprintMappingLayer'
+import { getBlueprintData, getSubjects } from '../engine/blueprintService'
 import { TOPIC_STATUS_WEIGHT } from '../constants/syllabusConstants'
 
 /**
@@ -28,7 +27,7 @@ let cachedTree = null
 export function getSyllabusTree() {
   if (!cachedTree) {
     const blueprintData = getBlueprintData()
-    const subjectsWithIcons = buildSubjectsFromBlueprint().map((subject) => ({
+    const subjectsWithIcons = getSubjects().map((subject) => ({
       id: subject.id,
       icon: subject.icon,
     }))

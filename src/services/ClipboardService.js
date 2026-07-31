@@ -1,17 +1,31 @@
+import EnvironmentService from './EnvironmentService'
+
 /**
  * CLIPBOARD SERVICE
  * =================
- * Sprint 28 — Desktop Readiness Layer.
- *
- * Single place components call to copy text (Notes, Citations, Topic
- * Names, Resource Paths, ...) instead of calling `navigator.clipboard`
- * directly. Falls back to a hidden-textarea + `execCommand('copy')` trick
- * for insecure contexts / older browsers where the async Clipboard API
- * isn't available, and never throws into the caller.
+ * Sprint 28 — Desktop Readiness Layer: `navigator.clipboard` /
+ * `execCommand` fallback only.
+ * Sprint 29B — Native Desktop Integration: prefers Electron's native
+ * clipboard (`window.physicsOSDesktop.clipboard`, see
+ * electron/services/clipboardService.cjs) when running as a desktop app,
+ * since it works regardless of focus/secure-context edge cases the
+ * browser Clipboard API has. Falls back to the exact same
+ * `navigator.clipboard` / `execCommand` chain otherwise — used for Copy
+ * Notes, Copy Citations, Copy Resource Paths, Copy Topic Names.
  */
 
 async function copy(text) {
-  if (!text || typeof window === 'undefined') return false
+  if (!text) return false
+
+  if (EnvironmentService.isElectron()) {
+    try {
+      return await window.physicsOSDesktop.clipboard.writeText(text)
+    } catch {
+      // Fall through to the browser-style fallback below rather than failing outright.
+    }
+  }
+
+  if (typeof window === 'undefined') return false
 
   try {
     if (navigator?.clipboard && window.isSecureContext) {

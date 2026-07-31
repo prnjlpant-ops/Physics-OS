@@ -1,6 +1,6 @@
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { ArrowLeft, NotebookPen, Plus } from 'lucide-react'
-import { getChapterBySlug } from '../../../constants/subjects'
+import { getChapterBySlug } from '../../../engine/blueprintService'
 import { useNotes } from '../../../hooks/useNotes'
 import NoteListItem from '../../../components/notes/NoteListItem'
 import EmptyState from '../EmptyState'

@@ -27,22 +27,34 @@ function getPlatform() {
   return PlatformService.detect()
 }
 
-/** True once a real Electron bridge exists and is ready. Always false in this sprint. */
+/**
+ * True once a real Electron bridge exists and is ready. Sprint 29A makes
+ * this possible via `preload.cjs`'s `ready: true` flag; it was always
+ * false before this sprint because no bridge existed at all.
+ */
 function isElectronReady() {
-  return false
+  return EnvironmentService.isElectron() && Boolean(window.physicsOSDesktop?.ready)
 }
 
 /**
  * What Physics OS can currently do on this device. Every feature service
  * (ResourceLauncherService, FileSystemService, DialogService, ...) checks
  * these instead of re-deriving environment logic itself.
+ *
+ * Sprint 29B implements native file access, dialogs, and notifications for
+ * real (see electron/services/*.cjs) — all report `true` once the Electron
+ * bridge is ready. Auto-updates and cloud sync remain out of scope (see
+ * Sprint 29B's DO NOT IMPLEMENT list — those belong to a future sprint).
  */
 function capabilities() {
+  const electronReady = isElectronReady()
   return {
-    nativeFileAccess: false,
-    nativeDialogs: false,
-    nativeNotifications: false,
-    nativeClipboard: typeof navigator !== 'undefined' && Boolean(navigator.clipboard),
+    nativeFileAccess: electronReady,
+    nativeDialogs: electronReady,
+    nativeNotifications: electronReady,
+    nativeClipboard: electronReady
+      ? Boolean(window.physicsOSDesktop?.clipboard)
+      : typeof navigator !== 'undefined' && Boolean(navigator.clipboard),
     autoUpdates: false,
     cloudSync: false,
   }

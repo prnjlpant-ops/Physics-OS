@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { BrainCircuit, ChevronRight, Play, ListFilter } from 'lucide-react'
-import { subjects } from '../constants/subjects'
+import { getSubjects } from '../engine/blueprintService'
 import { getAllActiveRecallCards, getActiveRecallProgress } from '../data/activeRecallData'
 import { useActiveRecallBookmarks } from '../hooks/useActiveRecallBookmarks'
 import { useActiveRecallReviewed } from '../hooks/useActiveRecallReviewed'
@@ -31,10 +31,12 @@ export default function ActiveRecallPage() {
   const { reviewedIds, markReviewed } = useActiveRecallReviewed()
   const { getDifficulty, setDifficulty: setCardDifficulty } = useActiveRecallDifficulty()
 
+  const subjects = useMemo(() => getSubjects(), [])
+
   const chapters = useMemo(() => {
     if (subjectId === 'all') return []
     return subjects.find((subject) => subject.id === subjectId)?.chapters ?? []
-  }, [subjectId])
+  }, [subjectId, subjects])
 
   const filteredCards = useMemo(() => {
     const query = search.trim().toLowerCase()

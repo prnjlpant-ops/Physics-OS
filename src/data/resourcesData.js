@@ -1,4 +1,4 @@
-import { subjects } from '../constants/subjects'
+import { getSubjects } from '../engine/blueprintService'
 import { getBlueprintResourcesForSubject } from '../engine/blueprintMappingLayer'
 
 /**
@@ -61,7 +61,9 @@ function videoToResource(video, subject, chapter, index) {
     chapterName: chapter.name,
     title: `${chapter.name} — ${video.title}`,
     duration: video.duration ?? '—',
-    source: video.title,
+    source: video.platform ?? video.title,
+    url: video.url ?? null,
+    platform: video.platform ?? null,
   }
 }
 
@@ -149,5 +151,5 @@ export function getSubjectResources(subject) {
 }
 
 export function getAllResources() {
-  return subjects.flatMap((subject) => getSubjectResources(subject))
+  return getSubjects().flatMap((subject) => getSubjectResources(subject))
 }

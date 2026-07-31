@@ -1,6 +1,7 @@
 import { Outlet } from 'react-router-dom'
 import Sidebar from '../components/Sidebar'
 import TopBar from '../components/TopBar'
+import useDesktopMenu from '../hooks/useDesktopMenu'
 import { StudyTimerProvider } from '../context/StudyTimerContext'
 import { MasterIndexProvider } from '../context/MasterIndexProvider'
 import EndSessionModal from '../components/timer/EndSessionModal'
@@ -8,6 +9,8 @@ import NotificationHost from '../components/notifications/NotificationHost'
 import DialogHost from '../components/dialogs/DialogHost'
 
 export default function AppLayout() {
+  useDesktopMenu()
+
   return (
     <MasterIndexProvider>
       <StudyTimerProvider>

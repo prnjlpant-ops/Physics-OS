@@ -1,8 +1,7 @@
 import { useEffect } from 'react'
 import { Link, NavLink, Outlet, useParams } from 'react-router-dom'
 import { ArrowLeft } from 'lucide-react'
-import { getChapterBySlug } from '../../../constants/subjects'
-import { getChapterResources } from '../../../data/resourcesData'
+import { getChapter, getResources } from '../../../engine/blueprintService'
 import { RESOURCE_TYPE_ORDER, RESOURCE_TYPE_META } from '../../../constants/resourceTypes'
 import PageTitle from '../../../components/PageTitle'
 import WorkspaceService from '../../../services/WorkspaceService'
@@ -18,7 +17,7 @@ const TAB_PATHS = {
 
 export default function ChapterResourceLayout() {
   const { subjectId, chapterSlug } = useParams()
-  const found = getChapterBySlug(subjectId, chapterSlug)
+  const found = getChapter(subjectId, chapterSlug)
 
   // Sprint 28 — Desktop Readiness Layer: records "where the user is" so
   // ContinueStudyingCard (and future consumers) can restore it after a
@@ -35,7 +34,7 @@ export default function ChapterResourceLayout() {
   }
 
   const { subject, chapter } = found
-  const resources = getChapterResources(subject, chapter)
+  const resources = getResources(subject.id, chapter.slug)
 
   return (
     <div className="flex flex-col gap-5 px-4 py-5 sm:px-6 lg:px-8">

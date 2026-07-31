@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { ArrowLeft, FlaskConical } from 'lucide-react'
-import { getChapterBySlug } from '../../../constants/subjects'
+import { getChapterBySlug } from '../../../engine/blueprintService'
 import { getChapterPyqs } from '../../../data/pyqsData'
 import { getPyqProgress } from '../../../data/pyqProgress'
 import { usePyqBookmarks } from '../../../hooks/usePyqBookmarks'

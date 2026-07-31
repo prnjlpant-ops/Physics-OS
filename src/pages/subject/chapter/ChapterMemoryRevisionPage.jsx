@@ -1,6 +1,6 @@
 import { Link, useParams } from 'react-router-dom'
 import { ArrowLeft } from 'lucide-react'
-import { getChapterBySlug } from '../../../constants/subjects'
+import { getChapterBySlug } from '../../../engine/blueprintService'
 import { getChapterMemoryCardsFlat } from '../../../data/memorySheetsData'
 import { useMemoryBookmarks } from '../../../hooks/useMemoryBookmarks'
 import { useMemoryReviewed } from '../../../hooks/useMemoryReviewed'

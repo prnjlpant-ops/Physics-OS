@@ -1,11 +1,16 @@
-import { buildSubjectsFromBlueprint, getBlueprintChapter } from '../engine/blueprintMappingLayer'
+import {
+  getSubjects as getBlueprintSubjects,
+  getSubjectById as getBlueprintSubjectById,
+  getChapterBySlug as getBlueprintChapterBySlug,
+  getBlueprintChapter,
+} from '../engine/blueprintService'
 
 /**
  * Subjects — Sprint 17.
  * =====================
  * Every subject/chapter in this app used to be hardcoded here as placeholder
  * data (Sprint 16 and earlier). It is now built from the imported JEST 2027
- * blueprint (see `src/data/blueprint/` + `engine/blueprintMappingLayer.js`).
+ * blueprint via the central BlueprintService.
  *
  * The exported shape is unchanged: an array of
  * { id, name, icon, description, chapters: [{ name, slug, status, progress,
@@ -18,10 +23,10 @@ import { buildSubjectsFromBlueprint, getBlueprintChapter } from '../engine/bluep
  * To update the syllabus in a future sprint: replace the blueprint file(s)
  * in `src/data/blueprint/`. This file does not need to change.
  */
-export const subjects = buildSubjectsFromBlueprint()
+export const subjects = getBlueprintSubjects()
 
 export function getSubjectById(id) {
-  return subjects.find((subject) => subject.id === id)
+  return getBlueprintSubjectById(id)
 }
 
 export function getChapterBySlug(subjectId, chapterSlug) {

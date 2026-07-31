@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from 'react'
 import { DEFAULT_KNOWLEDGE_BASE_ROOT_PATH } from '../constants/knowledgeBaseConstants'
+import RecentFilesService from '../services/RecentFilesService'
 
 const SETTINGS_STORAGE_KEY = 'physicsOS.knowledgeBaseSettings'
 const SETTINGS_EVENT = 'physicsOS.knowledgeBaseSettingsChanged'
@@ -28,10 +29,28 @@ function writeSettings(settings) {
 }
 
 /**
+ * Sets the Knowledge Base root path outside of a React component — used by
+ * `useDesktopMenu.js` when the native "Open Knowledge Base…" menu item
+ * (Sprint 29B, electron/main/menu.cjs) already picked a folder via a
+ * native dialog, before any component with `useKnowledgeBaseSettings()`
+ * mounted has a chance to call `setRootPath`. Shares the exact same
+ * storage key/event as the hook below so both stay in sync.
+ */
+export function setKnowledgeBaseRootPath(rootPath) {
+  const previous = readSettings().rootPath
+  writeSettings({ rootPath })
+  if (previous) RecentFilesService.pushWorkspace(previous)
+}
+
+/**
  * Knowledge Base Settings — Root Path only, by design (Sprint 21). Stored
  * locally so the app remembers where the user keeps their Knowledge Base
- * folder on disk. Nothing here reads that folder; the path is only ever
- * used to compute display strings for future local file integration.
+ * folder on disk.
+ *
+ * Sprint 29B — Native Desktop Integration: every root path change (manual
+ * typing, the Settings "Browse…" native folder picker, or the File menu)
+ * records the *previous* root into `RecentFilesService`'s Recent
+ * Workspaces list before switching, so the user can jump back to it.
  */
 export function useKnowledgeBaseSettings() {
   const [settings, setSettings] = useState(readSettings)
@@ -47,7 +66,10 @@ export function useKnowledgeBaseSettings() {
   }, [])
 
   const setRootPath = useCallback((rootPath) => {
-    setSettings(() => {
+    setSettings((current) => {
+      if (current.rootPath && current.rootPath !== rootPath) {
+        RecentFilesService.pushWorkspace(current.rootPath)
+      }
       const next = { rootPath }
       writeSettings(next)
       return next

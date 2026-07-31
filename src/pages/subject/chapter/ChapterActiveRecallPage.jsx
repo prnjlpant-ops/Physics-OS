@@ -1,6 +1,6 @@
 import { Link, useParams } from 'react-router-dom'
 import { ArrowLeft, Play } from 'lucide-react'
-import { getChapterBySlug } from '../../../constants/subjects'
+import { getChapterBySlug } from '../../../engine/blueprintService'
 import { getChapterActiveRecallCards, getActiveRecallProgress } from '../../../data/activeRecallData'
 import { useActiveRecallBookmarks } from '../../../hooks/useActiveRecallBookmarks'
 import { useActiveRecallReviewed } from '../../../hooks/useActiveRecallReviewed'

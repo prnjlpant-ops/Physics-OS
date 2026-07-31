@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { ArrowLeft, FileText, Brain } from 'lucide-react'
-import { getChapterBySlug } from '../../../constants/subjects'
+import { getChapterBySlug } from '../../../engine/blueprintService'
 import { getChapterPyqs } from '../../../data/pyqsData'
 import { DIFFICULTY_STYLES } from '../../../constants/pyqConstants'
 import { usePyqBookmarks } from '../../../hooks/usePyqBookmarks'

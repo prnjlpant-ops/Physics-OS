@@ -104,6 +104,64 @@ export default function SettingsPage() {
     NotificationService.success(`Imported ${applied} item${applied === 1 ? '' : 's'}.`)
   }
 
+  const desktopReady = DesktopService.capabilities().nativeDialogs
+
+  const handleBrowseKnowledgeBase = async () => {
+    const { canceled, path, unsupported } = await DialogService.openFolderDialog({
+      title: 'Choose Knowledge Base folder',
+    })
+
+    if (unsupported) {
+      NotificationService.error('Native folder browsing is available only in the desktop build.')
+      return
+    }
+    if (canceled || !path) return
+
+    setRootPath(path)
+    NotificationService.success('Knowledge Base folder selected.')
+  }
+
+  const handleNativeExport = async () => {
+    if (!desktopReady) return
+
+    const { success, canceled, error } = await ExportService.exportCategoriesNative(
+      ExportService.EXPORT_CATEGORIES,
+      'physics-os-export.json',
+    )
+
+    if (success) {
+      NotificationService.success('Data exported successfully.')
+      return
+    }
+    if (!canceled) {
+      NotificationService.error(error ?? 'Export failed.')
+    }
+  }
+
+  const handleNativeImport = async () => {
+    if (!desktopReady) return
+
+    const { success, canceled, unsupported, error, payload } = await ImportService.importFromNative()
+
+    if (unsupported) {
+      NotificationService.error('Native import is available only in the desktop build.')
+      return
+    }
+    if (canceled) return
+    if (!success) {
+      NotificationService.error(error ?? 'Could not read that file.')
+      return
+    }
+
+    const confirmed = await DialogService.confirmImport(
+      'Import data from the selected file? Existing data with the same keys will be overwritten.',
+    )
+    if (!confirmed) return
+
+    const { applied } = ImportService.applyPayload(payload)
+    NotificationService.success(`Imported ${applied} item${applied === 1 ? '' : 's'}.`)
+  }
+
   const handleClearRecent = async () => {
     const confirmed = await DialogService.confirmDelete('Recent Items')
     if (!confirmed) return
@@ -170,7 +228,15 @@ export default function SettingsPage() {
           </p>
         )}
 
-        <div className="mt-3 flex flex-wrap gap-1.5 border-t border-[#3c3c3c] pt-3">
+        <div className="mt-3 flex flex-wrap gap-2 border-t border-[#3c3c3c] pt-3">
+          <button
+            type="button"
+            onClick={handleBrowseKnowledgeBase}
+            disabled={!desktopReady}
+            className="rounded-md border border-[#3c3c3c] bg-[#2d2d2d] px-3 py-1.5 text-xs font-medium text-[#cccccc] transition-colors duration-150 hover:border-[#4a4a4a] disabled:cursor-not-allowed disabled:opacity-50"
+          >
+            Browse Knowledge Base
+          </button>
           {KNOWLEDGE_BASE_CATEGORY_ORDER.map((categoryKey) => (
             <span
               key={categoryKey}
@@ -336,6 +402,33 @@ export default function SettingsPage() {
           </button>
         </div>
 
+        <div className="mt-3 border-t border-[#3c3c3c] pt-3">
+          <div className="flex items-center justify-between gap-3">
+            <div className="flex items-center gap-2">
+              <History size={14} strokeWidth={1.75} className="text-[#858585]" />
+              <span className="text-[11px] text-[#9d9d9d]">Recent Workspaces</span>
+            </div>
+          </div>
+          {recentItems.workspaces?.length > 0 ? (
+            <div className="mt-2 grid gap-2">
+              {recentItems.workspaces.map((workspace) => (
+                <button
+                  key={workspace.id}
+                  type="button"
+                  onClick={() => setRootPath(workspace.path)}
+                  className="w-full rounded-md border border-[#3c3c3c] bg-[#2d2d2d] px-3 py-2 text-left text-[11px] text-[#cccccc] transition-colors duration-150 hover:border-[#4a4a4a] hover:text-[#ffffff]"
+                >
+                  <span className="block truncate font-mono text-[11px] text-[#9d9d9d]">
+                    {workspace.path}
+                  </span>
+                </button>
+              ))}
+            </div>
+          ) : (
+            <p className="mt-2 text-[11px] text-[#6e6e6e]">No recent workspaces yet. Browse a Knowledge Base folder to save one.</p>
+          )}
+        </div>
+
         <div className="mt-3 flex flex-wrap gap-2 border-t border-[#3c3c3c] pt-3">
           <button
             type="button"
@@ -352,6 +445,24 @@ export default function SettingsPage() {
           >
             <Upload size={13} strokeWidth={1.75} />
             Import Data
+          </button>
+          <button
+            type="button"
+            onClick={handleNativeExport}
+            disabled={!desktopReady}
+            className="flex items-center gap-1.5 rounded-md border border-[#3c3c3c] bg-[#2d2d2d] px-3 py-1.5 text-xs font-medium text-[#cccccc] transition-colors duration-150 hover:border-[#4a4a4a] disabled:cursor-not-allowed disabled:opacity-50"
+          >
+            <Download size={13} strokeWidth={1.75} />
+            Native Export
+          </button>
+          <button
+            type="button"
+            onClick={handleNativeImport}
+            disabled={!desktopReady}
+            className="flex items-center gap-1.5 rounded-md border border-[#3c3c3c] bg-[#2d2d2d] px-3 py-1.5 text-xs font-medium text-[#cccccc] transition-colors duration-150 hover:border-[#4a4a4a] disabled:cursor-not-allowed disabled:opacity-50"
+          >
+            <Upload size={13} strokeWidth={1.75} />
+            Native Import
           </button>
           <input
             ref={importInputRef}

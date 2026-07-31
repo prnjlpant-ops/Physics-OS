@@ -1,7 +1,7 @@
 import { Play } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { useWorkspace } from '../../hooks/useWorkspace'
-import { getSubjectById, getChapterBySlug } from '../../constants/subjects'
+import { getSubjectById, getChapterBySlug } from '../../engine/blueprintService'
 
 /**
  * Sprint 28 — Desktop Readiness Layer.

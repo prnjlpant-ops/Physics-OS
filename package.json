@@ -1,13 +1,22 @@
 {
   "name": "physics-os",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "A local-first study operating system for physics exam preparation",
+  "author": "Physics OS",
   "type": "module",
+  "main": "electron/main/main.cjs",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "type-check": "tsc --noEmit",
+    "electron:dev": "concurrently -k -n vite,electron -c blue,magenta \"npm:dev\" \"npm:electron:wait\"",
+    "electron:wait": "wait-on tcp:5173 && cross-env NODE_ENV=development electron .",
+    "electron:build": "vite build",
+    "electron:start": "cross-env NODE_ENV=production electron .",
+    "package:win": "npm run build && electron-builder --win --publish never"
   },
   "dependencies": {
     "lucide-react": "^0.525.0",
@@ -15,15 +24,53 @@
     "react-dom": "^19.1.0",
     "react-router-dom": "^7.7.0"
   },
+  "build": {
+    "appId": "com.physicsos.desktop",
+    "productName": "Physics OS",
+    "executableName": "physics-os",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "electron/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        "portable",
+        "nsis"
+      ],
+      "icon": "build/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    },
+    "portable": {
+      "artifactName": "${productName}-Portable-${version}.exe"
+    }
+  },
   "devDependencies": {
     "@eslint/js": "^9.30.1",
     "@tailwindcss/vite": "^4.1.11",
+    "@types/node": "^24.1.0",
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.0",
     "@vitejs/plugin-react": "^4.6.0",
+    "concurrently": "^9.1.2",
+    "cross-env": "^7.0.3",
+    "electron": "^33.2.1",
+    "electron-builder": "^26.15.3",
     "eslint": "^9.30.1",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.20",
     "globals": "^16.3.0",
     "tailwindcss": "^4.1.11",
-    "vite": "^7.0.4"
+    "typescript": "^5.6.3",
+    "vite": "^7.0.4",
+    "wait-on": "^8.0.1"
   }
 }

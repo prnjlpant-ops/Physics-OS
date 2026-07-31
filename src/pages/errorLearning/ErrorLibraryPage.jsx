@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react'
 import { FileSearch } from 'lucide-react'
-import { subjects } from '../../constants/subjects'
+import { getSubjects } from '../../engine/blueprintService'
 import { getAllErrors } from '../../data/errorLearningData'
 import { useErrorStatus } from '../../hooks/useErrorStatus'
 import { useErrorBookmarks } from '../../hooks/useErrorBookmarks'
@@ -23,7 +23,7 @@ export default function ErrorLibraryPage() {
 
   const chapters = useMemo(() => {
     if (subjectId === 'all') return []
-    return subjects.find((subject) => subject.id === subjectId)?.chapters ?? []
+    return getSubjects().find((subject) => subject.id === subjectId)?.chapters ?? []
   }, [subjectId])
 
   const filtered = useMemo(() => {

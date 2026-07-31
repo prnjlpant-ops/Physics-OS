@@ -13,6 +13,11 @@ import { RECENT_LIST_NAMES, DEFAULT_MAX_RECENT_ITEMS, LAUNCHABLE_RESOURCE_TYPES 
  * whenever a resource is opened; `WorkspaceService` and future
  * Topic/Study Session pages can push topics directly.
  *
+ * Sprint 29B — Native Desktop Integration adds `pushWorkspace`: previously
+ * chosen Knowledge Base roots, so switching back to one (Settings ->
+ * Knowledge Base) doesn't require re-browsing for it. Called by
+ * `useKnowledgeBaseSettings.js` whenever the root path changes.
+ *
  * History length is user-configurable via Settings -> Maximum Recent
  * Items (`SettingsService`'s `maxRecentItems`, default 10).
  */
@@ -24,6 +29,7 @@ const DEFAULT_STATE = {
   [RECENT_LIST_NAMES.TOPICS]: [],
   [RECENT_LIST_NAMES.BOOKS]: [],
   [RECENT_LIST_NAMES.PAPERS]: [],
+  [RECENT_LIST_NAMES.WORKSPACES]: [],
 }
 
 function readAll() {
@@ -74,6 +80,12 @@ function pushTopic(topic) {
   return pushToList(RECENT_LIST_NAMES.TOPICS, topic)
 }
 
+/** Records a Knowledge Base root the user has pointed Physics OS at. `rootPath` doubles as its own id. */
+function pushWorkspace(rootPath) {
+  if (!rootPath || typeof rootPath !== 'string') return readAll()
+  return pushToList(RECENT_LIST_NAMES.WORKSPACES, { id: rootPath, path: rootPath })
+}
+
 function getAll() {
   return readAll()
 }
@@ -97,6 +109,7 @@ function subscribe(callback) {
 export const RecentFilesService = {
   pushResource,
   pushTopic,
+  pushWorkspace,
   getAll,
   clear,
   subscribe,

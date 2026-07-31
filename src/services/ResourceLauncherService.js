@@ -8,22 +8,19 @@ import { LAUNCHABLE_RESOURCE_TYPES } from '../constants/desktopConstants'
 /**
  * RESOURCE LAUNCHER SERVICE
  * =========================
- * Sprint 28 — Desktop Readiness Layer.
+ * Sprint 28 — Desktop Readiness Layer: browser-only. A resource with a
+ * local `path` could not be opened at all — Electron's branch only
+ * reported "isn't implemented yet".
+ * Sprint 29B — Native Desktop Integration: local paths now open with the
+ * OS's default application via `window.physicsOSDesktop.resource.open`
+ * (see electron/services/resourceService.cjs), covering every kind the
+ * PRD calls out (Books, Notes, Formula Sheets, Memory Sheets, Videos,
+ * Research Papers, PYQs) and every format (PDF, images, video, markdown,
+ * text, common documents) uniformly — `shell.openPath` dispatches by file
+ * association, not resource type.
  *
- * Centralizes opening every resource kind the PRD calls out — Books,
- * Notes, Formula Sheets, Memory Sheets, Videos, Research Papers, PYQs —
- * so no page reaches for `window.open` or renders its own "no desktop
- * integration yet" message. Path/URL never comes from a hardcoded
- * location; it's always resolved through `PathResolverService` from the
- * resource's own metadata.
- *
- * Browser-safe behavior: a resource with a `url` opens in a new tab right
- * now. A resource with only a local `path` cannot be opened from the
- * browser (no native file access — see Sprint 28's DO NOT IMPLEMENT
- * list), so this degrades gracefully with a `NotificationService.info`
- * explaining that, instead of the "Open" button being disabled forever.
- * Sprint 29 (Electron Integration) only has to fill in the `isElectron()`
- * branch below with a real IPC file-open call.
+ * Path/URL never comes from a hardcoded location; it's always resolved
+ * through `PathResolverService` from the resource's own metadata.
  */
 
 /**
@@ -44,9 +41,9 @@ function open(descriptor = {}) {
 
   if (path) {
     if (EnvironmentService.isElectron()) {
-      // Sprint 29 replaces this branch with a real native file-open call.
-      NotificationService.info(`Opening "${displayTitle}" isn't implemented yet.`)
-      return { opened: false, mode: 'electron-pending' }
+      openNative(path, displayTitle)
+      recordRecent(type, { id, title, subjectName, path, url })
+      return { opened: true, mode: 'native' }
     }
 
     NotificationService.info(
@@ -58,6 +55,36 @@ function open(descriptor = {}) {
 
   NotificationService.warning(`No path or link is set yet for "${displayTitle}".`)
   return { opened: false, mode: 'missing-metadata' }
+}
+
+/**
+ * Fires the native open asynchronously — callers of `open()` need a
+ * synchronous return value (matching the browser-mode behavior above), so
+ * failures surface as a notification rather than a rejected Promise the
+ * caller would have to await.
+ */
+function openNative(path, displayTitle) {
+  window.physicsOSDesktop.resource
+    .open(path)
+    .catch((error) => {
+      NotificationService.error(
+        `Could not open "${displayTitle}": ${error?.message ?? 'the file may have moved.'}`,
+      )
+    })
+}
+
+/** Reveals a resource's local path in the OS file manager — used when opening fails (e.g. the file moved). */
+function revealInFileManager(descriptor = {}) {
+  const { path } = PathResolverService.resolveResourceLocation(descriptor)
+  if (!path) return { revealed: false, reason: 'missing-path' }
+  if (!EnvironmentService.isElectron()) {
+    NotificationService.info('Revealing files in your file manager requires the desktop build of Physics OS.')
+    return { revealed: false, reason: 'unsupported-browser' }
+  }
+  window.physicsOSDesktop.resource.reveal(path).catch(() => {
+    NotificationService.error('Could not reveal that file — it may have been moved or deleted.')
+  })
+  return { revealed: true, reason: null }
 }
 
 function recordRecent(type, item) {
@@ -106,6 +133,7 @@ function openLibraryResource(resource) {
 export const ResourceLauncherService = {
   LAUNCHABLE_RESOURCE_TYPES,
   open,
+  revealInFileManager,
   openBook,
   openNote,
   openFormulaSheet,

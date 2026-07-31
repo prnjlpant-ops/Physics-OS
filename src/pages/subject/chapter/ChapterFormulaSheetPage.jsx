@@ -1,6 +1,6 @@
 import { Link, useParams } from 'react-router-dom'
 import { ArrowLeft } from 'lucide-react'
-import { getChapterBySlug } from '../../../constants/subjects'
+import { getChapterBySlug } from '../../../engine/blueprintService'
 import { getChapterFormulaSheet } from '../../../data/formulaSheetsData'
 import { useFormulaBookmarks } from '../../../hooks/useFormulaBookmarks'
 import FormulaSheetHeader from '../../../components/formulaSheets/FormulaSheetHeader'

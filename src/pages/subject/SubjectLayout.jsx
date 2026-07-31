@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { Link, NavLink, Outlet, useParams } from 'react-router-dom'
 import { ArrowLeft } from 'lucide-react'
-import { getSubjectById } from '../../constants/subjects'
+import { getSubjectById } from '../../engine/blueprintService'
 import PageTitle from '../../components/PageTitle'
 import WorkspaceService from '../../services/WorkspaceService'
 

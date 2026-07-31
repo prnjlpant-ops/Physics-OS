@@ -1,5 +1,8 @@
+import { useMemo } from 'react'
 import { Link } from 'react-router-dom'
 import { FileStack, ChevronRight } from 'lucide-react'
+import { useSyllabusStatus } from '../../hooks/useSyllabusStatus'
+import { getSyllabusProgress } from '../../data/syllabusData'
 
 const STATUS_STYLES = {
   Completed: 'border-[#89d185]/30 bg-[#89d185]/10 text-[#89d185]',
@@ -25,6 +28,15 @@ function MiniStat({ label, value }) {
 }
 
 export default function ChapterCard({ subjectId, chapter }) {
+  const { overrides } = useSyllabusStatus()
+  const { completion, status } = useMemo(() => {
+    const syllabusProgress = getSyllabusProgress(overrides)
+    const chapterId = `${subjectId}__${chapter.slug}`
+    const completion = syllabusProgress.byChapter.find((item) => item.id === chapterId)?.completion ?? 0
+    const status = completion === 100 ? 'Completed' : completion > 0 ? 'In Progress' : 'Not Started'
+    return { completion, status }
+  }, [overrides, subjectId, chapter.slug])
+
   return (
     <Link
       to={`/subjects/${subjectId}/chapters/${chapter.slug}`}
@@ -33,21 +45,21 @@ export default function ChapterCard({ subjectId, chapter }) {
       <div className="flex items-start justify-between gap-3">
         <h3 className="text-sm font-medium text-[#e8e8e8]">{chapter.name}</h3>
         <span
-          className={`shrink-0 rounded-full border px-2 py-0.5 text-[10px] font-medium ${STATUS_STYLES[chapter.status]}`}
+          className={`shrink-0 rounded-full border px-2 py-0.5 text-[10px] font-medium ${STATUS_STYLES[status]}`}
         >
-          {chapter.status}
+          {status}
         </span>
       </div>
 
       <div className="flex items-center gap-3">
         <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-[#3c3c3c]">
           <div
-            className={`h-full rounded-full ${TRACK_STYLES[chapter.status]}`}
-            style={{ width: `${chapter.progress}%` }}
+            className={`h-full rounded-full ${TRACK_STYLES[status]}`}
+            style={{ width: `${completion}%` }}
           />
         </div>
         <span className="shrink-0 text-xs font-medium text-[#9d9d9d]">
-          {chapter.progress}%
+          {completion}%
         </span>
       </div>
 

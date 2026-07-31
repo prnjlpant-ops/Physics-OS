@@ -1,4 +1,5 @@
 import { DIALOG_TYPES } from '../constants/desktopConstants'
+import EnvironmentService from './EnvironmentService'
 
 /**
  * DIALOG SERVICE
@@ -12,10 +13,16 @@ import { DIALOG_TYPES } from '../constants/desktopConstants'
  * subscribes, renders the actual dialog using the existing `ui/Modal`
  * primitive, and calls `resolve()` with the user's choice.
  *
- * A future Electron implementation can swap `DialogHost` for native
- * dialogs (`dialog.showMessageBox`, etc.) without any caller needing to
- * change — they only ever see `DialogService.confirm(...)` resolving to a
- * boolean.
+ * Sprint 29B — Native Desktop Integration adds `openFolderDialog`/
+ * `openFileDialog`/`saveFileDialog` below: real Electron dialogs
+ * (`dialog.showOpenDialog`/`showSaveDialog`) for Choose Knowledge Base
+ * Folder, Import, and Export. These are a separate concern from
+ * `confirm()`/`confirmDelete()`/etc. above — those stay in-app Modals by
+ * design (Physics OS's own dark theme, not the OS's native look), while
+ * these three are genuinely native filesystem pickers Browser mode has no
+ * equivalent for. Callers check `DesktopService.isElectronReady()` (or
+ * the `canceled`/`unsupported` result shape below) to decide whether to
+ * fall back to a manual text field or `<input type="file">`.
  */
 
 let listeners = new Set()
@@ -88,6 +95,30 @@ function confirmExport(summary = 'Export the selected data as a JSON file?') {
   })
 }
 
+/** Native "Choose Folder" picker (Knowledge Base root selection). Browser mode has no equivalent — resolves `{ canceled: true, path: null, unsupported: true }`. */
+function openFolderDialog(options = {}) {
+  if (!EnvironmentService.isElectron()) {
+    return Promise.resolve({ canceled: true, path: null, unsupported: true })
+  }
+  return window.physicsOSDesktop.dialog.openFolder(options)
+}
+
+/** Native "Open File" picker (Import). Browser mode has no equivalent — resolves `{ canceled: true, paths: [], unsupported: true }`. */
+function openFileDialog(options = {}) {
+  if (!EnvironmentService.isElectron()) {
+    return Promise.resolve({ canceled: true, paths: [], unsupported: true })
+  }
+  return window.physicsOSDesktop.dialog.openFile(options)
+}
+
+/** Native "Save As" picker (Export). Browser mode has no equivalent — resolves `{ canceled: true, path: null, unsupported: true }`. */
+function saveFileDialog(options = {}) {
+  if (!EnvironmentService.isElectron()) {
+    return Promise.resolve({ canceled: true, path: null, unsupported: true })
+  }
+  return window.physicsOSDesktop.dialog.saveFile(options)
+}
+
 export const DialogService = {
   DIALOG_TYPES,
   subscribe,
@@ -97,6 +128,9 @@ export const DialogService = {
   confirmOverwrite,
   confirmImport,
   confirmExport,
+  openFolderDialog,
+  openFileDialog,
+  saveFileDialog,
 }
 
 export default DialogService

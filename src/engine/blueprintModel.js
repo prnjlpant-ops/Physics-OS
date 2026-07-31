@@ -91,6 +91,7 @@ export function normalizeBlueprintData(raw) {
     examPattern: raw.examPattern ?? null,
     subjects: (raw.subjects ?? []).map(normalizeSubject),
     roadmap: raw.roadmap ?? [],
+    dependencyOrder: raw.dependencyOrder ?? [],
     highYieldChecklist: raw.highYieldChecklist ?? [],
   }
 }

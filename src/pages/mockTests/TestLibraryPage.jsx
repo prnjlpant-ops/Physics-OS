@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react'
 import { FileSearch } from 'lucide-react'
-import { subjects } from '../../constants/subjects'
+import { getSubjects } from '../../engine/blueprintService'
 import { EXAMS, DIFFICULTY_LEVELS, STATUS_OPTIONS } from '../../constants/mockTestConstants'
 import { getAllMockTests } from '../../data/mockTestsData'
 import { useMockBookmarks } from '../../hooks/useMockBookmarks'
@@ -40,7 +40,7 @@ export default function TestLibraryPage() {
         onSearchChange={setSearch}
         subjectId={subjectId}
         onSubjectChange={setSubjectId}
-        subjects={subjects}
+        subjects={getSubjects()}
         exam={exam}
         onExamChange={setExam}
         exams={EXAMS}

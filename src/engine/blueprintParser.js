@@ -216,6 +216,37 @@ function parseRoadmap(sections) {
   }))
 }
 
+function parseDependencyGraph(sections) {
+  const section = findSection(sections, 'master dependency graph') || findSection(sections, 'dependency-based learning pipeline')
+  if (!section) return []
+
+  const lines = section.body
+  let inCodeBlock = false
+  const graphLines = []
+
+  for (const line of lines) {
+    if (/^\s*```/.test(line)) {
+      inCodeBlock = !inCodeBlock
+      continue
+    }
+    if (inCodeBlock) {
+      const trimmed = line.replace(/↓/g, '').trim()
+      if (trimmed) graphLines.push(trimmed)
+    }
+  }
+
+  if (!graphLines.length) {
+    for (const line of lines) {
+      const trimmed = line.replace(/↓/g, '').trim()
+      if (trimmed && !/^\*|^-/.test(trimmed) && !/^`/.test(trimmed)) {
+        graphLines.push(trimmed)
+      }
+    }
+  }
+
+  return graphLines.filter(Boolean)
+}
+
 /**
  * Section 9.4 — High-Yield Checklist:
  * Rank | Topic | Subject | Rationale for Rank
@@ -390,6 +421,7 @@ export function parseBlueprintMarkdown(markdownText) {
     examPattern: parseExamPattern(sections),
     subjects: assembleSubjects(sections),
     roadmap: parseRoadmap(sections),
+    dependencyOrder: parseDependencyGraph(sections),
     highYieldChecklist: parseHighYieldChecklist(sections),
   }
 

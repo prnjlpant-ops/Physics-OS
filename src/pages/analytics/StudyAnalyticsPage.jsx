@@ -4,7 +4,7 @@ import { getAllStudySessions } from '../../utils/studySessionsStorage'
 import { filterSessionsByRange } from '../../utils/calendarStats'
 import { formatHoursLabel, formatMinutesLabel } from '../../utils/formatDuration'
 import { getStudyAnalytics } from '../../data/analyticsData'
-import { subjects } from '../../constants/subjects'
+import { getSubjects } from '../../engine/blueprintService'
 import { useAnalyticsFilters } from './AnalyticsFilterContext'
 import AnalyticsStatCard from '../../components/analytics/AnalyticsStatCard'
 import AnalyticsColumnChart from '../../components/analytics/AnalyticsColumnChart'
@@ -18,7 +18,7 @@ export default function StudyAnalyticsPage() {
     const all = getAllStudySessions()
     const byRange = filterSessionsByRange(all, dateRange)
     if (subjectId === 'all') return byRange
-    const subject = subjects.find((s) => s.id === subjectId)
+    const subject = getSubjects().find((s) => s.id === subjectId)
     return byRange.filter((s) => s.subject === subject?.name)
   }, [subjectId, dateRange])
 

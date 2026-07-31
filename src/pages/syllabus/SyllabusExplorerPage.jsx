@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react'
-import { subjects } from '../../constants/subjects'
+import { getSubjects } from '../../engine/blueprintService'
 import {
   getSyllabusTree,
   getAllTopics,
@@ -39,6 +39,8 @@ export default function SyllabusExplorerPage() {
 
   const filtersActive =
     search.trim() !== '' || subjectId !== 'all' || difficulty !== 'all' || status !== 'all' || priority !== 'all'
+
+  const subjects = useMemo(() => getSubjects(), [])
 
   const filteredTopicIds = useMemo(() => {
     const baseTopics = search.trim() ? searchTopics(search) : getAllTopics()

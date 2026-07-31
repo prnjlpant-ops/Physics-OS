@@ -1,5 +1,7 @@
 import StorageService from './StorageService'
 import FileSystemService from './FileSystemService'
+import EnvironmentService from './EnvironmentService'
+import DialogService from './DialogService'
 
 /**
  * IMPORT SERVICE
@@ -39,6 +41,43 @@ async function importFromFile(file) {
   }
 }
 
+async function importFromPath(path) {
+  if (!path || typeof path !== 'string') {
+    return { success: false, error: 'No file selected.', payload: null }
+  }
+
+  try {
+    const text = await FileSystemService.readFile(path)
+    return parsePayload(text)
+  } catch {
+    return { success: false, error: 'Could not read that file.', payload: null }
+  }
+}
+
+async function importFromNative() {
+  if (!EnvironmentService.isElectron()) {
+    return {
+      success: false,
+      canceled: false,
+      unsupported: true,
+      error: 'Native import requires the desktop build.',
+      payload: null,
+    }
+  }
+
+  const result = await DialogService.openFileDialog({
+    title: 'Import Physics OS Data',
+    filters: [{ name: 'JSON', extensions: ['json'] }],
+    multiSelections: false,
+  })
+
+  if (result.canceled || !Array.isArray(result.paths) || result.paths.length === 0) {
+    return { success: false, canceled: true, unsupported: false, error: null, payload: null }
+  }
+
+  return importFromPath(result.paths[0])
+}
+
 /** Writes every key/value from a validated payload back into StorageService. Returns how many keys were applied. */
 function applyPayload(payload) {
   if (!payload || typeof payload.data !== 'object' || payload.data === null) return { applied: 0 }
@@ -54,6 +93,8 @@ function applyPayload(payload) {
 export const ImportService = {
   parsePayload,
   importFromFile,
+  importFromPath,
+  importFromNative,
   applyPayload,
 }
 

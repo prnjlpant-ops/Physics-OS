@@ -59,6 +59,25 @@ export const RECENT_LIST_NAMES = {
   TOPICS: 'topics',
   BOOKS: 'books',
   PAPERS: 'papers',
+  // Sprint 29B — Native Desktop Integration: previously-chosen Knowledge
+  // Base roots, so switching back to one doesn't require retyping/re-browsing it.
+  WORKSPACES: 'workspaces',
+}
+
+/**
+ * Action names sent from the native application menu (Sprint 29B —
+ * electron/main/menu.cjs) over `window.physicsOSDesktop.menu.onAction`.
+ * Kept here, not in the Electron-only main process, so the renderer side
+ * (useDesktopMenu.js) has one place to match strings against instead of
+ * hardcoding them loosely.
+ */
+export const MENU_ACTIONS = {
+  OPEN_KNOWLEDGE_BASE_FOLDER: 'openKnowledgeBaseFolder',
+  EXPORT: 'export',
+  IMPORT: 'import',
+  SEARCH: 'search',
+  NEW_STUDY_SESSION: 'newStudySession',
+  TODAYS_MISSION: 'todaysMission',
 }
 
 /** ExportService / ImportService data categories. */

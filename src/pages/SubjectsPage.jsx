@@ -1,13 +1,35 @@
+import { useMemo } from 'react'
 import { Link } from 'react-router-dom'
 import { ChevronRight } from 'lucide-react'
-import { subjects } from '../constants/subjects'
+import { getSubjects } from '../engine/blueprintService'
+import { useSyllabusStatus } from '../hooks/useSyllabusStatus'
+import { getSyllabusProgress } from '../data/syllabusData'
 
-function subjectCompletion(subject) {
-  const total = subject.chapters.reduce((sum, chapter) => sum + chapter.progress, 0)
-  return Math.round(total / subject.chapters.length)
+function chapterCompletion(subject, chapter, progressByChapter) {
+  const chapterId = `${subject.id}__${chapter.slug}`
+  return progressByChapter[chapterId] ?? 0
+}
+
+function subjectCompletion(subject, progressByChapter) {
+  const total = subject.chapters.reduce(
+    (sum, chapter) => sum + chapterCompletion(subject, chapter, progressByChapter),
+    0,
+  )
+  return subject.chapters.length === 0 ? 0 : Math.round(total / subject.chapters.length)
 }
 
 export default function SubjectsPage() {
+  const { overrides } = useSyllabusStatus()
+  const progress = useMemo(() => {
+    const syllabusProgress = getSyllabusProgress(overrides)
+    return syllabusProgress.byChapter.reduce((acc, chapter) => {
+      acc[chapter.id] = chapter.completion
+      return acc
+    }, {})
+  }, [overrides])
+
+  const subjects = useMemo(() => getSubjects(), [])
+
   return (
     <div className="flex flex-col gap-5 px-4 py-5 sm:px-6 lg:px-8">
       <div>
@@ -20,7 +42,7 @@ export default function SubjectsPage() {
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
         {subjects.map((subject) => {
           const Icon = subject.icon
-          const completion = subjectCompletion(subject)
+          const completion = subjectCompletion(subject, progress)
 
           return (
             <Link
@@ -60,7 +82,9 @@ export default function SubjectsPage() {
 
               <div className="flex items-center justify-between border-t border-[#3c3c3c] pt-3 text-xs text-[#858585]">
                 <span>{subject.chapters.length} Chapters</span>
-                <span>{subject.chapters.filter((c) => c.status === 'Completed').length} Completed</span>
+                <span>
+                  {subject.chapters.filter((chapter) => chapterCompletion(subject, chapter, progress) === 100).length} Completed
+                </span>
               </div>
             </Link>
           )

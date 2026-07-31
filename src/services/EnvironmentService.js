@@ -45,12 +45,61 @@ function isUnknown() {
   return detect() === ENVIRONMENT.UNKNOWN
 }
 
+/**
+ * Sprint 29A — Electron Foundation.
+ *
+ * Best-effort, synchronous "is this a development build?" read from the
+ * flag `electron/preload/preload.cjs` sets on the bridge at boot. Always
+ * false outside Electron. `getInfo()` below returns the IPC-verified,
+ * authoritative version of this same flag for callers that can await it.
+ */
+function isDevelopment() {
+  return isElectron() && window.physicsOSDesktop?.isDev === true
+}
+
+function isProduction() {
+  return isElectron() && !isDevelopment()
+}
+
+/**
+ * Synchronous snapshot of whatever the preload bridge exposed at boot —
+ * safe to call in Browser mode (returns nulls) or before the async,
+ * IPC-verified `getInfo()` below resolves.
+ */
+function getBridgeInfo() {
+  if (!isElectron()) return null
+  const bridge = window.physicsOSDesktop
+  return {
+    isDev: bridge?.isDev ?? null,
+    platform: bridge?.platform ?? null,
+    versions: bridge?.versions ?? null,
+  }
+}
+
+/**
+ * Authoritative environment info, verified via IPC against the main
+ * process rather than trusted from the preload snapshot alone. Rejects
+ * (resolves to null) outside Electron.
+ */
+async function getInfo() {
+  if (!isElectron()) return null
+  try {
+    return await window.physicsOSDesktop.environmentInfo()
+  } catch {
+    return null
+  }
+}
+
 export const EnvironmentService = {
   ENVIRONMENT,
   detect,
   isBrowser,
   isElectron,
   isUnknown,
+  isDevelopment,
+  isProduction,
+  getBridgeInfo,
+  getInfo,
 }
 
 export default EnvironmentService

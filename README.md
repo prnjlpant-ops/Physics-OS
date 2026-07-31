@@ -4,15 +4,47 @@ A personal study operating system for IIT JAM and JEST preparation — local-fir
 syllabus-first, dark, minimal. See `PRD.md` for the full product vision and
 `Claude_Rules.md` for the standing project rules.
 
-## Development Commands
+## Installation
 
 ```bash
-npm install     # install dependencies
-npm run dev     # start the Vite dev server
-npm run build   # production build
-npm run preview # preview the production build locally
-npm run lint    # run ESLint
+npm install
 ```
+
+## Development
+
+```bash
+npm run dev
+npm run electron:dev
+```
+
+## Build
+
+```bash
+npm run build
+npm run lint
+npm run type-check
+```
+
+## Packaging
+
+```bash
+npm run package:win
+```
+
+This produces a Windows portable executable and NSIS installer in the release folder.
+
+## Running the Application
+
+```bash
+npm run electron:start
+```
+
+## Running the Packaged Executable
+
+After packaging, launch one of the generated files from the release folder:
+
+- release/Physics OS-Portable-<version>.exe
+- release/Physics OS Setup <version>.exe
 
 Stack: React 19 + React Router 7 + Vite 7 + Tailwind CSS 4. Plain JavaScript
 (JSX), no TypeScript, no backend — everything persists to `localStorage`.

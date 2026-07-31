@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { ArrowLeft, Trash2 } from 'lucide-react'
-import { getChapterBySlug } from '../../../constants/subjects'
+import { getChapterBySlug } from '../../../engine/blueprintService'
 import { useNotes } from '../../../hooks/useNotes'
 import NoteEditor from '../../../components/notes/NoteEditor'
 import PageTitle from '../../../components/PageTitle'

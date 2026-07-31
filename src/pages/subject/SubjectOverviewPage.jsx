@@ -1,12 +1,32 @@
+import { useMemo } from 'react'
 import { useOutletContext } from 'react-router-dom'
 import { BookOpen, CheckCircle2, Clock } from 'lucide-react'
+import { useSyllabusStatus } from '../../hooks/useSyllabusStatus'
+import { getSyllabusProgress } from '../../data/syllabusData'
 
 export default function SubjectOverviewPage() {
   const { subject } = useOutletContext()
+  const { overrides } = useSyllabusStatus()
+  const progressByChapter = useMemo(() => {
+    const syllabusProgress = getSyllabusProgress(overrides)
+    return syllabusProgress.byChapter.reduce((acc, chapter) => {
+      acc[chapter.id] = chapter.completion
+      return acc
+    }, {})
+  }, [overrides])
 
-  const completed = subject.chapters.filter((c) => c.status === 'Completed').length
-  const inProgress = subject.chapters.filter((c) => c.status === 'In Progress').length
-  const notStarted = subject.chapters.filter((c) => c.status === 'Not Started').length
+  const chapterStatusMap = useMemo(() => {
+    return subject.chapters.reduce((acc, chapter) => {
+      const completion = progressByChapter[`${subject.id}__${chapter.slug}`] ?? 0
+      const status = completion === 100 ? 'Completed' : completion > 0 ? 'In Progress' : 'Not Started'
+      acc[chapter.slug] = status
+      return acc
+    }, {})
+  }, [progressByChapter, subject])
+
+  const completed = Object.values(chapterStatusMap).filter((status) => status === 'Completed').length
+  const inProgress = Object.values(chapterStatusMap).filter((status) => status === 'In Progress').length
+  const notStarted = Object.values(chapterStatusMap).filter((status) => status === 'Not Started').length
 
   const stats = [
     { label: 'Total Chapters', value: subject.chapters.length, icon: BookOpen },
@@ -47,7 +67,7 @@ export default function SubjectOverviewPage() {
               className="flex items-center justify-between border-b border-[#3c3c3c] py-2 text-sm last:border-b-0 last:pb-0"
             >
               <span className="text-[#cccccc]">{chapter.name}</span>
-              <span className="text-xs text-[#858585]">{chapter.status}</span>
+              <span className="text-xs text-[#858585]">{chapterStatusMap[chapter.slug]}</span>
             </div>
           ))}
         </div>

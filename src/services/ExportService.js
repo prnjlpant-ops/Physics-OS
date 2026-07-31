@@ -1,9 +1,21 @@
 import { EXPORTABLE_DATA_CATEGORIES } from '../constants/desktopConstants'
+import EnvironmentService from './EnvironmentService'
+import DialogService from './DialogService'
+import FileSystemService from './FileSystemService'
 
 /**
  * EXPORT SERVICE
  * ==============
- * Sprint 28 — Desktop Readiness Layer.
+ * Sprint 28 — Desktop Readiness Layer: Browser-only, via a Blob download
+ * anchor.
+ * Sprint 29B — Native Desktop Integration: `exportCategoriesNative` opens
+ * a real "Save As" dialog and writes the file directly to the chosen path
+ * (see electron/services/dialogService.cjs + fileSystemService.cjs) —
+ * used instead of the Blob download when running as a desktop app, so the
+ * export lands wherever the user picks rather than always in Downloads.
+ * `exportCategories` (Blob download) is untouched and still works
+ * identically in both Browser and Electron, so nothing that already calls
+ * it needs to change.
  *
  * Exports Study Sessions, Tasks, Bookmarks, Progress, and Settings as one
  * JSON file. Rather than hardcoding every individual localStorage key
@@ -105,11 +117,38 @@ function exportCategories(categories, filename = 'physics-os-export.json') {
   return { success, json }
 }
 
+/**
+ * Native export: opens the OS "Save As" dialog and writes the JSON file
+ * directly to the chosen path. Electron only — callers should check
+ * `EnvironmentService.isElectron()` (or just call `exportCategories` in
+ * Browser mode) rather than call this unconditionally.
+ */
+async function exportCategoriesNative(categories, defaultFilename = 'physics-os-export.json') {
+  if (!EnvironmentService.isElectron()) {
+    return { success: false, canceled: false, path: null, unsupported: true }
+  }
+
+  const { canceled, path } = await DialogService.saveFileDialog({
+    title: 'Export Physics OS Data',
+    defaultPath: defaultFilename,
+    filters: [{ name: 'JSON', extensions: ['json'] }],
+  })
+  if (canceled || !path) return { success: false, canceled: true, path: null, unsupported: false }
+
+  try {
+    await FileSystemService.writeFile(path, toJson(categories))
+    return { success: true, canceled: false, path, unsupported: false }
+  } catch (error) {
+    return { success: false, canceled: false, path, unsupported: false, error: error?.message }
+  }
+}
+
 export const ExportService = {
   EXPORT_CATEGORIES,
   buildExportPayload,
   toJson,
   exportCategories,
+  exportCategoriesNative,
 }
 
 export default ExportService
