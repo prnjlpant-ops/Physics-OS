@@ -1,10 +1,10 @@
 import { useCallback, useEffect, useMemo } from 'react'
 import { generateTodaysMission } from '../engine/dailyStudyService'
 import { generateDailyPlan, buildDefaultBlockOrder } from '../engine/plannerService'
-import { useSyllabusStatus } from './useSyllabusStatus'
 import { useMissionTaskStatus } from './useMissionTaskStatus'
 import { usePlannerOrder } from './usePlannerOrder'
 import { TASK_STATUS } from '../constants/dailyStudyConstants'
+import { useTopicProgress } from './useTopicProgress'
 
 /**
  * useDailyPlanner
@@ -19,12 +19,12 @@ import { TASK_STATUS } from '../constants/dailyStudyConstants'
  * Reset Today).
  */
 export function useDailyPlanner() {
-  const { overrides: statusOverrides } = useSyllabusStatus()
+  const { statuses: roadmapStatuses } = useTopicProgress()
   const { overrides: taskStatusOverrides, setTaskStatus } = useMissionTaskStatus()
 
   const mission = useMemo(
-    () => generateTodaysMission(statusOverrides, taskStatusOverrides),
-    [statusOverrides, taskStatusOverrides],
+    () => generateTodaysMission(roadmapStatuses, taskStatusOverrides),
+    [roadmapStatuses, taskStatusOverrides],
   )
 
   const { blockOrder, persistOrder, moveTaskUp, moveTaskDown, resetOrder } = usePlannerOrder(mission.date)

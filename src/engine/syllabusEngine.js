@@ -7,6 +7,7 @@ import {
   estimateStudyTime,
   estimateProblemSolvingTime,
 } from './blueprintModel'
+import roadmapTopics from '../data/roadmap.json' with { type: 'json' }
 
 /**
  * SYLLABUS ENGINE
@@ -159,10 +160,18 @@ function buildLinkedModules(subjectId, chapterSlug) {
   }
 }
 
-function buildSubtopics(parentId, chapter) {
+import chapterToTopicMap from './chapterToTopicMap.json' with { type: 'json' }
+
+function roadmapMetadataFor(chapterSlug) {
+  const topicId = chapterToTopicMap[chapterSlug]
+  if (!topicId) return null
+  return roadmapTopics.find(t => t.id === topicId) || null
+}
+
+function buildSubtopics(parentId, chapter, roadmapMetadata = null) {
   const entries = [
-    { label: 'Math Prerequisites', summary: chapter.mathPrerequisites || 'Not specified in the blueprint.' },
-    { label: 'Typical Question Style', summary: chapter.questionStyle || 'Not specified in the blueprint.' },
+    { label: 'Math Prerequisites', summary: roadmapMetadata?.prerequisites || chapter.mathPrerequisites || 'Not specified in the blueprint.' },
+    { label: 'Typical Question Style', summary: roadmapMetadata?.typicalQuestionStyle || chapter.questionStyle || 'Not specified in the blueprint.' },
   ]
   return entries.map((entry, index) =>
     createNode({
@@ -176,9 +185,10 @@ function buildSubtopics(parentId, chapter) {
 }
 
 function buildTopicsForChapter(parentId, subjectId, subjectName, chapter) {
-  const difficulty = mapDifficulty(chapter.difficulty)
-  const importance = mapImportance(chapter.highYieldStars)
-  const priority = mapPriority(chapter.pyqFrequency?.includes('Frequently') ? 'High' : chapter.weightage)
+  const roadmapMetadata = roadmapMetadataFor(chapter.slug)
+  const difficulty = roadmapMetadata?.difficulty ?? mapDifficulty(chapter.difficulty)
+  const importance = roadmapMetadata?.importance ?? mapImportance(chapter.highYieldStars)
+  const priority = roadmapMetadata?.priority ?? mapPriority(chapter.pyqFrequency?.includes('Frequently') ? 'High' : chapter.weightage)
 
   const topicDefinitions = [
     {
@@ -197,12 +207,13 @@ function buildTopicsForChapter(parentId, subjectId, subjectName, chapter) {
 
     return createNode({
       level: 'topic',
-      name: `${chapter.name}: ${definition.label}`,
+      name: definition.label,
       slug,
       parentId,
       metadata: {
-        estimatedStudyTime: estimateStudyTime(difficulty),
-        estimatedProblemSolvingTime: estimateProblemSolvingTime(difficulty),
+        fullTitle: `${chapter.name}: ${definition.label}`,
+        estimatedStudyTime: roadmapMetadata?.estimatedStudyMinutes ? `${roadmapMetadata.estimatedStudyMinutes / 60} hr` : estimateStudyTime(difficulty),
+        estimatedProblemSolvingTime: roadmapMetadata?.estimatedProblemSolvingMinutes ? `${roadmapMetadata.estimatedProblemSolvingMinutes / 60} hr` : estimateProblemSolvingTime(difficulty),
         importance,
         difficulty,
         priority,
@@ -216,9 +227,11 @@ function buildTopicsForChapter(parentId, subjectId, subjectName, chapter) {
         pyqFrequency: chapter.pyqFrequency,
         highYieldStars: chapter.highYieldStars,
         commonMisconceptions: chapter.commonMisconceptions,
+        prerequisites: roadmapMetadata?.prerequisites ?? null,
+        typicalQuestionStyle: roadmapMetadata?.typicalQuestionStyle ?? null,
         linkedModules: buildLinkedModules(subjectId, chapter.slug),
       },
-      children: index === 0 ? buildSubtopics(topicId, chapter) : [],
+      children: index === 0 ? buildSubtopics(topicId, chapter, roadmapMetadata) : [],
     })
   })
 }

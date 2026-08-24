@@ -78,9 +78,10 @@ function normalizeBook(raw, config, index) {
     priority: normalizePriority(raw.priority),
     description: typeof raw.description === 'string' ? raw.description : '',
     tags: Array.isArray(raw.tags) ? raw.tags.filter((tag) => typeof tag === 'string') : [],
-    status: fullPath ? 'Available' : 'Not Added',
+    status: raw.available === false ? 'Missing' : (fullPath ? 'Available' : 'Not Added'),
     path: fullPath,
     url: typeof raw.url === 'string' && raw.url.trim() ? raw.url.trim() : null,
+    pages: Number.isFinite(raw.pages) && raw.pages > 0 ? raw.pages : null,
   })
 
   return { resource, warnings }

@@ -25,7 +25,7 @@ import { formatHoursLabel } from '../../utils/formatDuration'
 import { getDashboardOverview } from '../../data/analyticsData'
 import { getMockCounts, getQuickStatistics } from '../../data/mockTestsData'
 import { getDashboardStats as getErrorDashboardStats } from '../../data/errorLearningData'
-import { getAllResources } from '../../data/resourcesData'
+import { getCatalogResources } from '../../engine/resourceCatalogService'
 import { getAllPyqs } from '../../data/pyqsData'
 import { getAllFormulaCards } from '../../data/formulaSheetsData'
 import { getAllMemoryCards } from '../../data/memorySheetsData'
@@ -55,7 +55,7 @@ export default function AnalyticsDashboardPage() {
   const mockCounts = useMemo(() => getMockCounts(), [])
   const mockStats = useMemo(() => getQuickStatistics(), [])
   const errorStats = useMemo(() => getErrorDashboardStats(), [])
-  const resourceCount = useMemo(() => getAllResources().length, [])
+  const resourceCount = useMemo(() => getCatalogResources().length, [])
   const pyqCount = useMemo(() => getAllPyqs().length, [])
   const formulaCards = useMemo(() => getAllFormulaCards(), [])
   const memoryCards = useMemo(() => getAllMemoryCards(), [])

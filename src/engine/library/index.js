@@ -4,6 +4,8 @@ import rawBooks from '../../data/library/books.json'
 import { parseKnowledgeBaseConfig } from './knowledgeBaseService'
 import { parseBooksJson } from './booksService'
 import { buildMasterIndex } from './masterIndexService'
+import roadmapTopics from '../../data/roadmap.json' with { type: 'json' }
+import { parseRoadmapVideos } from './videosService'
 
 /**
  * LIBRARY ENGINE — ENTRY POINT
@@ -22,6 +24,8 @@ const sourceConfig = rawKnowledgeBaseConfig.subjects?.length ? rawKnowledgeBaseC
 const { config, warnings: configWarnings } = parseKnowledgeBaseConfig(sourceConfig)
 const { books, warnings: bookWarnings } = parseBooksJson(rawBooks, config)
 
-export const libraryMasterIndex = buildMasterIndex({ config, books })
+const videos = parseRoadmapVideos(roadmapTopics)
+
+export const libraryMasterIndex = buildMasterIndex({ config, books, videos })
 export const libraryConfig = config
 export const libraryLoadWarnings = [...configWarnings, ...bookWarnings]

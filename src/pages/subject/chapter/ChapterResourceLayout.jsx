@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { Link, NavLink, Outlet, useParams } from 'react-router-dom'
 import { ArrowLeft } from 'lucide-react'
 import { getChapter } from '../../../engine/blueprintService'
-import { getChapterResources } from '../../../data/resourcesData'
+import { getResourcesForSubject } from '../../../engine/resourceCatalogService'
 import { RESOURCE_TYPE_ORDER, RESOURCE_TYPE_META } from '../../../constants/resourceTypes'
 import PageTitle from '../../../components/PageTitle'
 import WorkspaceService from '../../../services/WorkspaceService'
@@ -20,6 +20,8 @@ const TAB_PATHS = {
 export default function ChapterResourceLayout() {
   const { subjectId, chapterSlug } = useParams()
   const found = getChapter(subjectId, chapterSlug)
+  const completionKey = found ? `${found.subject.id}__${found.chapter.slug}` : '__missing_chapter__'
+  const { completed, toggle } = useChapterCompletion(completionKey)
 
   // Sprint 28 — Desktop Readiness Layer: records "where the user is" so
   // ContinueStudyingCard (and future consumers) can restore it after a
@@ -36,8 +38,12 @@ export default function ChapterResourceLayout() {
   }
 
   const { subject, chapter } = found
-  const resources = getChapterResources(subject, chapter)
-  const { completed, toggle } = useChapterCompletion(`${subject.id}__${chapter.slug}`)
+  // Old blueprint chapter labels do not carry resource ids. Show only the
+  // subject's explicit Topic Index links rather than guessing by title.
+  const resources = Object.fromEntries(RESOURCE_TYPE_ORDER.map((type) => [
+    type,
+    getResourcesForSubject(subject.id).filter((resource) => resource.type === type),
+  ]))
 
   return (
     <div className="flex flex-col gap-5 px-4 py-5 sm:px-6 lg:px-8">

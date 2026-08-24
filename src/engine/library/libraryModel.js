@@ -33,6 +33,8 @@ export function createLibraryResource({
   path = null,
   url = null,
   notes = '',
+  pages = null,
+  duration = null,
 }) {
   return {
     id,
@@ -50,6 +52,8 @@ export function createLibraryResource({
     path: path || null,
     url: url || null,
     notes: typeof notes === 'string' ? notes : '',
+    pages: Number.isFinite(pages) && pages > 0 ? pages : null,
+    duration: typeof duration === 'string' && duration.trim() ? duration.trim() : null,
   }
 }
 
@@ -70,6 +74,6 @@ export function createKnowledgeBaseConfig({ version = '1.0.0', root = '', subjec
  * `LIBRARY_CATEGORY_ORDER`, with real records for Books (Sprint 24) and
  * empty arrays for every other category until a future sprint populates it.
  */
-export function createMasterIndex({ root = '', subjects = {}, unassigned = [] } = {}) {
-  return { root, subjects, unassigned }
+export function createMasterIndex({ root = '', subjects = {}, unassigned = [], unassignedVideos = [] } = {}) {
+  return { root, subjects, unassigned, unassignedVideos }
 }

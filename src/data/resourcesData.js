@@ -2,11 +2,32 @@ import { getSubjects } from '../engine/blueprintService'
 import { getBlueprintResourcesForSubject } from '../engine/blueprintMappingLayer'
 import { libraryMasterIndex } from '../engine/library'
 import { getChapterResourceRecord } from './chapterResourceDatabase'
+import workbookVideoLinks from './videoLinks.json'
 
 const FALLBACK_BOOK = { title: 'Core text', author: 'To be added', tier: 'Recommended' }
 const FALLBACK_VIDEO = { title: 'Lecture', platform: 'To be added', duration: '—' }
 
 const normalise = (value = '') => value.toLowerCase().replace(/[^a-z0-9]/g, '')
+const STOP_WORDS = new Set(['and', 'the', 'of', 'for', 'with', 'basic', 'full', 'theory', 'physics'])
+
+function tokens(value = '') {
+  return new Set(value.toLowerCase().replace(/[^a-z0-9]+/g, ' ').split(' ').filter((word) => word.length > 2 && !STOP_WORDS.has(word)))
+}
+
+/** Workbook rows are intentionally matched by topic vocabulary, not fragile exact labels. */
+function getWorkbookRows(chapterName) {
+  const target = tokens(chapterName)
+  const scored = workbookVideoLinks.map((row) => {
+    const candidate = tokens(`${row.chapter} ${row.subtopic}`)
+    const score = [...target].filter((word) => candidate.has(word)).length
+    return { row, score }
+  }).filter(({ score }) => score > 0)
+
+  const highestScore = Math.max(0, ...scored.map(({ score }) => score))
+  return scored
+    .filter(({ score }) => score === highestScore && highestScore >= 2)
+    .map(({ row }) => row)
+}
 
 function localBooksFor(subject) {
   const target = normalise(subject.name)
@@ -46,10 +67,21 @@ function makeVideo(video, subject, chapter, index) {
 export function getChapterResources(subject, chapter) {
   const blueprint = getBlueprintResourcesForSubject(subject.id)
   const record = getChapterResourceRecord(chapter.name)
+  const workbookRows = getWorkbookRows(chapter.name)
   const libraryBooks = localBooksFor(subject)
   const matchedBook = libraryBooks.find((book) => normalise(book.title).includes(normalise(record?.book?.split('â€”')[0] ?? '')))
   const books = record ? [{ ...makeBook(matchedBook ?? { title: record.book, author: 'See source', tier: record.bookChapter }, subject, chapter, 0, Boolean(matchedBook)), title: record.book, edition: record.bookChapter, description: `Read ${record.bookChapter}.`, syllabus: record.syllabus, source: 'JEST_2026_Chapter_Resources.md' }] : (libraryBooks.length ? libraryBooks.map((book, index) => makeBook(book, subject, chapter, index, true)) : blueprint.books.map((book, index) => makeBook(book, subject, chapter, index))).slice(0, 3)
-  const videos = record ? (record.videoUrl.startsWith('http') ? [{ ...makeVideo({ title: record.videoTitle, url: record.videoUrl, platform: record.videoTitle }, subject, chapter, 0), description: record.watch, syllabus: record.syllabus, source: 'JEST_2026_Chapter_Resources.md' }] : []) : (blueprint.videos.length ? blueprint.videos : [FALLBACK_VIDEO]).map((video, index) => makeVideo(video, subject, chapter, index)).slice(0, 3)
+  const videos = workbookRows.length
+    ? workbookRows.filter((row) => row.url).map((row, index) => ({
+      ...makeVideo({ title: `${row.source}: ${row.subtopic}`, url: row.url, platform: row.source }, subject, chapter, index),
+      description: row.studyNotes,
+      syllabus: row.exam,
+      roadmap: row.roadmap,
+      source: 'JEST-JAM-video-links.xlsx',
+    }))
+    : record
+      ? (record.videoUrl.startsWith('http') ? [{ ...makeVideo({ title: record.videoTitle, url: record.videoUrl, platform: record.videoTitle }, subject, chapter, 0), description: record.watch, syllabus: record.syllabus, source: 'JEST_2026_Chapter_Resources.md' }] : [])
+      : (blueprint.videos.length ? blueprint.videos : [FALLBACK_VIDEO]).map((video, index) => makeVideo(video, subject, chapter, index)).slice(0, 3)
   return { books: books.length ? books : [makeBook(FALLBACK_BOOK, subject, chapter, 0)], videos }
 }
 

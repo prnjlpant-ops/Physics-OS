@@ -11,24 +11,29 @@ import SyllabusRoadmapPage from '../pages/syllabus/SyllabusRoadmapPage'
 import SubjectLayout from '../pages/subject/SubjectLayout'
 import SubjectOverviewPage from '../pages/subject/SubjectOverviewPage'
 import SubjectChaptersPage from '../pages/subject/SubjectChaptersPage'
-import SubjectResourcesPage from '../pages/subject/SubjectResourcesPage'
-import SubjectKnowledgeBasePage from '../pages/subject/SubjectKnowledgeBasePage'
-import ChapterResourceLayout from '../pages/subject/chapter/ChapterResourceLayout'
-import ChapterResourceTypePage from '../pages/subject/chapter/ChapterResourceTypePage'
 import SubjectBooksPage from '../pages/subject/SubjectBooksPage'
 import SubjectVideosPage from '../pages/subject/SubjectVideosPage'
-import SubjectPyqsPage from '../pages/subject/SubjectPyqsPage'
-import SubjectFormulaSheetPage from '../pages/subject/SubjectFormulaSheetPage'
-import SubjectMemorySheetPage from '../pages/subject/SubjectMemorySheetPage'
-import SubjectNotesPage from '../pages/subject/SubjectNotesPage'
+import SubjectProgressPage from '../pages/subject/SubjectProgressPage'
+import SubjectResourcesPage from '../pages/subject/SubjectResourcesPage'
+import SubjectKnowledgeBasePage from '../pages/subject/SubjectKnowledgeBasePage'
 import SubjectActiveRecallPage from '../pages/subject/SubjectActiveRecallPage'
+import ChapterResourceLayout from '../pages/subject/chapter/ChapterResourceLayout'
+import ChapterResourceTypePage from '../pages/subject/chapter/ChapterResourceTypePage'
+import ChapterNotesPage from '../pages/subject/chapter/ChapterNotesPage'
+import NoteEditorPage from '../pages/subject/chapter/NoteEditorPage'
+import ChapterPyqsPage from '../pages/subject/chapter/ChapterPyqsPage'
+import PyqDetailPage from '../pages/subject/chapter/PyqDetailPage'
+import ChapterMemorySheetPage from '../pages/subject/chapter/ChapterMemorySheetPage'
+import ChapterMemoryRevisionPage from '../pages/subject/chapter/ChapterMemoryRevisionPage'
+import ChapterFormulaSheetPage from '../pages/subject/chapter/ChapterFormulaSheetPage'
 import ChapterActiveRecallPage from '../pages/subject/chapter/ChapterActiveRecallPage'
 import ChapterActiveRecallStudyPage from '../pages/subject/chapter/ChapterActiveRecallStudyPage'
-import SubjectProgressPage from '../pages/subject/SubjectProgressPage'
 import ResourcesPage from '../pages/ResourcesPage'
 import TopicIndexPage from '../pages/topics/TopicIndexPage'
 import TopicDetailsPage from '../pages/topics/TopicDetailsPage'
 import PyqsPage from '../pages/PyqsPage'
+import PyqPracticePage from '../pages/PyqPracticePage'
+import PyqQuestionPage from '../pages/PyqQuestionPage'
 import PyqPaperDetailsPage from '../pages/PyqPaperDetailsPage'
 import NotesPage from '../pages/NotesPage'
 import FormulaSheetsPage from '../pages/FormulaSheetsPage'
@@ -78,51 +83,40 @@ const router = createHashRouter([
         path: 'subjects',
         children: [
           { index: true, element: <SubjectsPage /> },
+          { path: 'roadmap', element: <Navigate to="/subjects" replace /> },
           {
             path: ':subjectId',
             element: <SubjectLayout />,
             children: [
               { index: true, element: <SubjectOverviewPage /> },
               { path: 'chapters', element: <SubjectChaptersPage /> },
+              { path: 'books', element: <SubjectBooksPage /> },
+              { path: 'videos', element: <SubjectVideosPage /> },
+              { path: 'progress', element: <SubjectProgressPage /> },
               { path: 'resources', element: <SubjectResourcesPage /> },
               { path: 'knowledge-base', element: <SubjectKnowledgeBasePage /> },
+              { path: 'active-recall', element: <SubjectActiveRecallPage /> },
               {
                 path: 'chapters/:chapterSlug',
                 element: <ChapterResourceLayout />,
                 children: [
-                  { index: true, element: <Navigate to="books" replace /> },
+                  { index: true, element: <ChapterResourceTypePage type="books" /> },
                   { path: 'books', element: <ChapterResourceTypePage type="books" /> },
                   { path: 'videos', element: <ChapterResourceTypePage type="videos" /> },
                   { path: 'pdfs', element: <ChapterResourceTypePage type="pdfs" /> },
-                  {
-                    path: 'solution-manuals',
-                    element: <ChapterResourceTypePage type="solutionManuals" />,
-                  },
-                  {
-                    path: 'reference-material',
-                    element: <ChapterResourceTypePage type="referenceMaterial" />,
-                  },
-                  {
-                    path: 'external-links',
-                    element: <ChapterResourceTypePage type="externalLinks" />,
-                  },
+                  { path: 'solution-manuals', element: <ChapterResourceTypePage type="solutionManuals" /> },
+                  { path: 'reference-material', element: <ChapterResourceTypePage type="referenceMaterial" /> },
+                  { path: 'external-links', element: <ChapterResourceTypePage type="externalLinks" /> },
+                  { path: 'notes', element: <ChapterNotesPage /> },
+                  { path: 'notes/:noteId', element: <NoteEditorPage /> },
+                  { path: 'pyqs', element: <ChapterPyqsPage /> },
+                  { path: 'pyqs/:pyqId', element: <PyqDetailPage /> },
+                  { path: 'memory-sheet', element: <ChapterMemorySheetPage /> },
+                  { path: 'memory-sheet/revise', element: <ChapterMemoryRevisionPage /> },
+                  { path: 'formula-sheet', element: <ChapterFormulaSheetPage /> },
+                  { path: 'active-recall', element: <ChapterActiveRecallPage /> },
+                  { path: 'active-recall/study', element: <ChapterActiveRecallStudyPage /> },
                 ],
-              },
-              { path: 'books', element: <SubjectBooksPage /> },
-              { path: 'videos', element: <SubjectVideosPage /> },
-              { path: 'pyqs', element: <SubjectPyqsPage /> },
-              { path: 'formula-sheet', element: <SubjectFormulaSheetPage /> },
-              { path: 'memory-sheet', element: <SubjectMemorySheetPage /> },
-              { path: 'notes', element: <SubjectNotesPage /> },
-              { path: 'active-recall', element: <SubjectActiveRecallPage /> },
-              { path: 'progress', element: <SubjectProgressPage /> },
-              {
-                path: 'chapters/:chapterSlug/active-recall',
-                element: <ChapterActiveRecallPage />,
-              },
-              {
-                path: 'chapters/:chapterSlug/active-recall/study',
-                element: <ChapterActiveRecallStudyPage />,
               },
             ],
           },
@@ -142,6 +136,8 @@ const router = createHashRouter([
         path: 'pyqs',
         children: [
           { index: true, element: <PyqsPage /> },
+          { path: 'practice', element: <PyqPracticePage /> },
+          { path: 'practice/:questionId', element: <PyqQuestionPage /> },
           { path: ':paperId', element: <PyqPaperDetailsPage /> },
         ],
       },

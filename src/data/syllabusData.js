@@ -106,10 +106,12 @@ export function searchTopics(query) {
   return getAllTopics().filter((topic) => {
     const haystack = [
       topic.name,
+      topic.metadata.fullTitle,
       topic.metadata.subjectName,
       topic.metadata.chapterName,
       ...topic.ancestors.map((ancestor) => ancestor.name),
     ]
+      .filter(Boolean)
       .join(' ')
       .toLowerCase()
     return haystack.includes(normalized)

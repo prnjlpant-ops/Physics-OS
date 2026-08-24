@@ -33,13 +33,42 @@ const RESOURCE_FIELD_TO_CATEGORY = {
 }
 
 /** Resolves one related-id array against the Library Master Index. Never throws. */
-function resolveLibraryField(libraryIndex, ids) {
+function resolveLibraryField(libraryIndex, ids, categoryKey, topic) {
   const resolved = []
   const broken = []
+
+  // For videos, also check if the topic has a direct video resource in libraryIndex (keyed by topic.id)
+  const topicVideoResource = categoryKey === 'videos' && topic?.id ? getResourceById(libraryIndex, topic.id) : null
+  if (topicVideoResource && !resolved.some((r) => r.id === topicVideoResource.id)) {
+    resolved.push(topicVideoResource)
+  }
+
   ids.forEach((id) => {
-    const resource = getResourceById(libraryIndex, id)
-    if (resource) resolved.push(resource)
-    else broken.push(id)
+    if (typeof id === 'string') {
+      const resource = getResourceById(libraryIndex, id)
+      if (resource) {
+        if (!resolved.some((r) => r.id === resource.id)) resolved.push(resource)
+      } else {
+        broken.push(id)
+      }
+    } else if (id && typeof id === 'object' && id.url) {
+      // Structured video object
+      if (!resolved.some((r) => r.url === id.url)) {
+        resolved.push({
+          id: id.url,
+          category: 'Videos',
+          categoryKey: 'videos',
+          title: `${id.source || 'Video'} — ${id.tag || topic?.name || 'Lecture'}`,
+          author: id.source || 'Video',
+          status: 'Available',
+          url: id.url,
+          subjectId: topic?.subjectId ?? null,
+          subjectName: topic?.subject ?? null,
+        })
+      }
+    } else {
+      broken.push(String(id))
+    }
   })
   return { resolved, broken }
 }
@@ -69,7 +98,7 @@ export function buildStudyMap(topic, libraryIndex, pyqIndex) {
 
   const map = {}
   Object.entries(RESOURCE_FIELD_TO_CATEGORY).forEach(([field, categoryKey]) => {
-    map[categoryKey] = resolveLibraryField(libraryIndex, topic[field] ?? [])
+    map[categoryKey] = resolveLibraryField(libraryIndex, topic[field] ?? [], categoryKey, topic)
   })
   map.pyqs = resolvePyqField(pyqIndex, topic.relatedPYQs ?? [])
 

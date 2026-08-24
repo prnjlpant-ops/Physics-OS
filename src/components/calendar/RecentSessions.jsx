@@ -1,6 +1,7 @@
+import { Pencil } from 'lucide-react'
 import { formatDuration, formatClockTime, formatDateLabel } from '../../utils/formatDuration'
 
-export default function RecentSessions({ sessions }) {
+export default function RecentSessions({ sessions, onEditSession }) {
   const recent = [...sessions]
     .sort((a, b) => (b.startTime || 0) - (a.startTime || 0))
     .slice(0, 10)
@@ -31,6 +32,7 @@ export default function RecentSessions({ sessions }) {
                 <span className="text-[10px] text-[#858585]">
                   {formatDateLabel(session.startTime)} · {formatClockTime(session.startTime)}
                 </span>
+                {onEditSession && <button type="button" onClick={() => onEditSession(session)} className="mt-1 inline-flex items-center gap-1 text-[11px] text-[#4fc1ff] hover:text-[#9cdcfe]"><Pencil size={11} />Edit</button>}
               </div>
             </div>
           ))}

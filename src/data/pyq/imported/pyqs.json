@@ -1,0 +1,429 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2026-07-28",
+  "root": "Z:/Academics/Knowledge Base/PYQs",
+  "papers": [
+    {
+      "id": "gate_ph_2007",
+      "exam": "GATE",
+      "subject": "Physics",
+      "year": 2007,
+      "path": "GATE/PH/PH2007.pdf",
+      "fileStatus": "scanned_image_only",
+      "indexed": true
+    },
+    {
+      "id": "gate_ph_2008",
+      "exam": "GATE",
+      "subject": "Physics",
+      "year": 2008,
+      "path": "GATE/PH/PH2008.pdf",
+      "fileStatus": "scanned_image_only",
+      "indexed": true
+    },
+    {
+      "id": "gate_ph_2009",
+      "exam": "GATE",
+      "subject": "Physics",
+      "year": 2009,
+      "path": "GATE/PH/PH2009.pdf",
+      "fileStatus": "scanned_image_only",
+      "indexed": true
+    },
+    {
+      "id": "gate_ph_2010",
+      "exam": "GATE",
+      "subject": "Physics",
+      "year": 2010,
+      "path": "GATE/PH/PH2010.pdf",
+      "fileStatus": "scanned_image_only",
+      "indexed": true,
+      "reviewNote": "Paper contains 65 questions total: Q1-55 are Physics (indexed), Q56-65 are General Aptitude (excluded from physics taxonomy, not indexed)."
+    },
+    {
+      "id": "gate_ph_2011",
+      "exam": "GATE",
+      "subject": "Physics",
+      "year": 2011,
+      "path": "GATE/PH/PH2011.pdf",
+      "fileStatus": "scanned_image_only",
+      "indexed": true,
+      "reviewNote": "Paper contains 65 questions total: Q1-55 are Physics (indexed), Q56-65 are General Aptitude (excluded from physics taxonomy, not indexed)."
+    },
+    {
+      "id": "gate_ph_2012",
+      "exam": "GATE",
+      "subject": "Physics",
+      "year": 2012,
+      "path": "GATE/PH/PH2012.pdf",
+      "fileStatus": "text_layer_present",
+      "indexed": true,
+      "reviewNote": "Paper contains 65 questions total: Q1-55 are Physics (indexed), Q56-65 are General Aptitude (excluded)."
+    },
+    {
+      "id": "gate_ph_2013",
+      "exam": "GATE",
+      "subject": "Physics",
+      "year": 2013,
+      "path": "GATE/PH/PH2013.pdf",
+      "fileStatus": "text_layer_present",
+      "indexed": true,
+      "reviewNote": "Paper contains 65 questions total: Q1-55 are Physics (indexed), Q56-65 are General Aptitude (excluded)."
+    },
+    {
+      "id": "gate_ph_2014",
+      "exam": "GATE",
+      "subject": "Physics",
+      "year": 2014,
+      "path": "GATE/PH/PH2014.pdf",
+      "fileStatus": "text_layer_present",
+      "indexed": true,
+      "reviewNote": "Paper contains 65 questions total: Physics Q1-55 indexed; GA section (separately numbered Q1-10) excluded."
+    },
+    {
+      "id": "gate_ph_2015",
+      "exam": "GATE",
+      "subject": "Physics",
+      "year": 2015,
+      "path": "GATE/PH/PH2015.pdf",
+      "fileStatus": "text_layer_present",
+      "indexed": true,
+      "reviewNote": "Physics section uses continuous numbering Q11-Q65 (GA is Q1-10); all 55 physics questions indexed with native numbering."
+    },
+    {
+      "id": "gate_ph_2016",
+      "exam": "GATE",
+      "subject": "Physics",
+      "year": 2016,
+      "path": "GATE/PH/PH2016.pdf",
+      "fileStatus": "text_layer_present",
+      "indexed": true,
+      "reviewNote": "Paper contains 65 questions total: Q1-55 Physics (indexed), Q56-65 GA (excluded). Page 5 of source PDF (Q9-16) had no extractable text layer; recovered via OCR."
+    },
+    {
+      "id": "gate_ph_2017",
+      "exam": "GATE",
+      "subject": "Physics",
+      "year": 2017,
+      "path": "GATE/PH/PH2017.pdf",
+      "fileStatus": "text_layer_present",
+      "indexed": true,
+      "reviewNote": "Paper contains 65 questions total: Q1-55 Physics (indexed), Q56-65 GA (excluded). Source PDF text layer contained only question metadata (marking scheme); full question content recovered via OCR of rasterized pages."
+    },
+    {
+      "id": "gate_ph_2018",
+      "exam": "GATE",
+      "subject": "Physics",
+      "year": 2018,
+      "path": "GATE/PH/PH2018.pdf",
+      "fileStatus": "text_layer_present",
+      "indexed": true,
+      "reviewNote": "Paper contains 65 questions total: GA Set-4 (Q1-10, separate section) plus Physics Q1-55 (indexed). Clean text layer with full answer key."
+    },
+    {
+      "id": "gate_ph_2019",
+      "exam": "GATE",
+      "subject": "Physics",
+      "year": 2019,
+      "path": "GATE/PH/PH2019.pdf",
+      "fileStatus": "scanned_image_only",
+      "indexed": true,
+      "reviewNote": "Paper contains 65 questions total: GA Set-8 (Q1-10, separate section) plus Physics Q1-55 (indexed). Source had no extractable text layer; recovered via OCR."
+    },
+    {
+      "id": "gate_ph_2020",
+      "exam": "GATE",
+      "subject": "Physics",
+      "year": 2020,
+      "path": "GATE/PH/PH2020.pdf",
+      "fileStatus": "text_layer_present",
+      "indexed": true,
+      "reviewNote": "Paper contains 65 questions total: GA (Q1-10, separate section) plus Physics Q1-55 (indexed). Source text layer contained only answer-option scaffolding; full question content recovered via OCR."
+    },
+    {
+      "id": "gate_ph_2021",
+      "exam": "GATE",
+      "subject": "Physics",
+      "year": 2021,
+      "path": "GATE/PH/PH2021.pdf",
+      "fileStatus": "scanned_image_only",
+      "indexed": true,
+      "reviewNote": "Question format changed to MCQ/MSQ/NAT categories; native numbering Q1-55 preserved (no separate GA renumbering issue). No extractable text layer; recovered via OCR."
+    },
+    {
+      "id": "gate_ph_2022",
+      "exam": "GATE",
+      "subject": "Physics",
+      "year": 2022,
+      "path": "GATE/PH/PH2022.pdf",
+      "fileStatus": "text_layer_present",
+      "indexed": true,
+      "reviewNote": "Physics uses continuous numbering Q11-Q65 (GA is Q1-10). MSQ (multi-select) questions present alongside MCQ and NAT. Clean text layer."
+    },
+    {
+      "id": "gate_ph_2023",
+      "exam": "GATE",
+      "subject": "Physics",
+      "year": 2023,
+      "path": "GATE/PH/PH2023.pdf",
+      "fileStatus": "corrupted_unreadable",
+      "needsReview": true,
+      "reviewNote": "PDF fails to parse (bad xref/trailer). Needs re-export/re-upload before indexing.",
+      "indexed": false
+    },
+    {
+      "id": "gate_ph_2024",
+      "exam": "GATE",
+      "subject": "Physics",
+      "year": 2024,
+      "path": "GATE/PH/PH2024.pdf",
+      "fileStatus": "text_layer_present",
+      "indexed": true,
+      "reviewNote": "Physics uses continuous numbering Q11-Q65 (GA is Q1-10). Clean text layer, MSQ questions present."
+    },
+    {
+      "id": "gate_ph_2025",
+      "exam": "GATE",
+      "subject": "Physics",
+      "year": 2025,
+      "path": "GATE/PH/PH2025.pdf",
+      "fileStatus": "text_layer_present",
+      "indexed": true,
+      "reviewNote": "Physics uses continuous numbering Q11-Q65 (GA is Q1-10). Source PDF section header prints Q.36-Q.55 for the two-mark section but content continues through Q65 (55 physics questions total, consistent with 25 one-mark + 30 two-mark structure) -- treated as a labeling artifact in the source, not a missing-question issue."
+    },
+    {
+      "id": "jam_ph_2012",
+      "exam": "IIT JAM",
+      "subject": "Physics",
+      "year": 2012,
+      "path": "IIT JAM/PH2012.pdf",
+      "fileStatus": "text_layer_present",
+      "indexed": false
+    },
+    {
+      "id": "jam_ph_2013",
+      "exam": "IIT JAM",
+      "subject": "Physics",
+      "year": 2013,
+      "path": "IIT JAM/PH2013.pdf",
+      "fileStatus": "scanned_image_only",
+      "indexed": false
+    },
+    {
+      "id": "jam_ph_2014",
+      "exam": "IIT JAM",
+      "subject": "Physics",
+      "year": 2014,
+      "path": "IIT JAM/PH2014.pdf",
+      "fileStatus": "scanned_image_only",
+      "indexed": false
+    },
+    {
+      "id": "jam_ph_2015",
+      "exam": "IIT JAM",
+      "subject": "Physics",
+      "year": 2015,
+      "path": "IIT JAM/PH2015.pdf",
+      "fileStatus": "text_layer_present",
+      "indexed": false
+    },
+    {
+      "id": "jam_ph_2016",
+      "exam": "IIT JAM",
+      "subject": "Physics",
+      "year": 2016,
+      "path": "IIT JAM/PH2016.pdf",
+      "fileStatus": "text_layer_present",
+      "indexed": false
+    },
+    {
+      "id": "jam_ph_2017",
+      "exam": "IIT JAM",
+      "subject": "Physics",
+      "year": 2017,
+      "path": "IIT JAM/PH2017.pdf",
+      "fileStatus": "scanned_image_only",
+      "indexed": false
+    },
+    {
+      "id": "jam_ph_2018",
+      "exam": "IIT JAM",
+      "subject": "Physics",
+      "year": 2018,
+      "path": "IIT JAM/PH2018.pdf",
+      "fileStatus": "text_layer_present",
+      "indexed": false
+    },
+    {
+      "id": "jam_ph_2019",
+      "exam": "IIT JAM",
+      "subject": "Physics",
+      "year": 2019,
+      "path": "IIT JAM/PH2019.pdf",
+      "fileStatus": "text_layer_present",
+      "indexed": false
+    },
+    {
+      "id": "jam_ph_2020",
+      "exam": "IIT JAM",
+      "subject": "Physics",
+      "year": 2020,
+      "path": "IIT JAM/PH2020.pdf",
+      "fileStatus": "text_layer_present",
+      "indexed": false
+    },
+    {
+      "id": "jam_ph_2021",
+      "exam": "IIT JAM",
+      "subject": "Physics",
+      "year": 2021,
+      "path": "IIT JAM/PH2021.pdf",
+      "fileStatus": "text_layer_present",
+      "indexed": false
+    },
+    {
+      "id": "jam_ph_2022",
+      "exam": "IIT JAM",
+      "subject": "Physics",
+      "year": 2022,
+      "path": "IIT JAM/PH2022.pdf",
+      "fileStatus": "text_layer_present",
+      "indexed": false
+    },
+    {
+      "id": "jam_ph_2023",
+      "exam": "IIT JAM",
+      "subject": "Physics",
+      "year": 2023,
+      "path": "IIT JAM/PH2023.pdf",
+      "fileStatus": "text_layer_present",
+      "indexed": false
+    },
+    {
+      "id": "jam_ph_2024",
+      "exam": "IIT JAM",
+      "subject": "Physics",
+      "year": 2024,
+      "path": "IIT JAM/PH2024.pdf",
+      "fileStatus": "text_layer_present",
+      "indexed": false
+    },
+    {
+      "id": "jest_2012",
+      "exam": "JEST",
+      "subject": "Physics",
+      "year": 2012,
+      "path": "JEST/JEST-Physics-2012-Question-Paper-with-Answer-Key.pdf",
+      "fileStatus": "text_layer_present",
+      "indexed": false
+    },
+    {
+      "id": "jest_2013",
+      "exam": "JEST",
+      "subject": "Physics",
+      "year": 2013,
+      "path": "JEST/JEST-Physics-2013-Question-Paper-with-Answer-Key.pdf",
+      "fileStatus": "text_layer_present",
+      "indexed": false
+    },
+    {
+      "id": "jest_2014",
+      "exam": "JEST",
+      "subject": "Physics",
+      "year": 2014,
+      "path": "JEST/JEST-Physics-2014-Question-Paper-with-Answer-Key.pdf",
+      "fileStatus": "text_layer_present",
+      "indexed": false
+    },
+    {
+      "id": "jest_2015",
+      "exam": "JEST",
+      "subject": "Physics",
+      "year": 2015,
+      "path": "JEST/JEST-Physics-2015-Question-Paper-with-Answer-Key.pdf",
+      "fileStatus": "text_layer_present",
+      "indexed": false
+    },
+    {
+      "id": "jest_2016",
+      "exam": "JEST",
+      "subject": "Physics",
+      "year": 2016,
+      "path": "JEST/JEST-Physics-2016-Question-Paper-with-Answer-Key.pdf",
+      "fileStatus": "text_layer_present",
+      "indexed": false
+    },
+    {
+      "id": "jest_2017",
+      "exam": "JEST",
+      "subject": "Physics",
+      "year": 2017,
+      "path": "JEST/JEST-Physics-2017-Question-Paper-with-Answer-Key.pdf",
+      "fileStatus": "text_layer_present",
+      "indexed": false
+    },
+    {
+      "id": "jest_2018",
+      "exam": "JEST",
+      "subject": "Physics",
+      "year": 2018,
+      "path": "JEST/JEST-Physics-2018-Question-Paper-with-Answer-Key.pdf",
+      "fileStatus": "text_layer_present",
+      "indexed": false
+    },
+    {
+      "id": "jest_2019",
+      "exam": "JEST",
+      "subject": "Physics",
+      "year": 2019,
+      "path": "JEST/JEST-Physics-2019-Question-Paper-with-Answer-Key.pdf",
+      "fileStatus": "text_layer_present",
+      "indexed": false
+    },
+    {
+      "id": "jest_2020",
+      "exam": "JEST",
+      "subject": "Physics",
+      "year": 2020,
+      "path": "JEST/JEST-Physics-2020-Question-Paper-with-Answer-Key.pdf",
+      "fileStatus": "text_layer_present",
+      "indexed": false
+    },
+    {
+      "id": "jest_2021",
+      "exam": "JEST",
+      "subject": "Physics",
+      "year": 2021,
+      "path": "JEST/JEST-Physics-2021-Question-Paper-with-Answer-Key.pdf",
+      "fileStatus": "text_layer_present",
+      "indexed": false
+    },
+    {
+      "id": "jest_2022",
+      "exam": "JEST",
+      "subject": "Physics",
+      "year": 2022,
+      "path": "JEST/JEST-Physics-2022-Question-Paper-with-Answer-Key.pdf",
+      "fileStatus": "text_layer_present",
+      "indexed": false
+    },
+    {
+      "id": "jest_2023",
+      "exam": "JEST",
+      "subject": "Physics",
+      "year": 2023,
+      "path": "JEST/JEST-Physics-2023-Question-Paper-with-Answer-Key.pdf",
+      "fileStatus": "text_layer_present",
+      "indexed": false
+    },
+    {
+      "id": "jest_2024",
+      "exam": "JEST",
+      "subject": "Physics",
+      "year": 2024,
+      "path": "JEST/JEST-Physics-2024-Question-Paper-with-Answer-Key.pdf",
+      "fileStatus": "text_layer_present",
+      "indexed": false
+    }
+  ]
+}

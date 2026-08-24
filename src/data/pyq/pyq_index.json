@@ -1,6 +1,1193 @@
 {
   "version": "1.0.0",
-  "lastUpdated": null,
-  "topics": [],
+  "lastUpdated": "2026-08-23",
+  "topics": [
+    {
+      "id": "phase-a-01",
+      "name": "Vector algebra, vector calculus, linear algebra",
+      "chapter": "Vector algebra, vector calculus, linear algebra",
+      "chapterSlug": "phase-a-01",
+      "subject": "Mathematical Physics",
+      "subjectId": "mathematical_physics",
+      "description": "JAM: direct diagonalization/eigenvalue NAT & MCQ, vector identity proofs. JEST: same tools embedded inside mechanics/EM/QM problems rather than asked standalone.",
+      "relatedBooks": [
+        "boas_math_methods"
+      ],
+      "relatedFormulaSheets": [],
+      "relatedMemorySheets": [],
+      "relatedNotes": [],
+      "relatedVideos": [
+        {
+          "url": "https://youtube.com/playlist?list=PL_yoT1uNIKb5612J2UBJOZ5Q2RwFQ8Bkm",
+          "source": "Pravegaa",
+          "tag": "JAM+JEST"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=TcmGYe39XG0&list=PL0F530F3BAF8C6FCC",
+          "source": "NPTEL — Balakrishnan, IIT Madras",
+          "tag": "JAM+JEST"
+        }
+      ],
+      "relatedResearchPapers": [],
+      "relatedPYQs": []
+    },
+    {
+      "id": "phase-a-02",
+      "name": "Linear differential equations",
+      "chapter": "Linear differential equations",
+      "chapterSlug": "phase-a-02",
+      "subject": "Mathematical Physics",
+      "subjectId": "mathematical_physics",
+      "description": "JAM/JEST: solve a given ODE, classify its type, apply the initial condition.",
+      "relatedBooks": [
+        "boas_math_methods"
+      ],
+      "relatedFormulaSheets": [],
+      "relatedMemorySheets": [],
+      "relatedNotes": [],
+      "relatedVideos": [
+        {
+          "url": "https://youtube.com/playlist?list=PL_yoT1uNIKb5612J2UBJOZ5Q2RwFQ8Bkm",
+          "source": "Pravegaa",
+          "tag": "JAM+JEST"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=b5VUnapu-qs&list=PLbMVogVj5nJRhl_6TUGChpnt2Lg0AZvZu",
+          "source": "NPTEL — Balakrishnan, IIT Madras",
+          "tag": "JAM+JEST"
+        }
+      ],
+      "relatedResearchPapers": [],
+      "relatedPYQs": []
+    },
+    {
+      "id": "phase-a-03",
+      "name": "Complex analysis — basic part only",
+      "chapter": "Complex analysis — basic part only",
+      "chapterSlug": "phase-a-03",
+      "subject": "Mathematical Physics",
+      "subjectId": "mathematical_physics",
+      "description": "JAM/JEST (basic level only): complex algebra, polar form, basic function evaluation MCQ/NAT. Residues deferred to Phase A-Bonus #4.",
+      "relatedBooks": [
+        "boas_math_methods"
+      ],
+      "relatedFormulaSheets": [],
+      "relatedMemorySheets": [],
+      "relatedNotes": [],
+      "relatedVideos": [
+        {
+          "url": "https://youtube.com/playlist?list=PL_yoT1uNIKb5612J2UBJOZ5Q2RwFQ8Bkm",
+          "source": "Pravegaa",
+          "tag": "JAM-partial"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=b5VUnapu-qs&list=PLbMVogVj5nJRhl_6TUGChpnt2Lg0AZvZu",
+          "source": "NPTEL — Balakrishnan, IIT Madras",
+          "tag": "JAM-partial"
+        }
+      ],
+      "relatedResearchPapers": [],
+      "relatedPYQs": []
+    },
+    {
+      "id": "phase-a-04",
+      "name": "Fourier series (Fourier/Laplace *transforms* are — see Phase B)",
+      "chapter": "Fourier series (Fourier/Laplace *transforms* are — see Phase B)",
+      "chapterSlug": "phase-a-04",
+      "subject": "Mathematical Physics",
+      "subjectId": "mathematical_physics",
+      "description": "JAM/JEST: expand a given periodic function, find a specific coefficient, use even/odd symmetry shortcuts.",
+      "relatedBooks": [
+        "boas_math_methods"
+      ],
+      "relatedFormulaSheets": [],
+      "relatedMemorySheets": [],
+      "relatedNotes": [],
+      "relatedVideos": [
+        {
+          "url": "https://www.youtube.com/watch?v=MW72LV-P_2s",
+          "source": "Pravegaa",
+          "tag": "JAM+JEST"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=OoZy75MRXlo",
+          "source": "Pravegaa",
+          "tag": "JAM+JEST"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=7ebxmmC_evI",
+          "source": "Pravegaa",
+          "tag": "JAM+JEST"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=-tU6TccKzcQ",
+          "source": "Pravegaa",
+          "tag": "JAM+JEST"
+        }
+      ],
+      "relatedResearchPapers": [],
+      "relatedPYQs": []
+    },
+    {
+      "id": "phase-a-05",
+      "name": "Newton's laws, conservation, collisions",
+      "chapter": "Newton's laws, conservation, collisions",
+      "chapterSlug": "phase-a-05",
+      "subject": "Classical Mechanics",
+      "subjectId": "classical_mechanics",
+      "description": "JAM: standard collision/conservation numericals. JEST: same, sometimes with a constraint or non-inertial twist.",
+      "relatedBooks": [
+        "kleppner"
+      ],
+      "relatedFormulaSheets": [],
+      "relatedMemorySheets": [],
+      "relatedNotes": [],
+      "relatedVideos": [
+        {
+          "url": "https://youtube.com/playlist?list=PL_yoT1uNIKb4cTACv0ntPjYQPLSU3ZsB-",
+          "source": "Pravegaa",
+          "tag": "JAM+JEST"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=Q6Gw08pwhws&list=PL5E4E56893588CBA8",
+          "source": "NPTEL — Balakrishnan, IIT Madras",
+          "tag": "JAM+JEST"
+        }
+      ],
+      "relatedResearchPapers": [],
+      "relatedPYQs": []
+    },
+    {
+      "id": "phase-a-06",
+      "name": "Generalized coordinates, Lagrangian and Hamiltonian formulations",
+      "chapter": "Generalized coordinates, Lagrangian and Hamiltonian formulations",
+      "chapterSlug": "phase-a-06",
+      "subject": "Classical Mechanics",
+      "subjectId": "classical_mechanics",
+      "description": "JAM: set up the Lagrangian for a given constrained system, derive the EOM. JEST: same, plus Hamiltonian/canonical-momentum questions.",
+      "relatedBooks": [
+        "goldstein"
+      ],
+      "relatedFormulaSheets": [],
+      "relatedMemorySheets": [],
+      "relatedNotes": [],
+      "relatedVideos": [
+        {
+          "url": "https://youtube.com/playlist?list=PL_yoT1uNIKb4cTACv0ntPjYQPLSU3ZsB-",
+          "source": "Pravegaa",
+          "tag": "JAM+JEST"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=Q6Gw08pwhws&list=PL5E4E56893588CBA8",
+          "source": "NPTEL — Balakrishnan, IIT Madras",
+          "tag": "JAM+JEST"
+        }
+      ],
+      "relatedResearchPapers": [],
+      "relatedPYQs": []
+    },
+    {
+      "id": "phase-a-07",
+      "name": "Central force problem, Kepler problem",
+      "chapter": "Central force problem, Kepler problem",
+      "chapterSlug": "phase-a-07",
+      "subject": "Classical Mechanics",
+      "subjectId": "classical_mechanics",
+      "description": "JAM/JEST: derive the orbit equation, effective potential, Kepler's laws from the Lagrangian.",
+      "relatedBooks": [
+        "goldstein"
+      ],
+      "relatedFormulaSheets": [],
+      "relatedMemorySheets": [],
+      "relatedNotes": [],
+      "relatedVideos": [
+        {
+          "url": "https://youtube.com/playlist?list=PL_yoT1uNIKb4cTACv0ntPjYQPLSU3ZsB-",
+          "source": "Pravegaa",
+          "tag": "JAM+JEST"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=Q6Gw08pwhws&list=PL5E4E56893588CBA8",
+          "source": "NPTEL — Balakrishnan, IIT Madras",
+          "tag": "JAM+JEST"
+        }
+      ],
+      "relatedResearchPapers": [],
+      "relatedPYQs": []
+    },
+    {
+      "id": "phase-a-08",
+      "name": "Special relativity — basic part",
+      "chapter": "Special relativity — basic part",
+      "chapterSlug": "phase-a-08",
+      "subject": "Classical Mechanics",
+      "subjectId": "classical_mechanics",
+      "description": "JAM: time dilation / length contraction / E=mc² numericals. Full 4-vector treatment deferred to Phase A-Bonus #6.",
+      "relatedBooks": [
+        "beiser_concepts_of_modern_physics"
+      ],
+      "relatedFormulaSheets": [],
+      "relatedMemorySheets": [],
+      "relatedNotes": [],
+      "relatedVideos": [
+        {
+          "url": "https://www.youtube.com/watch?v=49vEaNa1XKo&list=PLbMVogVj5nJQInU_xlAdGS2220biQma1x",
+          "source": "NPTEL — Shiva Prasad, IIT Bombay",
+          "tag": "JAM-partial"
+        }
+      ],
+      "relatedResearchPapers": [],
+      "relatedPYQs": []
+    },
+    {
+      "id": "phase-a-09",
+      "name": "Electrostatics, magnetostatics — basic part",
+      "chapter": "Electrostatics, magnetostatics — basic part",
+      "chapterSlug": "phase-a-09",
+      "subject": "Electrodynamics",
+      "subjectId": "electrodynamics",
+      "description": "JAM: Gauss's/Ampere's law applications, field calculations for standard geometries. Boundary value problems deferred to Phase A-Bonus #3.",
+      "relatedBooks": [
+        "griffiths_em"
+      ],
+      "relatedFormulaSheets": [],
+      "relatedMemorySheets": [],
+      "relatedNotes": [],
+      "relatedVideos": [
+        {
+          "url": "https://youtube.com/playlist?list=PL_yoT1uNIKb5iALlayczJMl_SHkd8TcX8",
+          "source": "Pravegaa",
+          "tag": "JAM-partial"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=NED2Cl8u9Q0&list=PLbMVogVj5nJSKsAlDEbNwKZY6zD0EbGMF",
+          "source": "NPTEL — D.K. Ghosh, IIT Bombay",
+          "tag": "JAM-partial"
+        }
+      ],
+      "relatedResearchPapers": [],
+      "relatedPYQs": []
+    },
+    {
+      "id": "phase-a-10",
+      "name": "Faraday's law, time-varying fields, displacement current, Maxwell's equations",
+      "chapter": "Faraday's law, time-varying fields, displacement current, Maxwell's equations",
+      "chapterSlug": "phase-a-10",
+      "subject": "Electrodynamics",
+      "subjectId": "electrodynamics",
+      "description": "JAM/JEST: apply/derive Maxwell's equations in integral and differential form, induced-EMF problems.",
+      "relatedBooks": [
+        "griffiths_em"
+      ],
+      "relatedFormulaSheets": [],
+      "relatedMemorySheets": [],
+      "relatedNotes": [],
+      "relatedVideos": [
+        {
+          "url": "https://youtube.com/playlist?list=PL_yoT1uNIKb5iALlayczJMl_SHkd8TcX8",
+          "source": "Pravegaa",
+          "tag": "JAM+JEST"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=NED2Cl8u9Q0&list=PLbMVogVj5nJSKsAlDEbNwKZY6zD0EbGMF",
+          "source": "NPTEL — D.K. Ghosh, IIT Bombay",
+          "tag": "JAM+JEST"
+        }
+      ],
+      "relatedResearchPapers": [],
+      "relatedPYQs": []
+    },
+    {
+      "id": "phase-a-11",
+      "name": "Plane EM wave propagation, reflection, refraction",
+      "chapter": "Plane EM wave propagation, reflection, refraction",
+      "chapterSlug": "phase-a-11",
+      "subject": "Electrodynamics",
+      "subjectId": "electrodynamics",
+      "description": "JAM/JEST: derive the wave equation from Maxwell's equations, normal-incidence reflection/transmission coefficients.",
+      "relatedBooks": [
+        "griffiths_em"
+      ],
+      "relatedFormulaSheets": [],
+      "relatedMemorySheets": [],
+      "relatedNotes": [],
+      "relatedVideos": [
+        {
+          "url": "https://youtube.com/playlist?list=PL_yoT1uNIKb5iALlayczJMl_SHkd8TcX8",
+          "source": "Pravegaa",
+          "tag": "JAM+JEST"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=NED2Cl8u9Q0&list=PLbMVogVj5nJSKsAlDEbNwKZY6zD0EbGMF",
+          "source": "NPTEL — D.K. Ghosh, IIT Bombay",
+          "tag": "JAM+JEST"
+        }
+      ],
+      "relatedResearchPapers": [],
+      "relatedPYQs": []
+    },
+    {
+      "id": "phase-a-12",
+      "name": "Diffraction, interference, polarization",
+      "chapter": "Diffraction, interference, polarization",
+      "chapterSlug": "phase-a-12",
+      "subject": "Optics",
+      "subjectId": "optics",
+      "description": "JAM/JEST: slit-pattern numericals, Malus's law, standard interference-condition problems.",
+      "relatedBooks": [
+        "griffiths_em",
+        "hecht"
+      ],
+      "relatedFormulaSheets": [],
+      "relatedMemorySheets": [],
+      "relatedNotes": [],
+      "relatedVideos": [
+        {
+          "url": "https://www.youtube.com/watch?v=xoJWoMQwTAw&list=PLyqSpQzTE6M9X7oRXliYM8t0aaR_N0Csd",
+          "source": "NPTEL — M.S. Santhanam, IIT Madras",
+          "tag": "JAM+JEST"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=xoJWoMQwTAw&list=PLyqSpQzTE6M9X7oRXliYM8t0aaR_N0Csd",
+          "source": "NPTEL — M.S. Santhanam, IIT Madras",
+          "tag": "JAM+JEST"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=xoJWoMQwTAw&list=PLyqSpQzTE6M9X7oRXliYM8t0aaR_N0Csd",
+          "source": "NPTEL — M.S. Santhanam, IIT Madras",
+          "tag": "JAM+JEST"
+        }
+      ],
+      "relatedResearchPapers": [],
+      "relatedPYQs": []
+    },
+    {
+      "id": "phase-a-13",
+      "name": "Uncertainty principle, Schrödinger equation, central potentials, hydrogen atom",
+      "chapter": "Uncertainty principle, Schrödinger equation, central potentials, hydrogen atom",
+      "chapterSlug": "phase-a-13",
+      "subject": "Quantum Mechanics",
+      "subjectId": "quantum_mechanics",
+      "description": "JAM: particle-in-a-box / harmonic-oscillator eigenvalue problems. JEST: same, plus the hydrogen-atom radial equation and angular-momentum basics.",
+      "relatedBooks": [
+        "griffiths_qm"
+      ],
+      "relatedFormulaSheets": [],
+      "relatedMemorySheets": [],
+      "relatedNotes": [],
+      "relatedVideos": [
+        {
+          "url": "https://youtube.com/playlist?list=PL_yoT1uNIKb7vY46rDudNBXJDrMMPM5iV",
+          "source": "Pravegaa",
+          "tag": "JAM+JEST"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=TcmGYe39XG0&list=PL0F530F3BAF8C6FCC",
+          "source": "NPTEL — Balakrishnan, IIT Madras",
+          "tag": "JAM+JEST"
+        },
+        {
+          "url": "https://youtube.com/playlist?list=PL_yoT1uNIKb7vY46rDudNBXJDrMMPM5iV",
+          "source": "Pravegaa",
+          "tag": "JAM+JEST"
+        }
+      ],
+      "relatedResearchPapers": [],
+      "relatedPYQs": []
+    },
+    {
+      "id": "phase-a-14",
+      "name": "Laws of thermodynamics, thermodynamic potentials, kinetic theory, Maxwell's relations",
+      "chapter": "Laws of thermodynamics, thermodynamic potentials, kinetic theory, Maxwell's relations",
+      "chapterSlug": "phase-a-14",
+      "subject": "Thermodynamics",
+      "subjectId": "thermodynamics",
+      "description": "JAM/JEST: derive/apply a Maxwell relation, kinetic-theory numericals, thermodynamic-potential problems.",
+      "relatedBooks": [
+        "garg_bansal_ghosh_thermal_physics"
+      ],
+      "relatedFormulaSheets": [],
+      "relatedMemorySheets": [],
+      "relatedNotes": [],
+      "relatedVideos": [
+        {
+          "url": "https://youtube.com/playlist?list=PL_yoT1uNIKb5ECZhofT0WNdLYyw9gEhNA",
+          "source": "Pravegaa",
+          "tag": "JAM+JEST"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=iud7fzXPJUs&list=PLwdnzlV3ogoXkmlIyZceK111IMjCgS-b7",
+          "source": "NPTEL — Girish Setlur, IIT Guwahati",
+          "tag": "JAM+JEST"
+        }
+      ],
+      "relatedResearchPapers": [],
+      "relatedPYQs": []
+    },
+    {
+      "id": "phase-a-15",
+      "name": "Classical and quantum statistics — basic definitions",
+      "chapter": "Classical and quantum statistics — basic definitions",
+      "chapterSlug": "phase-a-15",
+      "subject": "Thermodynamics",
+      "subjectId": "thermodynamics",
+      "description": "JAM: identify/apply the correct distribution for a given system. Full partition-function derivations deferred to Phase A-Bonus #5.",
+      "relatedBooks": [
+        "garg_bansal_ghosh_thermal_physics"
+      ],
+      "relatedFormulaSheets": [],
+      "relatedMemorySheets": [],
+      "relatedNotes": [],
+      "relatedVideos": [
+        {
+          "url": "https://youtube.com/playlist?list=PL_yoT1uNIKb5ECZhofT0WNdLYyw9gEhNA",
+          "source": "Pravegaa",
+          "tag": "JAM-partial"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=iud7fzXPJUs&list=PLwdnzlV3ogoXkmlIyZceK111IMjCgS-b7",
+          "source": "NPTEL — Girish Setlur, IIT Guwahati",
+          "tag": "JAM-partial"
+        }
+      ],
+      "relatedResearchPapers": [],
+      "relatedPYQs": []
+    },
+    {
+      "id": "phase-a-16",
+      "name": "Black body radiation",
+      "chapter": "Black body radiation",
+      "chapterSlug": "phase-a-16",
+      "subject": "Thermodynamics",
+      "subjectId": "thermodynamics",
+      "description": "JAM/JEST: Planck's-law limiting cases, Wien's/Stefan-Boltzmann numericals.",
+      "relatedBooks": [
+        "garg_bansal_ghosh_thermal_physics"
+      ],
+      "relatedFormulaSheets": [],
+      "relatedMemorySheets": [],
+      "relatedNotes": [],
+      "relatedVideos": [
+        {
+          "url": "https://youtube.com/playlist?list=PL_yoT1uNIKb5ECZhofT0WNdLYyw9gEhNA",
+          "source": "Pravegaa",
+          "tag": "JAM+JEST"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=iud7fzXPJUs&list=PLwdnzlV3ogoXkmlIyZceK111IMjCgS-b7",
+          "source": "NPTEL — Girish Setlur, IIT Guwahati",
+          "tag": "JAM+JEST"
+        }
+      ],
+      "relatedResearchPapers": [],
+      "relatedPYQs": []
+    },
+    {
+      "id": "phase-a-17",
+      "name": "Semiconductor basics, p-n junctions, diodes, transistors",
+      "chapter": "Semiconductor basics, p-n junctions, diodes, transistors",
+      "chapterSlug": "phase-a-17",
+      "subject": "Electronics",
+      "subjectId": "electronics",
+      "description": "JAM/JEST: diode/BJT characteristic-curve reading, basic device-physics MCQs.",
+      "relatedBooks": [
+        "millman_halkias"
+      ],
+      "relatedFormulaSheets": [],
+      "relatedMemorySheets": [],
+      "relatedNotes": [],
+      "relatedVideos": [
+        {
+          "url": "https://youtube.com/playlist?list=PL_yoT1uNIKb5E9MThE7H010wXXqZCrRPl",
+          "source": "Pravegaa",
+          "tag": "JAM+JEST"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=g7vYop_46tU&list=PL708EEA8184EA8F53",
+          "source": "NPTEL — D.C. Dube, IIT Delhi",
+          "tag": "JAM+JEST"
+        }
+      ],
+      "relatedResearchPapers": [],
+      "relatedPYQs": []
+    },
+    {
+      "id": "phase-a-18",
+      "name": "LCR circuits, rectifiers, amplifiers, OPAMPs, digital electronics — basic level",
+      "chapter": "LCR circuits, rectifiers, amplifiers, OPAMPs, digital electronics — basic level",
+      "chapterSlug": "phase-a-18",
+      "subject": "Electronics",
+      "subjectId": "electronics",
+      "description": "JAM/JEST: circuit-analysis numericals, op-amp configuration identification, logic-gate truth tables.",
+      "relatedBooks": [
+        "millman_halkias"
+      ],
+      "relatedFormulaSheets": [],
+      "relatedMemorySheets": [],
+      "relatedNotes": [],
+      "relatedVideos": [
+        {
+          "url": "https://youtube.com/playlist?list=PL_yoT1uNIKb5E9MThE7H010wXXqZCrRPl",
+          "source": "Pravegaa",
+          "tag": "JAM+JEST"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=g7vYop_46tU&list=PL708EEA8184EA8F53",
+          "source": "NPTEL — D.C. Dube, IIT Delhi",
+          "tag": "JAM+JEST"
+        }
+      ],
+      "relatedResearchPapers": [],
+      "relatedPYQs": []
+    },
+    {
+      "id": "phase-a-19",
+      "name": "Crystal structure, reciprocal lattice, basic band theory",
+      "chapter": "Crystal structure, reciprocal lattice, basic band theory",
+      "chapterSlug": "phase-a-19",
+      "subject": "Solid State Physics",
+      "subjectId": "solid_state_physics",
+      "description": "JAM/JEST: Bragg-condition NATs, \"why does a gap open at the zone boundary\" conceptual MCQs.",
+      "relatedBooks": [
+        "kittel"
+      ],
+      "relatedFormulaSheets": [],
+      "relatedMemorySheets": [],
+      "relatedNotes": [],
+      "relatedVideos": [
+        {
+          "url": "https://www.youtube.com/watch?v=Ofzd2ZqFvjo&list=PLADLRin7kNjG1Dlna9MDA53CMKFHPSi9m",
+          "source": "NPTEL — Amal Kumar Das, IIT Kharagpur",
+          "tag": "JAM+JEST"
+        }
+      ],
+      "relatedResearchPapers": [],
+      "relatedPYQs": []
+    },
+    {
+      "id": "phase-a-20",
+      "name": "Basic atomic structure, nuclear models, radioactivity",
+      "chapter": "Basic atomic structure, nuclear models, radioactivity",
+      "chapterSlug": "phase-a-20",
+      "subject": "Experimental Physics",
+      "subjectId": "experimental_physics",
+      "description": "JAM/JEST: Bohr-model numericals, half-life/decay-law NATs, basic term-symbol MCQs.",
+      "relatedBooks": [
+        "beiser_concepts_of_modern_physics"
+      ],
+      "relatedFormulaSheets": [],
+      "relatedMemorySheets": [],
+      "relatedNotes": [],
+      "relatedVideos": [
+        {
+          "url": "https://www.youtube.com/watch?v=SCmtEhGVhSM&list=PLupNYX6-k9ggRRmDqV9hxY1p4dC-QGrg7",
+          "source": "NPTEL — Amal Kumar Das, IIT Kharagpur",
+          "tag": "JAM+JEST"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=H7OipY8RzX0&list=PL0b6maW-5d1fvnUXykaaD0JPjEB0pTDF9",
+          "source": "NPTEL — P. Poulose, IIT Guwahati",
+          "tag": "JAM+JEST"
+        }
+      ],
+      "relatedResearchPapers": [],
+      "relatedPYQs": []
+    },
+    {
+      "id": "phase-a-bonus-01",
+      "name": "Angular momentum & spin — addition of angular momenta, Clebsch-Gordan (extends Topic 13)",
+      "chapter": "Angular momentum & spin — addition of angular momenta, Clebsch-Gordan (extends Topic 13)",
+      "chapterSlug": "phase-a-bonus-01",
+      "subject": "Experimental Physics",
+      "subjectId": "experimental_physics",
+      "description": "",
+      "relatedBooks": [
+        "griffiths_em",
+        "zettili"
+      ],
+      "relatedFormulaSheets": [],
+      "relatedMemorySheets": [],
+      "relatedNotes": [],
+      "relatedVideos": [
+        {
+          "url": "https://youtube.com/playlist?list=PL_yoT1uNIKb7vY46rDudNBXJDrMMPM5iV",
+          "source": "Pravegaa",
+          "tag": "JEST-edge"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=TcmGYe39XG0&list=PL0F530F3BAF8C6FCC",
+          "source": "NPTEL — Balakrishnan, IIT Madras",
+          "tag": "JEST-edge"
+        }
+      ],
+      "relatedResearchPapers": [],
+      "relatedPYQs": []
+    },
+    {
+      "id": "phase-a-bonus-02",
+      "name": "Matrix formulation of QM — operators, Hermitian/unitary transformations (extends Topic 13)",
+      "chapter": "Matrix formulation of QM — operators, Hermitian/unitary transformations (extends Topic 13)",
+      "chapterSlug": "phase-a-bonus-02",
+      "subject": "Experimental Physics",
+      "subjectId": "experimental_physics",
+      "description": "",
+      "relatedBooks": [
+        "griffiths_qm"
+      ],
+      "relatedFormulaSheets": [],
+      "relatedMemorySheets": [],
+      "relatedNotes": [],
+      "relatedVideos": [
+        {
+          "url": "https://youtube.com/playlist?list=PL_yoT1uNIKb7vY46rDudNBXJDrMMPM5iV",
+          "source": "Pravegaa",
+          "tag": "JEST-edge"
+        }
+      ],
+      "relatedResearchPapers": [],
+      "relatedPYQs": []
+    },
+    {
+      "id": "phase-a-bonus-03",
+      "name": "Electrostatics — boundary value problems, method of images, multipole expansion (extends Topic 9)",
+      "chapter": "Electrostatics — boundary value problems, method of images, multipole expansion (extends Topic 9)",
+      "chapterSlug": "phase-a-bonus-03",
+      "subject": "Experimental Physics",
+      "subjectId": "experimental_physics",
+      "description": "",
+      "relatedBooks": [
+        "griffiths_em"
+      ],
+      "relatedFormulaSheets": [],
+      "relatedMemorySheets": [],
+      "relatedNotes": [],
+      "relatedVideos": [
+        {
+          "url": "https://youtube.com/playlist?list=PL_yoT1uNIKb5iALlayczJMl_SHkd8TcX8",
+          "source": "Pravegaa",
+          "tag": "JEST-edge"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=NED2Cl8u9Q0&list=PLbMVogVj5nJSKsAlDEbNwKZY6zD0EbGMF",
+          "source": "NPTEL — D.K. Ghosh, IIT Bombay",
+          "tag": "JEST-edge"
+        }
+      ],
+      "relatedResearchPapers": [],
+      "relatedPYQs": []
+    },
+    {
+      "id": "phase-a-bonus-04",
+      "name": "Complex analysis — full residue calculus, contour integration (extends Topic 3)",
+      "chapter": "Complex analysis — full residue calculus, contour integration (extends Topic 3)",
+      "chapterSlug": "phase-a-bonus-04",
+      "subject": "Experimental Physics",
+      "subjectId": "experimental_physics",
+      "description": "",
+      "relatedBooks": [
+        "boas_math_methods"
+      ],
+      "relatedFormulaSheets": [],
+      "relatedMemorySheets": [],
+      "relatedNotes": [],
+      "relatedVideos": [
+        {
+          "url": "https://youtube.com/playlist?list=PL_yoT1uNIKb5612J2UBJOZ5Q2RwFQ8Bkm",
+          "source": "Pravegaa",
+          "tag": "JEST-edge"
+        }
+      ],
+      "relatedResearchPapers": [],
+      "relatedPYQs": []
+    },
+    {
+      "id": "phase-a-bonus-05",
+      "name": "Statistical ensembles — full partition-function derivation, Fermi/Bose gas applications, paramagnetism (extends Topics 14–15)",
+      "chapter": "Statistical ensembles — full partition-function derivation, Fermi/Bose gas applications, paramagnetism (extends Topics 14–15)",
+      "chapterSlug": "phase-a-bonus-05",
+      "subject": "Experimental Physics",
+      "subjectId": "experimental_physics",
+      "description": "",
+      "relatedBooks": [
+        "garg_bansal_ghosh_thermal_physics"
+      ],
+      "relatedFormulaSheets": [],
+      "relatedMemorySheets": [],
+      "relatedNotes": [],
+      "relatedVideos": [
+        {
+          "url": "https://youtube.com/playlist?list=PL_yoT1uNIKb5ECZhofT0WNdLYyw9gEhNA",
+          "source": "Pravegaa",
+          "tag": "JEST-edge"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=iud7fzXPJUs&list=PLwdnzlV3ogoXkmlIyZceK111IMjCgS-b7",
+          "source": "NPTEL — Girish Setlur, IIT Guwahati",
+          "tag": "JEST-edge"
+        }
+      ],
+      "relatedResearchPapers": [],
+      "relatedPYQs": []
+    },
+    {
+      "id": "phase-a-bonus-06",
+      "name": "Special relativity — full treatment: 4-vectors, relativistic Lagrangian (extends Topic 8)",
+      "chapter": "Special relativity — full treatment: 4-vectors, relativistic Lagrangian (extends Topic 8)",
+      "chapterSlug": "phase-a-bonus-06",
+      "subject": "Experimental Physics",
+      "subjectId": "experimental_physics",
+      "description": "",
+      "relatedBooks": [
+        "goldstein"
+      ],
+      "relatedFormulaSheets": [],
+      "relatedMemorySheets": [],
+      "relatedNotes": [],
+      "relatedVideos": [
+        {
+          "url": "https://www.youtube.com/watch?v=49vEaNa1XKo&list=PLbMVogVj5nJQInU_xlAdGS2220biQma1x",
+          "source": "NPTEL — Shiva Prasad, IIT Bombay",
+          "tag": "JEST-edge"
+        }
+      ],
+      "relatedResearchPapers": [],
+      "relatedPYQs": []
+    },
+    {
+      "id": "phase-a-bonus-07",
+      "name": "Small oscillations & normal modes (extends Topic 6)",
+      "chapter": "Small oscillations & normal modes (extends Topic 6)",
+      "chapterSlug": "phase-a-bonus-07",
+      "subject": "Experimental Physics",
+      "subjectId": "experimental_physics",
+      "description": "",
+      "relatedBooks": [
+        "goldstein"
+      ],
+      "relatedFormulaSheets": [],
+      "relatedMemorySheets": [],
+      "relatedNotes": [],
+      "relatedVideos": [
+        {
+          "url": "https://youtube.com/playlist?list=PL_yoT1uNIKb4cTACv0ntPjYQPLSU3ZsB-",
+          "source": "Pravegaa",
+          "tag": "JEST-edge"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=Q6Gw08pwhws&list=PL5E4E56893588CBA8",
+          "source": "NPTEL — Balakrishnan, IIT Madras",
+          "tag": "JEST-edge"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=xoJWoMQwTAw&list=PLyqSpQzTE6M9X7oRXliYM8t0aaR_N0Csd",
+          "source": "NPTEL — M.S. Santhanam, IIT Madras",
+          "tag": "JEST-edge"
+        }
+      ],
+      "relatedResearchPapers": [],
+      "relatedPYQs": []
+    },
+    {
+      "id": "phase-a-bonus-08",
+      "name": "Sturm–Liouville theory + special functions — Legendre, Bessel, Hermite",
+      "chapter": "Sturm–Liouville theory + special functions — Legendre, Bessel, Hermite",
+      "chapterSlug": "phase-a-bonus-08",
+      "subject": "Experimental Physics",
+      "subjectId": "experimental_physics",
+      "description": "",
+      "relatedBooks": [
+        "boas_math_methods"
+      ],
+      "relatedFormulaSheets": [],
+      "relatedMemorySheets": [],
+      "relatedNotes": [],
+      "relatedVideos": [
+        {
+          "url": "https://youtube.com/playlist?list=PL_yoT1uNIKb5612J2UBJOZ5Q2RwFQ8Bkm",
+          "source": "Pravegaa",
+          "tag": "JEST-edge"
+        }
+      ],
+      "relatedResearchPapers": [],
+      "relatedPYQs": []
+    },
+    {
+      "id": "phase-a-bonus-09",
+      "name": "Fourier & Laplace transforms (extends Topic 4)",
+      "chapter": "Fourier & Laplace transforms (extends Topic 4)",
+      "chapterSlug": "phase-a-bonus-09",
+      "subject": "Experimental Physics",
+      "subjectId": "experimental_physics",
+      "description": "",
+      "relatedBooks": [
+        "boas_math_methods"
+      ],
+      "relatedFormulaSheets": [],
+      "relatedMemorySheets": [],
+      "relatedNotes": [],
+      "relatedVideos": [
+        {
+          "url": "https://youtube.com/playlist?list=PL_yoT1uNIKb5612J2UBJOZ5Q2RwFQ8Bkm",
+          "source": "Pravegaa",
+          "tag": "JEST-edge"
+        }
+      ],
+      "relatedResearchPapers": [],
+      "relatedPYQs": []
+    },
+    {
+      "id": "phase-a-bonus-10",
+      "name": "Perturbation theory (intro) + variational principle (extends Topic 13)",
+      "chapter": "Perturbation theory (intro) + variational principle (extends Topic 13)",
+      "chapterSlug": "phase-a-bonus-10",
+      "subject": "Experimental Physics",
+      "subjectId": "experimental_physics",
+      "description": "",
+      "relatedBooks": [
+        "griffiths_qm"
+      ],
+      "relatedFormulaSheets": [],
+      "relatedMemorySheets": [],
+      "relatedNotes": [],
+      "relatedVideos": [
+        {
+          "url": "https://youtube.com/playlist?list=PL_yoT1uNIKb7vY46rDudNBXJDrMMPM5iV",
+          "source": "Pravegaa",
+          "tag": "JEST-edge"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=pGerRhxNQJE&list=PLbMVogVj5nJTXGlgqyzpUqozrU55oRX-H",
+          "source": "NPTEL — S. Lakshmi Bala, IIT Madras",
+          "tag": "JEST-edge"
+        }
+      ],
+      "relatedResearchPapers": [],
+      "relatedPYQs": []
+    },
+    {
+      "id": "phase-a-bonus-11",
+      "name": "Probability, error analysis, and calculator-free numerical fluency",
+      "chapter": "Probability, error analysis, and calculator-free numerical fluency",
+      "chapterSlug": "phase-a-bonus-11",
+      "subject": "Experimental Physics",
+      "subjectId": "experimental_physics",
+      "description": "",
+      "relatedBooks": [
+        "boas_math_methods"
+      ],
+      "relatedFormulaSheets": [],
+      "relatedMemorySheets": [],
+      "relatedNotes": [],
+      "relatedVideos": [
+        {
+          "url": "https://youtube.com/playlist?list=PL_yoT1uNIKb5612J2UBJOZ5Q2RwFQ8Bkm",
+          "source": "Pravegaa",
+          "tag": "JEST-edge"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=m6E1NN4A-9s&list=PLbRMhDVUMngcHCX4U7syOHOmnMW7f3Z2g",
+          "source": "NPTEL — Amal Kumar Das, IIT Kharagpur",
+          "tag": "JEST-edge"
+        }
+      ],
+      "relatedResearchPapers": [],
+      "relatedPYQs": []
+    },
+    {
+      "id": "phase-b-tier-1-01",
+      "name": "Advanced Solid State: band theory depth, phonon/lattice dispersion (extends Topic 19)",
+      "chapter": "Advanced Solid State: band theory depth, phonon/lattice dispersion (extends Topic 19)",
+      "chapterSlug": "phase-b-tier-1-01",
+      "subject": "Experimental Physics",
+      "subjectId": "experimental_physics",
+      "description": "",
+      "relatedBooks": [
+        "kittel"
+      ],
+      "relatedFormulaSheets": [],
+      "relatedMemorySheets": [],
+      "relatedNotes": [],
+      "relatedVideos": [
+        {
+          "url": "https://www.youtube.com/watch?v=Ofzd2ZqFvjo&list=PLADLRin7kNjG1Dlna9MDA53CMKFHPSi9m",
+          "source": "NPTEL — Amal Kumar Das, IIT Kharagpur",
+          "tag": "JEST-only"
+        }
+      ],
+      "relatedResearchPapers": [],
+      "relatedPYQs": []
+    },
+    {
+      "id": "phase-b-tier-1-02",
+      "name": "Energy and momentum of EM fields",
+      "chapter": "Energy and momentum of EM fields",
+      "chapterSlug": "phase-b-tier-1-02",
+      "subject": "Experimental Physics",
+      "subjectId": "experimental_physics",
+      "description": "",
+      "relatedBooks": [
+        "griffiths_em"
+      ],
+      "relatedFormulaSheets": [],
+      "relatedMemorySheets": [],
+      "relatedNotes": [],
+      "relatedVideos": [
+        {
+          "url": "https://youtube.com/playlist?list=PL_yoT1uNIKb5iALlayczJMl_SHkd8TcX8",
+          "source": "Pravegaa",
+          "tag": "JEST-only"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=NED2Cl8u9Q0&list=PLbMVogVj5nJSKsAlDEbNwKZY6zD0EbGMF",
+          "source": "NPTEL — D.K. Ghosh, IIT Bombay",
+          "tag": "JEST-only"
+        }
+      ],
+      "relatedResearchPapers": [],
+      "relatedPYQs": []
+    },
+    {
+      "id": "phase-b-tier-1-03",
+      "name": "EM waves in dispersive and conducting media (extends Topic 11)",
+      "chapter": "EM waves in dispersive and conducting media (extends Topic 11)",
+      "chapterSlug": "phase-b-tier-1-03",
+      "subject": "Experimental Physics",
+      "subjectId": "experimental_physics",
+      "description": "",
+      "relatedBooks": [
+        "griffiths_em"
+      ],
+      "relatedFormulaSheets": [],
+      "relatedMemorySheets": [],
+      "relatedNotes": [],
+      "relatedVideos": [
+        {
+          "url": "https://youtube.com/playlist?list=PL_yoT1uNIKb5iALlayczJMl_SHkd8TcX8",
+          "source": "Pravegaa",
+          "tag": "JEST-only"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=NED2Cl8u9Q0&list=PLbMVogVj5nJSKsAlDEbNwKZY6zD0EbGMF",
+          "source": "NPTEL — D.K. Ghosh, IIT Bombay",
+          "tag": "JEST-only"
+        }
+      ],
+      "relatedResearchPapers": [],
+      "relatedPYQs": []
+    },
+    {
+      "id": "phase-b-tier-1-04",
+      "name": "Atomic spectra, fine structure, selection rules (extends Topic 20)",
+      "chapter": "Atomic spectra, fine structure, selection rules (extends Topic 20)",
+      "chapterSlug": "phase-b-tier-1-04",
+      "subject": "Experimental Physics",
+      "subjectId": "experimental_physics",
+      "description": "",
+      "relatedBooks": [
+        "beiser_concepts_of_modern_physics"
+      ],
+      "relatedFormulaSheets": [],
+      "relatedMemorySheets": [],
+      "relatedNotes": [],
+      "relatedVideos": [
+        {
+          "url": "https://www.youtube.com/watch?v=SCmtEhGVhSM&list=PLupNYX6-k9ggRRmDqV9hxY1p4dC-QGrg7",
+          "source": "NPTEL — Amal Kumar Das, IIT Kharagpur",
+          "tag": "JEST-only"
+        }
+      ],
+      "relatedResearchPapers": [],
+      "relatedPYQs": []
+    },
+    {
+      "id": "phase-b-tier-2-05",
+      "name": "Tensors, curvilinear coordinate systems",
+      "chapter": "Tensors, curvilinear coordinate systems",
+      "chapterSlug": "phase-b-tier-2-05",
+      "subject": "Experimental Physics",
+      "subjectId": "experimental_physics",
+      "description": "",
+      "relatedBooks": [
+        "boas_math_methods"
+      ],
+      "relatedFormulaSheets": [],
+      "relatedMemorySheets": [],
+      "relatedNotes": [],
+      "relatedVideos": [
+        {
+          "url": "https://youtube.com/playlist?list=PL_yoT1uNIKb5612J2UBJOZ5Q2RwFQ8Bkm",
+          "source": "Pravegaa",
+          "tag": "JEST-only"
+        }
+      ],
+      "relatedResearchPapers": [],
+      "relatedPYQs": []
+    },
+    {
+      "id": "phase-b-tier-2-06",
+      "name": "Active filters, oscillators — deeper electronics",
+      "chapter": "Active filters, oscillators — deeper electronics",
+      "chapterSlug": "phase-b-tier-2-06",
+      "subject": "Experimental Physics",
+      "subjectId": "experimental_physics",
+      "description": "",
+      "relatedBooks": [
+        "millman_halkias"
+      ],
+      "relatedFormulaSheets": [],
+      "relatedMemorySheets": [],
+      "relatedNotes": [],
+      "relatedVideos": [
+        {
+          "url": "https://youtube.com/playlist?list=PL_yoT1uNIKb5E9MThE7H010wXXqZCrRPl",
+          "source": "Pravegaa",
+          "tag": "JEST-only"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=g7vYop_46tU&list=PL708EEA8184EA8F53",
+          "source": "NPTEL — D.C. Dube, IIT Delhi",
+          "tag": "JEST-only"
+        }
+      ],
+      "relatedResearchPapers": [],
+      "relatedPYQs": []
+    },
+    {
+      "id": "phase-b-tier-2-07",
+      "name": "Elementary properties of discrete groups",
+      "chapter": "Elementary properties of discrete groups",
+      "chapterSlug": "phase-b-tier-2-07",
+      "subject": "Experimental Physics",
+      "subjectId": "experimental_physics",
+      "description": "**Book/Notes:** Arfken Ch. 4 or a concise notes/PDF summary — no dedicated video needed.\n**Depth:** Group axioms, cyclic/dihedral groups, order, cosets. Shortest topic in the whole syllabus — a couple of hours. Slot it into any spare afternoon, don't wait for \"Tier 2 time\" specifically.",
+      "relatedBooks": [
+        "arfken_weber"
+      ],
+      "relatedFormulaSheets": [],
+      "relatedMemorySheets": [],
+      "relatedNotes": [],
+      "relatedVideos": [
+        {
+          "url": "https://youtube.com/playlist?list=PL_yoT1uNIKb5612J2UBJOZ5Q2RwFQ8Bkm",
+          "source": "Pravegaa",
+          "tag": "JEST-only"
+        }
+      ],
+      "relatedResearchPapers": [],
+      "relatedPYQs": []
+    },
+    {
+      "id": "phase-b-tier-2-08",
+      "name": "Nuclear models depth, decay chains (extends Topic 20)",
+      "chapter": "Nuclear models depth, decay chains (extends Topic 20)",
+      "chapterSlug": "phase-b-tier-2-08",
+      "subject": "Experimental Physics",
+      "subjectId": "experimental_physics",
+      "description": "",
+      "relatedBooks": [
+        "beiser_concepts_of_modern_physics"
+      ],
+      "relatedFormulaSheets": [],
+      "relatedMemorySheets": [],
+      "relatedNotes": [],
+      "relatedVideos": [
+        {
+          "url": "https://www.youtube.com/watch?v=H7OipY8RzX0&list=PL0b6maW-5d1fvnUXykaaD0JPjEB0pTDF9",
+          "source": "NPTEL — P. Poulose, IIT Guwahati",
+          "tag": "JEST-only"
+        }
+      ],
+      "relatedResearchPapers": [],
+      "relatedPYQs": []
+    },
+    {
+      "id": "phase-b-tier-3-09",
+      "name": "Scattering theory — Born approximation, partial waves",
+      "chapter": "Scattering theory — Born approximation, partial waves",
+      "chapterSlug": "phase-b-tier-3-09",
+      "subject": "Experimental Physics",
+      "subjectId": "experimental_physics",
+      "description": "",
+      "relatedBooks": [
+        "griffiths_qm"
+      ],
+      "relatedFormulaSheets": [],
+      "relatedMemorySheets": [],
+      "relatedNotes": [],
+      "relatedVideos": [
+        {
+          "url": "https://youtube.com/playlist?list=PL_yoT1uNIKb7vY46rDudNBXJDrMMPM5iV",
+          "source": "Pravegaa",
+          "tag": "JEST-only (low)"
+        }
+      ],
+      "relatedResearchPapers": [],
+      "relatedPYQs": []
+    },
+    {
+      "id": "phase-b-tier-3-10",
+      "name": "Phase transitions and critical phenomena",
+      "chapter": "Phase transitions and critical phenomena",
+      "chapterSlug": "phase-b-tier-3-10",
+      "subject": "Experimental Physics",
+      "subjectId": "experimental_physics",
+      "description": "",
+      "relatedBooks": [
+        "garg_bansal_ghosh_thermal_physics"
+      ],
+      "relatedFormulaSheets": [],
+      "relatedMemorySheets": [],
+      "relatedNotes": [],
+      "relatedVideos": [
+        {
+          "url": "https://youtube.com/playlist?list=PL_yoT1uNIKb5ECZhofT0WNdLYyw9gEhNA",
+          "source": "Pravegaa",
+          "tag": "JEST-only (low)"
+        }
+      ],
+      "relatedResearchPapers": [],
+      "relatedPYQs": []
+    },
+    {
+      "id": "phase-b-tier-3-11",
+      "name": "Particle physics basics — conservation laws, basic Standard Model concepts",
+      "chapter": "Particle physics basics — conservation laws, basic Standard Model concepts",
+      "chapterSlug": "phase-b-tier-3-11",
+      "subject": "Experimental Physics",
+      "subjectId": "experimental_physics",
+      "description": "",
+      "relatedBooks": [
+        "beiser_concepts_of_modern_physics"
+      ],
+      "relatedFormulaSheets": [],
+      "relatedMemorySheets": [],
+      "relatedNotes": [],
+      "relatedVideos": [
+        {
+          "url": "https://www.youtube.com/watch?v=H7OipY8RzX0&list=PL0b6maW-5d1fvnUXykaaD0JPjEB0pTDF9",
+          "source": "NPTEL — P. Poulose, IIT Guwahati",
+          "tag": "JEST-only (low)"
+        }
+      ],
+      "relatedResearchPapers": [],
+      "relatedPYQs": []
+    },
+    {
+      "id": "final-lockdown",
+      "name": "Final Lockdown — Pure PYQ window",
+      "chapter": "Final Lockdown — Pure PYQ window",
+      "chapterSlug": "final-lockdown",
+      "subject": "Experimental Physics",
+      "subjectId": "experimental_physics",
+      "description": "Pure PYQ practice, timed mocks, mistake logs, and formula-sheet drilling only. No new content starts here.",
+      "relatedBooks": [],
+      "relatedFormulaSheets": [],
+      "relatedMemorySheets": [],
+      "relatedNotes": [],
+      "relatedVideos": [],
+      "relatedResearchPapers": [],
+      "relatedPYQs": []
+    }
+  ],
   "papers": {}
 }

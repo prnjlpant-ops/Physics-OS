@@ -1,0 +1,2500 @@
+{
+  "version": "2.0.0",
+  "lastUpdated": "2026-08-21",
+  "source": "JEST-JAM-video-links.xlsx",
+  "questionAssetSchema": "pyq_assets.json v1 with roadmapChapterIds extension",
+  "chapters": [
+    {
+      "id": "boundary-value-problems",
+      "subject": "EM Theory",
+      "title": "Boundary Value Problems",
+      "roadmapLabel": "Bonus #3",
+      "phase": "phase-1-bonus",
+      "examScope": "JEST-edge",
+      "subtopics": [
+        "Boundary value problems, method of images, multipole expansion",
+        "Boundary value problems — alternate source"
+      ],
+      "resources": [
+        {
+          "source": "Pravegaa",
+          "linkType": "Direct (playlist)",
+          "url": "https://youtube.com/playlist?list=PL_yoT1uNIKb5iALlayczJMl_SHkd8TcX8",
+          "studyNotes": "The single highest-rated EM chapter by weightage — do this right after Topic 9 if on pace. Book: Griffiths Ch.3 (boundary value/images), Ch.3.4 (multipole), Ch.4 (dielectrics), Ch.6 (magnetic materials) — work every problem in that section, not just read it. Once the concept + problems are solid, drill PYQs (JAM / CSIR-NET / JEST, 2012–present) on this exact sub-topic before moving on. Timing: Phase A-Bonus — only tackle this if Topics 1–20 are fully done ahead of Jan 20. Don't start this while core topics are still shaky.. Any other teacher/channel covering the same sub-topic works just as well — the book problems and PYQ practice matter more than which video source you use."
+        },
+        {
+          "source": "NPTEL — D.K. Ghosh, IIT Bombay",
+          "linkType": "Direct (playlist)",
+          "url": "https://www.youtube.com/watch?v=NED2Cl8u9Q0&list=PLbMVogVj5nJSKsAlDEbNwKZY6zD0EbGMF",
+          "studyNotes": "Continue ~5 lectures. Book: Griffiths Ch.3-4, 6 — work every problem in that section, not just read it. Once the concept + problems are solid, drill PYQs (JAM / CSIR-NET / JEST, 2012–present) on this exact sub-topic before moving on. Timing: Phase A-Bonus — only tackle this if Topics 1–20 are fully done ahead of Jan 20. Don't start this while core topics are still shaky.. Any other teacher/channel covering the same sub-topic works just as well — the book problems and PYQ practice matter more than which video source you use."
+        }
+      ],
+      "questionIds": [],
+      "questionCount": 0
+    },
+    {
+      "id": "error-analysis-experimental-methods",
+      "subject": "Electronics",
+      "title": "Error Analysis & Experimental Methods",
+      "roadmapLabel": "Bonus #11",
+      "phase": "phase-1-bonus",
+      "examScope": "JEST-edge",
+      "subtopics": [
+        "Error propagation, uncertainty analysis, calculator-free numerical fluency"
+      ],
+      "resources": [
+        {
+          "source": "NPTEL — Amal Kumar Das, IIT Kharagpur",
+          "linkType": "Direct (playlist)",
+          "url": "https://www.youtube.com/watch?v=m6E1NN4A-9s&list=PLbRMhDVUMngcHCX4U7syOHOmnMW7f3Z2g",
+          "studyNotes": "First ~4–5 lectures. JEST doesn't allow calculators. Book: No single book chapter — build this into your PYQ practice directly — work every problem in that section, not just read it. Once the concept + problems are solid, drill PYQs (JAM / CSIR-NET / JEST, 2012–present) on this exact sub-topic before moving on. Timing: Phase A-Bonus — only tackle this if Topics 1–20 are fully done ahead of Jan 20. Don't start this while core topics are still shaky.. Any other teacher/channel covering the same sub-topic works just as well — the book problems and PYQ practice matter more than which video source you use. Companion to the Math Methods sheet's Numerical Methods entry — do both together."
+        }
+      ],
+      "questionIds": [],
+      "questionCount": 0
+    },
+    {
+      "id": "probability-error-analysis",
+      "subject": "Math Methods",
+      "title": "Probability & Error Analysis",
+      "roadmapLabel": "Bonus #11",
+      "phase": "phase-1-bonus",
+      "examScope": "JEST-edge",
+      "subtopics": [
+        "Probability & statistics, numerical methods / error analysis"
+      ],
+      "resources": [
+        {
+          "source": "Pravegaa",
+          "linkType": "Direct (playlist)",
+          "url": "https://youtube.com/playlist?list=PL_yoT1uNIKb5612J2UBJOZ5Q2RwFQ8Bkm",
+          "studyNotes": "Numerical Methods is a genuinely separate chapter on this playlist — this is the calculator-free fluency JEST specifically demands. Book: Boas Ch.15, full chapter — work every problem in that section, not just read it. Once the concept + problems are solid, drill PYQs (JAM / CSIR-NET / JEST, 2012–present) on this exact sub-topic before moving on. Timing: Phase A-Bonus — only tackle this if Topics 1–20 are fully done ahead of Jan 20. Don't start this while core topics are still shaky.. Any other teacher/channel covering the same sub-topic works just as well — the book problems and PYQ practice matter more than which video source you use. Fold this into your PYQ practice going forward rather than treating it as a one-off topic — JEST doesn't allow calculators."
+        }
+      ],
+      "questionIds": [
+        "gate_ph_2013_q23"
+      ],
+      "questionCount": 1
+    },
+    {
+      "id": "small-oscillations",
+      "subject": "Mechanics",
+      "title": "Small Oscillations",
+      "roadmapLabel": "Bonus #7",
+      "phase": "phase-1-bonus",
+      "examScope": "JEST-edge",
+      "subtopics": [
+        "Small oscillations & normal modes",
+        "Small oscillations — alternate source"
+      ],
+      "resources": [
+        {
+          "source": "Pravegaa",
+          "linkType": "Direct (playlist)",
+          "url": "https://youtube.com/playlist?list=PL_yoT1uNIKb4cTACv0ntPjYQPLSU3ZsB-",
+          "studyNotes": "Uses the same eigenvalue machinery as Topic 1 — cheap to add once that's solid. Book: Goldstein, small oscillations chapter — work every problem in that section, not just read it. Once the concept + problems are solid, drill PYQs (JAM / CSIR-NET / JEST, 2012–present) on this exact sub-topic before moving on. Timing: Phase A-Bonus — only tackle this if Topics 1–20 are fully done ahead of Jan 20. Don't start this while core topics are still shaky.. Any other teacher/channel covering the same sub-topic works just as well — the book problems and PYQ practice matter more than which video source you use."
+        },
+        {
+          "source": "NPTEL — Balakrishnan, IIT Madras",
+          "linkType": "Direct (playlist)",
+          "url": "https://www.youtube.com/watch?v=Q6Gw08pwhws&list=PL5E4E56893588CBA8",
+          "studyNotes": "2–3 lectures near Topics 6–7. Book: Goldstein small osc ch — work every problem in that section, not just read it. Once the concept + problems are solid, drill PYQs (JAM / CSIR-NET / JEST, 2012–present) on this exact sub-topic before moving on. Timing: Phase A-Bonus — only tackle this if Topics 1–20 are fully done ahead of Jan 20. Don't start this while core topics are still shaky.. Any other teacher/channel covering the same sub-topic works just as well — the book problems and PYQ practice matter more than which video source you use."
+        }
+      ],
+      "questionIds": [
+        "gate_ph_2012_q22",
+        "gate_ph_2014_q29",
+        "gate_ph_2020_q39"
+      ],
+      "questionCount": 3
+    },
+    {
+      "id": "angular-momentum-spin",
+      "subject": "Quantum Mechanics",
+      "title": "Angular Momentum & Spin",
+      "roadmapLabel": "Bonus #1",
+      "phase": "phase-1-bonus",
+      "examScope": "JEST-edge",
+      "subtopics": [
+        "Addition of angular momenta, Clebsch-Gordan coefficients",
+        "Angular momentum — alternate source"
+      ],
+      "resources": [
+        {
+          "source": "Pravegaa",
+          "linkType": "Direct (playlist)",
+          "url": "https://youtube.com/playlist?list=PL_yoT1uNIKb7vY46rDudNBXJDrMMPM5iV",
+          "studyNotes": "Highest-rated combined QM chapter by weightage — directly extends Topic 13. Book: Zettili (stronger problem coverage than Griffiths here) — work every problem in that section, not just read it. Once the concept + problems are solid, drill PYQs (JAM / CSIR-NET / JEST, 2012–present) on this exact sub-topic before moving on. Timing: Phase A-Bonus — only tackle this if Topics 1–20 are fully done ahead of Jan 20. Don't start this while core topics are still shaky.. Any other teacher/channel covering the same sub-topic works just as well — the book problems and PYQ practice matter more than which video source you use."
+        },
+        {
+          "source": "NPTEL — Balakrishnan, IIT Madras",
+          "linkType": "Direct (playlist)",
+          "url": "https://www.youtube.com/watch?v=TcmGYe39XG0&list=PL0F530F3BAF8C6FCC",
+          "studyNotes": "Continue ~5–6 lectures past Topic 13. Book: Zettili — work every problem in that section, not just read it. Once the concept + problems are solid, drill PYQs (JAM / CSIR-NET / JEST, 2012–present) on this exact sub-topic before moving on. Timing: Phase A-Bonus — only tackle this if Topics 1–20 are fully done ahead of Jan 20. Don't start this while core topics are still shaky.. Any other teacher/channel covering the same sub-topic works just as well — the book problems and PYQ practice matter more than which video source you use."
+        }
+      ],
+      "questionIds": [
+        "gate_ph_2007_q41",
+        "gate_ph_2008_q9",
+        "gate_ph_2009_q43",
+        "gate_ph_2009_q6",
+        "gate_ph_2010_q44",
+        "gate_ph_2011_q14",
+        "gate_ph_2013_q17",
+        "gate_ph_2013_q45",
+        "gate_ph_2014_q21",
+        "gate_ph_2014_q32",
+        "gate_ph_2014_q42",
+        "gate_ph_2014_q54",
+        "gate_ph_2015_q12",
+        "gate_ph_2015_q14",
+        "gate_ph_2015_q16",
+        "gate_ph_2015_q61",
+        "gate_ph_2016_q34",
+        "gate_ph_2016_q50",
+        "gate_ph_2017_q20",
+        "gate_ph_2019_q35",
+        "gate_ph_2019_q52",
+        "gate_ph_2019_q9",
+        "gate_ph_2020_q17",
+        "gate_ph_2020_q28",
+        "gate_ph_2020_q46",
+        "gate_ph_2020_q51",
+        "gate_ph_2021_q28",
+        "gate_ph_2021_q49",
+        "gate_ph_2021_q54",
+        "gate_ph_2022_q21",
+        "gate_ph_2022_q23",
+        "gate_ph_2022_q60",
+        "gate_ph_2024_q37",
+        "gate_ph_2024_q48",
+        "gate_ph_2025_q45",
+        "gate_ph_2025_q46"
+      ],
+      "questionCount": 36
+    },
+    {
+      "id": "matrix-formulation-of-qm",
+      "subject": "Quantum Mechanics",
+      "title": "Matrix Formulation of QM",
+      "roadmapLabel": "Bonus #2",
+      "phase": "phase-1-bonus",
+      "examScope": "JEST-edge",
+      "subtopics": [
+        "Operators, Hermitian/unitary transformations, matrix mechanics"
+      ],
+      "resources": [
+        {
+          "source": "Pravegaa",
+          "linkType": "Direct (playlist)",
+          "url": "https://youtube.com/playlist?list=PL_yoT1uNIKb7vY46rDudNBXJDrMMPM5iV",
+          "studyNotes": "Check your notes first — may already be substantially covered if Topic 13 was done via this same playlist. Book: Griffiths QM Ch.3 — work every problem in that section, not just read it. Once the concept + problems are solid, drill PYQs (JAM / CSIR-NET / JEST, 2012–present) on this exact sub-topic before moving on. Timing: Phase A-Bonus — only tackle this if Topics 1–20 are fully done ahead of Jan 20. Don't start this while core topics are still shaky.. Any other teacher/channel covering the same sub-topic works just as well — the book problems and PYQ practice matter more than which video source you use."
+        }
+      ],
+      "questionIds": [],
+      "questionCount": 0
+    },
+    {
+      "id": "perturbation-theory-variational-principle",
+      "subject": "Quantum Mechanics",
+      "title": "Perturbation Theory & Variational Principle",
+      "roadmapLabel": "Bonus #10",
+      "phase": "phase-1-bonus",
+      "examScope": "JEST-edge",
+      "subtopics": [
+        "Time-independent perturbation theory, variational method",
+        "Perturbation theory — alternate source"
+      ],
+      "resources": [
+        {
+          "source": "Pravegaa",
+          "linkType": "Direct (playlist)",
+          "url": "https://youtube.com/playlist?list=PL_yoT1uNIKb7vY46rDudNBXJDrMMPM5iV",
+          "studyNotes": " Book: Griffiths QM Ch.6–9, + Zettili for more problems — work every problem in that section, not just read it. Once the concept + problems are solid, drill PYQs (JAM / CSIR-NET / JEST, 2012–present) on this exact sub-topic before moving on. Timing: Phase A-Bonus — only tackle this if Topics 1–20 are fully done ahead of Jan 20. Don't start this while core topics are still shaky.. Any other teacher/channel covering the same sub-topic works just as well — the book problems and PYQ practice matter more than which video source you use."
+        },
+        {
+          "source": "NPTEL — S. Lakshmi Bala, IIT Madras",
+          "linkType": "Direct (playlist)",
+          "url": "https://www.youtube.com/watch?v=pGerRhxNQJE&list=PLbMVogVj5nJTXGlgqyzpUqozrU55oRX-H",
+          "studyNotes": "Search within this playlist for the perturbation-theory lectures specifically. Book: Griffiths QM Ch.6-9 — work every problem in that section, not just read it. Once the concept + problems are solid, drill PYQs (JAM / CSIR-NET / JEST, 2012–present) on this exact sub-topic before moving on. Timing: Phase A-Bonus — only tackle this if Topics 1–20 are fully done ahead of Jan 20. Don't start this while core topics are still shaky.. Any other teacher/channel covering the same sub-topic works just as well — the book problems and PYQ practice matter more than which video source you use."
+        }
+      ],
+      "questionIds": [
+        "gate_ph_2010_q47",
+        "gate_ph_2011_q33",
+        "gate_ph_2012_q26",
+        "gate_ph_2013_q50",
+        "gate_ph_2013_q51",
+        "gate_ph_2014_q48",
+        "gate_ph_2015_q55",
+        "gate_ph_2016_q24",
+        "gate_ph_2017_q19",
+        "gate_ph_2018_q47",
+        "gate_ph_2019_q53",
+        "gate_ph_2019_q6",
+        "gate_ph_2020_q50",
+        "gate_ph_2021_q34",
+        "gate_ph_2022_q39",
+        "gate_ph_2022_q56",
+        "gate_ph_2024_q28",
+        "gate_ph_2024_q61",
+        "gate_ph_2025_q44"
+      ],
+      "questionCount": 19
+    },
+    {
+      "id": "special-relativity-full-treatment",
+      "subject": "Special Relativity",
+      "title": "Special Relativity — Full Treatment",
+      "roadmapLabel": "Bonus #6",
+      "phase": "phase-1-bonus",
+      "examScope": "JEST-edge",
+      "subtopics": [
+        "4-vectors, relativistic Lagrangian, relativistic dynamics"
+      ],
+      "resources": [
+        {
+          "source": "NPTEL — Shiva Prasad, IIT Bombay",
+          "linkType": "Direct (playlist)",
+          "url": "https://www.youtube.com/watch?v=49vEaNa1XKo&list=PLbMVogVj5nJQInU_xlAdGS2220biQma1x",
+          "studyNotes": "From lecture ~8 onward, 6–8 more lectures. Book: Goldstein's relativity chapter (4-vectors, relativistic Lagrangian) — work every problem in that section, not just read it. Once the concept + problems are solid, drill PYQs (JAM / CSIR-NET / JEST, 2012–present) on this exact sub-topic before moving on. Timing: Phase A-Bonus — only tackle this if Topics 1–20 are fully done ahead of Jan 20. Don't start this while core topics are still shaky.. Any other teacher/channel covering the same sub-topic works just as well — the book problems and PYQ practice matter more than which video source you use."
+        }
+      ],
+      "questionIds": [
+        "gate_ph_2007_q29",
+        "gate_ph_2007_q76",
+        "gate_ph_2007_q77",
+        "gate_ph_2008_q80",
+        "gate_ph_2008_q81",
+        "gate_ph_2009_q32",
+        "gate_ph_2010_q23",
+        "gate_ph_2010_q46",
+        "gate_ph_2011_q32",
+        "gate_ph_2012_q35",
+        "gate_ph_2013_q29",
+        "gate_ph_2013_q3",
+        "gate_ph_2014_q2",
+        "gate_ph_2014_q4",
+        "gate_ph_2015_q17",
+        "gate_ph_2015_q57",
+        "gate_ph_2016_q17",
+        "gate_ph_2016_q38",
+        "gate_ph_2016_q47",
+        "gate_ph_2017_q37",
+        "gate_ph_2018_q19",
+        "gate_ph_2018_q23",
+        "gate_ph_2019_q47",
+        "gate_ph_2019_q54",
+        "gate_ph_2020_q33",
+        "gate_ph_2020_q43",
+        "gate_ph_2021_q18",
+        "gate_ph_2022_q61",
+        "gate_ph_2024_q25",
+        "gate_ph_2025_q50",
+        "gate_ph_2025_q54"
+      ],
+      "questionCount": 31
+    },
+    {
+      "id": "statistical-ensembles",
+      "subject": "Thermo & StatMech",
+      "title": "Statistical Ensembles",
+      "roadmapLabel": "Bonus #5",
+      "phase": "phase-1-bonus",
+      "examScope": "JEST-edge",
+      "subtopics": [
+        "Full partition-function derivation, Fermi/Bose gas applications, paramagnetism",
+        "Ensembles — alternate source"
+      ],
+      "resources": [
+        {
+          "source": "Pravegaa",
+          "linkType": "Direct (playlist)",
+          "url": "https://youtube.com/playlist?list=PL_yoT1uNIKb5ECZhofT0WNdLYyw9gEhNA",
+          "studyNotes": "Blueprint rank #3 high-yield chapter — strong JAM+JEST overlap on the underlying concepts. Book: Garg, Bansal, Ghosh + F. Reif for deeper ensemble theory — work every problem in that section, not just read it. Once the concept + problems are solid, drill PYQs (JAM / CSIR-NET / JEST, 2012–present) on this exact sub-topic before moving on. Timing: Phase A-Bonus — only tackle this if Topics 1–20 are fully done ahead of Jan 20. Don't start this while core topics are still shaky.. Any other teacher/channel covering the same sub-topic works just as well — the book problems and PYQ practice matter more than which video source you use."
+        },
+        {
+          "source": "NPTEL — Girish Setlur, IIT Guwahati",
+          "linkType": "Direct (playlist)",
+          "url": "https://www.youtube.com/watch?v=iud7fzXPJUs&list=PLwdnzlV3ogoXkmlIyZceK111IMjCgS-b7",
+          "studyNotes": "Continue ~6–8 lectures. Book: Garg, Bansal, Ghosh + Reif — work every problem in that section, not just read it. Once the concept + problems are solid, drill PYQs (JAM / CSIR-NET / JEST, 2012–present) on this exact sub-topic before moving on. Timing: Phase A-Bonus — only tackle this if Topics 1–20 are fully done ahead of Jan 20. Don't start this while core topics are still shaky.. Any other teacher/channel covering the same sub-topic works just as well — the book problems and PYQ practice matter more than which video source you use."
+        }
+      ],
+      "questionIds": [
+        "gate_ph_2007_q10",
+        "gate_ph_2007_q13",
+        "gate_ph_2007_q45",
+        "gate_ph_2007_q82",
+        "gate_ph_2007_q83",
+        "gate_ph_2008_q10",
+        "gate_ph_2008_q43",
+        "gate_ph_2008_q44",
+        "gate_ph_2008_q45",
+        "gate_ph_2008_q46",
+        "gate_ph_2008_q47",
+        "gate_ph_2009_q34",
+        "gate_ph_2009_q36",
+        "gate_ph_2009_q46",
+        "gate_ph_2009_q51",
+        "gate_ph_2009_q52",
+        "gate_ph_2010_q21",
+        "gate_ph_2010_q22",
+        "gate_ph_2010_q42",
+        "gate_ph_2011_q35",
+        "gate_ph_2011_q36",
+        "gate_ph_2012_q13",
+        "gate_ph_2012_q17",
+        "gate_ph_2012_q38",
+        "gate_ph_2012_q45",
+        "gate_ph_2012_q47",
+        "gate_ph_2012_q8",
+        "gate_ph_2013_q30",
+        "gate_ph_2013_q48",
+        "gate_ph_2013_q49",
+        "gate_ph_2013_q7",
+        "gate_ph_2013_q8",
+        "gate_ph_2014_q15",
+        "gate_ph_2014_q40",
+        "gate_ph_2014_q47",
+        "gate_ph_2015_q20",
+        "gate_ph_2015_q21",
+        "gate_ph_2015_q39",
+        "gate_ph_2015_q60",
+        "gate_ph_2015_q62",
+        "gate_ph_2016_q11",
+        "gate_ph_2016_q41",
+        "gate_ph_2016_q46",
+        "gate_ph_2016_q9",
+        "gate_ph_2017_q33",
+        "gate_ph_2017_q49",
+        "gate_ph_2017_q9",
+        "gate_ph_2018_q33",
+        "gate_ph_2018_q49",
+        "gate_ph_2018_q53",
+        "gate_ph_2018_q55",
+        "gate_ph_2019_q23",
+        "gate_ph_2019_q5",
+        "gate_ph_2019_q51",
+        "gate_ph_2019_q7",
+        "gate_ph_2020_q11",
+        "gate_ph_2020_q15",
+        "gate_ph_2020_q53",
+        "gate_ph_2020_q54",
+        "gate_ph_2021_q13",
+        "gate_ph_2021_q33",
+        "gate_ph_2021_q36",
+        "gate_ph_2021_q37",
+        "gate_ph_2021_q52",
+        "gate_ph_2022_q36",
+        "gate_ph_2024_q35",
+        "gate_ph_2024_q44",
+        "gate_ph_2024_q59",
+        "gate_ph_2024_q62",
+        "gate_ph_2025_q22",
+        "gate_ph_2025_q23",
+        "gate_ph_2025_q42"
+      ],
+      "questionCount": 72
+    },
+    {
+      "id": "coupled-oscillations-normal-modes",
+      "subject": "Waves & Optics",
+      "title": "Coupled Oscillations & Normal Modes",
+      "roadmapLabel": "Bonus #7 (dup)",
+      "phase": "phase-1-bonus",
+      "examScope": "JEST-edge",
+      "subtopics": [
+        "Coupled oscillators, normal modes"
+      ],
+      "resources": [
+        {
+          "source": "NPTEL — M.S. Santhanam, IIT Madras",
+          "linkType": "Direct (playlist)",
+          "url": "https://www.youtube.com/watch?v=xoJWoMQwTAw&list=PLyqSpQzTE6M9X7oRXliYM8t0aaR_N0Csd",
+          "studyNotes": "Duplicate of the Mechanics sheet's Bonus #7 — do it once, from whichever source you prefer. Book: Goldstein, small oscillations chapter — work every problem in that section, not just read it. Once the concept + problems are solid, drill PYQs (JAM / CSIR-NET / JEST, 2012–present) on this exact sub-topic before moving on. Timing: Phase A-Bonus — only tackle this if Topics 1–20 are fully done ahead of Jan 20. Don't start this while core topics are still shaky.. Any other teacher/channel covering the same sub-topic works just as well — the book problems and PYQ practice matter more than which video source you use."
+        }
+      ],
+      "questionIds": [
+        "gate_ph_2007_q32",
+        "gate_ph_2009_q47",
+        "gate_ph_2011_q30",
+        "gate_ph_2013_q33",
+        "gate_ph_2014_q6",
+        "gate_ph_2016_q19",
+        "gate_ph_2017_q11",
+        "gate_ph_2018_q6",
+        "gate_ph_2025_q38"
+      ],
+      "questionCount": 9
+    },
+    {
+      "id": "basic-atomic-structure",
+      "subject": "Atomic Molecular",
+      "title": "Basic Atomic Structure",
+      "roadmapLabel": "Topic 20 (atomic half)",
+      "phase": "phase-1-core",
+      "examScope": "JAM+JEST",
+      "subtopics": [
+        "Bohr model and its limitations, basic atomic structure"
+      ],
+      "resources": [
+        {
+          "source": "NPTEL — Amal Kumar Das, IIT Kharagpur",
+          "linkType": "Direct (playlist)",
+          "url": "https://www.youtube.com/watch?v=SCmtEhGVhSM&list=PLupNYX6-k9ggRRmDqV9hxY1p4dC-QGrg7",
+          "studyNotes": "First ~6–8 lectures. Book: Arthur Beiser, Concepts of Modern Physics — Bohr model and its limitations — work every problem in that section, not just read it. Once the concept + problems are solid, drill PYQs (JAM / CSIR-NET / JEST, 2012–present) on this exact sub-topic before moving on. Timing: Phase A — by Jan 20 hard stop (this is late-Phase-A material).. Any other teacher/channel covering the same sub-topic works just as well — the book problems and PYQ practice matter more than which video source you use."
+        }
+      ],
+      "questionIds": [
+        "gate_ph_2007_q17",
+        "gate_ph_2007_q46",
+        "gate_ph_2007_q47",
+        "gate_ph_2007_q48",
+        "gate_ph_2007_q49",
+        "gate_ph_2007_q50",
+        "gate_ph_2007_q6",
+        "gate_ph_2007_q8",
+        "gate_ph_2008_q13",
+        "gate_ph_2008_q40",
+        "gate_ph_2008_q48",
+        "gate_ph_2008_q49",
+        "gate_ph_2008_q50",
+        "gate_ph_2008_q51",
+        "gate_ph_2009_q14",
+        "gate_ph_2009_q15",
+        "gate_ph_2009_q30",
+        "gate_ph_2009_q33",
+        "gate_ph_2009_q55",
+        "gate_ph_2009_q56",
+        "gate_ph_2010_q16",
+        "gate_ph_2010_q34",
+        "gate_ph_2010_q36",
+        "gate_ph_2010_q48",
+        "gate_ph_2010_q49",
+        "gate_ph_2011_q21",
+        "gate_ph_2011_q22",
+        "gate_ph_2011_q41",
+        "gate_ph_2011_q42",
+        "gate_ph_2011_q43",
+        "gate_ph_2012_q16",
+        "gate_ph_2012_q30",
+        "gate_ph_2012_q32",
+        "gate_ph_2012_q46",
+        "gate_ph_2012_q52",
+        "gate_ph_2012_q53",
+        "gate_ph_2012_q7",
+        "gate_ph_2013_q25",
+        "gate_ph_2013_q36",
+        "gate_ph_2013_q37",
+        "gate_ph_2014_q3",
+        "gate_ph_2014_q34",
+        "gate_ph_2014_q46",
+        "gate_ph_2014_q9",
+        "gate_ph_2015_q37",
+        "gate_ph_2015_q41",
+        "gate_ph_2015_q47",
+        "gate_ph_2015_q49",
+        "gate_ph_2016_q27",
+        "gate_ph_2016_q3",
+        "gate_ph_2016_q4",
+        "gate_ph_2016_q5",
+        "gate_ph_2017_q44",
+        "gate_ph_2017_q46",
+        "gate_ph_2018_q10",
+        "gate_ph_2018_q17",
+        "gate_ph_2018_q3",
+        "gate_ph_2018_q34",
+        "gate_ph_2018_q54",
+        "gate_ph_2018_q9",
+        "gate_ph_2019_q44",
+        "gate_ph_2020_q12",
+        "gate_ph_2020_q20",
+        "gate_ph_2021_q14",
+        "gate_ph_2021_q22",
+        "gate_ph_2021_q23",
+        "gate_ph_2021_q55",
+        "gate_ph_2022_q14",
+        "gate_ph_2022_q22",
+        "gate_ph_2022_q32",
+        "gate_ph_2022_q50",
+        "gate_ph_2024_q15",
+        "gate_ph_2024_q42",
+        "gate_ph_2024_q53",
+        "gate_ph_2025_q28",
+        "gate_ph_2025_q32",
+        "gate_ph_2025_q36"
+      ],
+      "questionCount": 77
+    },
+    {
+      "id": "crystal-structure-basic-band-theory",
+      "subject": "Condensed Matter",
+      "title": "Crystal Structure & Basic Band Theory",
+      "roadmapLabel": "Topic 19",
+      "phase": "phase-1-core",
+      "examScope": "JAM+JEST",
+      "subtopics": [
+        "Crystal structure, reciprocal lattice, Bragg condition, intro band theory"
+      ],
+      "resources": [
+        {
+          "source": "NPTEL — Amal Kumar Das, IIT Kharagpur",
+          "linkType": "Direct (playlist)",
+          "url": "https://www.youtube.com/watch?v=Ofzd2ZqFvjo&list=PLADLRin7kNjG1Dlna9MDA53CMKFHPSi9m",
+          "studyNotes": "First ~10 lectures. Stop before phonon dispersion and deep band-structure derivations. Book: Kittel, Introduction to Solid State Physics — work every problem in that section, not just read it. Once the concept + problems are solid, drill PYQs (JAM / CSIR-NET / JEST, 2012–present) on this exact sub-topic before moving on. Timing: Phase A — by Jan 20 hard stop (this is late-Phase-A material).. Any other teacher/channel covering the same sub-topic works just as well — the book problems and PYQ practice matter more than which video source you use."
+        }
+      ],
+      "questionIds": [
+        "gate_ph_2007_q52",
+        "gate_ph_2007_q53",
+        "gate_ph_2007_q54",
+        "gate_ph_2008_q15",
+        "gate_ph_2008_q53",
+        "gate_ph_2008_q54",
+        "gate_ph_2008_q57",
+        "gate_ph_2009_q29",
+        "gate_ph_2009_q57",
+        "gate_ph_2009_q58",
+        "gate_ph_2010_q6",
+        "gate_ph_2010_q8",
+        "gate_ph_2011_q44",
+        "gate_ph_2011_q50",
+        "gate_ph_2011_q51",
+        "gate_ph_2012_q36",
+        "gate_ph_2013_q38",
+        "gate_ph_2013_q39",
+        "gate_ph_2014_q19",
+        "gate_ph_2014_q22",
+        "gate_ph_2014_q43",
+        "gate_ph_2015_q29",
+        "gate_ph_2015_q30",
+        "gate_ph_2015_q38",
+        "gate_ph_2016_q37",
+        "gate_ph_2016_q39",
+        "gate_ph_2017_q32",
+        "gate_ph_2017_q48",
+        "gate_ph_2017_q8",
+        "gate_ph_2018_q35",
+        "gate_ph_2018_q7",
+        "gate_ph_2019_q17",
+        "gate_ph_2019_q33",
+        "gate_ph_2019_q55",
+        "gate_ph_2020_q19",
+        "gate_ph_2020_q35",
+        "gate_ph_2020_q44",
+        "gate_ph_2021_q10",
+        "gate_ph_2021_q3",
+        "gate_ph_2022_q62",
+        "gate_ph_2024_q39",
+        "gate_ph_2025_q11",
+        "gate_ph_2025_q12",
+        "gate_ph_2025_q33"
+      ],
+      "questionCount": 44
+    },
+    {
+      "id": "em-wave-propagation",
+      "subject": "EM Theory",
+      "title": "EM Wave Propagation",
+      "roadmapLabel": "Topic 11",
+      "phase": "phase-1-core",
+      "examScope": "JAM+JEST",
+      "subtopics": [
+        "Plane EM waves, reflection, refraction (normal incidence)",
+        "EM waves — alternate source"
+      ],
+      "resources": [
+        {
+          "source": "Pravegaa",
+          "linkType": "Direct (playlist)",
+          "url": "https://youtube.com/playlist?list=PL_yoT1uNIKb5iALlayczJMl_SHkd8TcX8",
+          "studyNotes": "Stop after normal-incidence reflection/transmission — oblique incidence is Phase B. Book: Griffiths Ch.9, up through normal-incidence reflection/transmission — work every problem in that section, not just read it. Once the concept + problems are solid, drill PYQs (JAM / CSIR-NET / JEST, 2012–present) on this exact sub-topic before moving on. Timing: Phase A — by mid-Dec.. Any other teacher/channel covering the same sub-topic works just as well — the book problems and PYQ practice matter more than which video source you use."
+        },
+        {
+          "source": "NPTEL — D.K. Ghosh, IIT Bombay",
+          "linkType": "Direct (playlist)",
+          "url": "https://www.youtube.com/watch?v=NED2Cl8u9Q0&list=PLbMVogVj5nJSKsAlDEbNwKZY6zD0EbGMF",
+          "studyNotes": "~4–5 lectures. Book: Griffiths Ch.9 (partial) — work every problem in that section, not just read it. Once the concept + problems are solid, drill PYQs (JAM / CSIR-NET / JEST, 2012–present) on this exact sub-topic before moving on. Timing: Phase A — by mid-Dec.. Any other teacher/channel covering the same sub-topic works just as well — the book problems and PYQ practice matter more than which video source you use."
+        }
+      ],
+      "questionIds": [
+        "gate_ph_2007_q35",
+        "gate_ph_2008_q32",
+        "gate_ph_2009_q24",
+        "gate_ph_2010_q52",
+        "gate_ph_2010_q53",
+        "gate_ph_2011_q54",
+        "gate_ph_2011_q55",
+        "gate_ph_2012_q28",
+        "gate_ph_2012_q3",
+        "gate_ph_2014_q45",
+        "gate_ph_2014_q7",
+        "gate_ph_2016_q40",
+        "gate_ph_2017_q4",
+        "gate_ph_2018_q22",
+        "gate_ph_2018_q32",
+        "gate_ph_2018_q48",
+        "gate_ph_2019_q20",
+        "gate_ph_2022_q65"
+      ],
+      "questionCount": 18
+    },
+    {
+      "id": "electrostatics-magnetostatics-basics",
+      "subject": "EM Theory",
+      "title": "Electrostatics & Magnetostatics — Basics",
+      "roadmapLabel": "Topic 9",
+      "phase": "phase-1-core",
+      "examScope": "JAM-partial",
+      "subtopics": [
+        "Coulomb's law, Gauss's law, basic magnetostatics/Ampère's law",
+        "Basics — alternate source"
+      ],
+      "resources": [
+        {
+          "source": "Pravegaa",
+          "linkType": "Direct (playlist)",
+          "url": "https://youtube.com/playlist?list=PL_yoT1uNIKb5iALlayczJMl_SHkd8TcX8",
+          "studyNotes": "Skip boundary value problems/multipole for this pass. Book: Griffiths Ch.2–3 (electrostatics), Ch.5 (magnetostatics) — work every problem in that section, not just read it. Once the concept + problems are solid, drill PYQs (JAM / CSIR-NET / JEST, 2012–present) on this exact sub-topic before moving on. Timing: Phase A — by mid-Dec.. Any other teacher/channel covering the same sub-topic works just as well — the book problems and PYQ practice matter more than which video source you use."
+        },
+        {
+          "source": "NPTEL — D.K. Ghosh, IIT Bombay",
+          "linkType": "Direct (playlist)",
+          "url": "https://www.youtube.com/watch?v=NED2Cl8u9Q0&list=PLbMVogVj5nJSKsAlDEbNwKZY6zD0EbGMF",
+          "studyNotes": "First ~8–10 lectures. Book: Griffiths Ch.2-3, 5 — work every problem in that section, not just read it. Once the concept + problems are solid, drill PYQs (JAM / CSIR-NET / JEST, 2012–present) on this exact sub-topic before moving on. Timing: Phase A — by mid-Dec.. Any other teacher/channel covering the same sub-topic works just as well — the book problems and PYQ practice matter more than which video source you use."
+        }
+      ],
+      "questionIds": [
+        "gate_ph_2007_q34",
+        "gate_ph_2007_q4",
+        "gate_ph_2008_q34",
+        "gate_ph_2008_q35",
+        "gate_ph_2008_q74",
+        "gate_ph_2008_q75",
+        "gate_ph_2009_q2",
+        "gate_ph_2009_q21",
+        "gate_ph_2009_q22",
+        "gate_ph_2010_q18",
+        "gate_ph_2010_q38",
+        "gate_ph_2011_q16",
+        "gate_ph_2011_q17",
+        "gate_ph_2011_q18",
+        "gate_ph_2011_q19",
+        "gate_ph_2011_q37",
+        "gate_ph_2013_q13",
+        "gate_ph_2013_q34",
+        "gate_ph_2013_q44",
+        "gate_ph_2014_q39",
+        "gate_ph_2015_q18",
+        "gate_ph_2015_q28",
+        "gate_ph_2015_q43",
+        "gate_ph_2016_q2",
+        "gate_ph_2016_q31",
+        "gate_ph_2016_q49",
+        "gate_ph_2016_q7",
+        "gate_ph_2017_q1",
+        "gate_ph_2017_q2",
+        "gate_ph_2017_q26",
+        "gate_ph_2018_q21",
+        "gate_ph_2019_q16",
+        "gate_ph_2019_q29",
+        "gate_ph_2019_q39",
+        "gate_ph_2019_q40",
+        "gate_ph_2019_q50",
+        "gate_ph_2020_q18",
+        "gate_ph_2020_q24",
+        "gate_ph_2020_q34",
+        "gate_ph_2021_q12",
+        "gate_ph_2021_q53",
+        "gate_ph_2021_q6",
+        "gate_ph_2022_q15",
+        "gate_ph_2022_q31",
+        "gate_ph_2022_q53",
+        "gate_ph_2024_q20",
+        "gate_ph_2024_q34",
+        "gate_ph_2024_q46",
+        "gate_ph_2025_q37",
+        "gate_ph_2025_q40",
+        "gate_ph_2025_q49",
+        "gate_ph_2025_q56",
+        "gate_ph_2025_q58"
+      ],
+      "questionCount": 53
+    },
+    {
+      "id": "faraday-s-law-maxwell-s-equations",
+      "subject": "EM Theory",
+      "title": "Faraday's Law & Maxwell's Equations",
+      "roadmapLabel": "Topic 10",
+      "phase": "phase-1-core",
+      "examScope": "JAM+JEST",
+      "subtopics": [
+        "Faraday's law, displacement current, Maxwell's equations & gauges",
+        "Maxwell's equations — alternate source"
+      ],
+      "resources": [
+        {
+          "source": "Pravegaa",
+          "linkType": "Direct (playlist)",
+          "url": "https://youtube.com/playlist?list=PL_yoT1uNIKb5iALlayczJMl_SHkd8TcX8",
+          "studyNotes": "Core to both exams — full depth. Book: Griffiths Ch.7, up to Maxwell's equations — work every problem in that section, not just read it. Once the concept + problems are solid, drill PYQs (JAM / CSIR-NET / JEST, 2012–present) on this exact sub-topic before moving on. Timing: Phase A — by mid-Dec.. Any other teacher/channel covering the same sub-topic works just as well — the book problems and PYQ practice matter more than which video source you use."
+        },
+        {
+          "source": "NPTEL — D.K. Ghosh, IIT Bombay",
+          "linkType": "Direct (playlist)",
+          "url": "https://www.youtube.com/watch?v=NED2Cl8u9Q0&list=PLbMVogVj5nJSKsAlDEbNwKZY6zD0EbGMF",
+          "studyNotes": "~5–6 lectures, mid-playlist. Book: Griffiths Ch.7 — work every problem in that section, not just read it. Once the concept + problems are solid, drill PYQs (JAM / CSIR-NET / JEST, 2012–present) on this exact sub-topic before moving on. Timing: Phase A — by mid-Dec.. Any other teacher/channel covering the same sub-topic works just as well — the book problems and PYQ practice matter more than which video source you use."
+        }
+      ],
+      "questionIds": [
+        "gate_ph_2007_q36",
+        "gate_ph_2009_q4",
+        "gate_ph_2010_q37",
+        "gate_ph_2010_q39",
+        "gate_ph_2012_q19",
+        "gate_ph_2014_q14",
+        "gate_ph_2015_q45",
+        "gate_ph_2017_q27",
+        "gate_ph_2018_q29",
+        "gate_ph_2018_q30",
+        "gate_ph_2018_q8",
+        "gate_ph_2019_q19",
+        "gate_ph_2020_q14",
+        "gate_ph_2020_q45",
+        "gate_ph_2020_q47"
+      ],
+      "questionCount": 15
+    },
+    {
+      "id": "circuits-digital-electronics",
+      "subject": "Electronics",
+      "title": "Circuits & Digital Electronics",
+      "roadmapLabel": "Topic 18",
+      "phase": "phase-1-core",
+      "examScope": "JAM+JEST",
+      "subtopics": [
+        "LCR circuits, rectifiers, amplifiers, OPAMPs, basic digital logic",
+        "Circuits — alternate source"
+      ],
+      "resources": [
+        {
+          "source": "Pravegaa",
+          "linkType": "Direct (playlist)",
+          "url": "https://youtube.com/playlist?list=PL_yoT1uNIKb5E9MThE7H010wXXqZCrRPl",
+          "studyNotes": " Book: Millman & Halkias circuits/rectifier/op-amp chapters; a standard digital logic chapter for gates — work every problem in that section, not just read it. Once the concept + problems are solid, drill PYQs (JAM / CSIR-NET / JEST, 2012–present) on this exact sub-topic before moving on. Timing: Phase A — by Jan 20 hard stop (this is late-Phase-A material).. Any other teacher/channel covering the same sub-topic works just as well — the book problems and PYQ practice matter more than which video source you use."
+        },
+        {
+          "source": "NPTEL — D.C. Dube, IIT Delhi",
+          "linkType": "Direct (playlist)",
+          "url": "https://www.youtube.com/watch?v=g7vYop_46tU&list=PL708EEA8184EA8F53",
+          "studyNotes": "Confirmed: amplifiers from ~Lec 11, FET/MOSFET ~Lec 22, op-amps toward the end. Book: Millman & Halkias — work every problem in that section, not just read it. Once the concept + problems are solid, drill PYQs (JAM / CSIR-NET / JEST, 2012–present) on this exact sub-topic before moving on. Timing: Phase A — by Jan 20 hard stop (this is late-Phase-A material).. Any other teacher/channel covering the same sub-topic works just as well — the book problems and PYQ practice matter more than which video source you use."
+        }
+      ],
+      "questionIds": [
+        "gate_ph_2007_q3",
+        "gate_ph_2007_q64",
+        "gate_ph_2007_q65",
+        "gate_ph_2007_q66",
+        "gate_ph_2007_q67",
+        "gate_ph_2007_q68",
+        "gate_ph_2007_q70",
+        "gate_ph_2008_q19",
+        "gate_ph_2008_q65",
+        "gate_ph_2008_q66",
+        "gate_ph_2008_q67",
+        "gate_ph_2008_q68",
+        "gate_ph_2008_q69",
+        "gate_ph_2008_q70",
+        "gate_ph_2008_q82",
+        "gate_ph_2008_q83",
+        "gate_ph_2009_q10",
+        "gate_ph_2009_q19",
+        "gate_ph_2009_q37",
+        "gate_ph_2009_q39",
+        "gate_ph_2009_q40",
+        "gate_ph_2009_q59",
+        "gate_ph_2009_q60",
+        "gate_ph_2010_q19",
+        "gate_ph_2010_q20",
+        "gate_ph_2010_q40",
+        "gate_ph_2010_q41",
+        "gate_ph_2011_q10",
+        "gate_ph_2011_q25",
+        "gate_ph_2011_q45",
+        "gate_ph_2011_q46",
+        "gate_ph_2011_q47",
+        "gate_ph_2012_q20",
+        "gate_ph_2012_q31",
+        "gate_ph_2012_q33",
+        "gate_ph_2012_q37",
+        "gate_ph_2012_q4",
+        "gate_ph_2013_q19",
+        "gate_ph_2013_q24",
+        "gate_ph_2013_q54",
+        "gate_ph_2013_q55",
+        "gate_ph_2014_q24",
+        "gate_ph_2014_q25",
+        "gate_ph_2014_q52",
+        "gate_ph_2014_q53",
+        "gate_ph_2014_q55",
+        "gate_ph_2015_q25",
+        "gate_ph_2015_q44",
+        "gate_ph_2015_q46",
+        "gate_ph_2015_q58",
+        "gate_ph_2016_q44",
+        "gate_ph_2016_q52",
+        "gate_ph_2017_q30",
+        "gate_ph_2017_q5",
+        "gate_ph_2017_q52",
+        "gate_ph_2017_q53",
+        "gate_ph_2017_q6",
+        "gate_ph_2018_q11",
+        "gate_ph_2018_q13",
+        "gate_ph_2018_q20",
+        "gate_ph_2019_q26",
+        "gate_ph_2019_q3",
+        "gate_ph_2019_q31",
+        "gate_ph_2019_q36",
+        "gate_ph_2019_q43",
+        "gate_ph_2020_q29",
+        "gate_ph_2020_q30",
+        "gate_ph_2020_q42",
+        "gate_ph_2020_q5",
+        "gate_ph_2020_q6",
+        "gate_ph_2021_q26",
+        "gate_ph_2022_q11",
+        "gate_ph_2022_q20",
+        "gate_ph_2022_q30",
+        "gate_ph_2022_q59",
+        "gate_ph_2024_q18",
+        "gate_ph_2024_q24",
+        "gate_ph_2024_q32",
+        "gate_ph_2024_q58",
+        "gate_ph_2024_q63",
+        "gate_ph_2025_q19",
+        "gate_ph_2025_q41",
+        "gate_ph_2025_q60",
+        "gate_ph_2025_q65"
+      ],
+      "questionCount": 84
+    },
+    {
+      "id": "semiconductor-devices",
+      "subject": "Electronics",
+      "title": "Semiconductor Devices",
+      "roadmapLabel": "Topic 17",
+      "phase": "phase-1-core",
+      "examScope": "JAM+JEST",
+      "subtopics": [
+        "Semiconductor basics, p-n junctions, diodes, transistors",
+        "Semiconductor devices — alternate source"
+      ],
+      "resources": [
+        {
+          "source": "Pravegaa",
+          "linkType": "Direct (playlist)",
+          "url": "https://youtube.com/playlist?list=PL_yoT1uNIKb5E9MThE7H010wXXqZCrRPl",
+          "studyNotes": " Book: Millman & Halkias — semiconductor, diode, BJT chapters — work every problem in that section, not just read it. Once the concept + problems are solid, drill PYQs (JAM / CSIR-NET / JEST, 2012–present) on this exact sub-topic before moving on. Timing: Phase A — by Jan 20 hard stop (this is late-Phase-A material).. Any other teacher/channel covering the same sub-topic works just as well — the book problems and PYQ practice matter more than which video source you use."
+        },
+        {
+          "source": "NPTEL — D.C. Dube, IIT Delhi",
+          "linkType": "Direct (playlist)",
+          "url": "https://www.youtube.com/watch?v=g7vYop_46tU&list=PL708EEA8184EA8F53",
+          "studyNotes": "Confirmed structure: Lec 1–4 diodes, Lec 5–10 transistors/biasing. Book: Millman & Halkias — work every problem in that section, not just read it. Once the concept + problems are solid, drill PYQs (JAM / CSIR-NET / JEST, 2012–present) on this exact sub-topic before moving on. Timing: Phase A — by Jan 20 hard stop (this is late-Phase-A material).. Any other teacher/channel covering the same sub-topic works just as well — the book problems and PYQ practice matter more than which video source you use."
+        }
+      ],
+      "questionIds": [
+        "gate_ph_2007_q16",
+        "gate_ph_2007_q56",
+        "gate_ph_2007_q69",
+        "gate_ph_2008_q20",
+        "gate_ph_2008_q58",
+        "gate_ph_2011_q24",
+        "gate_ph_2012_q12",
+        "gate_ph_2012_q15",
+        "gate_ph_2013_q20",
+        "gate_ph_2013_q47",
+        "gate_ph_2014_q30",
+        "gate_ph_2015_q27",
+        "gate_ph_2015_q40",
+        "gate_ph_2016_q18",
+        "gate_ph_2018_q39",
+        "gate_ph_2021_q17",
+        "gate_ph_2021_q27",
+        "gate_ph_2021_q4",
+        "gate_ph_2021_q9",
+        "gate_ph_2022_q28",
+        "gate_ph_2022_q57",
+        "gate_ph_2024_q27"
+      ],
+      "questionCount": 22
+    },
+    {
+      "id": "complex-analysis-residue-theorem",
+      "subject": "Math Methods",
+      "title": "Complex Analysis & Residue Theorem",
+      "roadmapLabel": "Topic 3",
+      "phase": "phase-1-core",
+      "examScope": "JAM-partial",
+      "subtopics": [
+        "Complex algebra, Cauchy-Riemann conditions (basic)",
+        "Complex analysis — alternate source",
+        "Residue theorem, contour integration, Laurent series (full)"
+      ],
+      "resources": [
+        {
+          "source": "Pravegaa",
+          "linkType": "Direct (playlist)",
+          "url": "https://youtube.com/playlist?list=PL_yoT1uNIKb5612J2UBJOZ5Q2RwFQ8Bkm",
+          "studyNotes": "Stop at complex algebra/Cauchy-Riemann for this pass — don't watch the residue-theorem lectures yet. Book: Boas Ch.14, sections 1–4 only — work every problem in that section, not just read it. Once the concept + problems are solid, drill PYQs (JAM / CSIR-NET / JEST, 2012–present) on this exact sub-topic before moving on. Timing: Phase A — by early Oct (math methods is foundational, do it first).. Any other teacher/channel covering the same sub-topic works just as well — the book problems and PYQ practice matter more than which video source you use."
+        },
+        {
+          "source": "NPTEL — Balakrishnan, IIT Madras",
+          "linkType": "Direct (playlist)",
+          "url": "https://www.youtube.com/watch?v=b5VUnapu-qs&list=PLbMVogVj5nJRhl_6TUGChpnt2Lg0AZvZu",
+          "studyNotes": "Lectures 1–4. Book: Boas Ch.14 §1-4 — work every problem in that section, not just read it. Once the concept + problems are solid, drill PYQs (JAM / CSIR-NET / JEST, 2012–present) on this exact sub-topic before moving on. Timing: Phase A — by early Oct (math methods is foundational, do it first).. Any other teacher/channel covering the same sub-topic works just as well — the book problems and PYQ practice matter more than which video source you use."
+        },
+        {
+          "source": "Pravegaa",
+          "linkType": "Direct (playlist)",
+          "url": "https://youtube.com/playlist?list=PL_yoT1uNIKb5612J2UBJOZ5Q2RwFQ8Bkm",
+          "studyNotes": "Same playlist, later chapter — appears in almost every CSIR-NET paper, so a full watch-through is justified. Book: Boas Ch.14, remaining sections — work every problem in that section, not just read it. Once the concept + problems are solid, drill PYQs (JAM / CSIR-NET / JEST, 2012–present) on this exact sub-topic before moving on. Timing: Phase A-Bonus — only tackle this if Topics 1–20 are fully done ahead of Jan 20. Don't start this while core topics are still shaky.. Any other teacher/channel covering the same sub-topic works just as well — the book problems and PYQ practice matter more than which video source you use. This is a recurring tool inside QM, EM, and stat mech problems, not just a standalone chapter — probably the single best 'solves problems elsewhere' pickup on the whole bonus list."
+        }
+      ],
+      "questionIds": [
+        "gate_ph_2007_q25",
+        "gate_ph_2008_q23",
+        "gate_ph_2008_q24",
+        "gate_ph_2009_q23",
+        "gate_ph_2010_q2",
+        "gate_ph_2010_q26",
+        "gate_ph_2011_q48",
+        "gate_ph_2011_q49",
+        "gate_ph_2012_q44",
+        "gate_ph_2013_q41",
+        "gate_ph_2014_q35",
+        "gate_ph_2015_q23",
+        "gate_ph_2015_q26",
+        "gate_ph_2016_q12",
+        "gate_ph_2017_q15",
+        "gate_ph_2017_q39",
+        "gate_ph_2018_q45",
+        "gate_ph_2019_q12",
+        "gate_ph_2019_q27",
+        "gate_ph_2020_q22",
+        "gate_ph_2021_q50",
+        "gate_ph_2022_q25",
+        "gate_ph_2024_q31",
+        "gate_ph_2025_q21",
+        "gate_ph_2025_q55"
+      ],
+      "questionCount": 25
+    },
+    {
+      "id": "differential-equations-special-functions",
+      "subject": "Math Methods",
+      "title": "Differential Equations & Special Functions",
+      "roadmapLabel": "Topic 2",
+      "phase": "phase-1-core",
+      "examScope": "JAM+JEST",
+      "subtopics": [
+        "ODEs — first order through non-homogeneous, linear independence",
+        "ODEs — alternate source",
+        "Special functions — Legendre, Bessel, Hermite, Sturm-Liouville"
+      ],
+      "resources": [
+        {
+          "source": "Pravegaa",
+          "linkType": "Direct (playlist)",
+          "url": "https://youtube.com/playlist?list=PL_yoT1uNIKb5612J2UBJOZ5Q2RwFQ8Bkm",
+          "studyNotes": "This is JAM's most heavily-tested math sub-topic — watch the full ODE block on this playlist, not a quick pass. Book: Boas Ch.8, full chapter — work every problem in that section, not just read it. Once the concept + problems are solid, drill PYQs (JAM / CSIR-NET / JEST, 2012–present) on this exact sub-topic before moving on. Timing: Phase A — by early Oct (math methods is foundational, do it first).. Any other teacher/channel covering the same sub-topic works just as well — the book problems and PYQ practice matter more than which video source you use. Sub-topics to check off: first order/first degree → homogeneous → linear DEs/Bernoulli → exact DEs → coupled & second order → non-homogeneous → linear independence of solutions."
+        },
+        {
+          "source": "NPTEL — Balakrishnan, IIT Madras",
+          "linkType": "Direct (playlist)",
+          "url": "https://www.youtube.com/watch?v=b5VUnapu-qs&list=PLbMVogVj5nJRhl_6TUGChpnt2Lg0AZvZu",
+          "studyNotes": "Touches ODE technique early on — use only if you want a second explanation angle. Book: Boas Ch.8 — work every problem in that section, not just read it. Once the concept + problems are solid, drill PYQs (JAM / CSIR-NET / JEST, 2012–present) on this exact sub-topic before moving on. Timing: Phase A — by early Oct (math methods is foundational, do it first).. Any other teacher/channel covering the same sub-topic works just as well — the book problems and PYQ practice matter more than which video source you use."
+        },
+        {
+          "source": "Pravegaa",
+          "linkType": "Direct (playlist)",
+          "url": "https://youtube.com/playlist?list=PL_yoT1uNIKb5612J2UBJOZ5Q2RwFQ8Bkm",
+          "studyNotes": "Same playlist, later chapter. Book: Boas Ch.12, full chapter — work every problem in that section, not just read it. Once the concept + problems are solid, drill PYQs (JAM / CSIR-NET / JEST, 2012–present) on this exact sub-topic before moving on. Timing: Phase A-Bonus — only tackle this if Topics 1–20 are fully done ahead of Jan 20. Don't start this while core topics are still shaky.. Any other teacher/channel covering the same sub-topic works just as well — the book problems and PYQ practice matter more than which video source you use. This is the missing tool behind a fully rigorous hydrogen atom (Topic 13) and angular momentum (Bonus #1) — do it if you want those two to feel complete rather than half-derived."
+        }
+      ],
+      "questionIds": [
+        "gate_ph_2007_q27",
+        "gate_ph_2007_q28",
+        "gate_ph_2008_q25",
+        "gate_ph_2009_q12",
+        "gate_ph_2010_q27",
+        "gate_ph_2010_q28",
+        "gate_ph_2011_q28",
+        "gate_ph_2013_q28",
+        "gate_ph_2014_q37",
+        "gate_ph_2015_q19",
+        "gate_ph_2015_q59",
+        "gate_ph_2016_q1",
+        "gate_ph_2017_q38",
+        "gate_ph_2017_q54",
+        "gate_ph_2018_q44",
+        "gate_ph_2019_q4",
+        "gate_ph_2020_q1",
+        "gate_ph_2021_q16",
+        "gate_ph_2022_q19",
+        "gate_ph_2022_q27"
+      ],
+      "questionCount": 20
+    },
+    {
+      "id": "fourier-laplace-transforms",
+      "subject": "Math Methods",
+      "title": "Fourier & Laplace Transforms",
+      "roadmapLabel": "Topic 4",
+      "phase": "phase-1-core",
+      "examScope": "JAM+JEST",
+      "subtopics": [
+        "Fourier Series — Lecture 1 (Introduction, full series)",
+        "Fourier Series — Lecture 2",
+        "Fourier Series — Lecture 3 (half-range expansions)",
+        "Fourier Series — Lecture 4 (Bessel's inequality, Parseval's identity, complex Fourier series)",
+        "Fourier Transform, Laplace Transform, Dirac Delta Function"
+      ],
+      "resources": [
+        {
+          "source": "Pravegaa",
+          "linkType": "Direct (video)",
+          "url": "https://www.youtube.com/watch?v=MW72LV-P_2s",
+          "studyNotes": "Individually confirmed — Lecture 1 of 4. Book: Boas Ch.7, Fourier series sections — work every problem in that section, not just read it. Once the concept + problems are solid, drill PYQs (JAM / CSIR-NET / JEST, 2012–present) on this exact sub-topic before moving on. Timing: Phase A — by early Oct (math methods is foundational, do it first).. Any other teacher/channel covering the same sub-topic works just as well — the book problems and PYQ practice matter more than which video source you use."
+        },
+        {
+          "source": "Pravegaa",
+          "linkType": "Direct (video)",
+          "url": "https://www.youtube.com/watch?v=OoZy75MRXlo",
+          "studyNotes": "Individually confirmed — Lecture 2 of 4. Book: Boas Ch.7 — work every problem in that section, not just read it. Once the concept + problems are solid, drill PYQs (JAM / CSIR-NET / JEST, 2012–present) on this exact sub-topic before moving on. Timing: Phase A — by early Oct (math methods is foundational, do it first).. Any other teacher/channel covering the same sub-topic works just as well — the book problems and PYQ practice matter more than which video source you use."
+        },
+        {
+          "source": "Pravegaa",
+          "linkType": "Direct (video)",
+          "url": "https://www.youtube.com/watch?v=7ebxmmC_evI",
+          "studyNotes": "Individually confirmed — Lecture 3 of 4. Book: Boas Ch.7 — work every problem in that section, not just read it. Once the concept + problems are solid, drill PYQs (JAM / CSIR-NET / JEST, 2012–present) on this exact sub-topic before moving on. Timing: Phase A — by early Oct (math methods is foundational, do it first).. Any other teacher/channel covering the same sub-topic works just as well — the book problems and PYQ practice matter more than which video source you use."
+        },
+        {
+          "source": "Pravegaa",
+          "linkType": "Direct (video)",
+          "url": "https://www.youtube.com/watch?v=-tU6TccKzcQ",
+          "studyNotes": "Individually confirmed — Lecture 4 of 4, the complete set. Book: Boas Ch.7 — work every problem in that section, not just read it. Once the concept + problems are solid, drill PYQs (JAM / CSIR-NET / JEST, 2012–present) on this exact sub-topic before moving on. Timing: Phase A — by early Oct (math methods is foundational, do it first).. Any other teacher/channel covering the same sub-topic works just as well — the book problems and PYQ practice matter more than which video source you use."
+        },
+        {
+          "source": "Pravegaa",
+          "linkType": "Direct (playlist)",
+          "url": "https://youtube.com/playlist?list=PL_yoT1uNIKb5612J2UBJOZ5Q2RwFQ8Bkm",
+          "studyNotes": "Same playlist, later chapters — all three are separate sections on it. Book: Boas Ch.7 (Fourier transform) + Ch.8 (Laplace) — work every problem in that section, not just read it. Once the concept + problems are solid, drill PYQs (JAM / CSIR-NET / JEST, 2012–present) on this exact sub-topic before moving on. Timing: Phase A-Bonus — only tackle this if Topics 1–20 are fully done ahead of Jan 20. Don't start this while core topics are still shaky.. Any other teacher/channel covering the same sub-topic works just as well — the book problems and PYQ practice matter more than which video source you use."
+        }
+      ],
+      "questionIds": [
+        "gate_ph_2007_q26",
+        "gate_ph_2008_q22",
+        "gate_ph_2010_q4",
+        "gate_ph_2013_q1",
+        "gate_ph_2013_q26",
+        "gate_ph_2015_q64",
+        "gate_ph_2016_q36",
+        "gate_ph_2017_q21",
+        "gate_ph_2019_q46",
+        "gate_ph_2020_q48",
+        "gate_ph_2020_q49",
+        "gate_ph_2021_q42",
+        "gate_ph_2022_q26",
+        "gate_ph_2024_q56"
+      ],
+      "questionCount": 14
+    },
+    {
+      "id": "vector-calculus-linear-algebra",
+      "subject": "Math Methods",
+      "title": "Vector Calculus & Linear Algebra",
+      "roadmapLabel": "Topic 1",
+      "phase": "phase-1-core",
+      "examScope": "JAM+JEST",
+      "subtopics": [
+        "Vector algebra, vector calculus (grad/div/curl, Stokes', divergence theorem)",
+        "Matrices — eigenvalues, eigenvectors, diagonalization, Pauli spin matrices",
+        "Linear algebra — alternate source"
+      ],
+      "resources": [
+        {
+          "source": "Book only",
+          "linkType": "N/A",
+          "url": null,
+          "studyNotes": "No dedicated video needed — this is mechanical skill-building. Book: Boas Ch.6, full chapter — work every problem in that section, not just read it. Once the concept + problems are solid, drill PYQs (JAM / CSIR-NET / JEST, 2012–present) on this exact sub-topic before moving on. Timing: Phase A — by early Oct (math methods is foundational, do it first).. Any other teacher/channel covering the same sub-topic works just as well — the book problems and PYQ practice matter more than which video source you use. Prioritize problems here over videos; you'll use these identities constantly from here on."
+        },
+        {
+          "source": "Pravegaa",
+          "linkType": "Direct (playlist)",
+          "url": "https://youtube.com/playlist?list=PL_yoT1uNIKb5612J2UBJOZ5Q2RwFQ8Bkm",
+          "studyNotes": "Browse this playlist for the Matrices sub-topic specifically — it's mixed in with other math-methods lectures. Book: Boas Ch.3, full chapter — work every problem in that section, not just read it. Once the concept + problems are solid, drill PYQs (JAM / CSIR-NET / JEST, 2012–present) on this exact sub-topic before moving on. Timing: Phase A — by early Oct (math methods is foundational, do it first).. Any other teacher/channel covering the same sub-topic works just as well — the book problems and PYQ practice matter more than which video source you use. Checklist to confirm you've covered enough: eigenvalues → eigenvectors → diagonalization → Hermitian/unitary matrices → Pauli spin matrices."
+        },
+        {
+          "source": "NPTEL — Balakrishnan, IIT Madras",
+          "linkType": "Direct (playlist)",
+          "url": "https://www.youtube.com/watch?v=TcmGYe39XG0&list=PL0F530F3BAF8C6FCC",
+          "studyNotes": "Lectures 1–3 specifically — a cleaner, fully sequenced alternative if the Pravegaa playlist ordering is confusing. Book: Boas Ch.3 — work every problem in that section, not just read it. Once the concept + problems are solid, drill PYQs (JAM / CSIR-NET / JEST, 2012–present) on this exact sub-topic before moving on. Timing: Phase A — by early Oct (math methods is foundational, do it first).. Any other teacher/channel covering the same sub-topic works just as well — the book problems and PYQ practice matter more than which video source you use."
+        }
+      ],
+      "questionIds": [
+        "gate_ph_2007_q1",
+        "gate_ph_2007_q21",
+        "gate_ph_2007_q22",
+        "gate_ph_2007_q23",
+        "gate_ph_2008_q1",
+        "gate_ph_2008_q2",
+        "gate_ph_2008_q21",
+        "gate_ph_2008_q3",
+        "gate_ph_2008_q84",
+        "gate_ph_2008_q85",
+        "gate_ph_2009_q1",
+        "gate_ph_2009_q45",
+        "gate_ph_2009_q5",
+        "gate_ph_2010_q3",
+        "gate_ph_2011_q1",
+        "gate_ph_2011_q11",
+        "gate_ph_2011_q26",
+        "gate_ph_2011_q27",
+        "gate_ph_2012_q1",
+        "gate_ph_2012_q29",
+        "gate_ph_2012_q43",
+        "gate_ph_2013_q15",
+        "gate_ph_2013_q27",
+        "gate_ph_2013_q42",
+        "gate_ph_2014_q1",
+        "gate_ph_2014_q8",
+        "gate_ph_2015_q24",
+        "gate_ph_2016_q33",
+        "gate_ph_2017_q40",
+        "gate_ph_2018_q1",
+        "gate_ph_2018_q26",
+        "gate_ph_2018_q4",
+        "gate_ph_2019_q8",
+        "gate_ph_2020_q2",
+        "gate_ph_2020_q26",
+        "gate_ph_2020_q27",
+        "gate_ph_2020_q32",
+        "gate_ph_2021_q43",
+        "gate_ph_2022_q13",
+        "gate_ph_2024_q30",
+        "gate_ph_2024_q43",
+        "gate_ph_2024_q45",
+        "gate_ph_2025_q61"
+      ],
+      "questionCount": 43
+    },
+    {
+      "id": "central-force-problem",
+      "subject": "Mechanics",
+      "title": "Central Force Problem",
+      "roadmapLabel": "Topic 7",
+      "phase": "phase-1-core",
+      "examScope": "JAM+JEST",
+      "subtopics": [
+        "Central force problem, Kepler problem",
+        "Central force — alternate source"
+      ],
+      "resources": [
+        {
+          "source": "Pravegaa",
+          "linkType": "Direct (playlist)",
+          "url": "https://youtube.com/playlist?list=PL_yoT1uNIKb4cTACv0ntPjYQPLSU3ZsB-",
+          "studyNotes": "Near-guaranteed problem type — deriving Kepler's laws from the Lagrangian. Book: Goldstein, central force chapter — work every problem in that section, not just read it. Once the concept + problems are solid, drill PYQs (JAM / CSIR-NET / JEST, 2012–present) on this exact sub-topic before moving on. Timing: Phase A — by early Oct.. Any other teacher/channel covering the same sub-topic works just as well — the book problems and PYQ practice matter more than which video source you use."
+        },
+        {
+          "source": "NPTEL — Balakrishnan, IIT Madras",
+          "linkType": "Direct (playlist)",
+          "url": "https://www.youtube.com/watch?v=Q6Gw08pwhws&list=PL5E4E56893588CBA8",
+          "studyNotes": "2–3 lectures near the Topic 6 range. Book: Goldstein central force ch — work every problem in that section, not just read it. Once the concept + problems are solid, drill PYQs (JAM / CSIR-NET / JEST, 2012–present) on this exact sub-topic before moving on. Timing: Phase A — by early Oct.. Any other teacher/channel covering the same sub-topic works just as well — the book problems and PYQ practice matter more than which video source you use."
+        }
+      ],
+      "questionIds": [
+        "gate_ph_2007_q2",
+        "gate_ph_2008_q30",
+        "gate_ph_2012_q14",
+        "gate_ph_2014_q33",
+        "gate_ph_2015_q11",
+        "gate_ph_2016_q20",
+        "gate_ph_2018_q27",
+        "gate_ph_2020_q10",
+        "gate_ph_2021_q39",
+        "gate_ph_2022_q49"
+      ],
+      "questionCount": 10
+    },
+    {
+      "id": "lagrangian-hamiltonian-mechanics",
+      "subject": "Mechanics",
+      "title": "Lagrangian & Hamiltonian Mechanics",
+      "roadmapLabel": "Topic 6",
+      "phase": "phase-1-core",
+      "examScope": "JAM+JEST",
+      "subtopics": [
+        "Generalized coordinates, Lagrangian formulation, Hamiltonian formulation",
+        "Lagrangian/Hamiltonian — alternate source"
+      ],
+      "resources": [
+        {
+          "source": "Pravegaa",
+          "linkType": "Direct (playlist)",
+          "url": "https://youtube.com/playlist?list=PL_yoT1uNIKb4cTACv0ntPjYQPLSU3ZsB-",
+          "studyNotes": "This is the conceptual core of classical mechanics — watch this block fully, don't skim. Book: Goldstein Ch.1–2 (Lagrangian) + Ch.8 up to Hamilton's equations — work every problem in that section, not just read it. Once the concept + problems are solid, drill PYQs (JAM / CSIR-NET / JEST, 2012–present) on this exact sub-topic before moving on. Timing: Phase A — by early Oct.. Any other teacher/channel covering the same sub-topic works just as well — the book problems and PYQ practice matter more than which video source you use. Skip Hamilton-Jacobi theory — beyond both exams."
+        },
+        {
+          "source": "NPTEL — Balakrishnan, IIT Madras",
+          "linkType": "Direct (playlist)",
+          "url": "https://www.youtube.com/watch?v=Q6Gw08pwhws&list=PL5E4E56893588CBA8",
+          "studyNotes": "Roughly lectures 11–19. Book: Goldstein Ch.1-2, 8 — work every problem in that section, not just read it. Once the concept + problems are solid, drill PYQs (JAM / CSIR-NET / JEST, 2012–present) on this exact sub-topic before moving on. Timing: Phase A — by early Oct.. Any other teacher/channel covering the same sub-topic works just as well — the book problems and PYQ practice matter more than which video source you use."
+        }
+      ],
+      "questionIds": [
+        "gate_ph_2007_q31",
+        "gate_ph_2007_q33",
+        "gate_ph_2008_q27",
+        "gate_ph_2008_q31",
+        "gate_ph_2008_q42",
+        "gate_ph_2008_q5",
+        "gate_ph_2009_q3",
+        "gate_ph_2009_q42",
+        "gate_ph_2009_q49",
+        "gate_ph_2009_q9",
+        "gate_ph_2010_q54",
+        "gate_ph_2010_q55",
+        "gate_ph_2011_q29",
+        "gate_ph_2011_q31",
+        "gate_ph_2012_q42",
+        "gate_ph_2012_q54",
+        "gate_ph_2012_q55",
+        "gate_ph_2013_q18",
+        "gate_ph_2014_q18",
+        "gate_ph_2014_q26",
+        "gate_ph_2014_q38",
+        "gate_ph_2014_q44",
+        "gate_ph_2015_q51",
+        "gate_ph_2015_q52",
+        "gate_ph_2016_q35",
+        "gate_ph_2016_q42",
+        "gate_ph_2017_q10",
+        "gate_ph_2017_q12",
+        "gate_ph_2017_q13",
+        "gate_ph_2018_q28",
+        "gate_ph_2018_q43",
+        "gate_ph_2019_q10",
+        "gate_ph_2019_q22",
+        "gate_ph_2019_q38",
+        "gate_ph_2019_q42",
+        "gate_ph_2019_q45",
+        "gate_ph_2020_q23",
+        "gate_ph_2020_q25",
+        "gate_ph_2020_q31",
+        "gate_ph_2021_q20",
+        "gate_ph_2021_q25",
+        "gate_ph_2021_q30",
+        "gate_ph_2021_q44",
+        "gate_ph_2021_q46",
+        "gate_ph_2022_q41",
+        "gate_ph_2022_q42",
+        "gate_ph_2022_q54",
+        "gate_ph_2022_q55",
+        "gate_ph_2024_q11",
+        "gate_ph_2024_q23",
+        "gate_ph_2024_q38",
+        "gate_ph_2024_q60",
+        "gate_ph_2025_q51",
+        "gate_ph_2025_q52",
+        "gate_ph_2025_q53",
+        "gate_ph_2025_q62"
+      ],
+      "questionCount": 56
+    },
+    {
+      "id": "newtonian-mechanics",
+      "subject": "Mechanics",
+      "title": "Newtonian Mechanics",
+      "roadmapLabel": "Topic 5",
+      "phase": "phase-1-core",
+      "examScope": "JAM+JEST",
+      "subtopics": [
+        "Newton's laws, conservation laws, collisions",
+        "Newtonian mechanics — alternate source"
+      ],
+      "resources": [
+        {
+          "source": "Pravegaa",
+          "linkType": "Direct (playlist)",
+          "url": "https://youtube.com/playlist?list=PL_yoT1uNIKb4cTACv0ntPjYQPLSU3ZsB-",
+          "studyNotes": "Browse for the Newtonian-mechanics opening lectures on this playlist. Book: Kleppner & Kolenkow, full relevant chapters — work every problem in that section, not just read it. Once the concept + problems are solid, drill PYQs (JAM / CSIR-NET / JEST, 2012–present) on this exact sub-topic before moving on. Timing: Phase A — by early Oct.. Any other teacher/channel covering the same sub-topic works just as well — the book problems and PYQ practice matter more than which video source you use."
+        },
+        {
+          "source": "NPTEL — Balakrishnan, IIT Madras",
+          "linkType": "Direct (playlist)",
+          "url": "https://www.youtube.com/watch?v=Q6Gw08pwhws&list=PL5E4E56893588CBA8",
+          "studyNotes": "Lectures 1–10 of 38. Book: Kleppner & Kolenkow — work every problem in that section, not just read it. Once the concept + problems are solid, drill PYQs (JAM / CSIR-NET / JEST, 2012–present) on this exact sub-topic before moving on. Timing: Phase A — by early Oct.. Any other teacher/channel covering the same sub-topic works just as well — the book problems and PYQ practice matter more than which video source you use."
+        }
+      ],
+      "questionIds": [
+        "gate_ph_2010_q45",
+        "gate_ph_2011_q2",
+        "gate_ph_2015_q35",
+        "gate_ph_2015_q48",
+        "gate_ph_2015_q53",
+        "gate_ph_2017_q50"
+      ],
+      "questionCount": 6
+    },
+    {
+      "id": "nuclear-models-radioactivity",
+      "subject": "Nuclear Particle",
+      "title": "Nuclear Models & Radioactivity",
+      "roadmapLabel": "Topic 20 (nuclear half)",
+      "phase": "phase-1-core",
+      "examScope": "JAM+JEST",
+      "subtopics": [
+        "Liquid drop model, shell model basics, radioactive decay law"
+      ],
+      "resources": [
+        {
+          "source": "NPTEL — P. Poulose, IIT Guwahati",
+          "linkType": "Direct (playlist)",
+          "url": "https://www.youtube.com/watch?v=H7OipY8RzX0&list=PL0b6maW-5d1fvnUXykaaD0JPjEB0pTDF9",
+          "studyNotes": "First ~6 lectures. Book: Beiser, nuclear models (liquid drop, shell model basics), radioactive decay law — work every problem in that section, not just read it. Once the concept + problems are solid, drill PYQs (JAM / CSIR-NET / JEST, 2012–present) on this exact sub-topic before moving on. Timing: Phase A — by Jan 20 hard stop (this is late-Phase-A material).. Any other teacher/channel covering the same sub-topic works just as well — the book problems and PYQ practice matter more than which video source you use."
+        }
+      ],
+      "questionIds": [
+        "gate_ph_2007_q15",
+        "gate_ph_2007_q20",
+        "gate_ph_2007_q51",
+        "gate_ph_2007_q58",
+        "gate_ph_2007_q59",
+        "gate_ph_2007_q60",
+        "gate_ph_2007_q61",
+        "gate_ph_2007_q62",
+        "gate_ph_2007_q63",
+        "gate_ph_2007_q84",
+        "gate_ph_2007_q85",
+        "gate_ph_2008_q17",
+        "gate_ph_2008_q18",
+        "gate_ph_2008_q59",
+        "gate_ph_2008_q60",
+        "gate_ph_2008_q61",
+        "gate_ph_2008_q62",
+        "gate_ph_2008_q63",
+        "gate_ph_2008_q64",
+        "gate_ph_2008_q76",
+        "gate_ph_2008_q77",
+        "gate_ph_2009_q18",
+        "gate_ph_2009_q20",
+        "gate_ph_2009_q35",
+        "gate_ph_2009_q38",
+        "gate_ph_2009_q41",
+        "gate_ph_2009_q8",
+        "gate_ph_2010_q11",
+        "gate_ph_2010_q12",
+        "gate_ph_2010_q13",
+        "gate_ph_2010_q31",
+        "gate_ph_2010_q32",
+        "gate_ph_2010_q33",
+        "gate_ph_2011_q38",
+        "gate_ph_2011_q39",
+        "gate_ph_2011_q40",
+        "gate_ph_2011_q6",
+        "gate_ph_2012_q21",
+        "gate_ph_2012_q34",
+        "gate_ph_2012_q41",
+        "gate_ph_2012_q9",
+        "gate_ph_2013_q10",
+        "gate_ph_2013_q11",
+        "gate_ph_2013_q12",
+        "gate_ph_2013_q31",
+        "gate_ph_2013_q43",
+        "gate_ph_2013_q52",
+        "gate_ph_2013_q53",
+        "gate_ph_2013_q9",
+        "gate_ph_2014_q11",
+        "gate_ph_2014_q16",
+        "gate_ph_2014_q17",
+        "gate_ph_2014_q49",
+        "gate_ph_2014_q51",
+        "gate_ph_2015_q13",
+        "gate_ph_2015_q15",
+        "gate_ph_2015_q54",
+        "gate_ph_2015_q65",
+        "gate_ph_2016_q21",
+        "gate_ph_2016_q28",
+        "gate_ph_2016_q43",
+        "gate_ph_2016_q54",
+        "gate_ph_2016_q6",
+        "gate_ph_2017_q16",
+        "gate_ph_2017_q17",
+        "gate_ph_2017_q18",
+        "gate_ph_2017_q25",
+        "gate_ph_2017_q41",
+        "gate_ph_2017_q45",
+        "gate_ph_2017_q51",
+        "gate_ph_2018_q14",
+        "gate_ph_2018_q18",
+        "gate_ph_2018_q25",
+        "gate_ph_2018_q40",
+        "gate_ph_2018_q41",
+        "gate_ph_2018_q42",
+        "gate_ph_2019_q13",
+        "gate_ph_2019_q15",
+        "gate_ph_2019_q2",
+        "gate_ph_2019_q41",
+        "gate_ph_2019_q48",
+        "gate_ph_2020_q21",
+        "gate_ph_2020_q36",
+        "gate_ph_2020_q52",
+        "gate_ph_2020_q7",
+        "gate_ph_2020_q8",
+        "gate_ph_2021_q32",
+        "gate_ph_2021_q45",
+        "gate_ph_2021_q48",
+        "gate_ph_2021_q7",
+        "gate_ph_2021_q8",
+        "gate_ph_2022_q12",
+        "gate_ph_2022_q18",
+        "gate_ph_2024_q17",
+        "gate_ph_2024_q19",
+        "gate_ph_2024_q26",
+        "gate_ph_2024_q36",
+        "gate_ph_2024_q49",
+        "gate_ph_2024_q65",
+        "gate_ph_2025_q18",
+        "gate_ph_2025_q20",
+        "gate_ph_2025_q25",
+        "gate_ph_2025_q27",
+        "gate_ph_2025_q35",
+        "gate_ph_2025_q39",
+        "gate_ph_2025_q48",
+        "gate_ph_2025_q59"
+      ],
+      "questionCount": 107
+    },
+    {
+      "id": "central-potentials-hydrogen-atom",
+      "subject": "Quantum Mechanics",
+      "title": "Central Potentials & Hydrogen Atom",
+      "roadmapLabel": "Topic 13",
+      "phase": "phase-1-core",
+      "examScope": "JAM+JEST",
+      "subtopics": [
+        "3D Schrödinger equation, central potentials, hydrogen atom"
+      ],
+      "resources": [
+        {
+          "source": "Pravegaa",
+          "linkType": "Direct (playlist)",
+          "url": "https://youtube.com/playlist?list=PL_yoT1uNIKb7vY46rDudNBXJDrMMPM5iV",
+          "studyNotes": " Book: Griffiths QM Ch.4, up to the radial equation — work every problem in that section, not just read it. Once the concept + problems are solid, drill PYQs (JAM / CSIR-NET / JEST, 2012–present) on this exact sub-topic before moving on. Timing: Phase A — by Jan 20 hard stop (this is late-Phase-A material).. Any other teacher/channel covering the same sub-topic works just as well — the book problems and PYQ practice matter more than which video source you use."
+        }
+      ],
+      "questionIds": [
+        "gate_ph_2007_q40",
+        "gate_ph_2008_q12",
+        "gate_ph_2011_q15",
+        "gate_ph_2012_q40",
+        "gate_ph_2014_q27",
+        "gate_ph_2017_q14",
+        "gate_ph_2017_q23",
+        "gate_ph_2017_q55",
+        "gate_ph_2018_q15",
+        "gate_ph_2018_q2",
+        "gate_ph_2020_q40",
+        "gate_ph_2021_q51",
+        "gate_ph_2025_q24"
+      ],
+      "questionCount": 13
+    },
+    {
+      "id": "schr-dinger-equation-1d-problems",
+      "subject": "Quantum Mechanics",
+      "title": "Schrödinger Equation & 1D Problems",
+      "roadmapLabel": "Topic 13",
+      "phase": "phase-1-core",
+      "examScope": "JAM+JEST",
+      "subtopics": [
+        "Schrödinger equation, particle in a box, harmonic oscillator",
+        "1D QM — alternate source"
+      ],
+      "resources": [
+        {
+          "source": "Pravegaa",
+          "linkType": "Direct (playlist)",
+          "url": "https://youtube.com/playlist?list=PL_yoT1uNIKb7vY46rDudNBXJDrMMPM5iV",
+          "studyNotes": "QM is the single highest-weightage subject in both exams — budget real time here. Book: Griffiths QM Ch.1–2 — work every problem in that section, not just read it. Once the concept + problems are solid, drill PYQs (JAM / CSIR-NET / JEST, 2012–present) on this exact sub-topic before moving on. Timing: Phase A — by Jan 20 hard stop (this is late-Phase-A material).. Any other teacher/channel covering the same sub-topic works just as well — the book problems and PYQ practice matter more than which video source you use."
+        },
+        {
+          "source": "NPTEL — Balakrishnan, IIT Madras",
+          "linkType": "Direct (playlist)",
+          "url": "https://www.youtube.com/watch?v=TcmGYe39XG0&list=PL0F530F3BAF8C6FCC",
+          "studyNotes": "Roughly lectures 4–20 cover this through hydrogen atom. Book: Griffiths QM Ch.1-2 — work every problem in that section, not just read it. Once the concept + problems are solid, drill PYQs (JAM / CSIR-NET / JEST, 2012–present) on this exact sub-topic before moving on. Timing: Phase A — by Jan 20 hard stop (this is late-Phase-A material).. Any other teacher/channel covering the same sub-topic works just as well — the book problems and PYQ practice matter more than which video source you use."
+        }
+      ],
+      "questionIds": [],
+      "questionCount": 0
+    },
+    {
+      "id": "special-relativity-basics",
+      "subject": "Special Relativity",
+      "title": "Special Relativity — Basics",
+      "roadmapLabel": "Topic 8",
+      "phase": "phase-1-core",
+      "examScope": "JAM-partial",
+      "subtopics": [
+        "Postulates, kinematics, velocity addition, mass-energy equivalence"
+      ],
+      "resources": [
+        {
+          "source": "NPTEL — Shiva Prasad, IIT Bombay",
+          "linkType": "Direct (playlist)",
+          "url": "https://www.youtube.com/watch?v=49vEaNa1XKo&list=PLbMVogVj5nJQInU_xlAdGS2220biQma1x",
+          "studyNotes": "Lectures 1–8. Just the postulates + kinematics + E=mc² level — stop before 4-vector formalism. Book: Any standard Modern Physics chapter — work every problem in that section, not just read it. Once the concept + problems are solid, drill PYQs (JAM / CSIR-NET / JEST, 2012–present) on this exact sub-topic before moving on. Timing: Phase A — by mid-Dec.. Any other teacher/channel covering the same sub-topic works just as well — the book problems and PYQ practice matter more than which video source you use."
+        }
+      ],
+      "questionIds": [
+        "gate_ph_2007_q29",
+        "gate_ph_2007_q76",
+        "gate_ph_2007_q77",
+        "gate_ph_2008_q80",
+        "gate_ph_2008_q81",
+        "gate_ph_2009_q32",
+        "gate_ph_2010_q23",
+        "gate_ph_2010_q46",
+        "gate_ph_2011_q32",
+        "gate_ph_2012_q35",
+        "gate_ph_2013_q29",
+        "gate_ph_2013_q3",
+        "gate_ph_2014_q2",
+        "gate_ph_2014_q4",
+        "gate_ph_2015_q17",
+        "gate_ph_2015_q57",
+        "gate_ph_2016_q17",
+        "gate_ph_2016_q38",
+        "gate_ph_2016_q47",
+        "gate_ph_2017_q37",
+        "gate_ph_2018_q19",
+        "gate_ph_2019_q47",
+        "gate_ph_2019_q54",
+        "gate_ph_2020_q43",
+        "gate_ph_2021_q18",
+        "gate_ph_2022_q61",
+        "gate_ph_2024_q25",
+        "gate_ph_2025_q50",
+        "gate_ph_2025_q54"
+      ],
+      "questionCount": 29
+    },
+    {
+      "id": "black-body-radiation",
+      "subject": "Thermo & StatMech",
+      "title": "Black Body Radiation",
+      "roadmapLabel": "Topic 16",
+      "phase": "phase-1-core",
+      "examScope": "JAM+JEST",
+      "subtopics": [
+        "Planck's law, Wien's law, Stefan-Boltzmann law",
+        "Black body radiation — alternate source"
+      ],
+      "resources": [
+        {
+          "source": "Pravegaa",
+          "linkType": "Direct (playlist)",
+          "url": "https://youtube.com/playlist?list=PL_yoT1uNIKb5ECZhofT0WNdLYyw9gEhNA",
+          "studyNotes": " Book: Garg, Bansal, Ghosh or any Modern Physics chapter — work every problem in that section, not just read it. Once the concept + problems are solid, drill PYQs (JAM / CSIR-NET / JEST, 2012–present) on this exact sub-topic before moving on. Timing: Phase A — by Jan 20 hard stop (this is late-Phase-A material).. Any other teacher/channel covering the same sub-topic works just as well — the book problems and PYQ practice matter more than which video source you use."
+        },
+        {
+          "source": "NPTEL — Girish Setlur, IIT Guwahati",
+          "linkType": "Direct (playlist)",
+          "url": "https://www.youtube.com/watch?v=iud7fzXPJUs&list=PLwdnzlV3ogoXkmlIyZceK111IMjCgS-b7",
+          "studyNotes": "1–2 lectures. Book: Garg, Bansal, Ghosh — work every problem in that section, not just read it. Once the concept + problems are solid, drill PYQs (JAM / CSIR-NET / JEST, 2012–present) on this exact sub-topic before moving on. Timing: Phase A — by Jan 20 hard stop (this is late-Phase-A material).. Any other teacher/channel covering the same sub-topic works just as well — the book problems and PYQ practice matter more than which video source you use."
+        }
+      ],
+      "questionIds": [
+        "gate_ph_2007_q44",
+        "gate_ph_2010_q17",
+        "gate_ph_2010_q50",
+        "gate_ph_2010_q51",
+        "gate_ph_2013_q4",
+        "gate_ph_2015_q22",
+        "gate_ph_2016_q8",
+        "gate_ph_2017_q43",
+        "gate_ph_2018_q52",
+        "gate_ph_2020_q55",
+        "gate_ph_2021_q19"
+      ],
+      "questionCount": 11
+    },
+    {
+      "id": "classical-quantum-statistics",
+      "subject": "Thermo & StatMech",
+      "title": "Classical & Quantum Statistics",
+      "roadmapLabel": "Topic 15",
+      "phase": "phase-1-core",
+      "examScope": "JAM-partial",
+      "subtopics": [
+        "Maxwell-Boltzmann, Fermi-Dirac, Bose-Einstein — basic definitions",
+        "Statistics basics — alternate source"
+      ],
+      "resources": [
+        {
+          "source": "Pravegaa",
+          "linkType": "Direct (playlist)",
+          "url": "https://youtube.com/playlist?list=PL_yoT1uNIKb5ECZhofT0WNdLYyw9gEhNA",
+          "studyNotes": "Definitions and basic properties only — stop before full partition-function derivations. Book: Garg, Bansal, Ghosh — work every problem in that section, not just read it. Once the concept + problems are solid, drill PYQs (JAM / CSIR-NET / JEST, 2012–present) on this exact sub-topic before moving on. Timing: Phase A — by Jan 20 hard stop (this is late-Phase-A material).. Any other teacher/channel covering the same sub-topic works just as well — the book problems and PYQ practice matter more than which video source you use."
+        },
+        {
+          "source": "NPTEL — Girish Setlur, IIT Guwahati",
+          "linkType": "Direct (playlist)",
+          "url": "https://www.youtube.com/watch?v=iud7fzXPJUs&list=PLwdnzlV3ogoXkmlIyZceK111IMjCgS-b7",
+          "studyNotes": "~3–4 lectures. Book: Garg, Bansal, Ghosh — work every problem in that section, not just read it. Once the concept + problems are solid, drill PYQs (JAM / CSIR-NET / JEST, 2012–present) on this exact sub-topic before moving on. Timing: Phase A — by Jan 20 hard stop (this is late-Phase-A material).. Any other teacher/channel covering the same sub-topic works just as well — the book problems and PYQ practice matter more than which video source you use."
+        }
+      ],
+      "questionIds": [
+        "gate_ph_2007_q10",
+        "gate_ph_2007_q13",
+        "gate_ph_2007_q45",
+        "gate_ph_2007_q82",
+        "gate_ph_2007_q83",
+        "gate_ph_2008_q44",
+        "gate_ph_2008_q45",
+        "gate_ph_2008_q46",
+        "gate_ph_2008_q47",
+        "gate_ph_2009_q34",
+        "gate_ph_2009_q36",
+        "gate_ph_2009_q46",
+        "gate_ph_2009_q51",
+        "gate_ph_2009_q52",
+        "gate_ph_2010_q21",
+        "gate_ph_2010_q22",
+        "gate_ph_2010_q42",
+        "gate_ph_2011_q35",
+        "gate_ph_2011_q36",
+        "gate_ph_2012_q13",
+        "gate_ph_2012_q17",
+        "gate_ph_2012_q38",
+        "gate_ph_2012_q45",
+        "gate_ph_2012_q47",
+        "gate_ph_2012_q8",
+        "gate_ph_2013_q30",
+        "gate_ph_2013_q48",
+        "gate_ph_2013_q49",
+        "gate_ph_2013_q7",
+        "gate_ph_2013_q8",
+        "gate_ph_2014_q15",
+        "gate_ph_2014_q40",
+        "gate_ph_2014_q47",
+        "gate_ph_2015_q20",
+        "gate_ph_2015_q21",
+        "gate_ph_2015_q39",
+        "gate_ph_2015_q60",
+        "gate_ph_2015_q62",
+        "gate_ph_2016_q11",
+        "gate_ph_2016_q41",
+        "gate_ph_2016_q46",
+        "gate_ph_2016_q9",
+        "gate_ph_2017_q33",
+        "gate_ph_2017_q49",
+        "gate_ph_2017_q9",
+        "gate_ph_2018_q33",
+        "gate_ph_2018_q53",
+        "gate_ph_2018_q55",
+        "gate_ph_2019_q23",
+        "gate_ph_2019_q5",
+        "gate_ph_2019_q7",
+        "gate_ph_2020_q11",
+        "gate_ph_2020_q15",
+        "gate_ph_2020_q53",
+        "gate_ph_2020_q54",
+        "gate_ph_2021_q13",
+        "gate_ph_2021_q33",
+        "gate_ph_2021_q36",
+        "gate_ph_2021_q37",
+        "gate_ph_2021_q52",
+        "gate_ph_2022_q36",
+        "gate_ph_2024_q35",
+        "gate_ph_2024_q44",
+        "gate_ph_2024_q59",
+        "gate_ph_2024_q62",
+        "gate_ph_2025_q22",
+        "gate_ph_2025_q23",
+        "gate_ph_2025_q42"
+      ],
+      "questionCount": 68
+    },
+    {
+      "id": "thermodynamics-kinetic-theory",
+      "subject": "Thermo & StatMech",
+      "title": "Thermodynamics & Kinetic Theory",
+      "roadmapLabel": "Topic 14",
+      "phase": "phase-1-core",
+      "examScope": "JAM+JEST",
+      "subtopics": [
+        "Laws of thermodynamics, thermodynamic potentials, Maxwell's relations, kinetic theory",
+        "Thermodynamics — alternate source"
+      ],
+      "resources": [
+        {
+          "source": "Pravegaa",
+          "linkType": "Direct (playlist)",
+          "url": "https://youtube.com/playlist?list=PL_yoT1uNIKb5ECZhofT0WNdLYyw9gEhNA",
+          "studyNotes": " Book: Garg, Bansal, Ghosh — thermodynamics + kinetic theory chapters, full — work every problem in that section, not just read it. Once the concept + problems are solid, drill PYQs (JAM / CSIR-NET / JEST, 2012–present) on this exact sub-topic before moving on. Timing: Phase A — by Jan 20 hard stop (this is late-Phase-A material).. Any other teacher/channel covering the same sub-topic works just as well — the book problems and PYQ practice matter more than which video source you use."
+        },
+        {
+          "source": "NPTEL — Girish Setlur, IIT Guwahati",
+          "linkType": "Direct (playlist)",
+          "url": "https://www.youtube.com/watch?v=iud7fzXPJUs&list=PLwdnzlV3ogoXkmlIyZceK111IMjCgS-b7",
+          "studyNotes": "First ~8–10 lectures. Book: Garg, Bansal, Ghosh — work every problem in that section, not just read it. Once the concept + problems are solid, drill PYQs (JAM / CSIR-NET / JEST, 2012–present) on this exact sub-topic before moving on. Timing: Phase A — by Jan 20 hard stop (this is late-Phase-A material).. Any other teacher/channel covering the same sub-topic works just as well — the book problems and PYQ practice matter more than which video source you use."
+        }
+      ],
+      "questionIds": [
+        "gate_ph_2007_q42",
+        "gate_ph_2010_q43",
+        "gate_ph_2011_q34",
+        "gate_ph_2011_q4",
+        "gate_ph_2012_q6",
+        "gate_ph_2013_q6",
+        "gate_ph_2014_q10",
+        "gate_ph_2016_q10",
+        "gate_ph_2017_q24",
+        "gate_ph_2018_q51",
+        "gate_ph_2020_q16",
+        "gate_ph_2020_q38",
+        "gate_ph_2022_q17",
+        "gate_ph_2022_q37",
+        "gate_ph_2022_q46",
+        "gate_ph_2022_q47",
+        "gate_ph_2024_q14",
+        "gate_ph_2025_q15",
+        "gate_ph_2025_q30"
+      ],
+      "questionCount": 19
+    },
+    {
+      "id": "geometrical-optics",
+      "subject": "Waves & Optics",
+      "title": "Geometrical Optics",
+      "roadmapLabel": "Topic 12 (light touch)",
+      "phase": "phase-1-core",
+      "examScope": "JAM+JEST",
+      "subtopics": [
+        "Geometrical optics — lenses, mirrors, optical instruments"
+      ],
+      "resources": [
+        {
+          "source": "NPTEL — M.S. Santhanam, IIT Madras",
+          "linkType": "Direct (playlist)",
+          "url": "https://www.youtube.com/watch?v=xoJWoMQwTAw&list=PLyqSpQzTE6M9X7oRXliYM8t0aaR_N0Csd",
+          "studyNotes": "Light touch only — low weightage relative to interference/diffraction. Book: Hecht — work every problem in that section, not just read it. Once the concept + problems are solid, drill PYQs (JAM / CSIR-NET / JEST, 2012–present) on this exact sub-topic before moving on. Timing: Phase A — by mid-Dec.. Any other teacher/channel covering the same sub-topic works just as well — the book problems and PYQ practice matter more than which video source you use."
+        }
+      ],
+      "questionIds": [],
+      "questionCount": 0
+    },
+    {
+      "id": "interference-diffraction",
+      "subject": "Waves & Optics",
+      "title": "Interference & Diffraction",
+      "roadmapLabel": "Topic 12",
+      "phase": "phase-1-core",
+      "examScope": "JAM+JEST",
+      "subtopics": [
+        "Interference, single/double-slit diffraction"
+      ],
+      "resources": [
+        {
+          "source": "NPTEL — M.S. Santhanam, IIT Madras",
+          "linkType": "Direct (playlist)",
+          "url": "https://www.youtube.com/watch?v=xoJWoMQwTAw&list=PLyqSpQzTE6M9X7oRXliYM8t0aaR_N0Csd",
+          "studyNotes": "General wave course — skim titles for the interference/diffraction block specifically rather than starting from lecture 1. Book: Hecht (optics) + Griffiths' brief coverage — work every problem in that section, not just read it. Once the concept + problems are solid, drill PYQs (JAM / CSIR-NET / JEST, 2012–present) on this exact sub-topic before moving on. Timing: Phase A — by mid-Dec.. Any other teacher/channel covering the same sub-topic works just as well — the book problems and PYQ practice matter more than which video source you use."
+        }
+      ],
+      "questionIds": [
+        "gate_ph_2007_q74",
+        "gate_ph_2007_q75",
+        "gate_ph_2007_q9",
+        "gate_ph_2008_q14",
+        "gate_ph_2008_q52",
+        "gate_ph_2008_q7",
+        "gate_ph_2009_q31",
+        "gate_ph_2010_q15",
+        "gate_ph_2011_q7",
+        "gate_ph_2012_q11",
+        "gate_ph_2013_q14",
+        "gate_ph_2013_q16",
+        "gate_ph_2013_q35",
+        "gate_ph_2014_q41",
+        "gate_ph_2014_q5",
+        "gate_ph_2015_q50",
+        "gate_ph_2015_q63",
+        "gate_ph_2016_q13",
+        "gate_ph_2017_q3",
+        "gate_ph_2018_q37",
+        "gate_ph_2019_q14",
+        "gate_ph_2019_q37",
+        "gate_ph_2021_q11",
+        "gate_ph_2021_q15",
+        "gate_ph_2021_q24",
+        "gate_ph_2021_q29",
+        "gate_ph_2022_q24",
+        "gate_ph_2022_q58",
+        "gate_ph_2022_q64",
+        "gate_ph_2024_q12"
+      ],
+      "questionCount": 30
+    },
+    {
+      "id": "polarisation-of-light",
+      "subject": "Waves & Optics",
+      "title": "Polarisation of Light",
+      "roadmapLabel": "Topic 12",
+      "phase": "phase-1-core",
+      "examScope": "JAM+JEST",
+      "subtopics": [
+        "Polarisation — linear, circular, elliptical; Malus's law"
+      ],
+      "resources": [
+        {
+          "source": "NPTEL — M.S. Santhanam, IIT Madras",
+          "linkType": "Direct (playlist)",
+          "url": "https://www.youtube.com/watch?v=xoJWoMQwTAw&list=PLyqSpQzTE6M9X7oRXliYM8t0aaR_N0Csd",
+          "studyNotes": " Book: Hecht — work every problem in that section, not just read it. Once the concept + problems are solid, drill PYQs (JAM / CSIR-NET / JEST, 2012–present) on this exact sub-topic before moving on. Timing: Phase A — by mid-Dec.. Any other teacher/channel covering the same sub-topic works just as well — the book problems and PYQ practice matter more than which video source you use."
+        }
+      ],
+      "questionIds": [],
+      "questionCount": 0
+    },
+    {
+      "id": "atomic-spectra-fine-structure",
+      "subject": "Atomic Molecular",
+      "title": "Atomic Spectra & Fine Structure",
+      "roadmapLabel": "Phase B – Tier 1",
+      "phase": "phase-2-tier-1",
+      "examScope": "JEST-only",
+      "subtopics": [
+        "Term symbols, fine structure, selection rules"
+      ],
+      "resources": [
+        {
+          "source": "NPTEL — Amal Kumar Das, IIT Kharagpur",
+          "linkType": "Direct (playlist)",
+          "url": "https://www.youtube.com/watch?v=SCmtEhGVhSM&list=PLupNYX6-k9ggRRmDqV9hxY1p4dC-QGrg7",
+          "studyNotes": "Continue ~6–8 lectures. Book: Beiser or a standard Atomic Physics chapter, in more depth than the Phase A pass — work every problem in that section, not just read it. Once the concept + problems are solid, drill PYQs (JAM / CSIR-NET / JEST, 2012–present) on this exact sub-topic before moving on. Timing: Phase B, Tier 1 — post-JAM, do this first regardless of how much time Phase B ends up having.. Any other teacher/channel covering the same sub-topic works just as well — the book problems and PYQ practice matter more than which video source you use."
+        }
+      ],
+      "questionIds": [
+        "gate_ph_2010_q14"
+      ],
+      "questionCount": 1
+    },
+    {
+      "id": "advanced-solid-state",
+      "subject": "Condensed Matter",
+      "title": "Advanced Solid State",
+      "roadmapLabel": "Phase B – Tier 1",
+      "phase": "phase-2-tier-1",
+      "examScope": "JEST-only",
+      "subtopics": [
+        "Band theory depth, phonon/lattice dispersion"
+      ],
+      "resources": [
+        {
+          "source": "NPTEL — Amal Kumar Das, IIT Kharagpur",
+          "linkType": "Direct (playlist)",
+          "url": "https://www.youtube.com/watch?v=Ofzd2ZqFvjo&list=PLADLRin7kNjG1Dlna9MDA53CMKFHPSi9m",
+          "studyNotes": "Continue ~10–12 lectures from Topic 19. One of the few chapters that meaningfully separates a strong JEST rank from an average one. Book: Kittel, remaining chapters — work every problem in that section, not just read it. Once the concept + problems are solid, drill PYQs (JAM / CSIR-NET / JEST, 2012–present) on this exact sub-topic before moving on. Timing: Phase B, Tier 1 — post-JAM, do this first regardless of how much time Phase B ends up having.. Any other teacher/channel covering the same sub-topic works just as well — the book problems and PYQ practice matter more than which video source you use."
+        }
+      ],
+      "questionIds": [
+        "gate_ph_2007_q11",
+        "gate_ph_2007_q14",
+        "gate_ph_2007_q55",
+        "gate_ph_2007_q57",
+        "gate_ph_2007_q78",
+        "gate_ph_2007_q79",
+        "gate_ph_2008_q16",
+        "gate_ph_2008_q55",
+        "gate_ph_2008_q56",
+        "gate_ph_2008_q57",
+        "gate_ph_2008_q78",
+        "gate_ph_2008_q79",
+        "gate_ph_2009_q11",
+        "gate_ph_2009_q16",
+        "gate_ph_2009_q17",
+        "gate_ph_2009_q27",
+        "gate_ph_2009_q28",
+        "gate_ph_2009_q29",
+        "gate_ph_2010_q10",
+        "gate_ph_2010_q29",
+        "gate_ph_2010_q5",
+        "gate_ph_2010_q7",
+        "gate_ph_2010_q8",
+        "gate_ph_2010_q9",
+        "gate_ph_2011_q23",
+        "gate_ph_2011_q50",
+        "gate_ph_2011_q51",
+        "gate_ph_2011_q8",
+        "gate_ph_2011_q9",
+        "gate_ph_2012_q23",
+        "gate_ph_2012_q27",
+        "gate_ph_2012_q50",
+        "gate_ph_2012_q51",
+        "gate_ph_2013_q21",
+        "gate_ph_2013_q22",
+        "gate_ph_2014_q20",
+        "gate_ph_2014_q22",
+        "gate_ph_2014_q23",
+        "gate_ph_2014_q28",
+        "gate_ph_2015_q31",
+        "gate_ph_2015_q33",
+        "gate_ph_2015_q34",
+        "gate_ph_2015_q42",
+        "gate_ph_2016_q14",
+        "gate_ph_2016_q15",
+        "gate_ph_2016_q25",
+        "gate_ph_2016_q39",
+        "gate_ph_2016_q45",
+        "gate_ph_2017_q31",
+        "gate_ph_2017_q36",
+        "gate_ph_2017_q7",
+        "gate_ph_2017_q8",
+        "gate_ph_2018_q12",
+        "gate_ph_2018_q16",
+        "gate_ph_2018_q24",
+        "gate_ph_2018_q35",
+        "gate_ph_2018_q36",
+        "gate_ph_2018_q38",
+        "gate_ph_2019_q1",
+        "gate_ph_2019_q11",
+        "gate_ph_2019_q18",
+        "gate_ph_2019_q25",
+        "gate_ph_2019_q33",
+        "gate_ph_2019_q55",
+        "gate_ph_2020_q35",
+        "gate_ph_2020_q37",
+        "gate_ph_2021_q1",
+        "gate_ph_2021_q10",
+        "gate_ph_2021_q38",
+        "gate_ph_2021_q41",
+        "gate_ph_2022_q29",
+        "gate_ph_2022_q35",
+        "gate_ph_2022_q43",
+        "gate_ph_2022_q44",
+        "gate_ph_2022_q51",
+        "gate_ph_2022_q52",
+        "gate_ph_2024_q16",
+        "gate_ph_2024_q21",
+        "gate_ph_2024_q50",
+        "gate_ph_2024_q52",
+        "gate_ph_2024_q54",
+        "gate_ph_2024_q57",
+        "gate_ph_2025_q17",
+        "gate_ph_2025_q34",
+        "gate_ph_2025_q47"
+      ],
+      "questionCount": 85
+    },
+    {
+      "id": "em-waves-in-media",
+      "subject": "EM Theory",
+      "title": "EM Waves in Media",
+      "roadmapLabel": "Phase B – Tier 1",
+      "phase": "phase-2-tier-1",
+      "examScope": "JEST-only",
+      "subtopics": [
+        "EM waves in dispersive and conducting media",
+        "Dispersive/conducting media — alternate source"
+      ],
+      "resources": [
+        {
+          "source": "Pravegaa",
+          "linkType": "Direct (playlist)",
+          "url": "https://youtube.com/playlist?list=PL_yoT1uNIKb5iALlayczJMl_SHkd8TcX8",
+          "studyNotes": "Continue from where Topic 11 stopped. Book: Griffiths Ch.9, remaining sections — work every problem in that section, not just read it. Once the concept + problems are solid, drill PYQs (JAM / CSIR-NET / JEST, 2012–present) on this exact sub-topic before moving on. Timing: Phase B, Tier 1 — post-JAM, do this first regardless of how much time Phase B ends up having.. Any other teacher/channel covering the same sub-topic works just as well — the book problems and PYQ practice matter more than which video source you use."
+        },
+        {
+          "source": "NPTEL — D.K. Ghosh, IIT Bombay",
+          "linkType": "Direct (playlist)",
+          "url": "https://www.youtube.com/watch?v=NED2Cl8u9Q0&list=PLbMVogVj5nJSKsAlDEbNwKZY6zD0EbGMF",
+          "studyNotes": "3–4 lectures continuing from Topic 11. Book: Griffiths Ch.9 remaining — work every problem in that section, not just read it. Once the concept + problems are solid, drill PYQs (JAM / CSIR-NET / JEST, 2012–present) on this exact sub-topic before moving on. Timing: Phase B, Tier 1 — post-JAM, do this first regardless of how much time Phase B ends up having.. Any other teacher/channel covering the same sub-topic works just as well — the book problems and PYQ practice matter more than which video source you use."
+        }
+      ],
+      "questionIds": [
+        "gate_ph_2007_q80",
+        "gate_ph_2007_q81",
+        "gate_ph_2008_q33",
+        "gate_ph_2008_q36",
+        "gate_ph_2009_q25",
+        "gate_ph_2010_q30",
+        "gate_ph_2012_q39",
+        "gate_ph_2014_q36",
+        "gate_ph_2015_q32",
+        "gate_ph_2016_q26",
+        "gate_ph_2017_q28",
+        "gate_ph_2020_q13",
+        "gate_ph_2020_q9",
+        "gate_ph_2021_q31",
+        "gate_ph_2024_q40",
+        "gate_ph_2025_q31",
+        "gate_ph_2025_q57"
+      ],
+      "questionCount": 17
+    },
+    {
+      "id": "energy-momentum-of-em-fields",
+      "subject": "EM Theory",
+      "title": "Energy & Momentum of EM Fields",
+      "roadmapLabel": "Phase B – Tier 1",
+      "phase": "phase-2-tier-1",
+      "examScope": "JEST-only",
+      "subtopics": [
+        "Poynting vector, Maxwell stress tensor, radiation",
+        "Poynting vector — alternate source"
+      ],
+      "resources": [
+        {
+          "source": "Pravegaa",
+          "linkType": "Direct (playlist)",
+          "url": "https://youtube.com/playlist?list=PL_yoT1uNIKb5iALlayczJMl_SHkd8TcX8",
+          "studyNotes": " Book: Griffiths Ch.8 — work every problem in that section, not just read it. Once the concept + problems are solid, drill PYQs (JAM / CSIR-NET / JEST, 2012–present) on this exact sub-topic before moving on. Timing: Phase B, Tier 1 — post-JAM, do this first regardless of how much time Phase B ends up having.. Any other teacher/channel covering the same sub-topic works just as well — the book problems and PYQ practice matter more than which video source you use."
+        },
+        {
+          "source": "NPTEL — D.K. Ghosh, IIT Bombay",
+          "linkType": "Direct (playlist)",
+          "url": "https://www.youtube.com/watch?v=NED2Cl8u9Q0&list=PLbMVogVj5nJSKsAlDEbNwKZY6zD0EbGMF",
+          "studyNotes": "2–3 lectures. Book: Griffiths Ch.8 — work every problem in that section, not just read it. Once the concept + problems are solid, drill PYQs (JAM / CSIR-NET / JEST, 2012–present) on this exact sub-topic before moving on. Timing: Phase B, Tier 1 — post-JAM, do this first regardless of how much time Phase B ends up having.. Any other teacher/channel covering the same sub-topic works just as well — the book problems and PYQ practice matter more than which video source you use."
+        }
+      ],
+      "questionIds": [],
+      "questionCount": 0
+    },
+    {
+      "id": "active-filters-oscillators",
+      "subject": "Electronics",
+      "title": "Active Filters & Oscillators",
+      "roadmapLabel": "Phase B – Tier 2",
+      "phase": "phase-2-tier-2",
+      "examScope": "JEST-only",
+      "subtopics": [
+        "Active filter design, oscillator circuits",
+        "Active filters — alternate source"
+      ],
+      "resources": [
+        {
+          "source": "Pravegaa",
+          "linkType": "Direct (playlist)",
+          "url": "https://youtube.com/playlist?list=PL_yoT1uNIKb5E9MThE7H010wXXqZCrRPl",
+          "studyNotes": "Moderate frequency/difficulty, but a steady scorer once you're there. Book: Millman & Halkias, remaining circuit-design sections — work every problem in that section, not just read it. Once the concept + problems are solid, drill PYQs (JAM / CSIR-NET / JEST, 2012–present) on this exact sub-topic before moving on. Timing: Phase B, Tier 2 — post-JAM, only if Tier 1 is finished with time to spare.. Any other teacher/channel covering the same sub-topic works just as well — the book problems and PYQ practice matter more than which video source you use."
+        },
+        {
+          "source": "NPTEL — D.C. Dube, IIT Delhi",
+          "linkType": "Direct (playlist)",
+          "url": "https://www.youtube.com/watch?v=g7vYop_46tU&list=PL708EEA8184EA8F53",
+          "studyNotes": "Final weeks of the course, after op-amps. Book: Millman & Halkias — work every problem in that section, not just read it. Once the concept + problems are solid, drill PYQs (JAM / CSIR-NET / JEST, 2012–present) on this exact sub-topic before moving on. Timing: Phase B, Tier 2 — post-JAM, only if Tier 1 is finished with time to spare.. Any other teacher/channel covering the same sub-topic works just as well — the book problems and PYQ practice matter more than which video source you use."
+        }
+      ],
+      "questionIds": [
+        "gate_ph_2007_q3",
+        "gate_ph_2007_q5",
+        "gate_ph_2007_q64",
+        "gate_ph_2007_q70",
+        "gate_ph_2008_q19",
+        "gate_ph_2008_q65",
+        "gate_ph_2008_q69",
+        "gate_ph_2008_q82",
+        "gate_ph_2008_q83",
+        "gate_ph_2009_q10",
+        "gate_ph_2009_q19",
+        "gate_ph_2009_q39",
+        "gate_ph_2009_q40",
+        "gate_ph_2010_q20",
+        "gate_ph_2010_q40",
+        "gate_ph_2011_q10",
+        "gate_ph_2011_q45",
+        "gate_ph_2011_q47",
+        "gate_ph_2012_q20",
+        "gate_ph_2012_q31",
+        "gate_ph_2012_q33",
+        "gate_ph_2012_q37",
+        "gate_ph_2012_q4",
+        "gate_ph_2013_q24",
+        "gate_ph_2013_q54",
+        "gate_ph_2013_q55",
+        "gate_ph_2014_q24",
+        "gate_ph_2014_q52",
+        "gate_ph_2014_q55",
+        "gate_ph_2015_q44",
+        "gate_ph_2015_q46",
+        "gate_ph_2015_q58",
+        "gate_ph_2016_q52",
+        "gate_ph_2017_q52",
+        "gate_ph_2017_q53",
+        "gate_ph_2017_q6",
+        "gate_ph_2018_q20",
+        "gate_ph_2019_q3",
+        "gate_ph_2019_q43",
+        "gate_ph_2020_q29",
+        "gate_ph_2020_q42",
+        "gate_ph_2022_q11",
+        "gate_ph_2022_q20",
+        "gate_ph_2024_q18",
+        "gate_ph_2024_q58",
+        "gate_ph_2024_q63",
+        "gate_ph_2025_q60",
+        "gate_ph_2025_q65"
+      ],
+      "questionCount": 48
+    },
+    {
+      "id": "group-theory",
+      "subject": "Math Methods",
+      "title": "Group Theory",
+      "roadmapLabel": "Phase B – Tier 2",
+      "phase": "phase-2-tier-2",
+      "examScope": "JEST-only",
+      "subtopics": [
+        "Elementary properties of discrete groups"
+      ],
+      "resources": [
+        {
+          "source": "Pravegaa",
+          "linkType": "Direct (playlist)",
+          "url": "https://youtube.com/playlist?list=PL_yoT1uNIKb5612J2UBJOZ5Q2RwFQ8Bkm",
+          "studyNotes": "Shortest topic in the whole syllabus — a couple of hours either way. Book: Arfken Ch.4 — work every problem in that section, not just read it. Once the concept + problems are solid, drill PYQs (JAM / CSIR-NET / JEST, 2012–present) on this exact sub-topic before moving on. Timing: Phase B, Tier 2 — post-JAM, only if Tier 1 is finished with time to spare.. Any other teacher/channel covering the same sub-topic works just as well — the book problems and PYQ practice matter more than which video source you use."
+        }
+      ],
+      "questionIds": [],
+      "questionCount": 0
+    },
+    {
+      "id": "tensor-curvilinear-coordinates",
+      "subject": "Math Methods",
+      "title": "Tensor & Curvilinear Coordinates",
+      "roadmapLabel": "Phase B – Tier 2",
+      "phase": "phase-2-tier-2",
+      "examScope": "JEST-only",
+      "subtopics": [
+        "Tensors, curvilinear coordinate systems"
+      ],
+      "resources": [
+        {
+          "source": "Pravegaa",
+          "linkType": "Direct (playlist)",
+          "url": "https://youtube.com/playlist?list=PL_yoT1uNIKb5612J2UBJOZ5Q2RwFQ8Bkm",
+          "studyNotes": "Short topic either way — same playlist covers it. Book: Boas Ch.10 + Arfken Ch.2-3 — work every problem in that section, not just read it. Once the concept + problems are solid, drill PYQs (JAM / CSIR-NET / JEST, 2012–present) on this exact sub-topic before moving on. Timing: Phase B, Tier 2 — post-JAM, only if Tier 1 is finished with time to spare.. Any other teacher/channel covering the same sub-topic works just as well — the book problems and PYQ practice matter more than which video source you use."
+        }
+      ],
+      "questionIds": [
+        "gate_ph_2007_q24",
+        "gate_ph_2008_q26",
+        "gate_ph_2009_q26",
+        "gate_ph_2010_q1",
+        "gate_ph_2012_q25",
+        "gate_ph_2013_q2",
+        "gate_ph_2014_q12",
+        "gate_ph_2016_q32",
+        "gate_ph_2018_q5",
+        "gate_ph_2024_q51"
+      ],
+      "questionCount": 10
+    },
+    {
+      "id": "nuclear-models-depth",
+      "subject": "Nuclear Particle",
+      "title": "Nuclear Models Depth",
+      "roadmapLabel": "Phase B – Tier 2",
+      "phase": "phase-2-tier-2",
+      "examScope": "JEST-only",
+      "subtopics": [
+        "Decay chains, nuclear models in more depth"
+      ],
+      "resources": [
+        {
+          "source": "NPTEL — P. Poulose, IIT Guwahati",
+          "linkType": "Direct (playlist)",
+          "url": "https://www.youtube.com/watch?v=H7OipY8RzX0&list=PL0b6maW-5d1fvnUXykaaD0JPjEB0pTDF9",
+          "studyNotes": "Continue ~5–6 lectures. Book: Beiser, remaining nuclear physics sections — work every problem in that section, not just read it. Once the concept + problems are solid, drill PYQs (JAM / CSIR-NET / JEST, 2012–present) on this exact sub-topic before moving on. Timing: Phase B, Tier 2 — post-JAM, only if Tier 1 is finished with time to spare.. Any other teacher/channel covering the same sub-topic works just as well — the book problems and PYQ practice matter more than which video source you use."
+        }
+      ],
+      "questionIds": [],
+      "questionCount": 0
+    },
+    {
+      "id": "particle-physics-basics",
+      "subject": "Nuclear Particle",
+      "title": "Particle Physics Basics",
+      "roadmapLabel": "Phase B – Tier 3",
+      "phase": "phase-2-tier-3",
+      "examScope": "JEST-only (low)",
+      "subtopics": [
+        "Conservation laws, basic Standard Model concepts"
+      ],
+      "resources": [
+        {
+          "source": "NPTEL — P. Poulose, IIT Guwahati",
+          "linkType": "Direct (playlist)",
+          "url": "https://www.youtube.com/watch?v=H7OipY8RzX0&list=PL0b6maW-5d1fvnUXykaaD0JPjEB0pTDF9",
+          "studyNotes": "Lowest priority on the whole roadmap — last few lectures of the course, attempt only if genuinely ahead. Book: Beiser's particle physics chapter, or a concise notes summary — work every problem in that section, not just read it. Once the concept + problems are solid, drill PYQs (JAM / CSIR-NET / JEST, 2012–present) on this exact sub-topic before moving on. Timing: Phase B, Tier 3 — post-JAM, cut this first if JEST lands in March; attempt only if genuinely ahead.. Any other teacher/channel covering the same sub-topic works just as well — the book problems and PYQ practice matter more than which video source you use."
+        }
+      ],
+      "questionIds": [
+        "gate_ph_2007_q15",
+        "gate_ph_2007_q20",
+        "gate_ph_2007_q51",
+        "gate_ph_2007_q58",
+        "gate_ph_2007_q59",
+        "gate_ph_2007_q60",
+        "gate_ph_2007_q61",
+        "gate_ph_2007_q62",
+        "gate_ph_2007_q63",
+        "gate_ph_2007_q84",
+        "gate_ph_2007_q85",
+        "gate_ph_2008_q17",
+        "gate_ph_2008_q18",
+        "gate_ph_2008_q59",
+        "gate_ph_2008_q60",
+        "gate_ph_2008_q61",
+        "gate_ph_2008_q62",
+        "gate_ph_2008_q63",
+        "gate_ph_2008_q64",
+        "gate_ph_2008_q76",
+        "gate_ph_2008_q77",
+        "gate_ph_2009_q18",
+        "gate_ph_2009_q20",
+        "gate_ph_2009_q35",
+        "gate_ph_2009_q38",
+        "gate_ph_2009_q41",
+        "gate_ph_2009_q8",
+        "gate_ph_2010_q11",
+        "gate_ph_2010_q12",
+        "gate_ph_2010_q13",
+        "gate_ph_2010_q31",
+        "gate_ph_2010_q32",
+        "gate_ph_2010_q33",
+        "gate_ph_2011_q20",
+        "gate_ph_2011_q38",
+        "gate_ph_2011_q39",
+        "gate_ph_2011_q40",
+        "gate_ph_2011_q6",
+        "gate_ph_2012_q10",
+        "gate_ph_2012_q21",
+        "gate_ph_2012_q34",
+        "gate_ph_2012_q41",
+        "gate_ph_2012_q9",
+        "gate_ph_2013_q10",
+        "gate_ph_2013_q11",
+        "gate_ph_2013_q12",
+        "gate_ph_2013_q31",
+        "gate_ph_2013_q43",
+        "gate_ph_2013_q52",
+        "gate_ph_2013_q53",
+        "gate_ph_2013_q9",
+        "gate_ph_2014_q11",
+        "gate_ph_2014_q16",
+        "gate_ph_2014_q17",
+        "gate_ph_2014_q49",
+        "gate_ph_2014_q51",
+        "gate_ph_2015_q13",
+        "gate_ph_2015_q15",
+        "gate_ph_2015_q54",
+        "gate_ph_2015_q65",
+        "gate_ph_2016_q21",
+        "gate_ph_2016_q28",
+        "gate_ph_2016_q43",
+        "gate_ph_2016_q54",
+        "gate_ph_2016_q6",
+        "gate_ph_2017_q16",
+        "gate_ph_2017_q17",
+        "gate_ph_2017_q18",
+        "gate_ph_2017_q25",
+        "gate_ph_2017_q41",
+        "gate_ph_2017_q45",
+        "gate_ph_2017_q51",
+        "gate_ph_2018_q14",
+        "gate_ph_2018_q18",
+        "gate_ph_2018_q25",
+        "gate_ph_2018_q40",
+        "gate_ph_2018_q41",
+        "gate_ph_2018_q42",
+        "gate_ph_2019_q13",
+        "gate_ph_2019_q15",
+        "gate_ph_2019_q2",
+        "gate_ph_2019_q41",
+        "gate_ph_2019_q48",
+        "gate_ph_2020_q21",
+        "gate_ph_2020_q36",
+        "gate_ph_2020_q52",
+        "gate_ph_2020_q7",
+        "gate_ph_2020_q8",
+        "gate_ph_2021_q32",
+        "gate_ph_2021_q45",
+        "gate_ph_2021_q48",
+        "gate_ph_2021_q7",
+        "gate_ph_2021_q8",
+        "gate_ph_2022_q12",
+        "gate_ph_2022_q18",
+        "gate_ph_2024_q17",
+        "gate_ph_2024_q19",
+        "gate_ph_2024_q26",
+        "gate_ph_2024_q36",
+        "gate_ph_2024_q49",
+        "gate_ph_2024_q65",
+        "gate_ph_2025_q18",
+        "gate_ph_2025_q20",
+        "gate_ph_2025_q25",
+        "gate_ph_2025_q27",
+        "gate_ph_2025_q29",
+        "gate_ph_2025_q35",
+        "gate_ph_2025_q39",
+        "gate_ph_2025_q48",
+        "gate_ph_2025_q59"
+      ],
+      "questionCount": 110
+    },
+    {
+      "id": "scattering-theory",
+      "subject": "Quantum Mechanics",
+      "title": "Scattering Theory",
+      "roadmapLabel": "Phase B – Tier 3",
+      "phase": "phase-2-tier-3",
+      "examScope": "JEST-only (low)",
+      "subtopics": [
+        "Born approximation, partial waves"
+      ],
+      "resources": [
+        {
+          "source": "Pravegaa",
+          "linkType": "Direct (playlist)",
+          "url": "https://youtube.com/playlist?list=PL_yoT1uNIKb7vY46rDudNBXJDrMMPM5iV",
+          "studyNotes": "Rare but difficult — lowest priority in QM; check the later chapters of this playlist. Book: Griffiths QM or Zettili, scattering chapter — work every problem in that section, not just read it. Once the concept + problems are solid, drill PYQs (JAM / CSIR-NET / JEST, 2012–present) on this exact sub-topic before moving on. Timing: Phase B, Tier 3 — post-JAM, cut this first if JEST lands in March; attempt only if genuinely ahead.. Any other teacher/channel covering the same sub-topic works just as well — the book problems and PYQ practice matter more than which video source you use."
+        }
+      ],
+      "questionIds": [
+        "gate_ph_2016_q22",
+        "gate_ph_2016_q23",
+        "gate_ph_2021_q40",
+        "gate_ph_2025_q14"
+      ],
+      "questionCount": 4
+    },
+    {
+      "id": "phase-transitions",
+      "subject": "Thermo & StatMech",
+      "title": "Phase Transitions",
+      "roadmapLabel": "Phase B – Tier 3",
+      "phase": "phase-2-tier-3",
+      "examScope": "JEST-only (low)",
+      "subtopics": [
+        "Phase transitions and critical phenomena"
+      ],
+      "resources": [
+        {
+          "source": "Pravegaa",
+          "linkType": "Direct (playlist)",
+          "url": "https://youtube.com/playlist?list=PL_yoT1uNIKb5ECZhofT0WNdLYyw9gEhNA",
+          "studyNotes": "Rare but difficult — lowest priority in this subject; check the later chapters of this playlist. Book: Garg, Bansal, Ghosh or Pathria (Statistical Mechanics) — work every problem in that section, not just read it. Once the concept + problems are solid, drill PYQs (JAM / CSIR-NET / JEST, 2012–present) on this exact sub-topic before moving on. Timing: Phase B, Tier 3 — post-JAM, cut this first if JEST lands in March; attempt only if genuinely ahead.. Any other teacher/channel covering the same sub-topic works just as well — the book problems and PYQ practice matter more than which video source you use."
+        }
+      ],
+      "questionIds": [
+        "gate_ph_2007_q43",
+        "gate_ph_2008_q11",
+        "gate_ph_2009_q13",
+        "gate_ph_2011_q5",
+        "gate_ph_2013_q5",
+        "gate_ph_2017_q29",
+        "gate_ph_2019_q49",
+        "gate_ph_2022_q63",
+        "gate_ph_2024_q33",
+        "gate_ph_2025_q26"
+      ],
+      "questionCount": 10
+    },
+    {
+      "id": "rigid-body-dynamics",
+      "subject": "Mechanics",
+      "title": "Rigid Body Dynamics",
+      "roadmapLabel": "Supplemental",
+      "phase": "supplemental",
+      "examScope": "JEST-only (low)",
+      "subtopics": [
+        "Rigid body dynamics (light JEST relevance, not core-tagged)"
+      ],
+      "resources": [
+        {
+          "source": "Book only",
+          "linkType": "N/A",
+          "url": null,
+          "studyNotes": "Only pick this up if genuinely ahead — not core-tagged in this roadmap. Book: Goldstein, rigid body chapter — work every problem in that section, not just read it. Once the concept + problems are solid, drill PYQs (JAM / CSIR-NET / JEST, 2012–present) on this exact sub-topic before moving on. Timing: Phase B, Tier 3 — post-JAM, cut this first if JEST lands in March; attempt only if genuinely ahead.. Any other teacher/channel covering the same sub-topic works just as well — the book problems and PYQ practice matter more than which video source you use."
+        }
+      ],
+      "questionIds": [
+        "gate_ph_2007_q30",
+        "gate_ph_2008_q28",
+        "gate_ph_2008_q4",
+        "gate_ph_2011_q12",
+        "gate_ph_2012_q2",
+        "gate_ph_2013_q32",
+        "gate_ph_2017_q42",
+        "gate_ph_2018_q46",
+        "gate_ph_2025_q64"
+      ],
+      "questionCount": 9
+    },
+    {
+      "id": "shm-damped-oscillations",
+      "subject": "Waves & Optics",
+      "title": "SHM & Damped Oscillations",
+      "roadmapLabel": "Supplemental (feeds Topic 6/7)",
+      "phase": "supplemental",
+      "examScope": "JAM+JEST",
+      "subtopics": [
+        "Simple harmonic motion, damped/driven oscillations"
+      ],
+      "resources": [
+        {
+          "source": "NPTEL — M.S. Santhanam, IIT Madras",
+          "linkType": "Direct (playlist)",
+          "url": "https://www.youtube.com/watch?v=xoJWoMQwTAw&list=PLyqSpQzTE6M9X7oRXliYM8t0aaR_N0Csd",
+          "studyNotes": "General wave course — this feeds directly into Topics 6/7's oscillation problems. Book: Any standard mechanics/waves chapter covering SHM — work every problem in that section, not just read it. Once the concept + problems are solid, drill PYQs (JAM / CSIR-NET / JEST, 2012–present) on this exact sub-topic before moving on. Timing: Phase A — by mid-Dec.. Any other teacher/channel covering the same sub-topic works just as well — the book problems and PYQ practice matter more than which video source you use."
+        }
+      ],
+      "questionIds": [
+        "gate_ph_2008_q29",
+        "gate_ph_2024_q41"
+      ],
+      "questionCount": 2
+    },
+    {
+      "id": "wave-propagation-dispersion",
+      "subject": "Waves & Optics",
+      "title": "Wave Propagation & Dispersion",
+      "roadmapLabel": "Supplemental",
+      "phase": "supplemental",
+      "examScope": "JAM+JEST",
+      "subtopics": [
+        "Wave equation, phase/group velocity, dispersion"
+      ],
+      "resources": [
+        {
+          "source": "NPTEL — M.S. Santhanam, IIT Madras",
+          "linkType": "Direct (playlist)",
+          "url": "https://www.youtube.com/watch?v=xoJWoMQwTAw&list=PLyqSpQzTE6M9X7oRXliYM8t0aaR_N0Csd",
+          "studyNotes": " Book: Any standard waves chapter — work every problem in that section, not just read it. Once the concept + problems are solid, drill PYQs (JAM / CSIR-NET / JEST, 2012–present) on this exact sub-topic before moving on. Timing: Phase A — by mid-Dec.. Any other teacher/channel covering the same sub-topic works just as well — the book problems and PYQ practice matter more than which video source you use."
+        }
+      ],
+      "questionIds": [
+        "gate_ph_2008_q8",
+        "gate_ph_2009_q50",
+        "gate_ph_2025_q16"
+      ],
+      "questionCount": 3
+    }
+  ],
+  "unmappedQuestionIds": []
+}

@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react'
-import { AlertTriangle, X } from 'lucide-react'
+import { AlertTriangle, X, Dumbbell } from 'lucide-react'
+import { Link } from 'react-router-dom'
 import { usePyqLibrary } from '../hooks/usePyqLibrary'
 import PaperSearchBar from '../components/paperLibrary/PaperSearchBar'
 import PaperFilterBar from '../components/paperLibrary/PaperFilterBar'
@@ -46,6 +47,7 @@ export default function PyqsPage() {
         <p className="mt-0.5 text-xs text-[#858585]">
           The Paper Library — every previous year paper, sourced from pyqs.json.
         </p>
+        <Link to="/pyqs/practice" className="mt-3 inline-flex items-center gap-1.5 rounded-md border border-[#0e639c] bg-[#0e639c] px-3 py-1.5 text-xs font-medium text-white hover:bg-[#1177bb]"><Dumbbell size={13} />Practice question bank</Link>
       </div>
 
       {warnings.length > 0 && !warningsDismissed && (

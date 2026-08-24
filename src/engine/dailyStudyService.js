@@ -1,12 +1,4 @@
-import { getAllTopics } from '../data/syllabusData'
-import { getSubjectById } from '../constants/subjects'
-import { getTopicResources } from './resourceMappingService'
-import { getChapterPyqs } from '../data/pyqsData'
-import { getChapterFormulaCardsFlat } from '../data/formulaSheetsData'
-import { getChapterMemoryCardsFlat } from '../data/memorySheetsData'
-import { getChapterActiveRecallCards } from '../data/activeRecallData'
-import { getChapterNotes } from '../utils/notesStorage'
-import { TOPIC_STATUS } from '../constants/syllabusConstants'
+import { TOPIC_STATUS } from '../constants/topicConstants'
 import {
   TASK_TYPES,
   TASK_TYPE_BASE_MINUTES,
@@ -15,6 +7,8 @@ import {
 } from '../constants/dailyStudyConstants'
 import { createTask } from './taskModel'
 import { createMission } from './missionModel'
+import roadmapTopics from '../data/roadmap.json' with { type: 'json' }
+import { getRoadmapMissionSnapshot } from './roadmapMissionService'
 
 /**
  * DAILY STUDY SERVICE
@@ -46,8 +40,8 @@ import { createMission } from './missionModel'
  * same shape either way.
  */
 
-function resolveEffectiveStatus(topic, statusOverrides) {
-  return statusOverrides[topic.id] ?? topic.metadata.status ?? TOPIC_STATUS.NOT_STARTED
+function resolveEffectiveStatus(topicId, statusOverrides) {
+  return statusOverrides[topicId] ?? TOPIC_STATUS.NOT_STARTED
 }
 
 function scaledMinutes(type, difficulty, { scaleWithDifficulty = false } = {}) {
@@ -58,93 +52,43 @@ function scaledMinutes(type, difficulty, { scaleWithDifficulty = false } = {}) {
 }
 
 /**
- * Builds the flat task list for one topic. Every task is only included if
- * the underlying resource/content actually exists — an empty chapter never
- * produces a hollow task, so Today's Mission stays honest about what's
- * really available to study.
+ * Builds the flat task list for one roadmap topic. The roadmap itself is
+ * now the source of truth for Today's Mission, so the task list is built
+ * from the topic's own book/video/note references rather than chapter-level
+ * syllabus resources that may not exist for the roadmap entry.
  */
-function buildTasksForTopic(topic, subject, chapter, taskStatusOverrides) {
-  const difficulty = topic.metadata.difficulty ?? 'Moderate'
-  const priority = topic.metadata.priority ?? 'Medium'
-  const links = topic.metadata.linkedModules ?? {}
-
-  const resources = getTopicResources(topic)
-  const chapterPyqs = getChapterPyqs(subject, chapter)
-  const chapterFormulaCards = getChapterFormulaCardsFlat(subject, chapter)
-  const chapterMemoryCards = getChapterMemoryCardsFlat(subject, chapter)
-  const chapterRecallCards = getChapterActiveRecallCards(subject, chapter)
-  const chapterNotes = getChapterNotes(subject.id, chapter.slug)
-
+function buildTasksForTopic(topic, taskStatusOverrides) {
   const candidates = []
+  const priority = topic.priority ?? 'High'
+  const difficulty = topic.difficulty ?? 'Moderate'
 
-  if (resources.books.length > 0) {
+  if (topic.bookAssetLink) {
     candidates.push({
       type: TASK_TYPES.READ_BOOK,
-      title: `Read: ${resources.books[0].title}`,
-      link: `/subjects/${subject.id}/chapters/${chapter.slug}/books`,
-      estimatedMinutes: scaledMinutes(TASK_TYPES.READ_BOOK, difficulty, { scaleWithDifficulty: true }),
-      meta: { count: resources.books.length },
+      title: `Open book for: ${topic.title}`,
+      link: topic.bookAssetLink ? `/library/resource/${topic.bookAssetLink}` : null,
+      estimatedMinutes: topic.estimatedStudyMinutes ?? scaledMinutes(TASK_TYPES.READ_BOOK, difficulty, { scaleWithDifficulty: true }),
+      meta: { bookAssetLink: topic.bookAssetLink },
     })
   }
 
-  if (resources.videos.length > 0) {
+  if (topic.video) {
     candidates.push({
       type: TASK_TYPES.WATCH_VIDEO,
-      title: `Watch: ${resources.videos[0].title}`,
-      link: `/subjects/${subject.id}/chapters/${chapter.slug}/videos`,
-      estimatedMinutes: scaledMinutes(TASK_TYPES.WATCH_VIDEO, difficulty, { scaleWithDifficulty: true }),
-      meta: { count: resources.videos.length },
+      title: `Watch roadmap video/playlist`,
+      link: null,
+      estimatedMinutes: topic.estimatedStudyMinutes ?? scaledMinutes(TASK_TYPES.WATCH_VIDEO, difficulty, { scaleWithDifficulty: true }),
+      meta: { video: topic.video },
     })
   }
 
-  if (chapterPyqs.length > 0) {
-    const count = Math.min(5, chapterPyqs.length)
-    candidates.push({
-      type: TASK_TYPES.SOLVE_PYQS,
-      title: `Solve PYQs — ${chapter.name} (${count} questions)`,
-      link: links.pyqs ?? `/subjects/${subject.id}/pyqs`,
-      estimatedMinutes: scaledMinutes(TASK_TYPES.SOLVE_PYQS, difficulty, { scaleWithDifficulty: true }),
-      meta: { count: chapterPyqs.length },
-    })
-  }
-
-  if (chapterFormulaCards.length > 0) {
-    candidates.push({
-      type: TASK_TYPES.REVISE_FORMULA_SHEET,
-      title: `Revise Formula Sheet — ${chapter.name}`,
-      link: links.formulaSheet ?? `/subjects/${subject.id}/chapters/${chapter.slug}/formula-sheet`,
-      estimatedMinutes: scaledMinutes(TASK_TYPES.REVISE_FORMULA_SHEET, difficulty),
-      meta: { count: chapterFormulaCards.length },
-    })
-  }
-
-  if (chapterMemoryCards.length > 0) {
-    candidates.push({
-      type: TASK_TYPES.REVISE_MEMORY_SHEET,
-      title: `Revise Memory Sheet — ${chapter.name}`,
-      link: links.memorySheet ?? `/subjects/${subject.id}/chapters/${chapter.slug}/memory-sheet`,
-      estimatedMinutes: scaledMinutes(TASK_TYPES.REVISE_MEMORY_SHEET, difficulty),
-      meta: { count: chapterMemoryCards.length },
-    })
-  }
-
-  if (chapterRecallCards.length > 0) {
-    candidates.push({
-      type: TASK_TYPES.ACTIVE_RECALL,
-      title: `Active Recall — ${chapter.name}`,
-      link: links.activeRecall ?? `/subjects/${subject.id}/chapters/${chapter.slug}/active-recall`,
-      estimatedMinutes: scaledMinutes(TASK_TYPES.ACTIVE_RECALL, difficulty),
-      meta: { count: chapterRecallCards.length },
-    })
-  }
-
-  if (chapterNotes.length > 0) {
+  if (topic.notes) {
     candidates.push({
       type: TASK_TYPES.NOTES_REVISION,
-      title: `Revise Notes — ${chapter.name} (${chapterNotes.length} note${chapterNotes.length > 1 ? 's' : ''})`,
-      link: links.notes ?? `/subjects/${subject.id}/chapters/${chapter.slug}/notes`,
-      estimatedMinutes: scaledMinutes(TASK_TYPES.NOTES_REVISION, difficulty),
-      meta: { count: chapterNotes.length },
+      title: 'Read roadmap notes',
+      link: null,
+      estimatedMinutes: topic.estimatedProblemSolvingMinutes ?? scaledMinutes(TASK_TYPES.NOTES_REVISION, difficulty),
+      meta: { notes: topic.notes },
     })
   }
 
@@ -159,8 +103,8 @@ function buildTasksForTopic(topic, subject, chapter, taskStatusOverrides) {
       status: taskStatusOverrides[id] ?? TASK_STATUS.PENDING,
       link: candidate.link,
       topicId: topic.id,
-      subjectId: subject.id,
-      chapterSlug: chapter.slug,
+      subjectId: 'roadmap',
+      chapterSlug: 'roadmap',
       meta: candidate.meta,
     })
   })
@@ -173,33 +117,26 @@ function buildTasksForTopic(topic, subject, chapter, taskStatusOverrides) {
  * @param taskStatusOverrides - live per-task status map from `useMissionTaskStatus()`.
  */
 export function generateTodaysMission(statusOverrides = {}, taskStatusOverrides = {}) {
-  const topics = getAllTopics()
-
-  if (topics.length === 0) {
-    return createMission({ isEmpty: true })
-  }
-
-  const currentTopic = topics.find(
-    (topic) => resolveEffectiveStatus(topic, statusOverrides) !== TOPIC_STATUS.MASTERED,
+  const roadmapStatusMap = Object.fromEntries(
+    roadmapTopics.map((topic) => [topic.id, resolveEffectiveStatus(topic.id, statusOverrides)]),
   )
+  const roadmapSnapshot = getRoadmapMissionSnapshot(roadmapStatusMap)
+  const currentTopic = roadmapSnapshot.nextTopic
 
   if (!currentTopic) {
     return createMission({ isAllCaughtUp: true })
   }
 
-  const subject = getSubjectById(currentTopic.metadata.subjectId)
-  const chapter = subject?.chapters.find((item) => item.slug === currentTopic.metadata.chapterSlug)
-
-  if (!subject || !chapter) {
-    return createMission({ isEmpty: true })
-  }
-
-  const tasks = buildTasksForTopic(currentTopic, subject, chapter, taskStatusOverrides)
+  const tasks = buildTasksForTopic(currentTopic, taskStatusOverrides)
 
   return createMission({
-    subject: { id: subject.id, name: subject.name },
-    chapter: { slug: chapter.slug, name: chapter.name },
-    topic: { id: currentTopic.id, name: currentTopic.name },
+    subject: { id: 'roadmap', name: 'Roadmap' },
+    chapter: { slug: 'roadmap', name: roadmapSnapshot.checkpoint.label },
+    topic: { id: currentTopic.id, name: currentTopic.title },
     tasks,
+    meta: {
+      roadmapCheckpoint: roadmapSnapshot.checkpoint.label,
+      outOfSequence: roadmapSnapshot.outOfSequence.map((topic) => topic.title),
+    },
   })
 }

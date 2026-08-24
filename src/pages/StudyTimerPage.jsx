@@ -5,6 +5,7 @@ import SessionPanel from '../components/timer/SessionPanel'
 import TopicLinkSelector from '../components/timer/TopicLinkSelector'
 import SessionResourceLinks from '../components/timer/SessionResourceLinks'
 import SessionNotesPanel from '../components/timer/SessionNotesPanel'
+import FocusTargetPanel from '../components/timer/FocusTargetPanel'
 
 const statusLabel = {
   idle: 'Idle',
@@ -35,6 +36,8 @@ export default function StudyTimerPage() {
 
         <TimerControls />
       </section>
+
+      <FocusTargetPanel />
 
       <TopicLinkSelector />
 

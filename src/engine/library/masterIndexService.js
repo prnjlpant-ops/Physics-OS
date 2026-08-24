@@ -17,9 +17,10 @@ import { createMasterIndex } from './libraryModel'
  * from — no page ever imports books.json or knowledgeBaseConfig.json
  * directly.
  */
-export function buildMasterIndex({ config, books }) {
+export function buildMasterIndex({ config, books, videos = [] }) {
   const subjects = {}
   const unassigned = []
+  const unassignedVideos = []
 
   config.subjects.forEach((subject) => {
     const categories = Object.fromEntries(LIBRARY_CATEGORY_ORDER.map((key) => [key, []]))
@@ -34,7 +35,14 @@ export function buildMasterIndex({ config, books }) {
     subjects[book.subjectId].categories[book.categoryKey].push(book)
   })
 
-  return createMasterIndex({ root: config.root, subjects, unassigned })
+  videos.forEach((video) => {
+    // Videos are linked to topics, not broad folder subjects. Keeping them
+    // unassigned prevents a guessed subject placement while retaining one
+    // canonical record for Topic Index resolution.
+    unassignedVideos.push(video)
+  })
+
+  return createMasterIndex({ root: config.root, subjects, unassigned, unassignedVideos })
 }
 
 export function getSubjects(index) {
@@ -50,7 +58,9 @@ export function getSubjectEntry(index, subjectId) {
 
 export function getCategoryResources(index, subjectId, categoryKey) {
   if (subjectId === UNASSIGNED_SUBJECT_ID) {
-    return categoryKey === 'books' ? index?.unassigned ?? [] : []
+    if (categoryKey === 'books') return index?.unassigned ?? []
+    if (categoryKey === 'videos') return index?.unassignedVideos ?? []
+    return []
   }
   return index?.subjects?.[subjectId]?.categories?.[categoryKey] ?? []
 }
@@ -58,7 +68,11 @@ export function getCategoryResources(index, subjectId, categoryKey) {
 /** Flattens one category across every subject, including Unassigned. */
 export function getResourcesByCategory(index, categoryKey) {
   const fromSubjects = getSubjects(index).flatMap((entry) => entry.categories?.[categoryKey] ?? [])
-  const fromUnassigned = categoryKey === 'books' ? index?.unassigned ?? [] : []
+  const fromUnassigned = categoryKey === 'books'
+    ? index?.unassigned ?? []
+    : categoryKey === 'videos'
+      ? index?.unassignedVideos ?? []
+      : []
   return [...fromSubjects, ...fromUnassigned]
 }
 

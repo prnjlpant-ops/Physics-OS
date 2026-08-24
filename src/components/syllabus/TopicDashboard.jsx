@@ -1,4 +1,6 @@
-import { ChevronRight, ListChecks, FolderTree, Library } from 'lucide-react'
+import { ChevronRight, ListChecks, FolderTree, Library, FlaskConical } from 'lucide-react'
+import { Link } from 'react-router-dom'
+import { getQuestionsForTopic, getRoadmapChapterIdForTopic } from '../../engine/pyq/questionBankService'
 import TopicStatusSelect from './TopicStatusSelect'
 import TopicMetadataPanel from './TopicMetadataPanel'
 import LinkedModulesPanel from './LinkedModulesPanel'
@@ -17,6 +19,9 @@ export default function TopicDashboard({ topic, status, onStatusChange }) {
 
   const breadcrumb = [...topic.ancestors, topic].map((node) => node.name)
   const topicResources = getTopicResources(topic)
+  const quizQuestions = getQuestionsForTopic(topic, 3)
+  const roadmapChapterId = getRoadmapChapterIdForTopic(topic)
+  const quizPath = roadmapChapterId ? `/pyqs/practice?chapter=${encodeURIComponent(roadmapChapterId)}` : '/pyqs/practice'
 
   return (
     <div className="flex flex-col gap-5 rounded-lg border border-[#3c3c3c] bg-[#252526] p-4">
@@ -29,7 +34,9 @@ export default function TopicDashboard({ topic, status, onStatusChange }) {
             </span>
           ))}
         </div>
-        <h3 className="mt-1 text-base font-semibold text-[#e8e8e8]">{topic.name}</h3>
+        <h3 className="mt-1 text-base font-semibold text-[#e8e8e8]">
+          {topic.metadata?.fullTitle || (topic.metadata?.chapterName ? `${topic.metadata.chapterName}: ${topic.name}` : topic.name)}
+        </h3>
       </div>
 
       <div className="flex flex-col gap-2">
@@ -70,9 +77,17 @@ export default function TopicDashboard({ topic, status, onStatusChange }) {
         <TopicResourceSection resources={topicResources} />
       </div>
 
+      <section className="flex flex-col gap-2 border-t border-[#3c3c3c] pt-4">
+        <div className="flex items-center justify-between gap-3">
+          <p className="flex items-center gap-1.5 text-[10px] uppercase tracking-wide text-[#6e6e6e]"><FlaskConical size={12} /> Topic PYQ quiz</p>
+          <Link to={quizPath} className="text-xs text-[#4fc1ff] hover:text-[#9cdcfe]">Open quiz</Link>
+        </div>
+        {quizQuestions.length ? <div className="flex flex-col gap-1.5">{quizQuestions.map((question) => <Link key={question.id} to={`/pyqs/practice/${question.id}`} className="rounded-md border border-[#3c3c3c] bg-[#1e1e1e] px-3 py-2 text-xs text-[#cccccc] hover:border-[#4a4a4a]">{question.exam} {question.year} · Q{question.questionNumber} · {question.subtopic}</Link>)}</div> : <p className="text-xs text-[#858585]">No verified PYQ mapping is available for this topic yet.</p>}
+      </section>
+
       <div className="flex flex-col gap-2">
         <p className="text-[10px] uppercase tracking-wide text-[#6e6e6e]">Linked Modules</p>
-        <LinkedModulesPanel linkedModules={topic.metadata.linkedModules} />
+        <LinkedModulesPanel linkedModules={{ ...topic.metadata.linkedModules, pyqs: quizPath }} />
       </div>
     </div>
   )

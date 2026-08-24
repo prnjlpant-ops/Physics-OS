@@ -31,6 +31,15 @@ function normalizeRelatedIds(raw) {
   return Array.isArray(raw) ? raw.filter((id) => typeof id === 'string' && id.trim()) : []
 }
 
+function normalizeRelatedVideos(raw) {
+  if (!Array.isArray(raw)) return []
+  return raw.filter((item) => {
+    if (typeof item === 'string' && item.trim()) return true
+    if (item && typeof item === 'object' && typeof item.url === 'string' && item.url.trim()) return true
+    return false
+  })
+}
+
 /**
  * Normalizes one raw topic entry against the Knowledge Base config.
  * Returns `{ topic, warnings }` — never throws. A topic missing both an
@@ -88,7 +97,7 @@ function normalizeTopic(raw, config, index) {
     relatedFormulaSheets: normalizeRelatedIds(raw.relatedFormulaSheets),
     relatedMemorySheets: normalizeRelatedIds(raw.relatedMemorySheets),
     relatedNotes: normalizeRelatedIds(raw.relatedNotes),
-    relatedVideos: normalizeRelatedIds(raw.relatedVideos),
+    relatedVideos: normalizeRelatedVideos(raw.relatedVideos),
     relatedResearchPapers: normalizeRelatedIds(raw.relatedResearchPapers),
     relatedPYQs: normalizeRelatedIds(raw.relatedPYQs),
   })

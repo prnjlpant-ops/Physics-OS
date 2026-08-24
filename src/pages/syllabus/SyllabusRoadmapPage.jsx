@@ -2,7 +2,8 @@ import { useMemo } from 'react'
 import { Flag } from 'lucide-react'
 import { buildRoadmap, getRoadmapProgressCards, getUpcomingTasks } from '../../engine/roadmapEngine'
 import { getBlueprintHighYieldChecklist } from '../../engine/blueprintService'
-import { useSyllabusStatus } from '../../hooks/useSyllabusStatus'
+import { useTopicProgress } from '../../hooks/useTopicProgress'
+import { getRoadmapMissionSnapshot } from '../../engine/roadmapMissionService'
 import RoadmapProgressCard from '../../components/roadmap/RoadmapProgressCard'
 import MonthlyTimeline from '../../components/roadmap/MonthlyTimeline'
 import UpcomingTasks from '../../components/roadmap/UpcomingTasks'
@@ -23,15 +24,29 @@ import UpcomingTasks from '../../components/roadmap/UpcomingTasks'
  * plan against where the person actually is.
  */
 export default function SyllabusRoadmapPage() {
-  const { overrides } = useSyllabusStatus()
+  const { statuses } = useTopicProgress()
+  const roadmapSnapshot = useMemo(() => getRoadmapMissionSnapshot(statuses, new Date()), [statuses])
 
-  const phases = useMemo(() => buildRoadmap(overrides), [overrides])
+  const phases = useMemo(() => buildRoadmap(statuses), [statuses])
   const progressCards = useMemo(() => getRoadmapProgressCards(phases), [phases])
   const upcomingTasks = useMemo(() => getUpcomingTasks(phases, 8), [phases])
   const highYield = getBlueprintHighYieldChecklist()
 
   return (
     <div className="flex flex-col gap-6">
+      <section className="rounded-lg border border-[#0e639c]/40 bg-[#0e639c]/10 p-4">
+        <p className="text-[10px] uppercase tracking-wide text-[#4fc1ff]">Roadmap focus</p>
+        <div className="mt-2 flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
+          <div>
+            <p className="text-sm font-medium text-[#e8e8e8]">{roadmapSnapshot.nextTopic?.title ?? 'All roadmap topics are mastered.'}</p>
+            <p className="mt-1 text-xs text-[#9d9d9d]">Checkpoint: {roadmapSnapshot.checkpoint.label}</p>
+          </div>
+          <div className="rounded-md border border-[#3c3c3c] bg-[#1e1e1e] px-3 py-2 text-xs text-[#858585]">
+            {roadmapSnapshot.completedTopics}/{roadmapSnapshot.totalTopics} roadmap topics complete
+          </div>
+        </div>
+      </section>
+
       <section className="flex flex-col gap-3">
         <h3 className="text-sm font-semibold text-[#e8e8e8]">Progress</h3>
         <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">

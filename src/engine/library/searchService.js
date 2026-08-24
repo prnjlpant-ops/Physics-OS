@@ -51,18 +51,18 @@ export function sortResources(resources, sortKey = 'title-asc') {
   const sorted = [...resources]
   switch (sortKey) {
     case 'title-desc':
-      return sorted.sort((a, b) => b.title.localeCompare(a.title))
+      return sorted.sort((a, b) => (b.title ?? '').localeCompare(a.title ?? ''))
     case 'priority': {
       const order = { Essential: 0, High: 1, Medium: 2, Reference: 3 }
       return sorted.sort((a, b) => (order[a.priority] ?? 99) - (order[b.priority] ?? 99))
     }
     case 'subject':
-      return sorted.sort((a, b) => a.subjectName.localeCompare(b.subjectName))
+      return sorted.sort((a, b) => (a.subjectName ?? '').localeCompare(b.subjectName ?? ''))
     case 'author':
       return sorted.sort((a, b) => (a.author ?? '').localeCompare(b.author ?? ''))
     case 'title-asc':
     default:
-      return sorted.sort((a, b) => a.title.localeCompare(b.title))
+      return sorted.sort((a, b) => (a.title ?? '').localeCompare(b.title ?? ''))
   }
 }
 

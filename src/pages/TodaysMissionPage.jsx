@@ -1,5 +1,6 @@
 import { Target, PartyPopper } from 'lucide-react'
 import { RotateCcw } from 'lucide-react'
+import { useMemo } from 'react'
 import { useDailyPlanner } from '../hooks/useDailyPlanner'
 import { usePlannerSettings } from '../hooks/usePlannerSettings'
 import { useProgress } from '../hooks/useProgress'
@@ -12,6 +13,8 @@ import PlannerSettingsPanel from '../components/planner/PlannerSettingsPanel'
 import ProgressSummaryBar from '../components/dailyStudy/ProgressSummaryBar'
 import CustomTaskList from '../components/dailyStudy/CustomTaskList'
 import EmptyState from './subject/EmptyState'
+import { useTopicProgress } from '../hooks/useTopicProgress'
+import { getRoadmapMissionSnapshot } from '../engine/roadmapMissionService'
 
 /**
  * TODAY'S MISSION / ADAPTIVE DAILY PLANNER
@@ -27,11 +30,31 @@ export default function TodaysMissionPage() {
   const { plan, moveUp, moveDown, markComplete, skipTask, resetToday } = useDailyPlanner()
   const { settings, updateSetting, resetSettings } = usePlannerSettings()
   const progress = useProgress()
+  const { statuses } = useTopicProgress()
+  const roadmapSnapshot = useMemo(() => getRoadmapMissionSnapshot(statuses, new Date()), [statuses])
   const todayKey = toDateKey(new Date())
 
   return (
     <div className="flex flex-col gap-5 px-4 py-5 sm:px-6 lg:px-8">
       <ProgressSummaryBar progress={progress} />
+
+      {roadmapSnapshot.nextTopic && (
+        <section className="rounded-lg border border-[#0e639c]/50 bg-[#0e639c]/10 p-4">
+          <p className="text-[10px] uppercase tracking-wide text-[#4fc1ff]">Roadmap focus</p>
+          <div className="mt-2 grid gap-2 sm:grid-cols-2">
+            <div className="rounded-md border border-[#3c3c3c] bg-[#1e1e1e] px-3 py-2">
+              <p className="text-xs font-medium text-[#e8e8e8]">{roadmapSnapshot.nextTopic.title}</p>
+              <p className="mt-0.5 text-[10px] text-[#858585]">Checkpoint: {roadmapSnapshot.checkpoint.label}</p>
+            </div>
+            {roadmapSnapshot.outOfSequence.length > 0 && (
+              <div className="rounded-md border border-[#3c3c3c] bg-[#1e1e1e] px-3 py-2">
+                <p className="text-xs font-medium text-[#e8e8e8]">Out of sequence</p>
+                <p className="mt-0.5 text-[10px] text-[#858585]">{roadmapSnapshot.outOfSequence.slice(0, 2).map((topic) => topic.title).join(' · ')}</p>
+              </div>
+            )}
+          </div>
+        </section>
+      )}
 
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div>

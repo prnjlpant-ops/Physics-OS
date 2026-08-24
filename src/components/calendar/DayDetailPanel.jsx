@@ -1,7 +1,7 @@
-import { X } from 'lucide-react'
+import { Pencil, X } from 'lucide-react'
 import { formatDuration, formatClockTime } from '../../utils/formatDuration'
 
-export default function DayDetailPanel({ day, sessions, tasks = [], onClose }) {
+export default function DayDetailPanel({ day, sessions, tasks = [], onClose, onEditSession }) {
   if (!day) return null
 
   const totalMs = sessions.reduce((sum, s) => sum + (s.totalStudyTime || 0), 0)
@@ -76,6 +76,8 @@ export default function DayDetailPanel({ day, sessions, tasks = [], onClose }) {
                 <span>→</span>
                 <span>{formatClockTime(session.endTime)}</span>
               </div>
+
+              {onEditSession && <button type="button" onClick={() => onEditSession(session)} className="mt-3 inline-flex items-center gap-1.5 text-xs text-[#4fc1ff] hover:text-[#9cdcfe]"><Pencil size={12} />Edit topic</button>}
 
               {(session.completedSummary || session.nextAction || session.conceptualTakeaway) && (
                 <div className="mt-3 flex flex-col gap-2 border-t border-[#3c3c3c] pt-3">

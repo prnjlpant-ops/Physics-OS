@@ -1,0 +1,25 @@
+import { useState } from 'react'
+import { CalendarDays, CheckCircle2, Lock, Sparkles } from 'lucide-react'
+
+const phaseA = ['Vector calculus & linear algebra', 'Linear differential equations', 'Complex analysis (basic)', 'Fourier series', 'Newtonian mechanics & collisions', 'Lagrangian and Hamiltonian mechanics', 'Central force & Kepler problem', 'Special relativity (basic)', 'Electrostatics & magnetostatics (basic)', 'Maxwell equations & time-varying fields', 'Plane EM waves, reflection & refraction', 'Diffraction, interference & polarization', 'Schrödinger equation, central potentials & hydrogen', 'Thermodynamics, kinetic theory & Maxwell relations', 'Classical & quantum statistics (basic)', 'Black-body radiation', 'Semiconductors, diodes & transistors', 'LCR, op-amps & digital electronics', 'Crystal structure, reciprocal lattice & band basics', 'Atomic structure, nuclear models & radioactivity']
+const bonus = ['Angular momentum & spin addition', 'Matrix formulation of QM', 'Boundary value problems, images & multipoles', 'Residue calculus & contour integration', 'Statistical ensembles & quantum gases', 'Special relativity (full treatment)', 'Small oscillations & normal modes', 'Sturm-Liouville & special functions', 'Fourier & Laplace transforms', 'Perturbation theory & variational principle', 'Probability, error analysis & calculator-free fluency']
+const phaseB = [
+  { title: 'Tier 1 — first after JAM', items: ['Advanced solid state: bands, phonons & lattice dispersion', 'Energy and momentum of EM fields', 'Waves in dispersive and conducting media', 'Atomic spectra, fine structure & selection rules'] },
+  { title: 'Tier 2 — only after Tier 1', items: ['Tensors & curvilinear coordinates', 'Active filters and oscillators', 'Elementary discrete groups', 'Nuclear models depth & decay chains'] },
+  { title: 'Tier 3 — cut first if time compresses', items: ['Scattering theory', 'Phase transitions & critical phenomena', 'Particle physics basics'] },
+]
+
+function Checklist({ items }) { return <ol className="grid gap-1.5 sm:grid-cols-2">{items.map((item, index) => <li key={item} className="flex gap-2 rounded-md border border-[#3c3c3c] bg-[#1e1e1e] px-2.5 py-2 text-[11px] text-[#bdbdbd]"><span className="font-mono text-[#6e6e6e]">{index + 1}</span><span>{item}</span></li>)}</ol> }
+
+export default function RoadmapV2Plan() {
+  const [open, setOpen] = useState('phase-a')
+  const toggle = (id) => setOpen((current) => current === id ? '' : id)
+  const sections = [
+    { id: 'phase-a', icon: CalendarDays, title: 'Phase A — now to 20 Jan 2027', subtitle: 'Complete Topics 1–20 at JEST depth. This is the JAM-overlap syllabus and the hard cutoff.', body: <Checklist items={phaseA} /> },
+    { id: 'jam', icon: Lock, title: 'JAM lockdown — 20 Jan to exam day', subtitle: 'PYQs, timed papers, mistake logs and formula sheets only. No new syllabus.', body: <p className="text-xs leading-relaxed text-[#bdbdbd]">Use the Question Bank for timed GATE-style sets, mark mistakes for revision, and revisit only Topics 1–20 plus completed bonus topics.</p> },
+    { id: 'bonus', icon: Sparkles, title: 'Phase A bonus — only when genuinely ahead', subtitle: 'Ranked high-return extensions. Stop the moment core Phase A slips.', body: <Checklist items={bonus} /> },
+    { id: 'phase-b', icon: CheckCircle2, title: 'Phase B — post-JAM to JEST minus 10 days', subtitle: 'Work in priority order; the real JEST date determines the stopping point.', body: <div className="flex flex-col gap-3">{phaseB.map((tier) => <div key={tier.title}><p className="mb-1.5 text-xs font-medium text-[#e2c08d]">{tier.title}</p><Checklist items={tier.items} /></div>)}</div> },
+    { id: 'jest', icon: Lock, title: 'Final JEST lockdown — last 10 days', subtitle: 'Timed PYQs and mocks only; start no new topics.', body: <p className="text-xs leading-relaxed text-[#bdbdbd]">Prioritise Part B accuracy, attempt every NAT with a partial method, and use your mistake log and formula sheets daily.</p> },
+  ]
+  return <section className="flex flex-col gap-3"><div><h3 className="text-sm font-semibold text-[#e8e8e8]">JAM + JEST Roadmap v2</h3><p className="mt-1 text-[11px] text-[#858585]">Active planning layer based on your updated roadmap. Existing syllabus and resources remain unchanged.</p></div><div className="flex flex-col gap-2">{sections.map((section) => { const Icon = section.icon; const expanded = open === section.id; return <article key={section.id} className="overflow-hidden rounded-lg border border-[#3c3c3c] bg-[#252526]"><button type="button" onClick={() => toggle(section.id)} className="flex w-full items-start gap-3 p-4 text-left"><Icon size={16} className="mt-0.5 shrink-0 text-[#4fc1ff]" /><span className="min-w-0 flex-1"><span className="block text-sm font-medium text-[#e8e8e8]">{section.title}</span><span className="mt-1 block text-[11px] leading-relaxed text-[#858585]">{section.subtitle}</span></span><span className="text-xs text-[#858585]">{expanded ? '−' : '+'}</span></button>{expanded && <div className="border-t border-[#3c3c3c] px-4 py-3">{section.body}</div>}</article> })}</div></section>
+}

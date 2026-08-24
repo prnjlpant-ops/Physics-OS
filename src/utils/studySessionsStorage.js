@@ -13,10 +13,23 @@ export function getAllStudySessions() {
   try {
     const raw = localStorage.getItem(SESSIONS_STORAGE_KEY)
     const parsed = raw ? JSON.parse(raw) : []
-    return Array.isArray(parsed) ? parsed : []
+    if (!Array.isArray(parsed)) return []
+    const migrated = parsed.map((session) => ({ ...session, date: localDateKey(session.startTime ?? session.endTime) }))
+    if (migrated.some((session, index) => session.date !== parsed[index].date)) {
+      localStorage.setItem(SESSIONS_STORAGE_KEY, JSON.stringify(migrated))
+    }
+    return migrated
   } catch {
     return []
   }
+}
+
+function localDateKey(input) {
+  const date = new Date(input ?? Date.now())
+  const year = date.getFullYear()
+  const month = String(date.getMonth() + 1).padStart(2, '0')
+  const day = String(date.getDate()).padStart(2, '0')
+  return `${year}-${month}-${day}`
 }
 
 /**
@@ -30,6 +43,21 @@ export function saveStudySession(session) {
     window.dispatchEvent(new Event(SESSIONS_CHANGED_EVENT))
   } catch {
     // Local storage unavailable or full; fail silently, no cloud fallback.
+  }
+  return updated
+}
+
+/** Updates a saved session without changing its original start/end time or day. */
+export function updateStudySession(sessionId, changes) {
+  const sessions = getAllStudySessions()
+  const updated = sessions.map((session) => session.id === sessionId
+    ? { ...session, ...changes, date: localDateKey(session.startTime ?? session.endTime) }
+    : session)
+  try {
+    localStorage.setItem(SESSIONS_STORAGE_KEY, JSON.stringify(updated))
+    window.dispatchEvent(new Event(SESSIONS_CHANGED_EVENT))
+  } catch {
+    // Keep the in-memory return value usable when local storage is unavailable.
   }
   return updated
 }

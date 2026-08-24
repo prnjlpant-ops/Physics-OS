@@ -1,41 +1,45 @@
 import { useEffect } from 'react'
 import { Link, NavLink, Outlet, useParams } from 'react-router-dom'
-import { ArrowLeft } from 'lucide-react'
-import { getSubjectById } from '../../engine/blueprintService'
-import PageTitle from '../../components/PageTitle'
+import { ArrowLeft, BookOpen } from 'lucide-react'
 import WorkspaceService from '../../services/WorkspaceService'
+import { getSubjectById } from '../../engine/blueprintService'
 
 const TABS = [
   { label: 'Overview', to: '.' },
   { label: 'Chapters', to: 'chapters' },
-  { label: 'Resources', to: 'resources' },
-  { label: 'Knowledge Base', to: 'knowledge-base' },
   { label: 'Books', to: 'books' },
   { label: 'Videos', to: 'videos' },
-  { label: 'PYQs', to: 'pyqs' },
-  { label: 'Formula Sheet', to: 'formula-sheet' },
-  { label: 'Memory Sheet', to: 'memory-sheet' },
-  { label: 'Notes', to: 'notes' },
-  { label: 'Active Recall', to: 'active-recall' },
   { label: 'Progress', to: 'progress' },
+  { label: 'Resources', to: 'resources' },
+  { label: 'Knowledge Base', to: 'knowledge-base' },
+  { label: 'Active Recall', to: 'active-recall' },
 ]
 
 export default function SubjectLayout() {
   const { subjectId } = useParams()
   const subject = getSubjectById(subjectId)
 
-  // Sprint 28 — Desktop Readiness Layer: records "where the user is" so
-  // ContinueStudyingCard (and future consumers) can restore it after a
-  // refresh. Purely additive — nothing here changes what's rendered.
   useEffect(() => {
-    if (subject) WorkspaceService.setCurrentSubject(subject.id)
+    if (subject) {
+      WorkspaceService.setCurrentSubject(subject.id)
+    }
   }, [subject])
 
   if (!subject) {
-    return <PageTitle title="Subject Not Found" />
+    return (
+      <div className="flex flex-col gap-5 px-4 py-5 sm:px-6 lg:px-8">
+        <Link to="/subjects" className="inline-flex items-center gap-1.5 text-xs text-[#858585] transition-colors duration-150 hover:text-[#cccccc]">
+          <ArrowLeft size={14} strokeWidth={1.75} />
+          Subjects
+        </Link>
+        <div className="rounded-lg border border-[#3c3c3c] bg-[#252526] px-5 py-4 text-sm text-[#9d9d9d]">
+          Subject not found.
+        </div>
+      </div>
+    )
   }
 
-  const Icon = subject.icon
+  const Icon = subject.icon ?? BookOpen
 
   return (
     <div className="flex flex-col gap-5 px-4 py-5 sm:px-6 lg:px-8">
@@ -54,7 +58,7 @@ export default function SubjectLayout() {
           </span>
           <div>
             <h2 className="text-lg font-semibold text-[#e8e8e8]">{subject.name}</h2>
-            <p className="text-xs text-[#858585]">{subject.chapters.length} Chapters</p>
+            <p className="text-xs text-[#858585]">{subject.description ?? 'Blueprint-backed subject study flow.'}</p>
           </div>
         </div>
       </div>

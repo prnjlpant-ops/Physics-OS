@@ -12,6 +12,7 @@
  * its own progress model).
  */
 
+// TODO: Reconcile this Topic Index vocabulary with the richer Syllabus status model when the two features are unified.
 export const TOPIC_STATUS = {
   NOT_STARTED: 'Not Started',
   IN_PROGRESS: 'In Progress',

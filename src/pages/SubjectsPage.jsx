@@ -1,33 +1,23 @@
 import { useMemo } from 'react'
 import { Link } from 'react-router-dom'
-import { ChevronRight } from 'lucide-react'
+import { BookOpen, ChevronRight } from 'lucide-react'
 import { getSubjects } from '../engine/blueprintService'
-import { useSyllabusStatus } from '../hooks/useSyllabusStatus'
-import { getSyllabusProgress } from '../data/syllabusData'
+import roadmapTopics from '../data/roadmap.json' with { type: 'json' }
+import pyqIndexRaw from '../data/pyq/pyq_index.json'
 
-function chapterCompletion(subject, chapter, progressByChapter) {
-  const chapterId = `${subject.id}__${chapter.slug}`
-  return progressByChapter[chapterId] ?? 0
-}
-
-function subjectCompletion(subject, progressByChapter) {
-  const total = subject.chapters.reduce(
-    (sum, chapter) => sum + chapterCompletion(subject, chapter, progressByChapter),
-    0,
-  )
-  return subject.chapters.length === 0 ? 0 : Math.round(total / subject.chapters.length)
+function getHighestPriority(subjectId) {
+  const topicIds = pyqIndexRaw.topics.filter(t => t.subjectId === subjectId).map(t => t.id)
+  const roadmapItems = roadmapTopics.filter(r => topicIds.includes(r.id) && r.priority)
+  
+  if (roadmapItems.length === 0) return 'Medium'
+  
+  const priorities = roadmapItems.map(r => r.priority)
+  if (priorities.includes('High')) return 'High'
+  if (priorities.includes('Medium')) return 'Medium'
+  return 'Low'
 }
 
 export default function SubjectsPage() {
-  const { overrides } = useSyllabusStatus()
-  const progress = useMemo(() => {
-    const syllabusProgress = getSyllabusProgress(overrides)
-    return syllabusProgress.byChapter.reduce((acc, chapter) => {
-      acc[chapter.id] = chapter.completion
-      return acc
-    }, {})
-  }, [overrides])
-
   const subjects = useMemo(() => getSubjects(), [])
 
   return (
@@ -35,14 +25,13 @@ export default function SubjectsPage() {
       <div>
         <h2 className="text-lg font-semibold text-[#e8e8e8]">Subjects</h2>
         <p className="mt-1 text-sm text-[#858585]">
-          Organized by syllabus. Pick a subject to open its dashboard.
+          The subject experience is now driven by the Excel blueprint and the chapter structure beneath each subject.
         </p>
       </div>
 
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
+      <div className="grid grid-cols-1 gap-3 xl:grid-cols-2">
         {subjects.map((subject) => {
-          const Icon = subject.icon
-          const completion = subjectCompletion(subject, progress)
+          const Icon = subject.icon ?? BookOpen
 
           return (
             <Link
@@ -64,27 +53,13 @@ export default function SubjectsPage() {
               <div>
                 <h3 className="text-sm font-semibold text-[#e8e8e8]">{subject.name}</h3>
                 <p className="mt-1.5 text-xs leading-relaxed text-[#858585]">
-                  {subject.description}
+                  {subject.description ?? 'Blueprint-backed subject overview and chapter track.'}
                 </p>
-              </div>
-
-              <div className="mt-auto flex items-center gap-3">
-                <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-[#3c3c3c]">
-                  <div
-                    className="h-full rounded-full bg-[#0e639c]"
-                    style={{ width: `${completion}%` }}
-                  />
+                <div className="mt-3 flex items-center gap-2 text-[11px] uppercase tracking-wide text-[#4fc1ff]">
+                  <span>{subject.chapters?.length ?? 0} chapters</span>
+                  <span className="text-[#858585]">•</span>
+                  <span>{getHighestPriority(subject.id)} priority</span>
                 </div>
-                <span className="shrink-0 text-xs font-medium text-[#9d9d9d]">
-                  {completion}%
-                </span>
-              </div>
-
-              <div className="flex items-center justify-between border-t border-[#3c3c3c] pt-3 text-xs text-[#858585]">
-                <span>{subject.chapters.length} Chapters</span>
-                <span>
-                  {subject.chapters.filter((chapter) => chapterCompletion(subject, chapter, progress) === 100).length} Completed
-                </span>
               </div>
             </Link>
           )

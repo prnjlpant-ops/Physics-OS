@@ -24,6 +24,7 @@ export function createMission({
   chapter = null,
   topic = null,
   tasks = [],
+  meta = {},
   isAllCaughtUp = false,
   isEmpty = false,
 }) {
@@ -33,6 +34,7 @@ export function createMission({
     chapter,
     topic,
     tasks,
+    meta,
     totalEstimatedMinutes: totalEstimatedMinutes(tasks),
     completedTaskCount: completedTaskCount(tasks),
     isAllCaughtUp,

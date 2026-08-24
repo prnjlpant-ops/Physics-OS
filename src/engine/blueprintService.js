@@ -7,68 +7,76 @@ import { parseBlueprintMarkdown, parseBlueprintJSON, mergeResourceDetail } from 
  * BLUEPRINT SERVICE
  * =================
  * Sprint 17 — JEST Blueprint Import Engine.
+ * Updated for Curriculum Refinement: Excel workbook (JEST-JAM-video-links.xlsx)
+ * is now the authoritative source of truth, imported as jestBlueprint.json.
  *
  * The single place the rest of the app talks to for blueprint data.
  * Everything else (constants/subjects.js, syllabusData.js, resourcesData.js,
  * the Roadmap page) calls a getter here — never the parser or the raw
  * files directly.
  *
- * Source of truth: the Markdown blueprint drives the syllabus structure
- * (subjects, chapters, weightage, priority, roadmap, high-yield checklist),
- * since that is the document that gets updated over the course of
- * preparation. Book/video/solution-manual detail is merged in from the
- * companion JSON file, since that is the more reliable representation
- * of resource "records" (title/author/tier) for tabular data.
+ * Source of truth: the Excel workbook (JEST-JAM-video-links.xlsx) is now the
+ * authoritative source. It is read and converted to jestBlueprint.json via
+ * scripts/generateBlueprint.js. The blueprint JSON drives the complete syllabus
+ * structure (subjects, chapters, resources, roadmap).
  *
  * ARCHITECTURE NOTE (per PRD): to update the syllabus in a future sprint,
- * replace `JEST_2027_Master_Blueprint.md` and/or `jestBlueprint.json` in
- * `src/data/blueprint/` — nothing in `src/pages` or `src/components` needs
- * to change, because everything is read through the getters below.
+ * update `JEST-JAM-video-links.xlsx`, then run `node scripts/generateBlueprint.js`
+ * to regenerate `jestBlueprint.json` in `src/data/blueprint/`.
+ * Nothing in `src/pages` or `src/components` needs to change, because
+ * everything is read through the getters below.
  */
 
 let cachedBlueprint = null
 
 function loadBlueprint() {
-  const fromMarkdown = parseBlueprintMarkdown(blueprintMarkdown)
+  // Excel-derived JSON is now the authoritative source
   const fromJSON = parseBlueprintJSON(blueprintJSON)
+  
+  // Markdown is kept for backward compatibility and can provide enrichment
+  let fromMarkdown = null
+  try {
+    fromMarkdown = parseBlueprintMarkdown(blueprintMarkdown)
+  } catch (e) {
+    // If Markdown doesn't parse, that's OK — we have JSON from Excel
+    fromMarkdown = { subjects: [], roadmap: [], highYieldChecklist: [] }
+  }
 
   const resourcesBySubjectName = {}
   for (const subject of fromJSON.subjects) {
     resourcesBySubjectName[subject.name] = subject.resources
   }
 
-  // Prefer the Markdown-derived syllabus structure (source of truth), but
-  // backfill anything a subject is missing (weightage/deadline/etc.) from
-  // the JSON companion, and always take resource detail from JSON.
-  const jsonSubjectsByName = Object.fromEntries(fromJSON.subjects.map((s) => [s.name, s]))
+  // JSON from Excel is the primary source for syllabus structure
+  // Markdown is only used for enrichment if it's well-formed
+  const primarySubjects = fromJSON.subjects.length > 0 ? fromJSON.subjects : fromMarkdown.subjects
 
-  const mergedSubjects = fromMarkdown.subjects.length
-    ? fromMarkdown.subjects.map((subject) => {
-        const jsonMatch = jsonSubjectsByName[subject.name]
-        return {
-          ...subject,
-          weightageRange: subject.weightageRange || jsonMatch?.weightageRange || '',
-          deadline: subject.deadline || jsonMatch?.deadline || '',
-          primaryBook: subject.primaryBook || jsonMatch?.primaryBook || '',
-          primaryVideo: subject.primaryVideo || jsonMatch?.primaryVideo || '',
-          coreOverlapTopics: subject.coreOverlapTopics || jsonMatch?.coreOverlapTopics || '',
-          jestExclusiveTopics: subject.jestExclusiveTopics || jsonMatch?.jestExclusiveTopics || '',
-        }
-      })
-    : fromJSON.subjects
+  // Backfill enrichment from Markdown if available (weightage, priority, etc.)
+  const enrichedSubjects = primarySubjects.map((subject) => {
+    const markdownMatch = fromMarkdown.subjects?.find((s) => s.name === subject.name)
+    return {
+      ...subject,
+      weightageRange: subject.weightageRange || markdownMatch?.weightageRange || '',
+      priority: subject.priority || markdownMatch?.priority || 'Medium',
+      jamOverlap: subject.jamOverlap || markdownMatch?.jamOverlap || 'Medium',
+      deadline: subject.deadline || markdownMatch?.deadline || '',
+      primaryBook: subject.primaryBook || markdownMatch?.primaryBook || '',
+      primaryVideo: subject.primaryVideo || markdownMatch?.primaryVideo || '',
+      coreOverlapTopics: subject.coreOverlapTopics || markdownMatch?.coreOverlapTopics || '',
+      jestExclusiveTopics: subject.jestExclusiveTopics || markdownMatch?.jestExclusiveTopics || '',
+    }
+  })
 
   const withResources = mergeResourceDetail(
-    { ...fromMarkdown, subjects: mergedSubjects },
+    { ...fromJSON, subjects: enrichedSubjects },
     resourcesBySubjectName,
   )
 
   return {
     ...withResources,
-    examPattern: fromMarkdown.examPattern ?? fromJSON.examPattern,
-    roadmap: fromMarkdown.roadmap.length ? fromMarkdown.roadmap : fromJSON.roadmap,
-    highYieldChecklist: fromMarkdown.highYieldChecklist.length
-      ? fromMarkdown.highYieldChecklist
-      : fromJSON.highYieldChecklist,
+    examPattern: fromJSON.examPattern ?? fromMarkdown.examPattern,
+    roadmap: fromMarkdown.roadmap?.length > 0 ? fromMarkdown.roadmap : fromJSON.roadmap ?? [],
+    highYieldChecklist: fromMarkdown.highYieldChecklist?.length > 0 ? fromMarkdown.highYieldChecklist : fromJSON.highYieldChecklist ?? [],
   }
 }
 
@@ -103,46 +111,59 @@ export function getBlueprintRoadmap() {
 }
 
 const SUBJECT_METADATA = {
-  'mathematical-methods': {
+  'math-methods': {
     icon: BookOpen,
     description: 'Mathematical tools and techniques for physics problem solving.',
   },
-  'classical-mechanics': {
+  'mechanics': {
     icon: Zap,
     description: 'Motion, forces, and the laws governing physical systems.',
   },
-  electromagnetism: {
+  'special-relativity': {
+    icon: Zap,
+    description: 'Relativistic mechanics and the foundations of special relativity.',
+  },
+  'em-theory': {
     icon: Zap,
     description: 'Electricity, magnetism, and electromagnetic field theory.',
+  },
+  'waves-optics': {
+    icon: Eye,
+    description: 'Wave phenomena, diffraction, interference, and optics.',
   },
   'quantum-mechanics': {
     icon: Atom,
     description: 'Foundations of quantum theory and its physical applications.',
   },
-  thermodynamics: {
+  'thermo-statmech': {
     icon: Thermometer,
-    description: 'Heat, energy, and the laws of thermodynamic systems.',
+    description: 'Heat, energy, thermodynamics, and statistical mechanics.',
   },
-  'statistical-mechanics': {
-    icon: BarChart3,
-    description: 'Statistical principles that underlie thermodynamics and many-body physics.',
-  },
-  electronics: {
+  'electronics': {
     icon: Cpu,
     description: 'Circuit analysis, devices, and signal processing fundamentals.',
   },
-  'solid-state-physics': {
+  'atomic-molecular': {
+    icon: Atom,
+    description: 'Atomic, molecular, and physics of small systems.',
+  },
+  'condensed-matter': {
     icon: Layers,
     description: 'Crystal structures, semiconductors, and condensed matter phenomena.',
   },
-  'atomic-molecular-nuclear-particle-physics': {
+  'nuclear-particle': {
     icon: Atom,
-    description: 'Atomic, molecular, nuclear and particle physics concepts.',
+    description: 'Nuclear and particle physics concepts.',
   },
-  optics: {
-    icon: Eye,
-    description: 'Wave optics, ray optics, and the behavior of light.',
-  },
+}
+
+// Legacy mappings for backward compatibility
+const LEGACY_SUBJECT_MAPPINGS = {
+  'mathematical-methods': 'math-methods',
+  'classical-mechanics': 'mechanics',
+  'electromagnetism': 'em-theory',
+  'solid-state-physics': 'condensed-matter',
+  'atomic-molecular-nuclear-particle-physics': 'nuclear-particle',
 }
 
 const DEFAULT_SUBJECT_METADATA = {
@@ -279,5 +300,100 @@ export function getResources(subjectIdOrSlug, chapterSlug) {
     solutionManuals,
     referenceMaterial: [],
     externalLinks: [],
+  }
+}
+
+/**
+ * ENHANCED BLUEPRINT GETTERS
+ * =========================
+ * Access complete topic metadata from Excel including:
+ * - Study notes with book chapters, timing, and practice structure
+ * - Video links (Pravegaa, NPTEL) with source and link type
+ * - Roadmap phases and exam relevance (JAM, JEST, JAM+JEST)
+ * - All subsections and related resources per topic
+ */
+
+export function getEnhancedBlueprint() {
+  return blueprintEnhanced
+}
+
+export function getEnhancedSubject(subjectId) {
+  return blueprintEnhanced.subjects.find((s) => s.id === subjectId) ?? null
+}
+
+export function getEnhancedChapter(subjectId, chapterSlug) {
+  const subject = getEnhancedSubject(subjectId)
+  return subject?.chapters.find((c) => c.slug === chapterSlug) ?? null
+}
+
+export function getTopicMetadata(subjectId, chapterSlug, topicSlug) {
+  const chapter = getEnhancedChapter(subjectId, chapterSlug)
+  if (!chapter) return null
+  
+  const topic = chapter.topics.find((t) => t.slug === topicSlug)
+  if (!topic) return null
+
+  return {
+    name: topic.name,
+    chapter: topic.chapter,
+    exams: topic.exams, // ['JAM', 'JEST'] or ['JAM+JEST']
+    roadmapPhase: topic.roadmapPhase,
+    source: topic.source,
+    videoLink: topic.videoLink,
+    linkType: topic.linkType,
+    studyNotes: topic.studyNotes // Complete study plan with book chapters, timing, PYQ practice
+  }
+}
+
+export function getAllTopicsInSubject(subjectId) {
+  const subject = getEnhancedSubject(subjectId)
+  if (!subject) return []
+  
+  const topics = []
+  subject.chapters.forEach((chapter) => {
+    chapter.topics.forEach((topic) => {
+      topics.push({
+        ...topic,
+        subjectId,
+        chapterSlug: chapter.slug
+      })
+    })
+  })
+  return topics
+}
+
+export function getTopicsForExam(exam) {
+  // exam: 'JAM', 'JEST', or 'JAM+JEST'
+  const topics = []
+  blueprintEnhanced.subjects.forEach((subject) => {
+    subject.chapters.forEach((chapter) => {
+      chapter.topics.forEach((topic) => {
+        if (topic.exams.includes(exam) || topic.exams.includes('JAM+JEST')) {
+          topics.push({
+            ...topic,
+            subjectId: subject.id,
+            subjectName: subject.name,
+            chapterSlug: chapter.slug
+          })
+        }
+      })
+    })
+  })
+  return topics
+}
+
+export function getStudyNotesByTopic(subjectId, chapterSlug, topicSlug) {
+  const topic = getTopicMetadata(subjectId, chapterSlug, topicSlug)
+  return topic?.studyNotes ?? ''
+}
+
+export function getResourceLinksByTopic(subjectId, chapterSlug, topicSlug) {
+  const topic = getTopicMetadata(subjectId, chapterSlug, topicSlug)
+  if (!topic) return { videoLink: '', videoSource: '', linkType: '' }
+  
+  return {
+    videoLink: topic.videoLink,
+    videoSource: topic.source,
+    linkType: topic.linkType
   }
 }

@@ -1,10 +1,11 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import CalendarStatsBar from '../components/calendar/CalendarStatsBar'
 import ContributionHeatmap from '../components/calendar/ContributionHeatmap'
 import DayDetailPanel from '../components/calendar/DayDetailPanel'
 import CalendarFilters from '../components/calendar/CalendarFilters'
 import RecentSessions from '../components/calendar/RecentSessions'
-import { getAllStudySessions } from '../utils/studySessionsStorage'
+import SessionEditModal from '../components/calendar/SessionEditModal'
+import { getAllStudySessions, SESSIONS_CHANGED_EVENT } from '../utils/studySessionsStorage'
 import TaskService from '../services/TaskService'
 import { TASK_STATUS } from '../constants/dailyStudyConstants'
 import {
@@ -32,7 +33,7 @@ function groupCompletedTasksByDate(tasks) {
 }
 
 export default function CalendarPage() {
-  const allSessions = useMemo(() => getAllStudySessions(), [])
+  const [allSessions, setAllSessions] = useState(() => getAllStudySessions())
   const sessionsByDate = useMemo(() => groupSessionsByDate(allSessions), [allSessions])
   const allTasks = useMemo(() => TaskService.getAllTasks(), [])
   const tasksByDate = useMemo(() => groupCompletedTasksByDate(allTasks), [allTasks])
@@ -41,6 +42,13 @@ export default function CalendarPage() {
   const [filter, setFilter] = useState('all')
   const [customRange, setCustomRange] = useState({ from: '', to: '' })
   const [search, setSearch] = useState('')
+  const [editingSession, setEditingSession] = useState(null)
+
+  useEffect(() => {
+    const refresh = () => setAllSessions(getAllStudySessions())
+    window.addEventListener(SESSIONS_CHANGED_EVENT, refresh)
+    return () => window.removeEventListener(SESSIONS_CHANGED_EVENT, refresh)
+  }, [])
 
   const todayMs = useMemo(() => getTodayTotalMs(sessionsByDate), [sessionsByDate])
   const weekMs = useMemo(() => getWeekTotalMs(allSessions), [allSessions])
@@ -90,13 +98,19 @@ export default function CalendarPage() {
         onSearchChange={setSearch}
       />
 
-      <RecentSessions sessions={filteredSessions} />
+      <RecentSessions sessions={filteredSessions} onEditSession={setEditingSession} />
 
       <DayDetailPanel
         day={selectedDay}
         sessions={selectedDaySessions}
         tasks={selectedDayTasks}
         onClose={() => setSelectedDay(null)}
+        onEditSession={setEditingSession}
+      />
+      <SessionEditModal
+        session={editingSession}
+        onClose={() => setEditingSession(null)}
+        onSaved={setAllSessions}
       />
     </div>
   )

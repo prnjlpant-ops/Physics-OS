@@ -8,16 +8,18 @@
       "subject": "Mathematical Physics",
       "edition": "3rd",
       "priority": "Essential",
-      "path": "Mathematical Physics/Books/Mathematical Methods in the Physical Sciences - Mary L. Boas.pdf"
+      "path": "Mathematical Physics/Books/Mathematical Methods in the Physical Sciences - Mary L. Boas.pdf",
+      "pages": null
     },
     {
       "id": "vector_analysis",
       "title": "Vector Analysis",
       "author": "Murray R. Spiegel",
-      "subject": "Mathematical Physics",
+      "subject": "Supplementary",
       "edition": "2nd",
       "priority": "High",
-      "path": "Mathematical Physics/Books/Vector Analysis.pdf"
+      "path": "Mathematical Physics/Books/vector-analysis-2ndnbsped-978-0071615457_compress.pdf",
+      "pages": null
     },
     {
       "id": "kleppner",
@@ -25,7 +27,8 @@
       "author": "Kleppner & Kolenkow",
       "subject": "Classical Mechanics",
       "priority": "Essential",
-      "path": "Classical Mechanics/Books/An Introduction to Mechanics.pdf"
+      "path": "Classical Mechanics/Books/An Introduction to Mechanics.pdf",
+      "pages": null
     },
     {
       "id": "goldstein",
@@ -33,15 +36,17 @@
       "author": "Herbert Goldstein",
       "subject": "Classical Mechanics",
       "priority": "Reference",
-      "path": "Classical Mechanics/Books/Classical Mechanics - Goldstein.pdf"
+      "path": "Classical Mechanics/Books/Classical_Mechanics_Herbert_Goldstein_Ch.pdf",
+      "pages": null
     },
     {
       "id": "ap_french",
       "title": "Vibrations and Waves",
       "author": "A. P. French",
-      "subject": "Oscillations & Waves",
+      "subject": "Supplementary",
       "priority": "Essential",
-      "path": "Oscillations & Waves/Books/A.P. French - Vibrations and Waves.pdf"
+      "path": "Oscillations & Waves/Books/AP_French_Vibrations_and_Waves.pdf",
+      "pages": null
     },
     {
       "id": "griffiths_em",
@@ -49,7 +54,8 @@
       "author": "David J. Griffiths",
       "subject": "Electrodynamics",
       "priority": "Essential",
-      "path": "Electrodynamics/Books/Introduction to Electrodynamics.pdf"
+      "path": "Electrodynamics/Books/Introduction to Electrodynamics.pdf",
+      "pages": null
     },
     {
       "id": "purcell",
@@ -57,7 +63,8 @@
       "author": "Edward M. Purcell",
       "subject": "Electrodynamics",
       "priority": "High",
-      "path": "Electrodynamics/Books/Electricity and Magnetism.pdf"
+      "path": "Electrodynamics/Books/Electricity and Magnetism.pdf",
+      "pages": null
     },
     {
       "id": "griffiths_qm",
@@ -65,7 +72,8 @@
       "author": "David J. Griffiths",
       "subject": "Quantum Mechanics",
       "priority": "Essential",
-      "path": "Quantum Mechanics/Books/Introduction to Quantum Mechanics.pdf"
+      "path": "Quantum Mechanics/Books/Introduction-to-Quantum-Mechanics-2nd-Edition-David-J-Griffiths.pdf",
+      "pages": null
     },
     {
       "id": "zettili",
@@ -73,23 +81,26 @@
       "author": "Nouredine Zettili",
       "subject": "Quantum Mechanics",
       "priority": "High",
-      "path": "Quantum Mechanics/Books/Quantum Mechanics Concepts and Applications.pdf"
+      "path": "Quantum Mechanics/Books/Zettili.pdf",
+      "pages": null
     },
     {
       "id": "mcquarrie",
       "title": "Quantum Chemistry",
       "author": "Donald A. McQuarrie",
-      "subject": "Quantum Mechanics",
+      "subject": "Supplementary",
       "priority": "Reference",
-      "path": "Quantum Mechanics/Books/Quantum Chemistry.pdf"
+      "path": "Quantum Mechanics/Books/Quantum Chemistry 2e By McQuarrie.pdf",
+      "pages": null
     },
     {
       "id": "zare",
       "title": "Angular Momentum",
       "author": "Richard N. Zare",
-      "subject": "Quantum Mechanics",
+      "subject": "Supplementary",
       "priority": "Reference",
-      "path": "Quantum Mechanics/Books/Angular Momentum.pdf"
+      "path": "Quantum Mechanics/Books/Zare Angular Momentum Understanding Spatial Aspects in Chemistry and Physics.pdf",
+      "pages": null
     },
     {
       "id": "reif",
@@ -97,7 +108,8 @@
       "author": "F. Reif",
       "subject": "Thermodynamics",
       "priority": "Essential",
-      "path": "Thermodynamics/Books/Fundamentals of Statistical and Thermal Physics.pdf"
+      "path": "Thermodynamics/Books/Fundamentals_of_Statistical_And_Thermal_Physics-F_Reif.pdf",
+      "pages": null
     },
     {
       "id": "pathria",
@@ -105,7 +117,8 @@
       "author": "Pathria & Beale",
       "subject": "Statistical Mechanics",
       "priority": "Essential",
-      "path": "Statistical Mechanics/Books/Statistical Mechanics.pdf"
+      "path": "Statistical Mechanics/Books/PathriaBeale.pdf",
+      "pages": null
     },
     {
       "id": "hecht",
@@ -113,7 +126,8 @@
       "author": "Eugene Hecht",
       "subject": "Optics",
       "priority": "Essential",
-      "path": "Optics/Books/Optics - Hecht.pdf"
+      "path": "Optics/Books/Optics — Eugene Hecht.pdf",
+      "pages": null
     },
     {
       "id": "kittel",
@@ -121,23 +135,97 @@
       "author": "Charles Kittel",
       "subject": "Solid State Physics",
       "priority": "Essential",
-      "path": "Solid State Physics/Books/Introduction to Solid State Physics.pdf"
+      "path": "Solid State Physics/Books/Introduction-to-Solid-State-PhysicsCharles-Kittel.pdf",
+      "pages": null
     },
     {
       "id": "sedra_smith",
       "title": "Microelectronic Circuits",
       "author": "Sedra & Smith",
-      "subject": "Electronics",
+      "subject": "Supplementary",
       "priority": "Essential",
-      "path": "Electronics/Books/Microelectronic Circuits.pdf"
+      "path": "Electronics/Books/Microelectronic Circuits by Sedra and Smith.pdf",
+      "pages": null
     },
     {
       "id": "horowitz",
       "title": "The Art of Electronics Student Manual",
       "author": "Horowitz & Hayes",
-      "subject": "Electronics",
+      "subject": "Supplementary",
       "priority": "Reference",
-      "path": "Electronics/Books/The Art of Electronics Student Manual.pdf"
+      "path": "Electronics/Books/Thomas-C.-Hayes-Paul-Horowitz-The-Art-of-Electronics-Student-Manual-Cambridge-University-Press-1989.pdf",
+      "pages": null
+    },
+    {
+      "id": "garg_bansal_ghosh_thermal_physics",
+      "title": "Thermal Physics",
+      "author": "Garg, Bansal, Ghosh",
+      "subject": "Thermodynamics",
+      "priority": "Essential",
+      "path": "Thermodynamics/Books/Thermal Physics - Garg, Bansal, Ghosh.pdf",
+      "pages": null
+    },
+    {
+      "id": "beiser_concepts_of_modern_physics",
+      "title": "Concepts of Modern Physics",
+      "author": "Arthur Beiser",
+      "subject": "Experimental Physics",
+      "priority": "Essential",
+      "path": "Modern Physics/Books/Concepts of Modern Physics - Arthur Beiser.pdf",
+      "pages": null
+    },
+    {
+      "id": "millman_halkias",
+      "title": "Integrated Electronics",
+      "author": "Millman & Halkias",
+      "subject": "Electronics",
+      "priority": "Essential",
+      "path": "Electronics/Books/Integrated Electronics - Millman & Halkias.pdf",
+      "pages": null
+    },
+    {
+      "id": "arfken_weber",
+      "title": "Mathematical Methods for Physicists",
+      "author": "George B. Arfken, Hans J. Weber & Frank E. Harris",
+      "subject": "Mathematical Physics",
+      "edition": "7th",
+      "priority": "High",
+      "available": false,
+      "path": "Mathematical Physics/Books/Methods for Physicists - Arfken Weber Harris.pdf",
+      "pages": null
+    },
+    {
+      "id": "sakurai_modern_qm",
+      "title": "Modern Quantum Mechanics",
+      "author": "J. J. Sakurai & Jim Napolitano",
+      "subject": "Quantum Mechanics",
+      "edition": "2nd",
+      "priority": "Reference",
+      "available": false,
+      "path": "Quantum Mechanics/Books/Modern Quantum Mechanics - Sakurai.pdf",
+      "pages": null
+    },
+    {
+      "id": "morris_mano_digital_logic",
+      "title": "Digital Design",
+      "author": "M. Morris Mano & Michael D. Ciletti",
+      "subject": "Electronics",
+      "edition": "5th",
+      "priority": "High",
+      "available": false,
+      "path": "Electronics/Books/Digital Design - Morris Mano.pdf",
+      "pages": null
+    },
+    {
+      "id": "kittel_kroemer_thermal_physics",
+      "title": "Thermal Physics",
+      "author": "Charles Kittel & Herbert Kroemer",
+      "subject": "Thermodynamics",
+      "edition": "2nd",
+      "priority": "Reference",
+      "available": false,
+      "path": "Thermodynamics/Books/Thermal Physics - Kittel Kroemer.pdf",
+      "pages": null
     }
   ]
 }

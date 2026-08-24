@@ -7,6 +7,7 @@ import TopicBreadcrumb from '../../components/topics/TopicBreadcrumb'
 import TopicProgressControl from '../../components/topics/TopicProgressControl'
 import StudyMappingSection from '../../components/topics/StudyMappingSection'
 import PyqMappingSection from '../../components/topics/PyqMappingSection'
+import TopicQuestionBankSection from '../../components/topics/TopicQuestionBankSection'
 import { hasAnyResolvedResources } from '../../engine/topics/studyMappingService'
 
 /**
@@ -91,6 +92,8 @@ export default function TopicDetailsPage() {
           <PyqMappingSection entry={studyMap.pyqs} />
         )}
       </div>
+
+      <TopicQuestionBankSection topic={{ ...topic, subjectName: breadcrumb.subjectName, chapterName: breadcrumb.chapterName }} />
     </div>
   )
 }

@@ -2,6 +2,7 @@ export const SYLLABUS_LEVELS = ['exam', 'subject', 'unit', 'chapter', 'topic', '
 
 export const TOPIC_STATUS = {
   NOT_STARTED: 'Not Started',
+  WATCHING: 'Watching',
   READING: 'Reading',
   PROBLEM_SOLVING: 'Problem Solving',
   REVISION: 'Revision',
@@ -10,6 +11,7 @@ export const TOPIC_STATUS = {
 
 export const TOPIC_STATUS_ORDER = [
   TOPIC_STATUS.NOT_STARTED,
+  TOPIC_STATUS.WATCHING,
   TOPIC_STATUS.READING,
   TOPIC_STATUS.PROBLEM_SOLVING,
   TOPIC_STATUS.REVISION,
@@ -18,6 +20,7 @@ export const TOPIC_STATUS_ORDER = [
 
 export const TOPIC_STATUS_STYLES = {
   [TOPIC_STATUS.NOT_STARTED]: 'border-[#3c3c3c] bg-[#3c3c3c]/40 text-[#858585]',
+  [TOPIC_STATUS.WATCHING]: 'border-[#b294bb]/30 bg-[#b294bb]/10 text-[#b294bb]',
   [TOPIC_STATUS.READING]: 'border-[#4fc1ff]/30 bg-[#4fc1ff]/10 text-[#4fc1ff]',
   [TOPIC_STATUS.PROBLEM_SOLVING]: 'border-[#e2c08d]/30 bg-[#e2c08d]/10 text-[#e2c08d]',
   [TOPIC_STATUS.REVISION]: 'border-[#c586c0]/30 bg-[#c586c0]/10 text-[#c586c0]',
@@ -27,6 +30,7 @@ export const TOPIC_STATUS_STYLES = {
 // Completion weight used only for the placeholder Progress feature.
 export const TOPIC_STATUS_WEIGHT = {
   [TOPIC_STATUS.NOT_STARTED]: 0,
+  [TOPIC_STATUS.WATCHING]: 0.1,
   [TOPIC_STATUS.READING]: 0.25,
   [TOPIC_STATUS.PROBLEM_SOLVING]: 0.5,
   [TOPIC_STATUS.REVISION]: 0.75,

@@ -11,6 +11,7 @@ import {
   generateSessionId,
   saveStudySession,
 } from '../utils/studySessionsStorage'
+import { toDateKey } from '../utils/calendarStats'
 
 const ACTIVE_TIMER_STORAGE_KEY = 'physicsOS.activeStudyTimer'
 
@@ -38,6 +39,7 @@ const idleState = {
   // `resourcesOpened`) and autosaved session notes.
   resourcesOpened: [],
   notes: '',
+  focusTargetMs: 50 * 60 * 1000,
   ...defaultSessionMeta,
 }
 
@@ -77,6 +79,11 @@ function reducer(state, action) {
 
     case 'SET_NOTES': {
       return { ...state, notes: action.notes }
+    }
+
+    case 'SET_FOCUS_TARGET': {
+      if (state.status !== 'idle') return state
+      return { ...state, focusTargetMs: action.focusTargetMs }
     }
 
     case 'START': {
@@ -206,6 +213,7 @@ export function StudyTimerProvider({ children }) {
     [],
   )
   const setNotes = useCallback((notes) => dispatch({ type: 'SET_NOTES', notes }), [])
+  const setFocusTarget = useCallback((focusTargetMs) => dispatch({ type: 'SET_FOCUS_TARGET', focusTargetMs }), [])
 
   const completeSession = useCallback(
     (reflection) => {
@@ -214,7 +222,7 @@ export function StudyTimerProvider({ children }) {
 
       saveStudySession({
         id: generateSessionId(),
-        date: new Date(state.startTime ?? Date.now()).toISOString().slice(0, 10),
+        date: toDateKey(state.startTime ?? Date.now()),
         startTime: state.startTime,
         endTime: state.endTime ?? Date.now(),
         duration: totalStudyTime,
@@ -224,6 +232,7 @@ export function StudyTimerProvider({ children }) {
         chapter: state.chapter,
         task: state.task,
         topic: state.topicId,
+        topicId: state.topicId,
         resourcesOpened: state.resourcesOpened,
         tasksCompleted: reflection.tasksCompleted ?? [],
         notes: state.notes,
@@ -260,6 +269,7 @@ export function StudyTimerProvider({ children }) {
       startTime: state.startTime,
       elapsedMs,
       breakMs: state.status === 'ending' ? state.finalBreakMs ?? state.breakMs : state.breakMs,
+      focusTargetMs: state.focusTargetMs,
       isSessionActive: state.status === 'running' || state.status === 'paused',
       isEndModalOpen: state.status === 'ending',
       start,
@@ -272,6 +282,7 @@ export function StudyTimerProvider({ children }) {
       setTopic,
       logResourceOpened,
       setNotes,
+      setFocusTarget,
     }),
     [
       state.status,
@@ -284,6 +295,7 @@ export function StudyTimerProvider({ children }) {
       state.startTime,
       state.breakMs,
       state.finalBreakMs,
+      state.focusTargetMs,
       elapsedMs,
       start,
       pause,
@@ -295,6 +307,7 @@ export function StudyTimerProvider({ children }) {
       setTopic,
       logResourceOpened,
       setNotes,
+      setFocusTarget,
     ],
   )
 

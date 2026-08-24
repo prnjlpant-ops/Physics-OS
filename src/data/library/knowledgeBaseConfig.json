@@ -172,6 +172,22 @@
         "Assets",
         "PYQs"
       ]
+    },
+    {
+      "id": "supplementary",
+      "name": "Supplementary",
+      "folder": "Supplementary",
+      "categories": [
+        "Books",
+        "Solution Manuals",
+        "Formula Sheets",
+        "Memory Sheets",
+        "Notes",
+        "Videos",
+        "Research Papers",
+        "Assets",
+        "PYQs"
+      ]
     }
   ]
 }

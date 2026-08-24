@@ -1,4 +1,4 @@
-import rawPyqs from '../../data/pyq/pyqs.json'
+import rawPyqs from '../../data/pyq/imported/pyqs.json'
 import rawPyqIndex from '../../data/pyq/pyq_index.json'
 import { parsePapersJson } from './paperService'
 import { createPyqLibraryIndex } from './pyqModel'
