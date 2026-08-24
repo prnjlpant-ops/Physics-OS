@@ -1,4 +1,5 @@
-import rawKnowledgeBaseConfig from '../../data/library/knowledgeBaseConfig.json'
+import rawKnowledgeBaseConfig from '../../data/knowledgeBase/knowledge_base.json'
+import fallbackKnowledgeBaseConfig from '../../data/library/knowledgeBaseConfig.json'
 import rawBooks from '../../data/library/books.json'
 import { parseKnowledgeBaseConfig } from './knowledgeBaseService'
 import { parseBooksJson } from './booksService'
@@ -17,7 +18,8 @@ import { buildMasterIndex } from './masterIndexService'
  * sprint that adds JSON import/export (mirroring the existing Master Index
  * Settings page) only has to change this one file's data source.
  */
-const { config, warnings: configWarnings } = parseKnowledgeBaseConfig(rawKnowledgeBaseConfig)
+const sourceConfig = rawKnowledgeBaseConfig.subjects?.length ? rawKnowledgeBaseConfig : fallbackKnowledgeBaseConfig
+const { config, warnings: configWarnings } = parseKnowledgeBaseConfig(sourceConfig)
 const { books, warnings: bookWarnings } = parseBooksJson(rawBooks, config)
 
 export const libraryMasterIndex = buildMasterIndex({ config, books })

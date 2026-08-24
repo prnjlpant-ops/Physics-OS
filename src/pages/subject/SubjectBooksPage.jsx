@@ -1,15 +1,15 @@
+import { useMemo } from 'react'
 import { useOutletContext } from 'react-router-dom'
-import { Library } from 'lucide-react'
-import EmptyState from './EmptyState'
+import { getSubjectResources } from '../../data/resourcesData'
+import { useFavorites } from '../../hooks/useFavorites'
+import ResourceGrid from '../../components/resources/ResourceGrid'
 
 export default function SubjectBooksPage() {
   const { subject } = useOutletContext()
-
-  return (
-    <EmptyState
-      icon={Library}
-      title="No books added yet"
-      description={`Books for ${subject.name} will appear here.`}
-    />
-  )
+  const { favoriteIds, toggleFavorite } = useFavorites()
+  const books = useMemo(() => {
+    const seen = new Set()
+    return getSubjectResources(subject).filter((item) => item.type === 'books' && !seen.has(item.title) && seen.add(item.title))
+  }, [subject])
+  return <ResourceGrid resources={books} favoriteIds={favoriteIds} onToggleFavorite={toggleFavorite} emptyLabel={`No books mapped to ${subject.name} yet`} />
 }

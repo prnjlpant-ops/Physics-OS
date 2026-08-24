@@ -1,0 +1,25 @@
+{
+  "version": "1.0.0",
+  "knowledgeBase": "./knowledgeBase/knowledge_base.json",
+  "books": "./library/books.json",
+  "syllabi": [
+    {
+      "id": "jest-physics",
+      "name": "JEST Physics syllabus",
+      "description": "Official JEST Physics syllabus and preparation material.",
+      "url": "https://www.jest.org.in/faq"
+    },
+    {
+      "id": "iit-jam-physics",
+      "name": "IIT JAM Physics syllabus",
+      "description": "Official IIT JAM Physics (PH) syllabus PDF.",
+      "url": "https://jam2026.iitb.ac.in/files/syllabus_PH.pdf"
+    },
+    {
+      "id": "gate-physics",
+      "name": "GATE Physics syllabus",
+      "description": "Official GATE Physics (PH) syllabus PDF.",
+      "url": "https://gate2026.iitg.ac.in/doc/GATE2026_Syllabus/PH_2026_Syllabus.pdf"
+    }
+  ]
+}

@@ -32,6 +32,7 @@ const CHANNELS = Object.freeze({
   WINDOW_TOGGLE_FULLSCREEN: 'physicsOS:window:toggleFullscreen',
   WINDOW_IS_FULLSCREEN: 'physicsOS:window:isFullscreen',
   WINDOW_OPEN_EXTERNAL: 'physicsOS:window:openExternal',
+  WINDOW_OPEN_EXTERNAL_WITH_BROWSER: 'physicsOS:window:openExternalWithBrowser',
   WINDOW_OPEN_DEV_TOOLS: 'physicsOS:window:openDevTools',
 
   // Clipboard

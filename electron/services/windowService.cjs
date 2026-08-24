@@ -14,6 +14,7 @@
  */
 
 const { shell } = require('electron')
+const { spawn } = require('child_process')
 const { isDev } = require('../utilities/isDev.cjs')
 
 function minimize(win) {
@@ -70,6 +71,21 @@ async function openExternal(url) {
   return true
 }
 
+/** Windows only: use the installed Vivaldi executable when requested, otherwise use the OS default. */
+async function openExternalWithBrowser(url, browser = 'system') {
+  if (browser !== 'vivaldi' || process.platform !== 'win32') return openExternal(url)
+  if (!/^https?:\/\//i.test(url)) throw new Error('Only http(s) links can be opened externally.')
+  const candidates = [
+    `${process.env.LOCALAPPDATA}\\Vivaldi\\Application\\vivaldi.exe`,
+    `${process.env.PROGRAMFILES}\\Vivaldi\\Application\\vivaldi.exe`,
+    `${process.env['PROGRAMFILES(X86)']}\\Vivaldi\\Application\\vivaldi.exe`,
+  ].filter((path) => !path.startsWith('undefined'))
+  const executable = candidates.find((path) => require('fs').existsSync(path))
+  if (!executable) return openExternal(url)
+  spawn(executable, [url], { detached: true, stdio: 'ignore' }).unref()
+  return true
+}
+
 /** Development-only, regardless of what the renderer asks — matches main.cjs's own dev-only auto-open behavior. */
 function openDevTools(win) {
   if (!isDev()) return false
@@ -88,5 +104,6 @@ module.exports = {
   toggleFullscreen,
   isFullscreen,
   openExternal,
+  openExternalWithBrowser,
   openDevTools,
 }

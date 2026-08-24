@@ -3,10 +3,6 @@ import { Library, Video, FileText, BookMarked, FileStack, Link2 } from 'lucide-r
 export const RESOURCE_TYPE_ORDER = [
   'books',
   'videos',
-  'pdfs',
-  'solutionManuals',
-  'referenceMaterial',
-  'externalLinks',
 ]
 
 export const RESOURCE_TYPE_META = {

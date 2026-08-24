@@ -1,4 +1,5 @@
 import EnvironmentService from './EnvironmentService'
+import SettingsService from './SettingsService'
 
 /**
  * WINDOW SERVICE
@@ -18,7 +19,9 @@ function openExternal(url) {
   if (!url) return false
 
   if (EnvironmentService.isElectron()) {
-    window.physicsOSDesktop.window.openExternal(url).catch(() => {
+    const browser = SettingsService.getSetting('preferredBrowser')
+    const opener = window.physicsOSDesktop.window.openExternalWithBrowser ?? window.physicsOSDesktop.window.openExternal
+    opener(url, browser).catch(() => {
       // Falls back to the browser-style new tab below rather than losing the click entirely.
       if (typeof window !== 'undefined') window.open(url, '_blank', 'noopener,noreferrer')
     })

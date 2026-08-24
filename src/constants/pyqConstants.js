@@ -22,7 +22,7 @@ export const PYQ_STATUS_STYLES = {
   [PYQ_STATUS.SOLVED]: 'border-[#89d185]/30 bg-[#89d185]/10 text-[#89d185]',
 }
 
-export const MARKS_OPTIONS = [1, 2, 4, 5]
+export const MARKS_OPTIONS = [1, 2, 3, 4]
 
 export const PYQ_TABS = [
   { key: 'question', label: 'Question' },

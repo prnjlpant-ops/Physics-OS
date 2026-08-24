@@ -5,6 +5,11 @@ import EnvironmentService from './EnvironmentService'
 import RecentFilesService from './RecentFilesService'
 import { LAUNCHABLE_RESOURCE_TYPES } from '../constants/desktopConstants'
 
+// Re-exported so consumers (e.g. ResourceCard.jsx) can import it directly
+// from this service instead of reaching into constants/desktopConstants —
+// same single source of truth, just also available as a named export here.
+export { LAUNCHABLE_RESOURCE_TYPES }
+
 /**
  * RESOURCE LAUNCHER SERVICE
  * =========================

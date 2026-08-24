@@ -60,6 +60,7 @@ function registerIpcHandlers(getMainWindow) {
   safeHandle(CHANNELS.WINDOW_TOGGLE_FULLSCREEN, () => windowService.toggleFullscreen(getMainWindow()))
   safeHandle(CHANNELS.WINDOW_IS_FULLSCREEN, () => windowService.isFullscreen(getMainWindow()))
   safeHandle(CHANNELS.WINDOW_OPEN_EXTERNAL, (_event, url) => windowService.openExternal(url))
+  safeHandle(CHANNELS.WINDOW_OPEN_EXTERNAL_WITH_BROWSER, (_event, url, browser) => windowService.openExternalWithBrowser(url, browser))
   safeHandle(CHANNELS.WINDOW_OPEN_DEV_TOOLS, () => windowService.openDevTools(getMainWindow()))
 
   safeHandle(CHANNELS.CLIPBOARD_READ_TEXT, () => clipboardService.readText())

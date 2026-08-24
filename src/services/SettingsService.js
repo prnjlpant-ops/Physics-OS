@@ -42,6 +42,7 @@ export const DEFAULT_SETTINGS = {
   maxRecentItems: 10,
   restoreLastWorkspace: true,
   openResourcesInNewTab: true,
+  preferredBrowser: 'system',
 }
 
 function readAll() {

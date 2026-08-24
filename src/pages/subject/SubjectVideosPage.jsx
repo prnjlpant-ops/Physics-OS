@@ -1,15 +1,12 @@
+import { useMemo } from 'react'
 import { useOutletContext } from 'react-router-dom'
-import { Video } from 'lucide-react'
-import EmptyState from './EmptyState'
+import { getSubjectResources } from '../../data/resourcesData'
+import { useFavorites } from '../../hooks/useFavorites'
+import ResourceGrid from '../../components/resources/ResourceGrid'
 
 export default function SubjectVideosPage() {
   const { subject } = useOutletContext()
-
-  return (
-    <EmptyState
-      icon={Video}
-      title="No videos added yet"
-      description={`Video lectures for ${subject.name} will appear here.`}
-    />
-  )
+  const { favoriteIds, toggleFavorite } = useFavorites()
+  const videos = useMemo(() => getSubjectResources(subject).filter((item) => item.type === 'videos'), [subject])
+  return <ResourceGrid resources={videos} favoriteIds={favoriteIds} onToggleFavorite={toggleFavorite} showChapter emptyLabel={`No videos mapped to ${subject.name} yet`} />
 }

@@ -61,6 +61,7 @@ contextBridge.exposeInMainWorld('physicsOSDesktop', {
     toggleFullscreen: () => invoke(CHANNELS.WINDOW_TOGGLE_FULLSCREEN),
     isFullscreen: () => invoke(CHANNELS.WINDOW_IS_FULLSCREEN),
     openExternal: (url) => invoke(CHANNELS.WINDOW_OPEN_EXTERNAL, url),
+    openExternalWithBrowser: (url, browser) => invoke(CHANNELS.WINDOW_OPEN_EXTERNAL_WITH_BROWSER, url, browser),
     openDevTools: () => invoke(CHANNELS.WINDOW_OPEN_DEV_TOOLS),
   },
 

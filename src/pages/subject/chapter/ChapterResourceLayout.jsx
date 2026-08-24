@@ -1,10 +1,12 @@
 import { useEffect } from 'react'
 import { Link, NavLink, Outlet, useParams } from 'react-router-dom'
 import { ArrowLeft } from 'lucide-react'
-import { getChapter, getResources } from '../../../engine/blueprintService'
+import { getChapter } from '../../../engine/blueprintService'
+import { getChapterResources } from '../../../data/resourcesData'
 import { RESOURCE_TYPE_ORDER, RESOURCE_TYPE_META } from '../../../constants/resourceTypes'
 import PageTitle from '../../../components/PageTitle'
 import WorkspaceService from '../../../services/WorkspaceService'
+import useChapterCompletion from '../../../hooks/useChapterCompletion'
 
 const TAB_PATHS = {
   books: 'books',
@@ -34,7 +36,8 @@ export default function ChapterResourceLayout() {
   }
 
   const { subject, chapter } = found
-  const resources = getResources(subject.id, chapter.slug)
+  const resources = getChapterResources(subject, chapter)
+  const { completed, toggle } = useChapterCompletion(`${subject.id}__${chapter.slug}`)
 
   return (
     <div className="flex flex-col gap-5 px-4 py-5 sm:px-6 lg:px-8">
@@ -48,7 +51,7 @@ export default function ChapterResourceLayout() {
         </Link>
 
         <h2 className="mt-3 text-lg font-semibold text-[#e8e8e8]">{chapter.name}</h2>
-        <p className="mt-0.5 text-xs text-[#858585]">Resources for this chapter</p>
+        <div className="mt-1 flex items-center gap-3"><p className="text-xs text-[#858585]">One primary book and video are shown first; expand cards for the full study plan.</p><label className="flex shrink-0 items-center gap-1.5 text-xs text-[#9d9d9d]"><input type="checkbox" checked={completed} onChange={toggle} className="accent-[#0e639c]" />Chapter complete</label></div>
       </div>
 
       <nav className="-mx-1 flex gap-1 overflow-x-auto border-b border-[#3c3c3c] px-1 pb-px">

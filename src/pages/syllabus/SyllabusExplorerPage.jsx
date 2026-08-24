@@ -13,6 +13,7 @@ import SyllabusFilterBar from '../../components/syllabus/SyllabusFilterBar'
 import SyllabusProgressPanel from '../../components/syllabus/SyllabusProgressPanel'
 import SyllabusExplorer from '../../components/syllabus/SyllabusExplorer'
 import TopicDashboard from '../../components/syllabus/TopicDashboard'
+import OfficialSyllabi from '../../components/syllabus/OfficialSyllabi'
 
 function collectContainerIds(nodes, acc = new Set()) {
   nodes.forEach((node) => {
@@ -84,6 +85,7 @@ export default function SyllabusExplorerPage() {
   return (
     <div className="flex flex-col gap-4">
       <SyllabusProgressPanel progress={progress} />
+      <OfficialSyllabi />
 
       <div className="flex flex-col gap-3">
         <SyllabusSearchBar value={search} onChange={setSearch} />

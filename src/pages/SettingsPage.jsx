@@ -361,6 +361,13 @@ export default function SettingsPage() {
               className="w-full cursor-not-allowed rounded-md border border-[#3c3c3c] bg-[#2d2d2d] px-2.5 py-1.5 text-sm text-[#6e6e6e] outline-none placeholder:text-[#5a5a5a]"
             />
           </label>
+          <label className="flex flex-col gap-1.5">
+            <span className="text-[11px] text-[#9d9d9d]">Preferred browser for links</span>
+            <select value={settings.preferredBrowser} onChange={(event) => updatePreference('preferredBrowser', event.target.value)} className="w-full rounded-md border border-[#3c3c3c] bg-[#2d2d2d] px-2.5 py-1.5 text-sm text-[#e8e8e8] outline-none focus:border-[#0e639c]">
+              <option value="system">System default browser</option>
+              <option value="vivaldi">Vivaldi (when installed)</option>
+            </select>
+          </label>
         </div>
 
         <div className="mt-3 flex flex-col gap-2 border-t border-[#3c3c3c] pt-3">
