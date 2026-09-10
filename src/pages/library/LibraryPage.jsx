@@ -8,6 +8,27 @@ import LibraryFilterBar from '../../components/library/LibraryFilterBar'
 import BookGrid from '../../components/library/BookGrid'
 import { LIBRARY_SORT_OPTIONS } from '../../constants/libraryConstants'
 
+function groupResourcesBySubjectAndChapter(resources) {
+  const groups = new Map()
+
+  resources.forEach((resource) => {
+    const subjectName = resource.subjectName || resource.subject || 'Unassigned'
+    const chapterName = resource.chapterName || 'General'
+    const key = `${subjectName}::${chapterName}`
+
+    if (!groups.has(key)) {
+      groups.set(key, { subjectName, chapterName, items: [] })
+    }
+
+    groups.get(key).items.push(resource)
+  })
+
+  return [...groups.values()].sort((left, right) => {
+    if (left.subjectName === right.subjectName) return left.chapterName.localeCompare(right.chapterName)
+    return left.subjectName.localeCompare(right.subjectName)
+  })
+}
+
 export default function LibraryPage() {
   const {
     subjects,
@@ -30,13 +51,16 @@ export default function LibraryPage() {
     [results, bookmarkIds],
   )
 
+  const groupedResults = useMemo(() => groupResourcesBySubjectAndChapter(results), [results])
+  const groupedBookmarks = useMemo(() => groupResourcesBySubjectAndChapter(bookmarkedResources), [bookmarkedResources])
+
   return (
     <div className="flex flex-col gap-6 px-4 py-5 sm:px-6 lg:px-8">
       <div className="flex items-start justify-between gap-3">
         <div>
           <h2 className="text-lg font-semibold text-[#e8e8e8]">Library</h2>
           <p className="mt-0.5 text-xs text-[#858585]">
-            The Knowledge Base &amp; Resource Engine — every book, sourced from your Master Index.
+            The Knowledge Base &amp; Resource Engine — every book, grouped by subject and chapter for faster chapter-wise study.
           </p>
         </div>
         <Link
@@ -106,9 +130,22 @@ export default function LibraryPage() {
       </div>
 
       {bookmarkedResources.length > 0 && (
-        <section className="flex flex-col gap-2.5">
+        <section className="flex flex-col gap-3">
           <h3 className="text-sm font-semibold text-[#e8e8e8]">Bookmarked</h3>
-          <BookGrid resources={bookmarkedResources} bookmarkIds={bookmarkIds} onToggleBookmark={toggleBookmark} />
+          <div className="flex flex-col gap-4">
+            {groupedBookmarks.map((group) => (
+              <div key={`bookmark-${group.subjectName}-${group.chapterName}`} className="rounded-lg border border-[#3c3c3c] bg-[#1f1f1f] p-3">
+                <div className="mb-3 flex items-center justify-between gap-3 border-b border-[#3c3c3c] pb-2">
+                  <div>
+                    <p className="text-[10px] uppercase tracking-wide text-[#858585]">{group.subjectName}</p>
+                    <h4 className="mt-1 text-sm font-semibold text-[#e8e8e8]">{group.chapterName}</h4>
+                  </div>
+                  <span className="rounded-full border border-[#3c3c3c] bg-[#2d2d2d] px-2 py-1 text-[10px] text-[#9d9d9d]">{group.items.length}</span>
+                </div>
+                <BookGrid resources={group.items} bookmarkIds={bookmarkIds} onToggleBookmark={toggleBookmark} />
+              </div>
+            ))}
+          </div>
         </section>
       )}
 
@@ -117,12 +154,24 @@ export default function LibraryPage() {
           <h3 className="text-sm font-semibold text-[#e8e8e8]">All Resources</h3>
           <span className="text-xs text-[#858585]">{results.length} results</span>
         </div>
-        <BookGrid
-          resources={results}
-          bookmarkIds={bookmarkIds}
-          onToggleBookmark={toggleBookmark}
-          emptyLabel="No resources match your search or filters"
-        />
+        {groupedResults.length === 0 ? (
+          <div className="rounded-lg border border-dashed border-[#3c3c3c] px-4 py-10 text-center text-xs text-[#6e6e6e]">No resources match your search or filters</div>
+        ) : (
+          <div className="flex flex-col gap-4">
+            {groupedResults.map((group) => (
+              <div key={`${group.subjectName}-${group.chapterName}`} className="rounded-lg border border-[#3c3c3c] bg-[#1f1f1f] p-3">
+                <div className="mb-3 flex items-center justify-between gap-3 border-b border-[#3c3c3c] pb-2">
+                  <div>
+                    <p className="text-[10px] uppercase tracking-wide text-[#858585]">{group.subjectName}</p>
+                    <h4 className="mt-1 text-sm font-semibold text-[#e8e8e8]">{group.chapterName}</h4>
+                  </div>
+                  <span className="rounded-full border border-[#3c3c3c] bg-[#2d2d2d] px-2 py-1 text-[10px] text-[#9d9d9d]">{group.items.length}</span>
+                </div>
+                <BookGrid resources={group.items} bookmarkIds={bookmarkIds} onToggleBookmark={toggleBookmark} emptyLabel="No resources in this chapter" />
+              </div>
+            ))}
+          </div>
+        )}
       </section>
     </div>
   )

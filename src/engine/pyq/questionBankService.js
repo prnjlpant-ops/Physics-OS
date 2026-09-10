@@ -9,15 +9,41 @@ function flatten(node, results = []) {
   return results
 }
 
-const questions = flatten(rawIndex).map((question) => {
+function createBundledImageQuestions() {
+  const jamQuestionCounts = { 2012: 25, 2013: 30, 2014: 43, 2015: 60, 2016: 60, 2017: 60 }
+  return Object.entries(jamQuestionCounts).flatMap(([year, count]) => Array.from({ length: count }, (_, index) => {
+    const questionNumber = index + 1
+    const paperId = `jam_ph_${year}`
+    const questionImage = `questions/jam/${year}/q${questionNumber}.png`
+    return {
+      id: `${paperId}_q${questionNumber}`,
+      paperId,
+      exam: 'IIT JAM',
+      year: Number(year),
+      questionNumber,
+      subject: 'Physics',
+      chapter: 'IIT JAM Physics',
+      topic: 'Previous Year Questions',
+      subtopic: `IIT JAM ${year} question ${questionNumber}`,
+      difficulty: 'Unrated',
+      questionType: 'Unknown',
+      conceptTags: ['IIT JAM', String(year)],
+      asset: { questionImage },
+      questionImageUrl: `./${questionImage}`,
+      ocrText: null,
+    }
+  }))
+}
+
+const questions = [...flatten(rawIndex).map((question) => {
   const asset = rawAssets[question.id]
   return {
     ...question,
     asset,
-    questionImageUrl: asset?.questionImage ? `/${asset.questionImage}` : null,
+    questionImageUrl: asset?.questionImage ? `./${asset.questionImage}` : null,
     ocrText: asset?.ocrText ?? null,
   }
-})
+}), ...createBundledImageQuestions()]
 
 export function getQuestionBank(filters = {}) {
   return questions.filter((question) => {
@@ -28,6 +54,20 @@ export function getQuestionBank(filters = {}) {
     const query = filters.query?.trim().toLowerCase()
     return !query || `${question.chapter} ${question.topic} ${question.subtopic} ${(question.conceptTags ?? []).join(' ')}`.toLowerCase().includes(query)
   })
+}
+
+/**
+ * Dynamic query helper that filters PYQ entries from pyq_assets / question bank
+ * where `roadmapChapterIds` includes `chapterSlug`.
+ *
+ * @param {string} chapterSlug - e.g. 'lagrangian-hamiltonian-mechanics' or 'vector-calculus-linear-algebra'
+ * @returns {Array} List of questions matching the roadmap chapter
+ */
+export function getPyqsByRoadmapChapter(chapterSlug) {
+  if (!chapterSlug) return []
+  return questions.filter((question) =>
+    question.asset?.roadmapChapterIds?.includes(chapterSlug),
+  )
 }
 
 export function getQuestionBankStats() {
@@ -73,4 +113,38 @@ export function getQuestionsForTopic(topic, limit = 12) {
     return (name && haystack.some((value) => value === name || value.includes(name) || name.includes(value)))
       || (subject && chapter && normalize(question.subject) === subject && normalize(question.chapter) === chapter)
   }).slice(0, limit)
+}
+
+/**
+ * Returns imported question-bank entries for an Excel-backed chapter.  A
+ * chapter can contain several workbook topics, so merge their matches and
+ * de-duplicate question ids before rendering a chapter or subject view.
+ */
+export function getQuestionsForChapter(subject, chapter, limit = 200) {
+  if (!subject || !chapter) return []
+  const topicInputs = chapter.topics?.length
+    ? chapter.topics.map((entry) => ({
+        name: entry.name,
+        metadata: {
+          subjectId: subject.id,
+          subjectName: subject.name,
+          chapterSlug: chapter.slug,
+          chapterName: chapter.name,
+        },
+      }))
+    : [{
+        name: chapter.name,
+        metadata: {
+          subjectId: subject.id,
+          subjectName: subject.name,
+          chapterSlug: chapter.slug,
+          chapterName: chapter.name,
+        },
+      }]
+
+  const unique = new Map()
+  topicInputs.forEach((topic) => {
+    getQuestionsForTopic(topic, limit).forEach((question) => unique.set(question.id, question))
+  })
+  return [...unique.values()].slice(0, limit)
 }

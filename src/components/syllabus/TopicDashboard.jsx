@@ -6,8 +6,10 @@ import TopicMetadataPanel from './TopicMetadataPanel'
 import LinkedModulesPanel from './LinkedModulesPanel'
 import TopicResourceSection from '../resources/TopicResourceSection'
 import { getTopicResources } from '../../engine/resourceMappingService'
+import { useStudySessions } from '../../hooks/useStudySessions'
 
 export default function TopicDashboard({ topic, status, onStatusChange }) {
+  const sessions = useStudySessions()
   if (!topic) {
     return (
       <div className="flex h-full flex-col items-center justify-center gap-2 rounded-lg border border-dashed border-[#3c3c3c] bg-[#252526] px-6 py-16 text-center">
@@ -22,6 +24,7 @@ export default function TopicDashboard({ topic, status, onStatusChange }) {
   const quizQuestions = getQuestionsForTopic(topic, 3)
   const roadmapChapterId = getRoadmapChapterIdForTopic(topic)
   const quizPath = roadmapChapterId ? `/pyqs/practice?chapter=${encodeURIComponent(roadmapChapterId)}` : '/pyqs/practice'
+  const topicSessions = sessions.filter((session) => session.topicId === topic.id)
 
   return (
     <div className="flex flex-col gap-5 rounded-lg border border-[#3c3c3c] bg-[#252526] p-4">
@@ -43,6 +46,8 @@ export default function TopicDashboard({ topic, status, onStatusChange }) {
         <p className="text-[10px] uppercase tracking-wide text-[#6e6e6e]">Topic Status</p>
         <TopicStatusSelect status={status} onChange={(next) => onStatusChange(topic.id, next)} />
       </div>
+
+      {topicSessions.length > 0 && <section className="rounded-md border border-[#3c3c3c] bg-[#1e1e1e] px-3 py-2"><p className="text-[10px] uppercase tracking-wide text-[#6e6e6e]">Saved study sessions</p><p className="mt-1 text-xs text-[#cccccc]">{topicSessions.length} session{topicSessions.length === 1 ? '' : 's'} linked to this topic.</p></section>}
 
       <div className="flex flex-col gap-2">
         <p className="text-[10px] uppercase tracking-wide text-[#6e6e6e]">Metadata</p>

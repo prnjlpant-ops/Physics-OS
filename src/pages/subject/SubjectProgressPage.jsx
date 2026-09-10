@@ -1,4 +1,7 @@
+import { useMemo } from 'react'
 import { useOutletContext } from 'react-router-dom'
+import { useSyllabusStatus } from '../../hooks/useSyllabusStatus'
+import { getSyllabusProgress } from '../../data/syllabusData'
 
 function average(values) {
   return Math.round(values.reduce((sum, value) => sum + value, 0) / values.length)
@@ -26,18 +29,19 @@ function ProgressBar({ label, value }) {
 
 export default function SubjectProgressPage() {
   const { subject } = useOutletContext()
-
-  const overall = average(subject.chapters.map((c) => c.progress))
-  const reading = average(subject.chapters.map((c) => statusToValue(c.reading, 'Done')))
-  const problems = average(subject.chapters.map((c) => statusToValue(c.problems, 'Done')))
-  const revision = average(subject.chapters.map((c) => statusToValue(c.revision, 'Done')))
+  const { overrides } = useSyllabusStatus()
+  const progress = useMemo(() => getSyllabusProgress(overrides), [overrides])
+  const chapters = progress.byChapter.filter((chapter) => chapter.subjectName === subject.name)
+  const overall = chapters.length ? average(chapters.map((chapter) => chapter.completion)) : 0
+  const completed = chapters.filter((chapter) => chapter.completion === 100).length
+  const inProgress = chapters.filter((chapter) => chapter.completion > 0 && chapter.completion < 100).length
 
   return (
     <section className="flex flex-col gap-6 rounded-lg border border-[#3c3c3c] bg-[#252526] px-5 py-5">
       <ProgressBar label="Overall Completion" value={overall} />
-      <ProgressBar label="Reading Progress" value={reading} />
-      <ProgressBar label="Problem Solving Progress" value={problems} />
-      <ProgressBar label="Revision Progress" value={revision} />
+      <ProgressBar label="Completed Chapters" value={chapters.length ? Math.round((completed / chapters.length) * 100) : 0} />
+      <ProgressBar label="In-progress Chapters" value={chapters.length ? Math.round((inProgress / chapters.length) * 100) : 0} />
+      <p className="text-xs text-[#858585]">{completed} complete · {inProgress} in progress · {Math.max(0, chapters.length - completed - inProgress)} remaining</p>
     </section>
   )
 }

@@ -66,10 +66,16 @@ function info(message, options) {
   return notify(NOTIFICATION_TYPES.INFO, message, options)
 }
 
+function show(message, options = {}) {
+  const type = options.type ?? NOTIFICATION_TYPES.SUCCESS
+  return notify(type, message, options)
+}
+
 export const NotificationService = {
   NOTIFICATION_TYPES,
   subscribe,
   notify,
+  show,
   success,
   warning,
   error,

@@ -47,6 +47,36 @@ export function saveStudySession(session) {
   return updated
 }
 
+export function getChapterStudySessions(subject, chapter) {
+  const targetSubject = String(subject ?? '').trim().toLowerCase()
+  const targetChapter = String(chapter ?? '').trim().toLowerCase()
+
+  return getAllStudySessions().filter((session) => {
+    const sessionSubject = String(session.subject ?? '').trim().toLowerCase()
+    const sessionChapter = String(session.chapter ?? '').trim().toLowerCase()
+    return sessionSubject === targetSubject && sessionChapter === targetChapter
+  })
+}
+
+export function resetChapterStudySessions(subject, chapter) {
+  const targetSubject = String(subject ?? '').trim().toLowerCase()
+  const targetChapter = String(chapter ?? '').trim().toLowerCase()
+  const remaining = getAllStudySessions().filter((session) => {
+    const sessionSubject = String(session.subject ?? '').trim().toLowerCase()
+    const sessionChapter = String(session.chapter ?? '').trim().toLowerCase()
+    return !(sessionSubject === targetSubject && sessionChapter === targetChapter)
+  })
+
+  try {
+    localStorage.setItem(SESSIONS_STORAGE_KEY, JSON.stringify(remaining))
+    window.dispatchEvent(new Event(SESSIONS_CHANGED_EVENT))
+  } catch {
+    // Fail silently if storage is unavailable.
+  }
+
+  return remaining
+}
+
 /** Updates a saved session without changing its original start/end time or day. */
 export function updateStudySession(sessionId, changes) {
   const sessions = getAllStudySessions()

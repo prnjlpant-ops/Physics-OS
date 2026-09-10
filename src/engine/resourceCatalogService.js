@@ -2,6 +2,7 @@ import { libraryMasterIndex } from './library'
 import { getAllResources } from './library/masterIndexService'
 import { topicRecords } from './topics'
 import chapterToTopicMap from './chapterToTopicMap.json' with { type: 'json' }
+import { getSubjectById, getResources } from './blueprintService'
 
 function typeFor(resource) {
   return resource.categoryKey === 'videos' ? 'videos' : 'books'
@@ -71,7 +72,20 @@ export function getResourcesForTopicRecord(topic) {
 }
 
 export function getResourcesForSubject(subjectId) {
-  return getCatalogResources().filter((resource) => resource.usedIn.some((topic) => topic.subjectId === subjectId))
+  const subjectResources = []
+  const seen = new Set()
+  // The v5 workbook supplies the authoritative subject/chapter mapping.
+  // Use it first, keeping the older Master Index mapping as a fallback.
+  const subject = getSubjectById(subjectId)
+  subject?.chapters.forEach((chapter) => {
+    Object.values(getResources(subjectId, chapter.slug)).flat().forEach((resource) => {
+      if (!seen.has(resource.id)) {
+        seen.add(resource.id)
+        subjectResources.push({ ...resource, usedIn: [{ name: resource.topicName ?? chapter.name, subjectId, chapter: chapter.name }] })
+      }
+    })
+  })
+  return subjectResources.length ? subjectResources : getCatalogResources().filter((resource) => resource.usedIn.some((topic) => topic.subjectId === subjectId))
 }
 
 export function getResourcesForTopicId(topicId) {

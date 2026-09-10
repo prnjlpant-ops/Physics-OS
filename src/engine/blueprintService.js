@@ -1,4 +1,4 @@
-import blueprintMarkdown from '../data/blueprint/JEST_2027_Master_Blueprint.md?raw'
+import blueprintMarkdown from '../../JEST_2027_Master_Blueprint_v3.md?raw'
 import blueprintJSON from '../data/blueprint/jestBlueprint.json'
 import { BookOpen, Zap, Atom, Thermometer, BarChart3, Cpu, Layers, Eye } from 'lucide-react'
 import { parseBlueprintMarkdown, parseBlueprintJSON, mergeResourceDetail } from './blueprintParser'
@@ -7,7 +7,7 @@ import { parseBlueprintMarkdown, parseBlueprintJSON, mergeResourceDetail } from 
  * BLUEPRINT SERVICE
  * =================
  * Sprint 17 — JEST Blueprint Import Engine.
- * Updated for Curriculum Refinement: Excel workbook (JEST-JAM-video-links.xlsx)
+ * Updated for Curriculum Refinement: Excel workbook (JEST-JAM-video-links-v5.xlsx)
  * is now the authoritative source of truth, imported as jestBlueprint.json.
  *
  * The single place the rest of the app talks to for blueprint data.
@@ -15,19 +15,88 @@ import { parseBlueprintMarkdown, parseBlueprintJSON, mergeResourceDetail } from 
  * the Roadmap page) calls a getter here — never the parser or the raw
  * files directly.
  *
- * Source of truth: the Excel workbook (JEST-JAM-video-links.xlsx) is now the
+ * Source of truth: the Excel workbook (JEST-JAM-video-links-v5.xlsx) is now the
  * authoritative source. It is read and converted to jestBlueprint.json via
  * scripts/generateBlueprint.js. The blueprint JSON drives the complete syllabus
  * structure (subjects, chapters, resources, roadmap).
  *
  * ARCHITECTURE NOTE (per PRD): to update the syllabus in a future sprint,
- * update `JEST-JAM-video-links.xlsx`, then run `node scripts/generateBlueprint.js`
+ * update `JEST-JAM-video-links-v5.xlsx`, then run `node scripts/generateBlueprint.js`
  * to regenerate `jestBlueprint.json` in `src/data/blueprint/`.
  * Nothing in `src/pages` or `src/components` needs to change, because
  * everything is read through the getters below.
  */
 
 let cachedBlueprint = null
+
+// The v5 workbook is the authoritative schedule and resource source.  These
+// aliases only let us enrich its chapter labels with the useful strategic
+// metadata already structured in the older master blueprint.
+const LEGACY_SUBJECT_NAME_BY_V5_ID = {
+  'math-methods': 'Mathematical Methods',
+  mechanics: 'Classical Mechanics',
+  'special-relativity': 'Classical Mechanics',
+  'em-theory': 'Electromagnetism',
+  'waves-optics': 'Optics',
+  'quantum-mechanics': 'Quantum Mechanics',
+  'thermo-statmech': 'Thermodynamics & Statistical Mechanics',
+  electronics: 'Electronics',
+  'atomic-molecular': 'Atomic, Molecular, Nuclear & Particle Physics',
+  'condensed-matter': 'Solid State Physics',
+  'nuclear-particle': 'Atomic, Molecular, Nuclear & Particle Physics',
+}
+
+const LEGACY_CHAPTER_NAME_BY_V5_SLUG = {
+  'vector-calculus-linear-algebra': 'Linear Algebra & Matrices',
+  'differential-equations-special-functions': 'Special Functions (Legendre, Bessel)',
+  'complex-analysis-residue-theorem': 'Complex Analysis (Contour Integration)',
+  'fourier-laplace-transforms': 'Fourier & Laplace Transforms',
+  'probability-error-analysis': 'Probability & Statistics',
+  'lagrangian-hamiltonian-mechanics': 'Lagrangian & Hamiltonian Mechanics',
+  'central-force-problem': 'Central Force & Kepler Problem',
+  'small-oscillations': 'Small Oscillations & Normal Modes',
+  'rigid-body-dynamics': 'Rigid Body Dynamics',
+  'special-relativity-basics': 'Special Relativity (Mechanics)',
+  'special-relativity-full-treatment': 'Special Relativity (Mechanics)',
+  'electrostatics-magnetostatics-basics': 'Magnetostatics & Induction',
+  'boundary-value-problems': 'Electrostatics & Boundary Value Problems',
+  'faradays-law-maxwells-equations': "Maxwell's Equations & EM Waves",
+  'em-wave-propagation': "Maxwell's Equations & EM Waves",
+  'interference-diffraction': 'Interference & Diffraction',
+  'polarisation-of-light': 'Polarization',
+  'schrodinger-equation-1d-problems': '1D Potentials (well, barrier, harmonic oscillator)',
+  'angular-momentum-spin': 'Angular Momentum & Spin',
+  'perturbation-theory-variational-principle': 'Perturbation Theory',
+  'scattering-theory': 'Scattering Theory',
+  'thermodynamics-kinetic-theory': 'Laws of Thermodynamics & Maxwell Relations',
+  'classical-quantum-statistics': 'Quantum Statistics (Fermi-Dirac, Bose-Einstein)',
+  'statistical-ensembles': 'Ensembles (Micro/Canonical/Grand)',
+  'phase-transitions': 'Phase Transitions',
+  'semiconductor-devices': 'Semiconductor Devices (diodes, transistors)',
+  'circuits-digital-electronics': 'Digital Logic (gates, flip-flops)',
+  'crystal-structure-basic-band-theory': 'Crystal Structure & Reciprocal Lattice',
+  'advanced-solid-state': 'Band Theory',
+  'atomic-spectra-fine-structure': 'Atomic Spectra & Fine Structure',
+  'nuclear-models-radioactivity': 'Nuclear Models & Radioactivity',
+  'nuclear-models-depth': 'Nuclear Models & Radioactivity',
+  'particle-physics-basics': 'Particle Physics Basics',
+}
+
+function enrichV5Chapter(chapter, legacySubject) {
+  const legacyName = LEGACY_CHAPTER_NAME_BY_V5_SLUG[chapter.slug]
+  const legacy = legacyName ? legacySubject?.chapters?.find((item) => item.name === legacyName) : null
+  if (!legacy) return chapter
+  return {
+    ...chapter,
+    weightage: legacy.weightage || chapter.weightage,
+    pyqFrequency: legacy.pyqFrequency || chapter.pyqFrequency,
+    mathPrerequisites: legacy.mathPrerequisites || chapter.mathPrerequisites,
+    difficulty: legacy.difficulty || chapter.difficulty,
+    highYieldStars: legacy.highYieldStars || chapter.highYieldStars,
+    commonMisconceptions: legacy.commonMisconceptions || chapter.commonMisconceptions,
+    questionStyle: legacy.questionStyle || chapter.questionStyle,
+  }
+}
 
 function loadBlueprint() {
   // Excel-derived JSON is now the authoritative source
@@ -53,17 +122,21 @@ function loadBlueprint() {
 
   // Backfill enrichment from Markdown if available (weightage, priority, etc.)
   const enrichedSubjects = primarySubjects.map((subject) => {
-    const markdownMatch = fromMarkdown.subjects?.find((s) => s.name === subject.name)
+    const markdownMatch = fromMarkdown.subjects?.find((s) => s.name === (LEGACY_SUBJECT_NAME_BY_V5_ID[subject.id] ?? subject.name))
     return {
       ...subject,
       weightageRange: subject.weightageRange || markdownMatch?.weightageRange || '',
-      priority: subject.priority || markdownMatch?.priority || 'Medium',
+      // v5 owns topic timing/resources; v3 owns subject-level strategic
+      // metadata. Do not let a single Phase-A row turn every subject High.
+      priority: markdownMatch?.priority || subject.priority || 'Medium',
+      difficultyOverall: markdownMatch?.difficultyOverall || subject.difficultyOverall || 'Medium',
       jamOverlap: subject.jamOverlap || markdownMatch?.jamOverlap || 'Medium',
       deadline: subject.deadline || markdownMatch?.deadline || '',
       primaryBook: subject.primaryBook || markdownMatch?.primaryBook || '',
       primaryVideo: subject.primaryVideo || markdownMatch?.primaryVideo || '',
       coreOverlapTopics: subject.coreOverlapTopics || markdownMatch?.coreOverlapTopics || '',
       jestExclusiveTopics: subject.jestExclusiveTopics || markdownMatch?.jestExclusiveTopics || '',
+      chapters: subject.chapters.map((chapter) => enrichV5Chapter(chapter, markdownMatch)),
     }
   })
 
@@ -245,7 +318,7 @@ export function getResources(subjectIdOrSlug, chapterSlug) {
   if (!found) return { books: [], videos: [], pdfs: [], solutionManuals: [], referenceMaterial: [], externalLinks: [] }
   const subject = found.subject
   const chapter = found.chapter
-  const blueprintResources = getBlueprintSubjects().find((s) => s.id === subject.id)?.resources ?? { books: [], videos: [], solutionManuals: [] }
+  const blueprintResources = chapter.resources ?? { books: [], videos: [], solutionManuals: [] }
 
   const books = blueprintResources.books.length
     ? blueprintResources.books.map((book, index) => ({
@@ -255,10 +328,14 @@ export function getResources(subjectIdOrSlug, chapterSlug) {
         subjectName: subject.name,
         chapterSlug: chapter.slug,
         chapterName: chapter.name,
-        title: `${chapter.name} — ${book.title}`,
+        title: book.title,
         author: book.author ?? 'Author to be added',
         edition: book.tier ?? '—',
-        status: 'Recommended (JEST 2027 Blueprint)',
+        status: 'Mapped from JEST-JAM-video-links-v5.xlsx',
+        description: book.description,
+        syllabus: book.syllabus,
+        source: book.source,
+        topicName: book.topicName,
       }))
     : []
 
@@ -270,9 +347,13 @@ export function getResources(subjectIdOrSlug, chapterSlug) {
         subjectName: subject.name,
         chapterSlug: chapter.slug,
         chapterName: chapter.name,
-        title: `${chapter.name} — ${video.title}`,
+        title: video.title,
         duration: video.duration ?? '—',
-        source: video.title,
+        source: video.source ?? video.title,
+        url: video.url,
+        description: video.description,
+        syllabus: video.syllabus,
+        topicName: video.topicName,
       }))
     : []
 

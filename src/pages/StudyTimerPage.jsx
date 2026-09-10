@@ -6,6 +6,7 @@ import TopicLinkSelector from '../components/timer/TopicLinkSelector'
 import SessionResourceLinks from '../components/timer/SessionResourceLinks'
 import SessionNotesPanel from '../components/timer/SessionNotesPanel'
 import FocusTargetPanel from '../components/timer/FocusTargetPanel'
+import { formatDuration } from '../utils/formatDuration'
 
 const statusLabel = {
   idle: 'Idle',
@@ -15,7 +16,7 @@ const statusLabel = {
 }
 
 export default function StudyTimerPage() {
-  const { status, elapsedMs } = useStudyTimer()
+  const { status, elapsedMs, subject, chapter, task, focusTargetMs } = useStudyTimer()
 
   return (
     <div className="flex flex-col gap-5 px-4 py-5 sm:px-6 lg:px-8">
@@ -35,6 +36,25 @@ export default function StudyTimerPage() {
         <TimerDisplay elapsedMs={elapsedMs} size="lg" />
 
         <TimerControls />
+      </section>
+
+      <section className="grid gap-3 md:grid-cols-4">
+        <div className="rounded-lg border border-[#3c3c3c] bg-[#252526] p-3">
+          <p className="text-[10px] uppercase tracking-wide text-[#858585]">Subject</p>
+          <p className="mt-1 text-sm font-medium text-[#e8e8e8]">{subject}</p>
+        </div>
+        <div className="rounded-lg border border-[#3c3c3c] bg-[#252526] p-3">
+          <p className="text-[10px] uppercase tracking-wide text-[#858585]">Chapter</p>
+          <p className="mt-1 text-sm font-medium text-[#e8e8e8]">{chapter}</p>
+        </div>
+        <div className="rounded-lg border border-[#3c3c3c] bg-[#252526] p-3">
+          <p className="text-[10px] uppercase tracking-wide text-[#858585]">Task</p>
+          <p className="mt-1 text-sm font-medium text-[#e8e8e8]">{task}</p>
+        </div>
+        <div className="rounded-lg border border-[#3c3c3c] bg-[#252526] p-3">
+          <p className="text-[10px] uppercase tracking-wide text-[#858585]">Focus target</p>
+          <p className="mt-1 text-sm font-medium text-[#e8e8e8]">{formatDuration(focusTargetMs)}</p>
+        </div>
       </section>
 
       <FocusTargetPanel />

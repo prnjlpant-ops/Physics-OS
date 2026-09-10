@@ -1,6 +1,7 @@
 import { RESOURCE_TYPE_ORDER } from '../constants/resourceTypes'
 import { getResourcesForTopicId } from './resourceCatalogService'
 import chapterToTopicMap from './chapterToTopicMap.json' with { type: 'json' }
+import { getResources } from './blueprintService'
 
 function emptyBundle() {
   return Object.fromEntries(RESOURCE_TYPE_ORDER.map((type) => [type, []]))
@@ -11,8 +12,17 @@ function emptyBundle() {
  * previous vocabulary matching, synthetic page counts, and placeholder data.
  */
 export function getTopicResources(topic) {
-  const chapterSlug = topic?.metadata?.chapterSlug || topic?.slug
-  const topicId = chapterToTopicMap[chapterSlug] || chapterSlug
+  const subjectId = topic?.metadata?.subjectId
+  const chapterSlug = topic?.metadata?.chapterSlug
+  if (subjectId && chapterSlug) {
+    const bundle = emptyBundle()
+    Object.entries(getResources(subjectId, chapterSlug)).forEach(([type, resources]) => {
+      bundle[type] = resources.filter((resource) => !resource.topicName || resource.topicName === topic.name)
+    })
+    if (Object.values(bundle).some((resources) => resources.length)) return bundle
+  }
+  const fallbackChapterSlug = topic?.metadata?.chapterSlug || topic?.slug
+  const topicId = chapterToTopicMap[fallbackChapterSlug] || fallbackChapterSlug
   if (!topicId) return emptyBundle()
   const bundle = emptyBundle()
   getResourcesForTopicId(topicId).forEach((resource) => {

@@ -3,6 +3,7 @@ import AppLayout from '../layouts/AppLayout'
 import HomePage from '../pages/HomePage'
 import CalendarPage from '../pages/CalendarPage'
 import TodaysMissionPage from '../pages/TodaysMissionPage'
+import ExamStrategyPage from '../pages/ExamStrategyPage'
 import SubjectsPage from '../pages/SubjectsPage'
 import SyllabusLayout from '../pages/syllabus/SyllabusLayout'
 import SyllabusExplorerPage from '../pages/syllabus/SyllabusExplorerPage'
@@ -13,6 +14,7 @@ import SubjectOverviewPage from '../pages/subject/SubjectOverviewPage'
 import SubjectChaptersPage from '../pages/subject/SubjectChaptersPage'
 import SubjectBooksPage from '../pages/subject/SubjectBooksPage'
 import SubjectVideosPage from '../pages/subject/SubjectVideosPage'
+import SubjectPyqsPage from '../pages/subject/SubjectPyqsPage'
 import SubjectProgressPage from '../pages/subject/SubjectProgressPage'
 import SubjectResourcesPage from '../pages/subject/SubjectResourcesPage'
 import SubjectKnowledgeBasePage from '../pages/subject/SubjectKnowledgeBasePage'
@@ -79,6 +81,7 @@ const router = createHashRouter([
       { index: true, element: <HomePage /> },
       { path: 'calendar', element: <CalendarPage /> },
       { path: 'todays-mission', element: <TodaysMissionPage /> },
+      { path: 'exam-strategy', element: <ExamStrategyPage /> },
       {
         path: 'subjects',
         children: [
@@ -92,6 +95,7 @@ const router = createHashRouter([
               { path: 'chapters', element: <SubjectChaptersPage /> },
               { path: 'books', element: <SubjectBooksPage /> },
               { path: 'videos', element: <SubjectVideosPage /> },
+              { path: 'pyqs', element: <SubjectPyqsPage /> },
               { path: 'progress', element: <SubjectProgressPage /> },
               { path: 'resources', element: <SubjectResourcesPage /> },
               { path: 'knowledge-base', element: <SubjectKnowledgeBasePage /> },

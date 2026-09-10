@@ -4,7 +4,7 @@ import { generateDailyPlan, buildDefaultBlockOrder } from '../engine/plannerServ
 import { useMissionTaskStatus } from './useMissionTaskStatus'
 import { usePlannerOrder } from './usePlannerOrder'
 import { TASK_STATUS } from '../constants/dailyStudyConstants'
-import { useTopicProgress } from './useTopicProgress'
+import { useSyllabusStatus } from './useSyllabusStatus'
 
 /**
  * useDailyPlanner
@@ -19,12 +19,12 @@ import { useTopicProgress } from './useTopicProgress'
  * Reset Today).
  */
 export function useDailyPlanner() {
-  const { statuses: roadmapStatuses } = useTopicProgress()
+  const { overrides: syllabusStatuses } = useSyllabusStatus()
   const { overrides: taskStatusOverrides, setTaskStatus } = useMissionTaskStatus()
 
   const mission = useMemo(
-    () => generateTodaysMission(roadmapStatuses, taskStatusOverrides),
-    [roadmapStatuses, taskStatusOverrides],
+    () => generateTodaysMission(syllabusStatuses, taskStatusOverrides),
+    [syllabusStatuses, taskStatusOverrides],
   )
 
   const { blockOrder, persistOrder, moveTaskUp, moveTaskDown, resetOrder } = usePlannerOrder(mission.date)

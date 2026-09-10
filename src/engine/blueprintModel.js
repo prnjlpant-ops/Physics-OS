@@ -50,6 +50,9 @@ export function normalizeChapter(raw) {
     highYieldStars: Number(raw.highYieldStars) || 3,
     commonMisconceptions: raw.commonMisconceptions ?? '',
     questionStyle: raw.questionStyle ?? '',
+    priority: raw.priority ?? 'Medium',
+    topics: raw.topics ?? [],
+    resources: raw.resources ?? { books: [], videos: [] },
   }
 }
 

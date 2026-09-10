@@ -9,6 +9,7 @@ const TABS = [
   { label: 'Chapters', to: 'chapters' },
   { label: 'Books', to: 'books' },
   { label: 'Videos', to: 'videos' },
+  { label: 'Question Bank', to: 'pyqs' },
   { label: 'Progress', to: 'progress' },
   { label: 'Resources', to: 'resources' },
   { label: 'Knowledge Base', to: 'knowledge-base' },

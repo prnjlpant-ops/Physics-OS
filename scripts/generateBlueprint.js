@@ -2,7 +2,7 @@
 
 /**
  * Generate the authoritative JEST blueprint from the Excel workbook.
- * This script reads JEST-JAM-video-links.xlsx and generates jestBlueprint.json
+ * This script reads JEST-JAM-video-links-v5.xlsx and generates jestBlueprint.json
  * to make the Excel the single source of truth for curriculum structure.
  */
 
@@ -32,6 +32,24 @@ function slugify(name) {
     .trim()
     .replace(/^-+|-+$/g, '');
   return slug;
+}
+
+// v5 carries its scheduling priority as Roadmap Topic / Phase rather than a
+// separate Priority column. Keep this conversion here so the generated
+// blueprint, Subject views, Syllabus filters, and Today's Mission agree.
+function priorityFromRoadmapPhase(value) {
+  const phase = String(value ?? '').toLowerCase()
+  if (/\btopic\s*(?:[1-9]|1\d|20)\b/.test(phase) || phase.includes('supplemental')) return 'High'
+  if (phase.includes('bonus')) return 'Medium'
+  if (phase.includes('tier 1')) return 'Medium'
+  if (phase.includes('tier 2') || phase.includes('tier 3')) return 'Low'
+  return 'Medium'
+}
+
+function highestPriority(values) {
+  if (values.includes('High')) return 'High'
+  if (values.includes('Medium')) return 'Medium'
+  return 'Low'
 }
 
 function extractCurriculumFromExcel(excelPath) {
@@ -64,11 +82,17 @@ function extractCurriculumFromExcel(excelPath) {
         slug: slugify(subtopic),
         chapter: chapter,  // Keep track of which chapter it came from
         roadmapPhase: cleanName(row['Roadmap Topic / Phase']),
+        priority: priorityFromRoadmapPhase(row['Roadmap Topic / Phase']),
         exams: cleanName(row['JAM/JEST']),
         source: cleanName(row['Source']),
         linkType: cleanName(row['Link Type']),
-        videoLink: cleanName(row['Video Link']),
-        studyNotes: cleanName(row['Study Notes (what to cover, book, timing)']),
+        resourceId: cleanName(row['Resource ID']),
+        videoLink: cleanName(row['Video URL']) || cleanName(row['Video Link']),
+        duration: cleanName(row['Duration']),
+        bookReference: cleanName(row['Book & Chapter Reference']),
+        whatToCover: cleanName(row['What to Watch / Cover']),
+        timing: cleanName(row['Timing (Phase & Deadline)']),
+        additionalNotes: cleanName(row['Additional Notes']),
       };
       
       topicsList.push(topicData);
@@ -154,21 +178,34 @@ function generateBlueprint(subjectsMap) {
       },
     };
     
-    // Convert topics to chapters (each Excel sub-topic becomes a "chapter" in blueprint terms)
+    // Preserve the workbook's Chapter -> Sub-topic hierarchy and attach
+    // each row's resources to that exact chapter/topic.
+    const chaptersByName = new Map();
     for (const topic of subjectData.topics) {
-      const chapterObj = {
-        name: topic.name,
-        slug: topic.slug,
-        weightage: 'Medium',
-        pyqFrequency: topic.exams ? 'Frequently Tested' : 'Occasionally Tested',
-        mathPrerequisites: '',
-        difficulty: 'Medium',
-        highYieldStars: 3,
-        commonMisconceptions: '',
-        questionStyle: '',
-      };
-      subjectObj.chapters.push(chapterObj);
+      if (!chaptersByName.has(topic.chapter)) {
+        chaptersByName.set(topic.chapter, {
+          name: topic.chapter, slug: slugify(topic.chapter), topics: [],
+          weightage: 'Medium', priority: topic.priority, pyqFrequency: 'Frequently Tested', mathPrerequisites: '',
+          difficulty: 'Medium', highYieldStars: 3, commonMisconceptions: '', questionStyle: '',
+          resources: { books: [], videos: [] },
+        });
+      }
+      const chapter = chaptersByName.get(topic.chapter);
+      chapter.topics.push(topic);
+      chapter.priority = highestPriority(chapter.topics.map((entry) => entry.priority));
+      if (topic.bookReference) chapter.resources.books.push({
+        id: `${topic.resourceId || topic.slug}__book`, title: topic.bookReference,
+        author: 'Workbook reference', description: topic.whatToCover || '', syllabus: topic.name,
+        topicName: topic.name, source: 'JEST-JAM-video-links-v5.xlsx',
+      });
+      if (topic.videoLink) chapter.resources.videos.push({
+        id: `${topic.resourceId || topic.slug}__video`, title: topic.source || topic.name,
+        url: topic.videoLink, duration: topic.duration || '', description: topic.whatToCover || '',
+        syllabus: topic.name, topicName: topic.name, source: topic.source || 'Workbook video',
+      });
     }
+    subjectObj.chapters.push(...chaptersByName.values());
+    subjectObj.priority = highestPriority(subjectObj.chapters.map((chapter) => chapter.priority));
     
     blueprint.subjects.push(subjectObj);
   }
@@ -178,7 +215,7 @@ function generateBlueprint(subjectsMap) {
 
 function main() {
   const projectRoot = path.join(__dirname, '..');
-  const excelPath = path.join(projectRoot, 'JEST-JAM-video-links.xlsx');
+  const excelPath = path.join(projectRoot, 'JEST-JAM-video-links-v5.xlsx');
   const outputPath = path.join(projectRoot, 'src', 'data', 'blueprint', 'jestBlueprint.json');
   
   console.log('================================================================================');

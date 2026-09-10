@@ -1,8 +1,9 @@
 import { useCallback, useEffect, useState } from 'react'
 import { TOPIC_STATUS } from '../constants/syllabusConstants'
+import { getAllTopics } from '../data/syllabusData'
 
 const STATUS_STORAGE_KEY = 'physicsOS.syllabusTopicStatus'
-const STATUS_EVENT = 'physicsOS.syllabusTopicStatusChanged'
+export const SYLLABUS_STATUS_EVENT = 'physicsOS.syllabusTopicStatusChanged'
 
 function readStatusMap() {
   try {
@@ -17,7 +18,7 @@ function readStatusMap() {
 function writeStatusMap(map) {
   try {
     localStorage.setItem(STATUS_STORAGE_KEY, JSON.stringify(map))
-    window.dispatchEvent(new Event(STATUS_EVENT))
+    window.dispatchEvent(new Event(SYLLABUS_STATUS_EVENT))
   } catch {
     // Local storage unavailable or full; status won't persist, fail silently.
   }
@@ -35,10 +36,10 @@ export function useSyllabusStatus() {
 
   useEffect(() => {
     const sync = () => setOverrides(readStatusMap())
-    window.addEventListener(STATUS_EVENT, sync)
+    window.addEventListener(SYLLABUS_STATUS_EVENT, sync)
     window.addEventListener('storage', sync)
     return () => {
-      window.removeEventListener(STATUS_EVENT, sync)
+      window.removeEventListener(SYLLABUS_STATUS_EVENT, sync)
       window.removeEventListener('storage', sync)
     }
   }, [])
@@ -50,7 +51,16 @@ export function useSyllabusStatus() {
 
   const setStatus = useCallback((topicId, status) => {
     setOverrides((prev) => {
-      const next = { ...prev, [topicId]: status }
+      const selected = getAllTopics().find((topic) => topic.id === topicId)
+      const sameTopicIds = selected
+        ? getAllTopics()
+            .filter((topic) => topic.metadata.subjectId === selected.metadata.subjectId
+              && topic.metadata.chapterSlug === selected.metadata.chapterSlug
+              && (topic.metadata.resourceId || topic.name) === (selected.metadata.resourceId || selected.name))
+            .map((topic) => topic.id)
+        : [topicId]
+      const next = { ...prev }
+      sameTopicIds.forEach((id) => { next[id] = status })
       writeStatusMap(next)
       return next
     })

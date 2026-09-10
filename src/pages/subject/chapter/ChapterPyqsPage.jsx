@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router-dom'
 import { ArrowLeft, FlaskConical } from 'lucide-react'
 import { getChapterBySlug } from '../../../engine/blueprintService'
 import { getChapterPyqs } from '../../../data/pyqsData'
+import { getQuestionsForChapter } from '../../../engine/pyq/questionBankService'
 import { getPyqProgress } from '../../../data/pyqProgress'
 import { usePyqBookmarks } from '../../../hooks/usePyqBookmarks'
 import { usePyqRevisionQueue } from '../../../hooks/usePyqRevisionQueue'
@@ -50,6 +51,7 @@ export default function ChapterPyqsPage() {
   }
 
   const { subject, chapter } = found
+  const questionBankQuestions = getQuestionsForChapter(subject, chapter)
 
   return (
     <div className="flex flex-col gap-5 px-4 py-5 sm:px-6 lg:px-8">
@@ -65,6 +67,17 @@ export default function ChapterPyqsPage() {
         <h2 className="mt-3 text-lg font-semibold text-[#e8e8e8]">{chapter.name} PYQs</h2>
         <p className="mt-0.5 text-xs text-[#858585]">Previous year questions, grouped by year</p>
       </div>
+
+      <section className="rounded-lg border border-[#0e639c]/40 bg-[#0e639c]/10 p-4">
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <div>
+            <p className="text-sm font-semibold text-[#e8e8e8]">Imported Question Bank</p>
+            <p className="mt-1 text-xs text-[#9d9d9d]">{questionBankQuestions.length} GATE questions matched to this chapter from the app-wide bank.</p>
+          </div>
+          <Link to="/pyqs/practice" className="rounded-md border border-[#0e639c] px-3 py-1.5 text-xs font-medium text-[#4fc1ff] hover:bg-[#0e639c]/20">Open question bank</Link>
+        </div>
+        {questionBankQuestions.length > 0 && <div className="mt-3 grid gap-2 sm:grid-cols-2">{questionBankQuestions.slice(0, 6).map((question) => <Link key={question.id} to={`/pyqs/practice/${question.id}`} className="rounded-md border border-[#3c3c3c] bg-[#1e1e1e] px-3 py-2 text-xs text-[#cccccc] hover:border-[#4a4a4a]">{question.exam} {question.year} · Q{question.questionNumber}<span className="mt-0.5 block truncate text-[10px] text-[#858585]">{question.subtopic}</span></Link>)}</div>}
+      </section>
 
       <PyqProgressPanel progress={progress} />
 

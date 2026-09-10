@@ -1,20 +1,20 @@
 import { useMemo } from 'react'
-import { topicTree } from '../../engine/topics'
-import { getSubjectsFromTree, getChaptersForSubject, getTopicsForChapter } from '../../engine/topics/topicNavigationService'
+import { getAllTopics } from '../../data/syllabusData'
 
 const selectClasses = 'rounded-md border border-[#3c3c3c] bg-[#1e1e1e] px-2.5 py-1.5 text-xs text-[#e8e8e8] outline-none transition-colors duration-150 focus:border-[#0e639c]'
 
 /** Controlled Subject -> Chapter -> Topic selector shared by session flows. */
 export default function TopicCascadeSelect({ value, onChange }) {
-  const subjects = useMemo(() => getSubjectsFromTree(topicTree), [])
+  const allTopics = useMemo(() => getAllTopics(), [])
+  const subjects = useMemo(() => Array.from(new Map(allTopics.map((topic) => [topic.metadata.subjectId, { subjectId: topic.metadata.subjectId, subjectName: topic.metadata.subjectName }])).values()), [allTopics])
   const selectedTopic = useMemo(
-    () => subjects.flatMap((subject) => subject.chapters).flatMap((chapter) => chapter.topics).find((topic) => topic.id === value.topicId),
-    [subjects, value.topicId],
+    () => allTopics.find((topic) => topic.id === value.topicId),
+    [allTopics, value.topicId],
   )
-  const subjectId = selectedTopic?.subjectId ?? subjects.find((subject) => subject.subjectName === value.subject)?.subjectId ?? ''
-  const chapters = useMemo(() => (subjectId ? getChaptersForSubject(topicTree, subjectId) : []), [subjectId])
-  const chapterSlug = selectedTopic?.chapterSlug ?? chapters.find((chapter) => chapter.chapterName === value.chapter)?.chapterSlug ?? ''
-  const topics = useMemo(() => (subjectId && chapterSlug ? getTopicsForChapter(topicTree, subjectId, chapterSlug) : []), [subjectId, chapterSlug])
+  const subjectId = selectedTopic?.metadata.subjectId ?? subjects.find((subject) => subject.subjectName === value.subject)?.subjectId ?? ''
+  const chapters = useMemo(() => Array.from(new Map(allTopics.filter((topic) => topic.metadata.subjectId === subjectId).map((topic) => [topic.metadata.chapterSlug, { chapterSlug: topic.metadata.chapterSlug, chapterName: topic.metadata.chapterName }])).values()), [allTopics, subjectId])
+  const chapterSlug = selectedTopic?.metadata.chapterSlug ?? chapters.find((chapter) => chapter.chapterName === value.chapter)?.chapterSlug ?? ''
+  const topics = useMemo(() => allTopics.filter((topic) => topic.metadata.subjectId === subjectId && topic.metadata.chapterSlug === chapterSlug), [allTopics, subjectId, chapterSlug])
 
   const selectSubject = (nextSubjectId) => {
     const subject = subjects.find((item) => item.subjectId === nextSubjectId)
@@ -27,7 +27,7 @@ export default function TopicCascadeSelect({ value, onChange }) {
   const selectTopic = (nextTopicId) => {
     const topic = topics.find((item) => item.id === nextTopicId)
     if (!topic) return
-    onChange({ subject: topic.subject, chapter: topic.chapter, task: topic.name, topicId: topic.id })
+    onChange({ subject: topic.metadata.subjectName, chapter: topic.metadata.chapterName, task: topic.name, topicId: topic.id })
   }
 
   return <div className="grid grid-cols-1 gap-2 sm:grid-cols-3">

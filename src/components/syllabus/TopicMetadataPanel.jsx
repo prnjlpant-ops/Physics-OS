@@ -1,4 +1,4 @@
-import { Clock3, Brain as BrainIcon, Gauge, Flag, History } from 'lucide-react'
+import { Clock3, Brain as BrainIcon, Gauge, Flag, History, Waypoints } from 'lucide-react'
 import SyllabusBadge from './SyllabusBadge'
 import {
   DIFFICULTY_STYLES,
@@ -39,6 +39,9 @@ export default function TopicMetadataPanel({ metadata }) {
       <MetaRow icon={Flag} label="Priority">
         <SyllabusBadge label={metadata.priority} styleClass={PRIORITY_STYLES[metadata.priority]} />
       </MetaRow>
+      {metadata.roadmapPhase && <MetaRow icon={Waypoints} label="Roadmap order">
+        <span className="text-xs font-medium text-[#e8e8e8]">{metadata.roadmapPhase}</span>
+      </MetaRow>}
       <MetaRow icon={History} label="Revision Status">
         <SyllabusBadge
           label={metadata.revisionStatus}

@@ -13,8 +13,8 @@ import PlannerSettingsPanel from '../components/planner/PlannerSettingsPanel'
 import ProgressSummaryBar from '../components/dailyStudy/ProgressSummaryBar'
 import CustomTaskList from '../components/dailyStudy/CustomTaskList'
 import EmptyState from './subject/EmptyState'
-import { useTopicProgress } from '../hooks/useTopicProgress'
-import { getRoadmapMissionSnapshot } from '../engine/roadmapMissionService'
+import { useSyllabusStatus } from '../hooks/useSyllabusStatus'
+import { getMissionQueueSummary } from '../engine/dailyStudyService'
 
 /**
  * TODAY'S MISSION / ADAPTIVE DAILY PLANNER
@@ -30,25 +30,30 @@ export default function TodaysMissionPage() {
   const { plan, moveUp, moveDown, markComplete, skipTask, resetToday } = useDailyPlanner()
   const { settings, updateSetting, resetSettings } = usePlannerSettings()
   const progress = useProgress()
-  const { statuses } = useTopicProgress()
-  const roadmapSnapshot = useMemo(() => getRoadmapMissionSnapshot(statuses, new Date()), [statuses])
+  const { overrides: syllabusStatuses } = useSyllabusStatus()
+  const queueSummary = useMemo(() => getMissionQueueSummary(syllabusStatuses), [syllabusStatuses])
+  const roadmapSnapshot = {
+    outOfSequence: queueSummary.coreRemaining > 0
+      ? [{ title: `${queueSummary.coreRemaining} core item${queueSummary.coreRemaining === 1 ? '' : 's'} still required before bonus and Phase B` }]
+      : [],
+  }
   const todayKey = toDateKey(new Date())
 
   return (
     <div className="flex flex-col gap-5 px-4 py-5 sm:px-6 lg:px-8">
       <ProgressSummaryBar progress={progress} />
 
-      {roadmapSnapshot.nextTopic && (
+      {queueSummary.nextTopic && (
         <section className="rounded-lg border border-[#0e639c]/50 bg-[#0e639c]/10 p-4">
-          <p className="text-[10px] uppercase tracking-wide text-[#4fc1ff]">Roadmap focus</p>
+          <p className="text-[10px] uppercase tracking-wide text-[#4fc1ff]">Gated roadmap focus</p>
           <div className="mt-2 grid gap-2 sm:grid-cols-2">
             <div className="rounded-md border border-[#3c3c3c] bg-[#1e1e1e] px-3 py-2">
-              <p className="text-xs font-medium text-[#e8e8e8]">{roadmapSnapshot.nextTopic.title}</p>
-              <p className="mt-0.5 text-[10px] text-[#858585]">Checkpoint: {roadmapSnapshot.checkpoint.label}</p>
+              <p className="text-xs font-medium text-[#e8e8e8]">{queueSummary.nextTopic.name}</p>
+              <p className="mt-0.5 text-[10px] text-[#858585]">Current gate: {queueSummary.stageLabel}</p>
             </div>
             {roadmapSnapshot.outOfSequence.length > 0 && (
               <div className="rounded-md border border-[#3c3c3c] bg-[#1e1e1e] px-3 py-2">
-                <p className="text-xs font-medium text-[#e8e8e8]">Out of sequence</p>
+                <p className="text-xs font-medium text-[#e8e8e8]">Core-gated sequence</p>
                 <p className="mt-0.5 text-[10px] text-[#858585]">{roadmapSnapshot.outOfSequence.slice(0, 2).map((topic) => topic.title).join(' · ')}</p>
               </div>
             )}

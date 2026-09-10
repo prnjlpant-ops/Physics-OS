@@ -1,41 +1,20 @@
 import { Link, useOutletContext } from 'react-router-dom'
 import { BookOpen, ListChecks, Sparkles } from 'lucide-react'
-import roadmapTopics from '../../data/roadmap.json' with { type: 'json' }
-import pyqIndexRaw from '../../data/pyq/pyq_index.json'
-import chapterToTopicMap from '../../engine/chapterToTopicMap.json' with { type: 'json' }
-
-function getHighestPriority(subjectId) {
-  const topicIds = pyqIndexRaw.topics.filter((t) => t.subjectId === subjectId).map((t) => t.id)
-  const roadmapItems = roadmapTopics.filter((r) => topicIds.includes(r.id) && r.priority)
-
-  if (roadmapItems.length === 0) return 'Medium'
-
-  const priorities = roadmapItems.map((r) => r.priority)
-  if (priorities.includes('High')) return 'High'
-  if (priorities.includes('Medium')) return 'Medium'
-  return 'Low'
-}
-
-function getChapterMetadata(chapterSlug, fallbackWeightage) {
-  const topicId = chapterToTopicMap[chapterSlug]
-  const roadmapItem = topicId ? roadmapTopics.find((r) => r.id === topicId) : null
-  return {
-    priority: roadmapItem?.priority ?? fallbackWeightage ?? 'Medium',
-    topicCount: 2,
-  }
+function getChapterMetadata(chapter) {
+  return { priority: chapter.priority ?? 'Medium', topicCount: chapter.topics?.length ?? 0 }
 }
 
 export default function SubjectOverviewPage() {
   const { subject } = useOutletContext()
 
   const totalTopics = (subject.chapters ?? []).reduce(
-    (sum, chapter) => sum + getChapterMetadata(chapter.slug, chapter.weightage).topicCount,
+    (sum, chapter) => sum + getChapterMetadata(chapter).topicCount,
     0,
   )
   const stats = [
     { label: 'Chapters', value: subject.chapters?.length ?? 0, icon: ListChecks },
     { label: 'Topics', value: totalTopics, icon: Sparkles },
-    { label: 'Priority', value: getHighestPriority(subject.id), icon: BookOpen },
+    { label: 'Priority', value: subject.priority ?? 'Medium', icon: BookOpen },
   ]
 
   return (
@@ -71,7 +50,7 @@ export default function SubjectOverviewPage() {
 
       <div className="flex flex-col gap-3">
         {subject.chapters?.map((chapter) => {
-          const meta = getChapterMetadata(chapter.slug, chapter.weightage)
+          const meta = getChapterMetadata(chapter)
           return (
             <Link
               key={chapter.slug}

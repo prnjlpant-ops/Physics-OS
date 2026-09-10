@@ -1,8 +1,7 @@
 import SessionService from './SessionService'
 import TaskService from './TaskService'
-import TopicProgressService from '../engine/topics/topicProgressService'
-import { topicRecords } from '../engine/topics'
-import { TOPIC_STATUS } from '../constants/topicConstants'
+import { getAllTopics } from '../data/syllabusData'
+import { TOPIC_STATUS } from '../constants/syllabusConstants'
 
 /**
  * PROGRESS SERVICE
@@ -18,9 +17,14 @@ import { TOPIC_STATUS } from '../constants/topicConstants'
  */
 
 function getCompletedTopicsCount() {
-  const statuses = TopicProgressService.getAllStatuses()
-  return topicRecords.filter((topic) => (statuses[topic.id] ?? TOPIC_STATUS.NOT_STARTED) === TOPIC_STATUS.MASTERED)
+  try {
+    const raw = localStorage.getItem('physicsOS.syllabusTopicStatus')
+    const statuses = raw ? JSON.parse(raw) : {}
+    return getAllTopics().filter((topic) => (statuses[topic.id] ?? topic.metadata.status ?? TOPIC_STATUS.NOT_STARTED) === TOPIC_STATUS.MASTERED)
     .length
+  } catch {
+    return 0
+  }
 }
 
 function getProgressSummary() {
@@ -31,7 +35,7 @@ function getProgressSummary() {
     completedTasks: TaskService.getCompletedTasks().length,
     completedSessions: SessionService.getCompletedSessionsCount(),
     completedTopics: getCompletedTopicsCount(),
-    totalTopics: topicRecords.length,
+    totalTopics: getAllTopics().length,
     lastStudiedDate: SessionService.getLastStudiedDate(),
     currentStreak: SessionService.getCurrentStreak(),
   }

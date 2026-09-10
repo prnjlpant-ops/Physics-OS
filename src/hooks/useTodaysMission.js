@@ -1,7 +1,7 @@
 import { useMemo } from 'react'
 import { generateTodaysMission } from '../engine/dailyStudyService'
 import { useMissionTaskStatus } from './useMissionTaskStatus'
-import { useTopicProgress } from './useTopicProgress'
+import { useSyllabusStatus } from './useSyllabusStatus'
 
 /**
  * Generates Today's Mission from live syllabus status + live task status,
@@ -10,12 +10,12 @@ import { useTopicProgress } from './useTopicProgress'
  * overrides the service needs and re-runs it.
  */
 export function useTodaysMission() {
-  const { statuses: roadmapStatuses } = useTopicProgress()
+  const { overrides: syllabusStatuses } = useSyllabusStatus()
   const { overrides: taskStatusOverrides, startTask, completeTask } = useMissionTaskStatus()
 
   const mission = useMemo(
-    () => generateTodaysMission(roadmapStatuses, taskStatusOverrides),
-    [roadmapStatuses, taskStatusOverrides],
+    () => generateTodaysMission(syllabusStatuses, taskStatusOverrides),
+    [syllabusStatuses, taskStatusOverrides],
   )
 
   return { mission, startTask, completeTask }

@@ -92,9 +92,9 @@ export default function SyllabusExplorerPage() {
     <div className="flex flex-col gap-4">
       <SyllabusProgressPanel progress={progress} />
       <section className="rounded-lg border border-[#0e639c]/40 bg-[#0e639c]/10 p-4">
-        <p className="text-[10px] uppercase tracking-wide text-[#4fc1ff]">Roadmap focus</p>
-        <p className="mt-1 text-sm font-medium text-[#e8e8e8]">{roadmapSnapshot.nextTopic?.title ?? 'Roadmap is fully covered.'}</p>
-        <p className="mt-1 text-xs text-[#9d9d9d]">Checkpoint: {roadmapSnapshot.checkpoint.label}</p>
+        <p className="text-[10px] uppercase tracking-wide text-[#4fc1ff]">v6.1 syllabus sync</p>
+        <p className="mt-1 text-sm font-medium text-[#e8e8e8]">Chapter resources, lecture links, and PYQ cues are now wired directly into the chapter flow instead of sitting in a separate disconnected sheet.</p>
+        <p className="mt-1 text-xs text-[#9d9d9d]">Current roadmap focus: {roadmapSnapshot.nextTopic?.title ?? 'Roadmap is fully covered.'} · Checkpoint: {roadmapSnapshot.checkpoint.label}</p>
       </section>
       <OfficialSyllabi />
       {missingBooks.length > 0 && (

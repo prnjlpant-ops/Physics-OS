@@ -117,3 +117,29 @@ export function generateDailyPlan(mission, blockOrder, taskStatusOverrides = {})
 
   return createDailyPlan({ date: mission.date, blocks })
 }
+
+/**
+ * Calculates the daily session splits / capacity based on planner settings.
+ * N = floor((dailyStudyHours * 60) / (sessionLength + breakLength))
+ *
+ * @param {object} settings - { dailyStudyHours, preferredSessionLength, sessionLength, breakLength, maxTasksPerDay }
+ * @returns {object} { targetSessions, sessionLength, breakLength, dailyStudyHours, totalAllocatedMinutes }
+ */
+export function calculateDailySessionSplit(settings = {}) {
+  const hours = Number(settings.dailyStudyHours ?? 6)
+  const sessionLength = Number(settings.preferredSessionLength ?? settings.sessionLength ?? 45)
+  const breakLength = Number(settings.breakLength ?? 10)
+  const cycle = sessionLength + breakLength
+
+  const targetSessions = cycle > 0 ? Math.floor((hours * 60) / cycle) : 0
+  const totalAllocatedMinutes = targetSessions * sessionLength
+
+  return {
+    targetSessions,
+    sessionLength,
+    breakLength,
+    dailyStudyHours: hours,
+    totalAllocatedMinutes,
+  }
+}
+

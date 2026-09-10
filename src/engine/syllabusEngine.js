@@ -9,6 +9,14 @@ import {
 } from './blueprintModel'
 import roadmapTopics from '../data/roadmap.json' with { type: 'json' }
 
+function priorityFromRoadmapPhase(value, fallback) {
+  const phase = String(value ?? '').toLowerCase()
+  if (/\btopic\s*(?:[1-9]|1\d|20)\b/.test(phase) || phase.includes('supplemental')) return 'High'
+  if (phase.includes('bonus') || phase.includes('tier 1')) return 'Medium'
+  if (phase.includes('tier 2') || phase.includes('tier 3')) return 'Low'
+  return fallback
+}
+
 /**
  * SYLLABUS ENGINE
  * ================
@@ -168,6 +176,46 @@ function roadmapMetadataFor(chapterSlug) {
   return roadmapTopics.find(t => t.id === topicId) || null
 }
 
+function v3RoadmapEntryFor(sourceTopic, subjectId) {
+  const phase = String(sourceTopic?.roadmapPhase ?? '')
+  const core = /^Topic\s+(\d+)/i.exec(phase)
+  if (core) return roadmapTopics.find((item) => item.id === `phase-a-${core[1].padStart(2, '0')}`) ?? null
+
+  const bonus = /Bonus\s*#?(\d+)/i.exec(phase)
+  if (bonus) return roadmapTopics.find((item) => item.id === `phase-a-bonus-${bonus[1].padStart(2, '0')}`) ?? null
+
+  // Phase B labels in v5 identify the tier, while the resource ID identifies
+  // the item inside it. This map preserves v3's ranked order within a tier.
+  const resourceId = String(sourceTopic?.resourceId ?? '')
+  const phaseBId = [
+    [/^S10-PhaseBTier1/, 'phase-b-tier-1-01'],
+    [/^S4-PhaseBTier1/, 'phase-b-tier-1-02'],
+    [/^S9-PhaseBTier1/, 'phase-b-tier-1-04'],
+    [/^S1-PhaseBTier2-a/, 'phase-b-tier-2-05'],
+    [/^S8-PhaseBTier2/, 'phase-b-tier-2-06'],
+    [/^S1-PhaseBTier2-b/, 'phase-b-tier-2-07'],
+    [/^S11-PhaseBTier2/, 'phase-b-tier-2-08'],
+    [/^S6-PhaseBTier3/, 'phase-b-tier-3-09'],
+    [/^S7-PhaseBTier3/, 'phase-b-tier-3-10'],
+    [/^S11-PhaseBTier3/, 'phase-b-tier-3-11'],
+  ].find(([pattern]) => pattern.test(resourceId))?.[1]
+
+  if (phaseBId) return roadmapTopics.find((item) => item.id === phaseBId) ?? null
+  return null
+}
+
+function v3StudyProfile(sourceTopic, subjectId, chapter, fallbackDifficulty, fallbackImportance, fallbackPriority) {
+  const entry = v3RoadmapEntryFor(sourceTopic, subjectId)
+  return {
+    difficulty: entry?.difficulty ?? fallbackDifficulty,
+    importance: entry?.importance ?? fallbackImportance,
+    priority: entry?.priority ?? priorityFromRoadmapPhase(sourceTopic?.roadmapPhase, sourceTopic?.priority ?? fallbackPriority),
+    roadmapOrder: entry?.order ?? Number.MAX_SAFE_INTEGER,
+    phaseLabel: sourceTopic?.roadmapPhase ?? 'Unscheduled',
+    subjectDifficulty: chapter.difficulty,
+  }
+}
+
 function buildSubtopics(parentId, chapter, roadmapMetadata = null) {
   const entries = [
     { label: 'Math Prerequisites', summary: roadmapMetadata?.prerequisites || chapter.mathPrerequisites || 'Not specified in the blueprint.' },
@@ -188,9 +236,14 @@ function buildTopicsForChapter(parentId, subjectId, subjectName, chapter) {
   const roadmapMetadata = roadmapMetadataFor(chapter.slug)
   const difficulty = roadmapMetadata?.difficulty ?? mapDifficulty(chapter.difficulty)
   const importance = roadmapMetadata?.importance ?? mapImportance(chapter.highYieldStars)
-  const priority = roadmapMetadata?.priority ?? mapPriority(chapter.pyqFrequency?.includes('Frequently') ? 'High' : chapter.weightage)
+  const fallbackPriority = chapter.priority ?? roadmapMetadata?.priority ?? mapPriority(chapter.pyqFrequency?.includes('Frequently') ? 'High' : chapter.weightage)
 
-  const topicDefinitions = [
+  const topicDefinitions = chapter.topics?.length ? chapter.topics.map((topic) => ({
+    label: topic.name,
+    slug: topic.resourceId || topic.slug,
+    summary: topic.whatToCover || topic.additionalNotes || `Study ${topic.name}.`,
+    sourceTopic: topic,
+  })) : [
     {
       label: 'Concept & Derivation',
       summary: `Core concepts and derivations for ${chapter.name}.`,
@@ -202,8 +255,16 @@ function buildTopicsForChapter(parentId, subjectId, subjectName, chapter) {
   ]
 
   return topicDefinitions.map((definition, index) => {
-    const slug = `${chapter.slug}-${index === 0 ? 'concept' : 'practice'}`
+    const slug = definition.slug || `${chapter.slug}-${index === 0 ? 'concept' : 'practice'}`
     const topicId = buildNodeId(parentId, slug)
+    const profile = v3StudyProfile(
+      definition.sourceTopic,
+      subjectId,
+      chapter,
+      difficulty,
+      importance,
+      fallbackPriority,
+    )
 
     return createNode({
       level: 'topic',
@@ -212,11 +273,12 @@ function buildTopicsForChapter(parentId, subjectId, subjectName, chapter) {
       parentId,
       metadata: {
         fullTitle: `${chapter.name}: ${definition.label}`,
+        summary: definition.summary,
         estimatedStudyTime: roadmapMetadata?.estimatedStudyMinutes ? `${roadmapMetadata.estimatedStudyMinutes / 60} hr` : estimateStudyTime(difficulty),
         estimatedProblemSolvingTime: roadmapMetadata?.estimatedProblemSolvingMinutes ? `${roadmapMetadata.estimatedProblemSolvingMinutes / 60} hr` : estimateProblemSolvingTime(difficulty),
-        importance,
-        difficulty,
-        priority,
+        importance: profile.importance,
+        difficulty: profile.difficulty,
+        priority: profile.priority,
         status: TOPIC_STATUS.NOT_STARTED,
         revisionStatus: mapRevisionStatus(),
         subjectId,
@@ -230,8 +292,18 @@ function buildTopicsForChapter(parentId, subjectId, subjectName, chapter) {
         prerequisites: roadmapMetadata?.prerequisites ?? null,
         typicalQuestionStyle: roadmapMetadata?.typicalQuestionStyle ?? null,
         linkedModules: buildLinkedModules(subjectId, chapter.slug),
+        resourceId: definition.sourceTopic?.resourceId ?? null,
+        roadmapPhase: definition.sourceTopic?.roadmapPhase ?? '',
+        roadmapOrder: profile.roadmapOrder,
+        phaseLabel: profile.phaseLabel,
+        subjectDifficulty: profile.subjectDifficulty,
+        source: definition.sourceTopic?.source ?? '',
+        videoUrl: definition.sourceTopic?.videoLink ?? '',
+        bookReference: definition.sourceTopic?.bookReference ?? '',
+        timing: definition.sourceTopic?.timing ?? '',
+        additionalNotes: definition.sourceTopic?.additionalNotes ?? '',
       },
-      children: index === 0 ? buildSubtopics(topicId, chapter, roadmapMetadata) : [],
+      children: definition.sourceTopic ? [] : index === 0 ? buildSubtopics(topicId, chapter, roadmapMetadata) : [],
     })
   })
 }
@@ -255,64 +327,81 @@ function buildChapterNode(parentId, subjectId, subjectName, chapter) {
   })
 }
 
-/** Splits a subject's chapters into the blueprint's own Core Overlap vs JEST-Exclusive grouping (section 3). */
-function splitCoreAndExclusive(subject) {
-  const exclusiveNames = new Set(
-    (subject.jestExclusiveTopics || '')
-      .split(',')
-      .map((s) => s.trim().toLowerCase())
-      .filter(Boolean),
-  )
+/**
+ * Infers the exam scope for a chapter from the chapter's own topic tags when
+ * available, while retaining the older blueprint labels for subjects that only
+ * record a coarse JEST-only/JAM+JEST split.
+ */
+function inferChapterExamScope(chapter) {
+  const scopes = (chapter.topics ?? [])
+    .map((topic) => String(topic.exams ?? topic.examScope ?? '').trim())
+    .filter(Boolean)
 
-  const isExclusive = (chapterName) => {
-    const lower = chapterName.toLowerCase()
-    for (const fragment of exclusiveNames) {
-      if (fragment && (lower.includes(fragment) || fragment.includes(lower))) return true
-    }
-    return false
+  const normalized = scopes.find((scope) => /JAM\+JEST/i.test(scope))
+    ? 'JAM+JEST'
+    : scopes.find((scope) => /JAM-only/i.test(scope))
+      ? 'JAM-only'
+      : scopes.find((scope) => /JAM-partial/i.test(scope))
+        ? 'JAM-partial'
+        : scopes.find((scope) => /JEST-only \(low\)/i.test(scope))
+          ? 'JEST-only (low)'
+          : scopes.find((scope) => /JEST-only/i.test(scope))
+            ? 'JEST-only'
+            : scopes.find((scope) => /JEST-edge/i.test(scope))
+              ? 'JEST-edge'
+              : 'JAM+JEST'
+
+  return normalized
+}
+
+function splitChaptersByExamScope(subject) {
+  const buckets = {
+    'JAM+JEST': [],
+    'JAM-only': [],
+    'JAM-partial': [],
+    'JEST-only': [],
+    'JEST-edge': [],
+    'JEST-only (low)': [],
   }
 
-  const exclusive = subject.chapters.filter((c) => isExclusive(c.name))
-  const core = subject.chapters.filter((c) => !isExclusive(c.name))
-  // Guarantee every chapter appears somewhere even if the free-text match misses.
-  return core.length ? { core, exclusive } : { core: subject.chapters, exclusive: [] }
+  subject.chapters.forEach((chapter) => {
+    const scope = inferChapterExamScope(chapter)
+    const key = buckets[scope] ? scope : 'JAM+JEST'
+    buckets[key].push(chapter)
+  })
+
+  return buckets
 }
 
 function buildUnitsForSubject(parentId, subjectId, subject) {
-  const { core, exclusive } = splitCoreAndExclusive(subject)
-  const units = []
+  const buckets = splitChaptersByExamScope(subject)
+  const unitDefinitions = [
+    { key: 'JAM+JEST', name: 'Core JAM + JEST Overlap' },
+    { key: 'JAM-only', name: 'JAM Only' },
+    { key: 'JAM-partial', name: 'JAM Partial / Foundation' },
+    { key: 'JEST-only', name: 'JEST Only' },
+    { key: 'JEST-edge', name: 'JEST Edge / Advanced' },
+    { key: 'JEST-only (low)', name: 'JEST Only (Low Priority)' },
+  ]
 
-  if (core.length) {
-    const unitSlug = `${subject.id}-core-overlap`
+  return unitDefinitions.flatMap(({ key, name }) => {
+    const chapters = buckets[key]
+    if (!chapters?.length) return []
+
+    const unitSlug = `${subject.id}-${key.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`
     const unitId = buildNodeId(parentId, unitSlug)
-    units.push(
+
+    return [
       createNode({
         level: 'unit',
-        name: 'Core JAM + JEST Overlap',
+        name,
         slug: unitSlug,
         parentId,
-        metadata: { subjectId },
-        children: core.map((chapter) => buildChapterNode(unitId, subjectId, subject.name, chapter)),
+        metadata: { subjectId, examScope: key },
+        children: chapters.map((chapter) => buildChapterNode(unitId, subjectId, subject.name, chapter)),
       }),
-    )
-  }
-
-  if (exclusive.length) {
-    const unitSlug = `${subject.id}-jest-exclusive`
-    const unitId = buildNodeId(parentId, unitSlug)
-    units.push(
-      createNode({
-        level: 'unit',
-        name: 'JEST-Exclusive / Advanced',
-        slug: unitSlug,
-        parentId,
-        metadata: { subjectId },
-        children: exclusive.map((chapter) => buildChapterNode(unitId, subjectId, subject.name, chapter)),
-      }),
-    )
-  }
-
-  return units
+    ]
+  })
 }
 
 function buildSubjectNode(parentId, subject) {

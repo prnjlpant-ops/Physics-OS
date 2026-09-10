@@ -1,33 +1,14 @@
 import { getSubjects } from '../engine/blueprintService'
 import { buildLinkedModuleRoutes } from '../engine/blueprintMappingLayer'
+import { getPyqsByRoadmapChapter } from '../engine/pyq/questionBankService'
 
 /**
  * Per-chapter PYQ data — Part 2 of the Resource Links & PYQ Integration
  * Framework (v2).
  * ============================================================
- * PYQs are attached to Chapters, not Books. Real question content lives in
- * one JSON file per chapter under `data/pyq/chapters/<chapterSlug>.json` —
- * 35 files, one per blueprint chapter (see the framework doc's
- * chapterSlug reference table). This retires the old placeholder generator
- * that always returned empty state.
- *
- * Each chapter file's raw shape is intentionally minimal:
- *
- *   {
- *     "chapterSlug": "lagrangian-hamiltonian-mechanics",
- *     "questions": [
- *       { "id": "jest_2023_q7", "exam": "JEST", "year": 2023,
- *         "difficulty": "Hard", "marks": 3, "tags": ["Derivation"],
- *         "questionText": "...", "solutionText": "...", "notes": "..." }
- *     ]
- *   }
- *
- * This module is the only place that reads those raw files. It enriches
- * every question with the contextual fields the UI needs (subjectId,
- * subjectName, chapterSlug, chapterName, questionNumber, and the linked
- * formula-sheet/memory-sheet routes) so nothing else in `src/pages` or
- * `src/components` needs to know about the raw per-chapter file shape —
- * the exported function signatures below are unchanged from before.
+ * PYQs are attached to Chapters, not Books. Real question content is queried
+ * dynamically via `getPyqsByRoadmapChapter` and the question bank assets,
+ * with fallback to any explicit per-chapter JSON files.
  */
 
 const chapterFiles = import.meta.glob('./pyq/chapters/*.json', { eager: true })
@@ -47,12 +28,12 @@ function enrichPyq(raw, subject, chapter, index) {
   const { formulaSheet, memorySheet } = buildLinkedModuleRoutes(subject.id, chapter.slug)
   return {
     ...raw,
-    questionNumber: index + 1,
+    questionNumber: raw.questionNumber ?? index + 1,
     subjectId: subject.id,
     subjectName: subject.name,
     chapterSlug: chapter.slug,
     chapterName: chapter.name,
-    tags: Array.isArray(raw.tags) ? raw.tags : [],
+    tags: Array.isArray(raw.tags) ? raw.tags : (raw.conceptTags ?? []),
     notes: raw.notes ?? '',
     relatedFormulaSheetPath: formulaSheet,
     relatedMemorySheetPath: memorySheet,
@@ -62,6 +43,10 @@ function enrichPyq(raw, subject, chapter, index) {
 /** All PYQs attached to one chapter, enriched with subject/chapter context. */
 export function getChapterPyqs(subject, chapter) {
   if (!subject || !chapter) return []
+  const dynamic = getPyqsByRoadmapChapter(chapter.slug)
+  if (dynamic && dynamic.length > 0) {
+    return dynamic.map((pyq, index) => enrichPyq(pyq, subject, chapter, index))
+  }
   const raw = questionsByChapterSlug[chapter.slug] ?? []
   return raw.map((pyq, index) => enrichPyq(pyq, subject, chapter, index))
 }

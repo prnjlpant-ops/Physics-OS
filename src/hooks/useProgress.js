@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import ProgressService from '../services/ProgressService'
 import TaskService from '../services/TaskService'
-import TopicProgressService from '../engine/topics/topicProgressService'
+import { SYLLABUS_STATUS_EVENT } from './useSyllabusStatus'
 import { SESSIONS_CHANGED_EVENT } from '../utils/studySessionsStorage'
 
 /**
@@ -21,14 +21,14 @@ export function useProgress() {
 
     window.addEventListener(SESSIONS_CHANGED_EVENT, refresh)
     window.addEventListener('storage', refresh)
+    window.addEventListener(SYLLABUS_STATUS_EVENT, refresh)
     const unsubscribeTasks = TaskService.subscribe(refresh)
-    const unsubscribeTopics = TopicProgressService.subscribeToProgress(refresh)
 
     return () => {
       window.removeEventListener(SESSIONS_CHANGED_EVENT, refresh)
       window.removeEventListener('storage', refresh)
+      window.removeEventListener(SYLLABUS_STATUS_EVENT, refresh)
       unsubscribeTasks()
-      unsubscribeTopics()
     }
   }, [])
 
