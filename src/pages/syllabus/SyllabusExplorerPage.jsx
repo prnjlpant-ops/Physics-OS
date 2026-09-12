@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react'
-import { getSubjects } from '../../engine/blueprintService'
+import { Link } from 'react-router-dom'
+import { getScopeBadgeLabel, getSubjects } from '../../data/subjects.js'
 import {
   getSyllabusTree,
   getAllTopics,
@@ -87,6 +88,27 @@ export default function SyllabusExplorerPage() {
 
   const selectedTopic = selectedTopicId ? findNodeById(tree, selectedTopicId) : null
   const missingBooks = booksData.books.filter((book) => book.available === false)
+  const executiveRows = useMemo(
+    () =>
+      subjects.map((subject) => {
+        const chapterCount = subject.chapters?.length ?? 0
+        const topicCount = (subject.chapters ?? []).reduce(
+          (sum, chapter) => sum + (chapter.topics?.length ?? 0),
+          0,
+        )
+        return {
+          id: subject.id,
+          name: subject.name,
+          chapterCount,
+          topicCount,
+          weightage: subject.weightageRange || '—',
+          tier: getScopeBadgeLabel(subject.examScope ?? 'JAM_JEST'),
+          videos: 0,
+          pyqsComplete: '—',
+        }
+      }),
+    [subjects],
+  )
 
   return (
     <div className="flex flex-col gap-4">
@@ -96,6 +118,52 @@ export default function SyllabusExplorerPage() {
         <p className="mt-1 text-sm font-medium text-[#e8e8e8]">Chapter resources, lecture links, and PYQ cues are now wired directly into the chapter flow instead of sitting in a separate disconnected sheet.</p>
         <p className="mt-1 text-xs text-[#9d9d9d]">Current roadmap focus: {roadmapSnapshot.nextTopic?.title ?? 'Roadmap is fully covered.'} · Checkpoint: {roadmapSnapshot.checkpoint.label}</p>
       </section>
+
+      <section className="rounded-xl border border-[#3c3c3c] bg-[#1b1d22] p-4">
+        <div className="mb-3 flex items-center justify-between gap-3">
+          <div>
+            <p className="text-[10px] uppercase tracking-[0.12em] text-[#7dd3fc]">Executive matrix</p>
+            <p className="mt-1 text-sm text-[#e8e8e8]">Bird’s-eye view for the active subject cockpit</p>
+          </div>
+          <span className="text-[10px] text-[#94a3b8]">{executiveRows.length} units</span>
+        </div>
+        <div className="overflow-x-auto">
+          <table className="min-w-full border-separate border-spacing-y-2 text-left text-xs">
+            <thead>
+              <tr className="text-[#9d9d9d]">
+                <th className="px-2 py-1 font-medium">Unit Name</th>
+                <th className="px-2 py-1 font-medium">Weightage %</th>
+                <th className="px-2 py-1 font-medium">Active Tier</th>
+                <th className="px-2 py-1 font-medium">Videos</th>
+                <th className="px-2 py-1 font-medium">PYQs</th>
+                <th className="px-2 py-1 font-medium">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {executiveRows.map((row) => (
+                <tr key={row.id} className="rounded-md border border-[#2f2f2f] bg-[#121620] text-[#d6d6d6]">
+                  <td className="rounded-l-md px-2 py-2.5">
+                    <div className="font-medium text-[#e8e8e8]">{row.name}</div>
+                    <div className="mt-0.5 text-[10px] text-[#858585]">{row.chapterCount} chapters · {row.topicCount} topics</div>
+                  </td>
+                  <td className="px-2 py-2.5 text-[#cccccc]">{row.weightage}</td>
+                  <td className="px-2 py-2.5">
+                    <span className="rounded-full border border-[#4fc1ff]/30 bg-[#4fc1ff]/10 px-2 py-0.5 text-[10px] text-[#a5d7ff]">{row.tier}</span>
+                  </td>
+                  <td className="px-2 py-2.5 text-[#cccccc]">0/{row.topicCount}</td>
+                  <td className="px-2 py-2.5 text-[#cccccc]">{row.pyqsComplete}</td>
+                  <td className="rounded-r-md px-2 py-2.5">
+                    <Link to={`/subjects/${row.id}`} className="inline-flex items-center gap-1 rounded-md border border-[#0e639c] bg-[#0e639c]/10 px-2.5 py-1.5 text-[10px] font-medium text-[#bfe6ff] hover:bg-[#0e639c]/20">
+                      Open Subject Cockpit →
+                    </Link>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
       <OfficialSyllabi />
       {missingBooks.length > 0 && (
         <section className="rounded-lg border border-[#e2c08d]/40 bg-[#e2c08d]/10 p-4">

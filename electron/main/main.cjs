@@ -9,7 +9,8 @@
  * electron/services/workspaceService.cjs).
  */
 
-const { app, BrowserWindow } = require('electron')
+const path = require('node:path')
+const { app, BrowserWindow, shell } = require('electron')
 const { isDev } = require('../utilities/isDev.cjs')
 const { DEV_SERVER_URL, getPreloadPath, getProdIndexPath } = require('../utilities/paths.cjs')
 const { registerIpcHandlers, unregisterIpcHandlers } = require('../ipc/handlers.cjs')
@@ -41,10 +42,10 @@ function createWindow() {
     height: savedBounds?.height ?? 800,
     x: savedBounds?.x,
     y: savedBounds?.y,
-    minWidth: 960,
-    minHeight: 640,
+    minWidth: 1100,
+    minHeight: 720,
     // Matches the app's dark theme so there's no white flash before React mounts.
-    backgroundColor: '#0d1117',
+    backgroundColor: '#0a0b10',
     show: false,
     webPreferences: {
       preload: getPreloadPath(),
@@ -52,6 +53,21 @@ function createWindow() {
       nodeIntegration: false,
       sandbox: false, // see preload.cjs's header comment for why
     },
+  })
+
+  mainWindow.webContents.setWindowOpenHandler(({ url }) => {
+    if (url.startsWith('http:') || url.startsWith('https:') || url.startsWith('zotero:')) {
+      shell.openExternal(url)
+      return { action: 'deny' }
+    }
+    return { action: 'allow' }
+  })
+
+  mainWindow.webContents.on('will-navigate', (event, url) => {
+    if (url.startsWith('http:') || url.startsWith('https:')) {
+      event.preventDefault()
+      shell.openExternal(url)
+    }
   })
 
   installMenu(getMainWindow)
@@ -66,7 +82,8 @@ function createWindow() {
     mainWindow.loadURL(`${DEV_SERVER_URL}#/`)
     mainWindow.webContents.openDevTools({ mode: 'detach' })
   } else {
-    mainWindow.loadFile(getProdIndexPath(), { hash: '/' })
+    const prodIndexPath = path.join(__dirname, '..', '..', 'dist', 'index.html')
+    mainWindow.loadFile(prodIndexPath, { hash: '/' })
   }
 
   const persistWindowState = debounce(() => workspaceService.captureWindow(mainWindow), 500)

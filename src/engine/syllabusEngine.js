@@ -1,4 +1,5 @@
 import { SYLLABUS_LEVELS, TOPIC_STATUS } from '../constants/syllabusConstants'
+import { canonicalizeExamScope, getScopeBadgeLabel } from '../data/subjects.js'
 import {
   mapDifficulty,
   mapImportance,
@@ -281,6 +282,8 @@ function buildTopicsForChapter(parentId, subjectId, subjectName, chapter) {
         priority: profile.priority,
         status: TOPIC_STATUS.NOT_STARTED,
         revisionStatus: mapRevisionStatus(),
+        examScope: canonicalizeExamScope(definition.sourceTopic?.examScope ?? definition.sourceTopic?.exams ?? definition.sourceTopic?.exam ?? chapter.examScope ?? 'JAM_JEST'),
+        scopeLabel: getScopeBadgeLabel(canonicalizeExamScope(definition.sourceTopic?.examScope ?? definition.sourceTopic?.exams ?? definition.sourceTopic?.exam ?? chapter.examScope ?? 'JAM_JEST')),
         subjectId,
         subjectName,
         chapterSlug: chapter.slug,
@@ -300,6 +303,7 @@ function buildTopicsForChapter(parentId, subjectId, subjectName, chapter) {
         source: definition.sourceTopic?.source ?? '',
         videoUrl: definition.sourceTopic?.videoLink ?? '',
         bookReference: definition.sourceTopic?.bookReference ?? '',
+        bookRef: definition.sourceTopic?.bookReference ?? '',
         timing: definition.sourceTopic?.timing ?? '',
         additionalNotes: definition.sourceTopic?.additionalNotes ?? '',
       },
@@ -337,36 +341,27 @@ function inferChapterExamScope(chapter) {
     .map((topic) => String(topic.exams ?? topic.examScope ?? '').trim())
     .filter(Boolean)
 
-  const normalized = scopes.find((scope) => /JAM\+JEST/i.test(scope))
-    ? 'JAM+JEST'
-    : scopes.find((scope) => /JAM-only/i.test(scope))
-      ? 'JAM-only'
-      : scopes.find((scope) => /JAM-partial/i.test(scope))
-        ? 'JAM-partial'
-        : scopes.find((scope) => /JEST-only \(low\)/i.test(scope))
-          ? 'JEST-only (low)'
-          : scopes.find((scope) => /JEST-only/i.test(scope))
-            ? 'JEST-only'
-            : scopes.find((scope) => /JEST-edge/i.test(scope))
-              ? 'JEST-edge'
-              : 'JAM+JEST'
+  const normalized = scopes.find((scope) => /JAM\s*\+\s*JEST|JAM\s*JEST|JAM\s*overlap/i.test(scope))
+    ? 'JAM_JEST'
+    : scopes.find((scope) => /JAM\s*only|JAM\s*core|JAM\s*partial/i.test(scope))
+      ? 'JAM_CORE'
+      : scopes.find((scope) => /JEST\s*edge|JEST-edge|JEST\s*advanced/i.test(scope))
+        ? 'JEST_EDGE'
+        : 'JAM_JEST'
 
   return normalized
 }
 
 function splitChaptersByExamScope(subject) {
   const buckets = {
-    'JAM+JEST': [],
-    'JAM-only': [],
-    'JAM-partial': [],
-    'JEST-only': [],
-    'JEST-edge': [],
-    'JEST-only (low)': [],
+    JAM_CORE: [],
+    JAM_JEST: [],
+    JEST_EDGE: [],
   }
 
   subject.chapters.forEach((chapter) => {
-    const scope = inferChapterExamScope(chapter)
-    const key = buckets[scope] ? scope : 'JAM+JEST'
+    const scope = canonicalizeExamScope(inferChapterExamScope(chapter))
+    const key = buckets[scope] ? scope : 'JAM_JEST'
     buckets[key].push(chapter)
   })
 
@@ -376,12 +371,9 @@ function splitChaptersByExamScope(subject) {
 function buildUnitsForSubject(parentId, subjectId, subject) {
   const buckets = splitChaptersByExamScope(subject)
   const unitDefinitions = [
-    { key: 'JAM+JEST', name: 'Core JAM + JEST Overlap' },
-    { key: 'JAM-only', name: 'JAM Only' },
-    { key: 'JAM-partial', name: 'JAM Partial / Foundation' },
-    { key: 'JEST-only', name: 'JEST Only' },
-    { key: 'JEST-edge', name: 'JEST Edge / Advanced' },
-    { key: 'JEST-only (low)', name: 'JEST Only (Low Priority)' },
+    { key: 'JAM_CORE', name: 'JAM Core' },
+    { key: 'JAM_JEST', name: 'JAM + JEST' },
+    { key: 'JEST_EDGE', name: 'JEST Edge' },
   ]
 
   return unitDefinitions.flatMap(({ key, name }) => {

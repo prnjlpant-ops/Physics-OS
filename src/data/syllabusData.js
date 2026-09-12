@@ -3,7 +3,7 @@ import {
   getNodesAtLevel,
   flattenTree,
 } from '../engine/syllabusEngine'
-import { getBlueprintData, getSubjects } from '../engine/blueprintService'
+import { getBlueprintData, getSubjects } from './subjects.js'
 import { TOPIC_STATUS_WEIGHT } from '../constants/syllabusConstants'
 
 /**

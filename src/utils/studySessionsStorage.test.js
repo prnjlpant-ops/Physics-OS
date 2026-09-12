@@ -53,6 +53,34 @@ test('chapter tracker saves and resets chapter-only sessions', async () => {
   assert.equal(getAllStudySessions().length, 1)
 })
 
+test('workspace restore exposes the last active subject and chapter and defaults auto-jump to launch', async () => {
+  const WorkspaceService = await import('../services/WorkspaceService.js')
+  const SettingsService = await import('../services/SettingsService.js')
+
+  const workspace = WorkspaceService.default.get()
+  assert.deepEqual(workspace, { currentSubjectId: null, currentChapterSlug: null, currentTopicId: null, currentResourceId: null })
+  assert.equal(SettingsService.default.getSetting('autoJumpToLastActiveTopicOnLaunch'), true)
+
+  WorkspaceService.default.update({ currentSubjectId: 'classical-mechanics', currentChapterSlug: 'kinematics', currentTopicId: 'topic-1' })
+
+  const restored = WorkspaceService.default.get()
+  assert.equal(restored.currentSubjectId, 'classical-mechanics')
+  assert.equal(restored.currentChapterSlug, 'kinematics')
+  assert.equal(restored.currentTopicId, 'topic-1')
+})
+
+test('workspace state ignores stale or invalid subject/chapter pairs', async () => {
+  const WorkspaceService = await import('../services/WorkspaceService.js')
+  const SettingsService = await import('../services/SettingsService.js')
+
+  SettingsService.default.updateSettings({ restoreLastWorkspace: true })
+  WorkspaceService.default.writeAll?.({ currentSubjectId: 'math-methods', currentChapterSlug: 'definitely-missing-chapter' })
+
+  const restored = WorkspaceService.default.getState()
+  assert.equal(restored.currentSubjectId, 'math-methods')
+  assert.equal(restored.currentChapterSlug, null)
+})
+
 test('v61 chapter filter excludes broader sibling chapters like partial differential equations', async () => {
   const { getV61RecordsForChapter } = await import('../data/v61Tracker.js')
 

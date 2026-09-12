@@ -1,0 +1,2742 @@
+{
+  "math-methods": {
+    "unitTitle": "UNIT 1: MATHEMATICAL METHODS OF PHYSICS",
+    "sheetName": "Unit 1 - Math Methods",
+    "topicBoxes": [
+      {
+        "boxTitle": "Vector Algebra, Vector Calculus & Curvilinear Coordinates",
+        "examScopeHeader": "",
+        "scopeKey": "JAM_JEST",
+        "lectures": [
+          {
+            "id": "S1-Topic1-v1",
+            "chapter": "Vector Calculus",
+            "subTopic": "Scalar field and its gradient",
+            "topicPhase": "Topic 1",
+            "scope": "JAM+JEST",
+            "source": "NPTEL \u2014 Prof. D.K. Ghosh",
+            "videoUrl": "https://www.youtube.com/watch?v=NED2Cl8u9Q0",
+            "duration": "",
+            "book": "Boas Ch. 6",
+            "focus": "Lec 1: Scalar fields, directional derivative, normal to surface, physical meaning of grad phi",
+            "timing": "Phase A \u2014 by early Oct",
+            "notes": "Used everywhere in potential theory"
+          },
+          {
+            "id": "S1-Topic1-v2",
+            "chapter": "Vector Calculus",
+            "subTopic": "Line and surface integrals of vector fields",
+            "topicPhase": "Topic 1",
+            "scope": "JAM+JEST",
+            "source": "NPTEL \u2014 Prof. D.K. Ghosh",
+            "videoUrl": "https://www.youtube.com/watch?v=W25SVn2bA8I",
+            "duration": "",
+            "book": "Boas Ch. 6",
+            "focus": "Lec 2: Work done, circulation, flux of vector field across open and closed surfaces",
+            "timing": "Phase A \u2014 by early Oct",
+            "notes": "Core tool for Gauss's and Ampere's laws"
+          },
+          {
+            "id": "S1-Topic1-v3",
+            "chapter": "Vector Calculus",
+            "subTopic": "Divergence and curl of vector fields",
+            "topicPhase": "Topic 1",
+            "scope": "JAM+JEST",
+            "source": "NPTEL \u2014 Prof. D.K. Ghosh",
+            "videoUrl": "https://www.youtube.com/watch?v=SZCsFS9izfQ",
+            "duration": "",
+            "book": "Boas Ch. 6",
+            "focus": "Lec 3: Solenoidal and irrotational fields, physical interpretation of div and curl",
+            "timing": "Phase A \u2014 by early Oct",
+            "notes": "Distinguishes conservative from non-conservative fields"
+          },
+          {
+            "id": "S1-Topic1-v4",
+            "chapter": "Vector Calculus",
+            "subTopic": "Conservative fields & Stokes' theorem",
+            "topicPhase": "Topic 1",
+            "scope": "JAM+JEST",
+            "source": "NPTEL \u2014 Prof. D.K. Ghosh",
+            "videoUrl": "https://www.youtube.com/watch?v=MZILJp2iKUs",
+            "duration": "",
+            "book": "Boas Ch. 6",
+            "focus": "Lec 4: Path independence, Stokes' theorem line-to-surface integral conversion",
+            "timing": "Phase A \u2014 by early Oct",
+            "notes": "High-yield calculation in JAM & JEST Part A"
+          },
+          {
+            "id": "S1-Topic1-v5",
+            "chapter": "Vector Calculus",
+            "subTopic": "Laplacian operator & curvilinear coordinates",
+            "topicPhase": "Topic 1",
+            "scope": "JAM+JEST",
+            "source": "NPTEL \u2014 Prof. D.K. Ghosh",
+            "videoUrl": "https://www.youtube.com/watch?v=l35iUUA7Nrk",
+            "duration": "",
+            "book": "Boas Ch. 6 / Arfken Ch. 2",
+            "focus": "Lec 5: Laplacian div(grad phi) in spherical polar (r, theta, phi) and cylindrical (s, phi, z)",
+            "timing": "Phase A \u2014 by early Oct",
+            "notes": "Crucial for Laplace equation and 3D Schr\u00f6dinger equation"
+          },
+          {
+            "id": "S1-PhaseBTier2-a",
+            "chapter": "Tensors & Curvilinear Coordinates",
+            "subTopic": "Covariant & contravariant tensors, metric tensor",
+            "topicPhase": "Phase B \u2013 Tier 2",
+            "scope": "JEST-only",
+            "source": "NPTEL \u2014 Prof. V. Balakrishnan",
+            "videoUrl": "https://www.youtube.com/watch?v=2HCOw0uS5mQ",
+            "duration": "",
+            "book": "Boas Ch. 10 + Arfken Ch. 2-3",
+            "focus": "Tensor rank, transformation laws, metric tensor, applications in relativity",
+            "timing": "Phase B, Tier 2 \u2014 post-JAM",
+            "notes": "Tested in JEST Part B higher-order questions"
+          }
+        ]
+      },
+      {
+        "boxTitle": "Matrices, Linear Algebra & Linear Vector Spaces",
+        "examScopeHeader": "",
+        "scopeKey": "JAM_JEST",
+        "lectures": [
+          {
+            "id": "S1-Topic1-b1",
+            "chapter": "Matrices & Linear Algebra",
+            "subTopic": "Matrix fundamentals, transpose, Hermitian & unitary matrices",
+            "topicPhase": "Topic 1",
+            "scope": "JAM+JEST",
+            "source": "Pravegaa Education",
+            "videoUrl": "https://www.youtube.com/watch?v=w-2s0jWq7CU",
+            "duration": "",
+            "book": "Boas Ch. 3, full chapter",
+            "focus": "Pravegaa Matrices Lec 1: matrix algebra, symmetric/Hermitian matrices, rank of matrix",
+            "timing": "Phase A \u2014 by early Oct",
+            "notes": "Core tool for Quantum Mechanics matrix representations"
+          },
+          {
+            "id": "S1-Topic1-b2",
+            "chapter": "Matrices & Linear Algebra",
+            "subTopic": "Determinants, inverse, systems of linear equations",
+            "topicPhase": "Topic 1",
+            "scope": "JAM+JEST",
+            "source": "Pravegaa Education",
+            "videoUrl": "https://www.youtube.com/watch?v=70fVQkUcdo8",
+            "duration": "",
+            "book": "Boas Ch. 3, full chapter",
+            "focus": "Pravegaa Matrices Lec 2: Gauss elimination, matrix inverse, consistency conditions",
+            "timing": "Phase A \u2014 by early Oct",
+            "notes": "Tested in JAM NAT and JEST Part A"
+          },
+          {
+            "id": "S1-Topic1-b3",
+            "chapter": "Matrices & Linear Algebra",
+            "subTopic": "Characteristic equation, eigenvalues & eigenvectors",
+            "topicPhase": "Topic 1",
+            "scope": "JAM+JEST",
+            "source": "Pravegaa Education",
+            "videoUrl": "https://www.youtube.com/watch?v=4ZCc7HS3CQA",
+            "duration": "",
+            "book": "Boas Ch. 3, full chapter",
+            "focus": "Pravegaa Matrices Lec 3: eigenvalues, eigenvectors, orthogonal properties",
+            "timing": "Phase A \u2014 by early Oct",
+            "notes": "Near-guaranteed question type in every JEST & JAM cycle"
+          },
+          {
+            "id": "S1-Topic1-b7",
+            "chapter": "Matrices & Linear Algebra",
+            "subTopic": "Diagonalization, Cayley-Hamilton & Pauli spin matrices",
+            "topicPhase": "Topic 1",
+            "scope": "JAM+JEST",
+            "source": "Pravegaa Education",
+            "videoUrl": "https://www.youtube.com/watch?v=qFD8WMBFo4U",
+            "duration": "",
+            "book": "Boas Ch. 3, full chapter",
+            "focus": "Pravegaa Matrices Lec 7: similarity transforms, functions of matrices e^A, Pauli matrices",
+            "timing": "Phase A \u2014 by early Oct",
+            "notes": "Vital for spin-1/2 algebra in Quantum Mechanics"
+          },
+          {
+            "id": "S1-Topic1-c",
+            "chapter": "Linear Vector Spaces",
+            "subTopic": "Linear vector spaces, Dirac notation, completeness",
+            "topicPhase": "Topic 1",
+            "scope": "JAM+JEST",
+            "source": "NPTEL \u2014 Prof. V. Balakrishnan",
+            "videoUrl": "https://www.youtube.com/watch?v=TcmGYe39XG0",
+            "duration": "",
+            "book": "Boas Ch. 3",
+            "focus": "NPTEL Lecture 1: inner product spaces, basis, Cauchy-Schwarz inequality, completeness",
+            "timing": "Phase A \u2014 by early Oct",
+            "notes": "Bridges linear algebra directly to Quantum Mechanics state vectors"
+          }
+        ]
+      },
+      {
+        "boxTitle": "Ordinary Differential Equations (ODEs) & Wronskian",
+        "examScopeHeader": "",
+        "scopeKey": "JAM_JEST",
+        "lectures": [
+          {
+            "id": "S1-Topic2-a1",
+            "chapter": "Differential Equations",
+            "subTopic": "1st order ODEs: variable separable, homogeneous, linear",
+            "topicPhase": "Topic 2",
+            "scope": "JAM+JEST",
+            "source": "Pravegaa Education",
+            "videoUrl": "https://www.youtube.com/watch?v=zHsDY5tnb6o",
+            "duration": "",
+            "book": "Boas Ch. 8, full chapter",
+            "focus": "Pravegaa ODE Lec 1: variable separable, integrating factors, linear 1st order DEs",
+            "timing": "Phase A \u2014 by early Oct",
+            "notes": "JAM's most frequently tested differential equations sub-topic"
+          },
+          {
+            "id": "S1-Topic2-a2",
+            "chapter": "Differential Equations",
+            "subTopic": "Exact DEs, Bernoulli, orthogonal trajectories",
+            "topicPhase": "Topic 2",
+            "scope": "JAM+JEST",
+            "source": "Pravegaa Education",
+            "videoUrl": "https://www.youtube.com/watch?v=dAZ9AmAsjJ8",
+            "duration": "",
+            "book": "Boas Ch. 8, full chapter",
+            "focus": "Pravegaa Differential Equation General Lec: exact DE condition dM/dy = dN/dx, Bernoulli form",
+            "timing": "Phase A \u2014 by early Oct",
+            "notes": "Standard NAT calculation question in JAM"
+          },
+          {
+            "id": "S1-Topic2-a8",
+            "chapter": "Differential Equations",
+            "subTopic": "2nd order linear ODEs, complementary functions & Wronskian",
+            "topicPhase": "Topic 2",
+            "scope": "JAM+JEST",
+            "source": "Pravegaa Education",
+            "videoUrl": "https://www.youtube.com/watch?v=BM7h3MdneVY",
+            "duration": "",
+            "book": "Boas Ch. 8, full chapter",
+            "focus": "Pravegaa ODE Lec 8: 2nd order DEs with constant coefficients, particular integrals, Wronskian test",
+            "timing": "Phase A \u2014 by early Oct",
+            "notes": "Essential for damped oscillations in CM and 1D potential wells in QM"
+          },
+          {
+            "id": "S1-Topic2-pyq",
+            "chapter": "Differential Equations",
+            "subTopic": "CSIR NET / JEST / JAM Solved Differential Equation PYQs",
+            "topicPhase": "Topic 2",
+            "scope": "JAM+JEST",
+            "source": "Pravegaa Education",
+            "videoUrl": "https://www.youtube.com/watch?v=xoQMYg-Zrd4",
+            "duration": "",
+            "book": "Boas Ch. 8",
+            "focus": "PYQ worked solutions: differential equations solving under exam time pressure",
+            "timing": "Phase A \u2014 by early Oct",
+            "notes": "Demonstrates shortcuts and elimination techniques for Part B questions"
+          }
+        ]
+      },
+      {
+        "boxTitle": "Partial Differential Equations (PDEs), Separation of Variables & Sturm-Liouville",
+        "examScopeHeader": "",
+        "scopeKey": "JAM_JEST",
+        "lectures": [
+          {
+            "id": "S1-PDE-1",
+            "chapter": "Partial Differential Equations",
+            "subTopic": "Wave equation derivation, D'Alembert solution, separation of variables",
+            "topicPhase": "Topic 2 / Foundation",
+            "scope": "JAM+JEST",
+            "source": "NPTEL \u2014 Prof. V. Balakrishnan",
+            "videoUrl": "https://www.youtube.com/watch?v=e18jtTFhbF8",
+            "duration": "",
+            "book": "Boas Ch. 13 / Arfken Ch. 9",
+            "focus": "NPTEL Lecture 32: 1D wave equation, boundary conditions, normal modes of vibrating string",
+            "timing": "Phase A \u2014 by early Oct",
+            "notes": "Directly connects to EM wave propagation and QM wavepackets"
+          },
+          {
+            "id": "S1-PDE-2",
+            "chapter": "Partial Differential Equations",
+            "subTopic": "Laplace & Poisson equations, potential theory in 2D and 3D",
+            "topicPhase": "Topic 2 / Foundation",
+            "scope": "JAM+JEST",
+            "source": "NPTEL \u2014 Prof. V. Balakrishnan",
+            "videoUrl": "https://www.youtube.com/watch?v=ZJ7v6VZQ32k",
+            "duration": "",
+            "book": "Boas Ch. 13",
+            "focus": "NPTEL Lecture 23: Green's functions for Laplacian operator, fundamental solutions",
+            "timing": "Phase A \u2014 by early Oct",
+            "notes": "Essential mathematical foundation for electrostatics and boundary value problems"
+          },
+          {
+            "id": "S1-PDE-3",
+            "chapter": "Sturm-Liouville Theory",
+            "subTopic": "Self-adjoint ODEs, orthogonality of eigenfunctions, weight functions",
+            "topicPhase": "Bonus #8",
+            "scope": "JEST-edge",
+            "source": "NPTEL \u2014 Prof. V. Balakrishnan",
+            "videoUrl": "https://www.youtube.com/watch?v=_Nkj5PyAZNc",
+            "duration": "",
+            "book": "Boas Ch. 12 / Arfken Ch. 10",
+            "focus": "Sturm-Liouville eigenvalue problems, completeness relation, expansion of functions",
+            "timing": "Phase A-Bonus \u2014 slack time",
+            "notes": "Directly explains why QM energy eigenfunctions are complete and orthogonal"
+          },
+          {
+            "id": "S1-PDE-4",
+            "chapter": "Mathematical Physics QIP",
+            "subTopic": "Comprehensive Mathematical Physics Review & Integration",
+            "topicPhase": "Topic 1\u20134 Review",
+            "scope": "JAM+JEST",
+            "source": "Pravegaa Education",
+            "videoUrl": "https://www.youtube.com/watch?v=sZ4fXrCNdi4",
+            "duration": "",
+            "book": "Boas Summary",
+            "focus": "Dr. Alok Shukla: QIP revision connecting ODEs, PDEs, vectors, and linear algebra",
+            "timing": "Phase A \u2014 checkpoint Oct",
+            "notes": "Excellent synoptic revision before starting Classical Mechanics"
+          }
+        ]
+      },
+      {
+        "boxTitle": "Complex Analysis \u2014 Basic Part (Algebra, CR Conditions, Milne-Thomson, Taylor Series)",
+        "examScopeHeader": "",
+        "scopeKey": "JAM_JEST",
+        "lectures": [
+          {
+            "id": "S1-Topic3-a1",
+            "chapter": "Complex Analysis (Basic)",
+            "subTopic": "Complex numbers, Argand plane, Euler formula, De Moivre",
+            "topicPhase": "Topic 3",
+            "scope": "JAM-partial",
+            "source": "Pravegaa Education",
+            "videoUrl": "https://www.youtube.com/watch?v=DmbN5tZaXoE",
+            "duration": "",
+            "book": "Boas Ch. 14, Sec 1\u20134",
+            "focus": "Pravegaa Complex Analysis Lec 1: number systems, Argand plane, e^(i theta), De Moivre theorem",
+            "timing": "Phase A \u2014 by early Oct",
+            "notes": "Core foundation; syllabus roadmap overview included in video"
+          },
+          {
+            "id": "S1-Topic3-a2",
+            "chapter": "Complex Analysis (Basic)",
+            "subTopic": "Roots of unity (x^n = +/-1), Argand geometry, hyperbolic functions",
+            "topicPhase": "Topic 3",
+            "scope": "JAM-partial",
+            "source": "Pravegaa Education",
+            "videoUrl": "https://www.youtube.com/watch?v=SPE8AIDxBDY",
+            "duration": "",
+            "book": "Boas Ch. 14, Sec 1\u20134",
+            "focus": "Pravegaa Complex Analysis Lec 2: geometric representation of roots, sinh/cosh/tanh, log relations",
+            "timing": "Phase A \u2014 by early Oct",
+            "notes": "Frequently tested in JAM objective questions"
+          },
+          {
+            "id": "S1-Topic3-a3",
+            "chapter": "Complex Analysis (Basic)",
+            "subTopic": "Infinite series summation via Euler formula, principal argument",
+            "topicPhase": "Topic 3",
+            "scope": "JAM-partial",
+            "source": "Pravegaa Education",
+            "videoUrl": "https://www.youtube.com/watch?v=fyqapSkuz7Q",
+            "duration": "",
+            "book": "Boas Ch. 14, Sec 1\u20134",
+            "focus": "Pravegaa Complex Analysis Lec 3: geometric progression summation, -pi < theta <= pi, 90 deg rotation",
+            "timing": "Phase A \u2014 by early Oct",
+            "notes": "Teaches powerful summation techniques using complex exponentials"
+          },
+          {
+            "id": "S1-Topic3-a4",
+            "chapter": "Complex Analysis (Basic)",
+            "subTopic": "Analytic functions, CR equations, Milne-Thomson method, Laplace eqn",
+            "topicPhase": "Topic 3",
+            "scope": "JAM-partial",
+            "source": "Pravegaa Education",
+            "videoUrl": "https://www.youtube.com/watch?v=myfh01rKUck",
+            "duration": "",
+            "book": "Boas Ch. 14, Sec 1\u20134",
+            "focus": "Pravegaa Complex Analysis Lec 4: u_x=v_y, u_y=-v_x, polar CR equations, finding v given u, electrostatic connection",
+            "timing": "Phase A \u2014 by early Oct",
+            "notes": "Very high yield: appears in almost every JAM paper"
+          },
+          {
+            "id": "S1-Topic3-a5",
+            "chapter": "Complex Analysis (Basic)",
+            "subTopic": "Taylor & Maclaurin series in complex plane, binomial expansion",
+            "topicPhase": "Topic 3",
+            "scope": "JAM-partial",
+            "source": "Pravegaa Education",
+            "videoUrl": "https://www.youtube.com/watch?v=Gy7Ay46xqKM",
+            "duration": "",
+            "book": "Boas Ch. 14, Sec 1\u20134",
+            "focus": "Pravegaa Complex Analysis Lec 5: series expansion around arbitrary points, radius of convergence",
+            "timing": "Phase A \u2014 by early Oct",
+            "notes": "STOP HERE FOR JAM. Concludes Phase A core pass"
+          },
+          {
+            "id": "S1-Topic3-b1",
+            "chapter": "Complex Analysis (Basic)",
+            "subTopic": "Holomorphic functions, differentiability, conformality (Part I)",
+            "topicPhase": "Topic 3",
+            "scope": "JAM-partial",
+            "source": "NPTEL \u2014 Prof. V. Balakrishnan",
+            "videoUrl": "https://www.youtube.com/watch?v=b5VUnapu-qs",
+            "duration": "",
+            "book": "Boas Ch. 14, Sec 1\u20134",
+            "focus": "NPTEL Lecture 1: rigorous mathematical foundations of complex variable functions",
+            "timing": "Phase A \u2014 by early Oct",
+            "notes": "Excellent alternate perspective if physical intuition is desired"
+          },
+          {
+            "id": "S1-Topic3-b2",
+            "chapter": "Complex Analysis (Basic)",
+            "subTopic": "Cauchy's integral theorem, Cauchy integral formula (Part II)",
+            "topicPhase": "Topic 3",
+            "scope": "JAM-partial",
+            "source": "NPTEL \u2014 Prof. V. Balakrishnan",
+            "videoUrl": "https://www.youtube.com/watch?v=q01b-lV6y5Q",
+            "duration": "",
+            "book": "Boas Ch. 14, Sec 1\u20134",
+            "focus": "NPTEL Lecture 2: closed loop integrals of analytic functions, Cauchy formula for derivatives",
+            "timing": "Phase A \u2014 by early Oct",
+            "notes": "Essential conceptual bridge to residue calculus"
+          }
+        ]
+      },
+      {
+        "boxTitle": "Complex Analysis \u2014 Advanced Part (Laurent Series, Residue Calculus, Contour Integrals & Branch Cuts)",
+        "examScopeHeader": "",
+        "scopeKey": "JAM_JEST",
+        "lectures": [
+          {
+            "id": "S1-Bonus4-a6",
+            "chapter": "Complex Residues & Contours",
+            "subTopic": "Laurent series expansion, principal part, residue definition, singularities",
+            "topicPhase": "Bonus #4",
+            "scope": "JEST-edge",
+            "source": "Pravegaa Education",
+            "videoUrl": "https://www.youtube.com/watch?v=qWmFE_vnKJQ",
+            "duration": "",
+            "book": "Boas Ch. 14, Sec 5\u201312",
+            "focus": "Pravegaa Complex Analysis Lec 6: Laurent series, residue as coeff of 1/(z-z0), simple poles vs pole of order n",
+            "timing": "Phase A-Bonus \u2014 slack time",
+            "notes": "Direct JEST Part B question generator"
+          },
+          {
+            "id": "S1-Bonus4-a7",
+            "chapter": "Complex Residues & Contours",
+            "subTopic": "Singularity classification, annular expansions, 4 residue methods",
+            "topicPhase": "Bonus #4",
+            "scope": "JEST-edge",
+            "source": "Pravegaa Education",
+            "videoUrl": "https://www.youtube.com/watch?v=M725BE8TOaQ",
+            "duration": "",
+            "book": "Boas Ch. 14, Sec 5\u201312",
+            "focus": "Pravegaa Complex Analysis Lec 7: annular domains |z|<1, 1<|z|<2, |z|>2, formula for pole of order n, phi/psi' quotient rule",
+            "timing": "Phase A-Bonus \u2014 slack time",
+            "notes": "Critical technique: prevents long Laurent expansions in exams"
+          },
+          {
+            "id": "S1-Bonus4-a8",
+            "chapter": "Complex Residues & Contours",
+            "subTopic": "Cauchy Residue Theorem, contour integration, poles on real axis",
+            "topicPhase": "Bonus #4",
+            "scope": "JEST-edge",
+            "source": "Pravegaa Education",
+            "videoUrl": "https://www.youtube.com/watch?v=n4NhFzG8JOQ",
+            "duration": "",
+            "book": "Boas Ch. 14, Sec 5\u201312",
+            "focus": "Pravegaa Complex Analysis Lec 8: sum of residues, poles on boundary (pi*i*Res), hyperbolic function poles",
+            "timing": "Phase A-Bonus \u2014 slack time",
+            "notes": "Tested in JEST Part C Numerical Answer Type (NAT)"
+          },
+          {
+            "id": "S1-Bonus4-a9",
+            "chapter": "Complex Residues & Contours",
+            "subTopic": "Contour evaluation of real trig integrals: Int 0 to 2pi R(cos, sin) dtheta",
+            "topicPhase": "Bonus #4",
+            "scope": "JEST-edge",
+            "source": "Pravegaa Education",
+            "videoUrl": "https://www.youtube.com/watch?v=dy8xW5iwBWU",
+            "duration": "",
+            "book": "Boas Ch. 14, Sec 5\u201312",
+            "focus": "Pravegaa Complex Analysis Lec 9: unit circle substitution z=e^(i theta), classic integrals 1/(a-b cos theta)",
+            "timing": "Phase A-Bonus \u2014 slack time",
+            "notes": "Classic JEST exam problem type"
+          },
+          {
+            "id": "S1-Bonus4-a11",
+            "chapter": "Complex Residues & Contours",
+            "subTopic": "Wedge / sector contours: Int 0 to inf dx/(1+x^n), algebraic branch points",
+            "topicPhase": "Bonus #4",
+            "scope": "JEST-edge",
+            "source": "Pravegaa Education",
+            "videoUrl": "https://www.youtube.com/watch?v=oQlUyXfxY4I",
+            "duration": "",
+            "book": "Boas Ch. 14, Sec 5\u201312",
+            "focus": "Pravegaa Complex Analysis Lec 11: sector contour angle 2pi/n, general formula pi/(n sin(pi/n)), multivaluedness",
+            "timing": "Phase A-Bonus \u2014 slack time",
+            "notes": "Very high yield: recurs in CSIR-NET and JEST Part B"
+          },
+          {
+            "id": "S1-Bonus4-a12",
+            "chapter": "Complex Residues & Contours",
+            "subTopic": "Riemann sheets, branch cuts, logarithmic branch points, key-hole contour",
+            "topicPhase": "Bonus #4",
+            "scope": "JEST-edge",
+            "source": "Pravegaa Education",
+            "videoUrl": "https://www.youtube.com/watch?v=TtTUA1qf54w",
+            "duration": "",
+            "book": "Boas Ch. 14, Sec 5\u201312",
+            "focus": "Pravegaa Complex Analysis Lec 12: multivalued functions, branch cut along real axis, Int 0 to inf (ln x)/(x^2+1) dx",
+            "timing": "Phase A-Bonus \u2014 slack time",
+            "notes": "Masterclass in solving integrals that appear unsolvable classically"
+          },
+          {
+            "id": "S1-Bonus4-b3",
+            "chapter": "Calculus of Residues (Alternate)",
+            "subTopic": "Calculus of residues: theory and pole classification (Part I)",
+            "topicPhase": "Bonus #4",
+            "scope": "JEST-edge",
+            "source": "NPTEL \u2014 Prof. V. Balakrishnan",
+            "videoUrl": "https://www.youtube.com/watch?v=o77UV7YrWvw",
+            "duration": "",
+            "book": "Boas Ch. 14",
+            "focus": "NPTEL Lecture 3: residue theorem, essential singularities, Picard's theorem",
+            "timing": "Phase A-Bonus \u2014 slack time",
+            "notes": "Rigorous and comprehensive coverage"
+          },
+          {
+            "id": "S1-Bonus4-b4",
+            "chapter": "Calculus of Residues (Alternate)",
+            "subTopic": "Standard contour integrals on real axis, semicircle contours (Part II)",
+            "topicPhase": "Bonus #4",
+            "scope": "JEST-edge",
+            "source": "NPTEL \u2014 Prof. V. Balakrishnan",
+            "videoUrl": "https://www.youtube.com/watch?v=Aq6K0lmv3Qw",
+            "duration": "",
+            "book": "Boas Ch. 14",
+            "focus": "NPTEL Lecture 4: integrals from -inf to +inf, Jordan's lemma, closing contour in upper half plane",
+            "timing": "Phase A-Bonus \u2014 slack time",
+            "notes": "Used in calculating Green's functions in QM and EMT"
+          },
+          {
+            "id": "S1-Bonus4-b5",
+            "chapter": "Calculus of Residues (Alternate)",
+            "subTopic": "Principal value integrals, pole indentation on real axis (Part III)",
+            "topicPhase": "Bonus #4",
+            "scope": "JEST-edge",
+            "source": "NPTEL \u2014 Prof. V. Balakrishnan",
+            "videoUrl": "https://www.youtube.com/watch?v=99Tnu0-0S9g",
+            "duration": "",
+            "book": "Boas Ch. 14",
+            "focus": "NPTEL Lecture 5: Cauchy principal value, Sokhotski-Plemelj formula",
+            "timing": "Phase A-Bonus \u2014 slack time",
+            "notes": "Appears in Kramers-Kronig dispersion relations in Optics/EMT"
+          },
+          {
+            "id": "S1-Bonus4-b6",
+            "chapter": "Calculus of Residues (Alternate)",
+            "subTopic": "Multivalued integrands, branch cuts, keyhole contour (Part IV)",
+            "topicPhase": "Bonus #4",
+            "scope": "JEST-edge",
+            "source": "NPTEL \u2014 Prof. V. Balakrishnan",
+            "videoUrl": "https://www.youtube.com/watch?v=OUdNCZCZ4GU",
+            "duration": "",
+            "book": "Boas Ch. 14",
+            "focus": "NPTEL Lecture 6: advanced contour integration with branch cuts",
+            "timing": "Phase A-Bonus \u2014 slack time",
+            "notes": "Advanced JEST Part B level"
+          }
+        ]
+      },
+      {
+        "boxTitle": "Fourier Series & Half-Range Expansions",
+        "examScopeHeader": "",
+        "scopeKey": "JAM_JEST",
+        "lectures": [
+          {
+            "id": "S1-Topic4-a",
+            "chapter": "Fourier Series",
+            "subTopic": "Fourier series introduction, Euler-Fourier formulas",
+            "topicPhase": "Topic 4",
+            "scope": "JAM+JEST",
+            "source": "Pravegaa Education",
+            "videoUrl": "https://www.youtube.com/watch?v=MW72LV-P_2s",
+            "duration": "",
+            "book": "Boas Ch. 7, Fourier series",
+            "focus": "Pravegaa Fourier Series Lec 1: full series, interval [-L, L], symmetry properties (even/odd)",
+            "timing": "Phase A \u2014 by early Oct",
+            "notes": "Guaranteed JAM and JEST scoring section"
+          },
+          {
+            "id": "S1-Topic4-b",
+            "chapter": "Fourier Series",
+            "subTopic": "Worked examples: square, triangular, sawtooth waves",
+            "topicPhase": "Topic 4",
+            "scope": "JAM+JEST",
+            "source": "Pravegaa Education",
+            "videoUrl": "https://www.youtube.com/watch?v=OoZy75MRXlo",
+            "duration": "",
+            "book": "Boas Ch. 7",
+            "focus": "Pravegaa Fourier Series Lec 2: coefficient evaluations, wave discontinuities",
+            "timing": "Phase A \u2014 by early Oct",
+            "notes": "Calculation speed builder"
+          },
+          {
+            "id": "S1-Topic4-c",
+            "chapter": "Fourier Series",
+            "subTopic": "Half-range Fourier cosine and sine expansions",
+            "topicPhase": "Topic 4",
+            "scope": "JAM+JEST",
+            "source": "Pravegaa Education",
+            "videoUrl": "https://www.youtube.com/watch?v=7ebxmmC_evI",
+            "duration": "",
+            "book": "Boas Ch. 7",
+            "focus": "Pravegaa Fourier Series Lec 3: expansion in [0, L], change of interval",
+            "timing": "Phase A \u2014 by early Oct",
+            "notes": "Direct application in heat equation and wave equation boundary value problems"
+          },
+          {
+            "id": "S1-Topic4-d",
+            "chapter": "Fourier Series",
+            "subTopic": "Bessel's inequality, Parseval's identity, complex series",
+            "topicPhase": "Topic 4",
+            "scope": "JAM+JEST",
+            "source": "Pravegaa Education",
+            "videoUrl": "https://www.youtube.com/watch?v=-tU6TccKzcQ",
+            "duration": "",
+            "book": "Boas Ch. 7",
+            "focus": "Pravegaa Fourier Series Lec 4: Parseval theorem for summation of infinite numeric series, complex series",
+            "timing": "Phase A \u2014 by early Oct",
+            "notes": "High yield for finding sums like sum(1/n^2) = pi^2/6 in NAT"
+          }
+        ]
+      },
+      {
+        "boxTitle": "Fourier Transforms, Laplace Transforms, Delta & Green's Functions",
+        "examScopeHeader": "",
+        "scopeKey": "JAM_JEST",
+        "lectures": [
+          {
+            "id": "S1-Bonus9-a1",
+            "chapter": "Fourier Transforms",
+            "subTopic": "Fourier transform definition, inverse transform, convolution theorem",
+            "topicPhase": "Bonus #9",
+            "scope": "JEST-edge",
+            "source": "NPTEL \u2014 Prof. V. Balakrishnan",
+            "videoUrl": "https://www.youtube.com/watch?v=lkAvgVUvYvY",
+            "duration": "",
+            "book": "Boas Ch. 7 & 8",
+            "focus": "NPTEL Lecture 20: Fourier transform, shift theorem, transform of derivatives, convolution",
+            "timing": "Phase A-Bonus \u2014 slack time",
+            "notes": "Directly used in QM momentum representation"
+          },
+          {
+            "id": "S1-Bonus9-a2",
+            "chapter": "Laplace Transforms",
+            "subTopic": "Laplace transforms, inverse transforms, initial value problems",
+            "topicPhase": "Bonus #9",
+            "scope": "JEST-edge",
+            "source": "NPTEL \u2014 Prof. V. Balakrishnan",
+            "videoUrl": "https://www.youtube.com/watch?v=Y8GzSV149t8",
+            "duration": "",
+            "book": "Boas Ch. 8",
+            "focus": "NPTEL Lecture 19: Laplace transform properties, solving coupled linear ODEs with initial conditions",
+            "timing": "Phase A-Bonus \u2014 slack time",
+            "notes": "Tested in Electronics circuit transient analysis"
+          },
+          {
+            "id": "S1-Bonus9-a3",
+            "chapter": "Dirac Delta Function",
+            "subTopic": "Dirac delta representations, sifting property, delta of function",
+            "topicPhase": "Bonus #9",
+            "scope": "JEST-edge",
+            "source": "Pravegaa Education",
+            "videoUrl": "https://www.youtube.com/watch?v=Q7h2LRO17Xk",
+            "duration": "",
+            "book": "Boas Ch. 8 / Griffiths EMT Ch. 1",
+            "focus": "Pravegaa Dirac Delta Function Lecture 2: delta(g(x)) = sum(delta(x-xi)/|g'(xi)|), derivative of delta",
+            "timing": "Phase A-Bonus \u2014 slack time",
+            "notes": "Critical in EMT charge densities and QM delta-function potentials"
+          }
+        ]
+      },
+      {
+        "boxTitle": "Special Functions: Legendre, Bessel, Hermite & Laguerre",
+        "examScopeHeader": "",
+        "scopeKey": "JAM_JEST",
+        "lectures": [
+          {
+            "id": "S1-Bonus8-a1",
+            "chapter": "Special Functions",
+            "subTopic": "Legendre polynomials P_n(x), generating function, orthogonality",
+            "topicPhase": "Bonus #8",
+            "scope": "JEST-edge",
+            "source": "NPTEL \u2014 Prof. V. Balakrishnan",
+            "videoUrl": "https://www.youtube.com/watch?v=_Nkj5PyAZNc",
+            "duration": "",
+            "book": "Boas Ch. 12, Sec 1\u20135",
+            "focus": "Generating function 1/sqrt(1-2xt+t^2), Rodrigues' formula, recurrence relations, orthogonality integral",
+            "timing": "Phase A-Bonus \u2014 slack time",
+            "notes": "Non-negotiable tool for multipole expansion in EMT and Hydrogen atom angular wavefunction in QM"
+          },
+          {
+            "id": "S1-Bonus8-a2",
+            "chapter": "Special Functions",
+            "subTopic": "Bessel functions J_n(x), Hermite polynomials H_n(x), Laguerre",
+            "topicPhase": "Bonus #8",
+            "scope": "JEST-edge",
+            "source": "NPTEL \u2014 Prof. V. Balakrishnan",
+            "videoUrl": "https://www.youtube.com/watch?v=ZJ7v6VZQ32k",
+            "duration": "",
+            "book": "Boas Ch. 12, Sec 12\u201322",
+            "focus": "Bessel generating function, recurrence, Hermite in QM harmonic oscillator, Laguerre in H-atom radial equation",
+            "timing": "Phase A-Bonus \u2014 slack time",
+            "notes": "Crucial for physical solutions of 2nd order differential equations in QM and EMT"
+          }
+        ]
+      },
+      {
+        "boxTitle": "Tensors & Elementary Discrete Group Theory",
+        "examScopeHeader": "",
+        "scopeKey": "JAM_JEST",
+        "lectures": [
+          {
+            "id": "S1-PhaseBTier2-b",
+            "chapter": "Group Theory",
+            "subTopic": "Elementary properties of discrete groups, Cayley table",
+            "topicPhase": "Phase B \u2013 Tier 2",
+            "scope": "JEST-only",
+            "source": "NPTEL \u2014 Prof. V. Balakrishnan",
+            "videoUrl": "https://www.youtube.com/watch?v=2HCOw0uS5mQ",
+            "duration": "",
+            "book": "Arfken Ch. 4 / Boas",
+            "focus": "NPTEL Lecture 36: rotation group SO(3), SU(2), discrete group definitions, isomorphism",
+            "timing": "Phase B, Tier 2 \u2014 post-JAM",
+            "notes": "Shortest topic in JEST syllabus (~2 hours of prep for guaranteed 1 question)"
+          }
+        ]
+      },
+      {
+        "boxTitle": "Probability Theory, Error Analysis & Calculator-Free Mental Arithmetic",
+        "examScopeHeader": "",
+        "scopeKey": "JAM_JEST",
+        "lectures": [
+          {
+            "id": "S1-Bonus11-a1",
+            "chapter": "Probability & Statistics",
+            "subTopic": "Probability distributions: Binomial, Poisson, Gaussian",
+            "topicPhase": "Bonus #11",
+            "scope": "JEST-edge",
+            "source": "NPTEL \u2014 Prof. V. Balakrishnan",
+            "videoUrl": "https://www.youtube.com/watch?v=P6dOawFYLVA",
+            "duration": "",
+            "book": "Boas Ch. 15, full chapter",
+            "focus": "NPTEL Lecture 3: Continuous random variables, probability density functions, standard deviation",
+            "timing": "Phase A-Bonus \u2014 slack time",
+            "notes": "Bridges probability directly to quantum mechanical expectation values"
+          },
+          {
+            "id": "S1-Bonus11-a2",
+            "chapter": "Error Analysis & Mental Fluency",
+            "subTopic": "Error propagation formulas, uncertainty, mental arithmetic",
+            "topicPhase": "Bonus #11",
+            "scope": "JEST-edge",
+            "source": "NPTEL \u2014 Prof. Amal Kumar Das",
+            "videoUrl": "https://www.youtube.com/watch?v=m6E1NN4A-9s",
+            "duration": "",
+            "book": "Experimental Physics Notes",
+            "focus": "NPTEL Experimental Physics Lec 1: random/systematic errors, propagation in powers and ratios, significant figures",
+            "timing": "Phase A-Bonus \u2014 ongoing",
+            "notes": "JEST allows NO calculators \u2014 practice mental math daily"
+          }
+        ]
+      }
+    ]
+  },
+  "classical-mechanics": {
+    "unitTitle": "UNIT 2: MECHANICS & CLASSICAL MECHANICS",
+    "sheetName": "Unit 2 - Classical Mechanics",
+    "topicBoxes": [
+      {
+        "boxTitle": "Newtonian Mechanics, Conservation Laws & Phase Space Dynamics",
+        "examScopeHeader": "",
+        "scopeKey": "JAM_JEST",
+        "lectures": [
+          {
+            "id": "S2-Topic5-a1",
+            "chapter": "Newtonian Mechanics",
+            "subTopic": "Potential curves V(x), equilibrium points, stability analysis",
+            "topicPhase": "Topic 5",
+            "scope": "JAM+JEST",
+            "source": "Pravegaa Education",
+            "videoUrl": "https://www.youtube.com/watch?v=Ag25k-4kcXc",
+            "duration": "",
+            "book": "Kleppner & Kolenkow",
+            "focus": "Pravegaa Lecture 2: dV/dx=0, d2V/dx2 > 0 (stable), frequency of small oscillations around minimum",
+            "timing": "Phase A \u2014 by early Oct",
+            "notes": "Core problem type in both JAM and JEST Part A/B"
+          },
+          {
+            "id": "S2-Topic5-b1",
+            "chapter": "Newtonian Mechanics",
+            "subTopic": "Mod-01 Lec-01 Review of Newtonian Mechanics",
+            "topicPhase": "Topic 5",
+            "scope": "JAM+JEST",
+            "source": "NPTEL \u2014 Prof. V. Balakrishnan",
+            "videoUrl": "https://www.youtube.com/watch?v=Q6Gw08pwhws",
+            "duration": "",
+            "book": "Kleppner & Kolenkow",
+            "focus": "NPTEL Lecture 1: Newton's laws, inertial frames, momentum and energy conservation theorems",
+            "timing": "Phase A \u2014 by early Oct",
+            "notes": "Foundational principles for all classical particle systems"
+          },
+          {
+            "id": "S2-Topic5-b2",
+            "chapter": "Newtonian Mechanics",
+            "subTopic": "Mod-01 Lec-02 Newtonian Mechanics & Collisions",
+            "topicPhase": "Topic 5",
+            "scope": "JAM+JEST",
+            "source": "NPTEL \u2014 Prof. V. Balakrishnan",
+            "videoUrl": "https://www.youtube.com/watch?v=8X1x9RLaaxc",
+            "duration": "",
+            "book": "Kleppner & Kolenkow",
+            "focus": "NPTEL Lecture 2: multi-particle systems, center of mass frame, elastic & inelastic collisions",
+            "timing": "Phase A \u2014 by early Oct",
+            "notes": "Core mechanics problem-solving techniques"
+          },
+          {
+            "id": "S2-Topic5-b3",
+            "chapter": "Phase Space Dynamics",
+            "subTopic": "Mod-01 Lec-03 Dynamics in Phase Space",
+            "topicPhase": "Topic 5",
+            "scope": "JAM+JEST",
+            "source": "NPTEL \u2014 Prof. V. Balakrishnan",
+            "videoUrl": "https://www.youtube.com/watch?v=0Zo93VDyacE",
+            "duration": "",
+            "book": "Goldstein Ch. 8 / Kleppner",
+            "focus": "NPTEL Lecture 3: phase portraits of harmonic oscillator, free particle, simple pendulum, separatrix",
+            "timing": "Phase A \u2014 by early Oct",
+            "notes": "Tested in JEST Part B conceptual MCQs"
+          }
+        ]
+      },
+      {
+        "boxTitle": "Lagrangian Formulation, Generalized Coordinates & Constraints",
+        "examScopeHeader": "",
+        "scopeKey": "JAM_JEST",
+        "lectures": [
+          {
+            "id": "S2-Topic6-a1",
+            "chapter": "Lagrangian Formulation",
+            "subTopic": "Degrees of freedom, constraints, generalized coordinates",
+            "topicPhase": "Topic 6",
+            "scope": "JAM+JEST",
+            "source": "Pravegaa Education",
+            "videoUrl": "https://www.youtube.com/watch?v=NWDGvW2Q3ag",
+            "duration": "",
+            "book": "Goldstein Ch. 1\u20132",
+            "focus": "Pravegaa Lecture 1: holonomic constraints, generalized coordinates, Euler-Lagrange derivation",
+            "timing": "Phase A \u2014 by early Oct",
+            "notes": "Conceptual starting point for modern mechanics"
+          },
+          {
+            "id": "S2-Topic6-b7",
+            "chapter": "Lagrangian Formalism",
+            "subTopic": "Mod-01 Lec-07 Lagrangian Formalism & D'Alembert",
+            "topicPhase": "Topic 6",
+            "scope": "JAM+JEST",
+            "source": "NPTEL \u2014 Prof. V. Balakrishnan",
+            "videoUrl": "https://www.youtube.com/watch?v=sCZ80l6UarM",
+            "duration": "",
+            "book": "Goldstein Ch. 1\u20132",
+            "focus": "NPTEL Lecture 7: virtual work, generalized forces, kinetic energy in generalized coordinates",
+            "timing": "Phase A \u2014 by early Oct",
+            "notes": "Rigorous theoretical formulation"
+          },
+          {
+            "id": "S2-Topic6-a5",
+            "chapter": "Lagrangian Formulation",
+            "subTopic": "Generalized forces, potential formulation, cyclic coordinates",
+            "topicPhase": "Topic 6",
+            "scope": "JAM+JEST",
+            "source": "Pravegaa Education",
+            "videoUrl": "https://www.youtube.com/watch?v=HSseKSxkH_4",
+            "duration": "",
+            "book": "Goldstein Ch. 1\u20132",
+            "focus": "Pravegaa Lecture 5: conservative systems, cyclic coordinates and conservation of generalized momentum",
+            "timing": "Phase A \u2014 by early Oct",
+            "notes": "Key to deriving conservation laws without explicit forces"
+          },
+          {
+            "id": "S2-Topic6-a39",
+            "chapter": "Lagrangian Problems",
+            "subTopic": "Standard worked problems: compound pendula, bead on wire, pulleys",
+            "topicPhase": "Topic 6",
+            "scope": "JAM+JEST",
+            "source": "Pravegaa Education",
+            "videoUrl": "https://www.youtube.com/watch?v=g_uDwS8oFzc",
+            "duration": "",
+            "book": "Goldstein Ch. 1\u20132",
+            "focus": "Pravegaa Lecture 39: problem solving session 1 on setting up Lagrangians",
+            "timing": "Phase A \u2014 by early Oct",
+            "notes": "Essential practice for writing T and V correctly"
+          },
+          {
+            "id": "S2-Topic6-a43",
+            "chapter": "Advanced Lagrangian",
+            "subTopic": "Coupled systems, moving frames, electromagnetic Lagrangian",
+            "topicPhase": "Topic 6",
+            "scope": "JAM+JEST",
+            "source": "Pravegaa Education",
+            "videoUrl": "https://www.youtube.com/watch?v=ssnB9c4JWU4",
+            "duration": "",
+            "book": "Goldstein Ch. 1\u20132",
+            "focus": "Pravegaa Lecture 43: advanced Lagrangian problems, velocity-dependent potentials (L = T - q*phi + q*A.v)",
+            "timing": "Phase A \u2014 by early Oct",
+            "notes": "Appears frequently in JEST Part B"
+          },
+          {
+            "id": "S2-Topic6-a44",
+            "chapter": "Lagrangian PYQs",
+            "subTopic": "Comprehensive CSIR NET, GATE, JEST & JAM PYQ discussion",
+            "topicPhase": "Topic 6",
+            "scope": "JAM+JEST",
+            "source": "Pravegaa Education",
+            "videoUrl": "https://www.youtube.com/watch?v=tD6im1DdHmo",
+            "duration": "",
+            "book": "Goldstein Ch. 1\u20132",
+            "focus": "Pravegaa Lecture 44: past 10-year question walkthrough",
+            "timing": "Phase A \u2014 by early Oct",
+            "notes": "Drills exam-level solving speed and common pitfalls"
+          }
+        ]
+      },
+      {
+        "boxTitle": "Hamiltonian Formulation, Canonical Equations & Poisson Brackets",
+        "examScopeHeader": "",
+        "scopeKey": "JAM_JEST",
+        "lectures": [
+          {
+            "id": "S2-Topic6-a2",
+            "chapter": "Hamiltonian Formulation",
+            "subTopic": "Legendre transformation, canonical momenta, Hamilton's equations",
+            "topicPhase": "Topic 6",
+            "scope": "JAM+JEST",
+            "source": "Pravegaa Education",
+            "videoUrl": "https://www.youtube.com/watch?v=CQRoY-6L4pU",
+            "duration": "",
+            "book": "Goldstein Ch. 8",
+            "focus": "Pravegaa Hamiltonian Formulation Lec 2: p_i = dL/dqdot_i, H = sum(p_i qdot_i) - L, qdot = dH/dp, pdot = -dH/dq",
+            "timing": "Phase A \u2014 by early Oct",
+            "notes": "Standard 3-mark derivation in JEST Part B"
+          },
+          {
+            "id": "S2-Topic6-a3",
+            "chapter": "Poisson Brackets",
+            "subTopic": "Poisson brackets definition, properties, Jacobi identity, time evolution",
+            "topicPhase": "Topic 6",
+            "scope": "JAM+JEST",
+            "source": "Pravegaa Education",
+            "videoUrl": "https://www.youtube.com/watch?v=FFPoXkCeLHU",
+            "duration": "",
+            "book": "Goldstein Ch. 9",
+            "focus": "Pravegaa Poisson Bracket Lec 2: dA/dt = {A, H} + dA/dt, constants of motion {A, H}=0, canonical invariants",
+            "timing": "Phase A \u2014 by early Oct",
+            "notes": "Direct precursor to Heisenberg equation of motion in Quantum Mechanics"
+          },
+          {
+            "id": "S2-Topic6-qip",
+            "chapter": "Mechanics Revision",
+            "subTopic": "Comprehensive revision of Lagrangian & Hamiltonian mechanics",
+            "topicPhase": "Topic 6 Review",
+            "scope": "JAM+JEST",
+            "source": "Pravegaa Education",
+            "videoUrl": "https://www.youtube.com/watch?v=o5fVFrfMZe0",
+            "duration": "",
+            "book": "Goldstein Ch. 1, 2, 8",
+            "focus": "Atul Gaurav: QIP revision lecture summarizing all core Lagrangian/Hamiltonian techniques",
+            "timing": "Phase A \u2014 by early Oct",
+            "notes": "Rapid review session"
+          },
+          {
+            "id": "S2-Topic6-b12",
+            "chapter": "Hamiltonian Dynamics (Alt)",
+            "subTopic": "Phase space volume preservation, canonical transformations",
+            "topicPhase": "Topic 6",
+            "scope": "JAM+JEST",
+            "source": "NPTEL \u2014 Prof. V. Balakrishnan",
+            "videoUrl": "https://www.youtube.com/watch?v=JCaJQrLRtEk",
+            "duration": "",
+            "book": "Goldstein Ch. 8\u20139",
+            "focus": "NPTEL Classical Physics Lec 12: generating functions, symplectic structure of phase space",
+            "timing": "Phase A \u2014 by early Oct",
+            "notes": "Advanced conceptual insight"
+          }
+        ]
+      },
+      {
+        "boxTitle": "Central Force Problem & Kepler Problem",
+        "examScopeHeader": "",
+        "scopeKey": "JAM_JEST",
+        "lectures": [
+          {
+            "id": "S2-Topic7-a",
+            "chapter": "Central Force Problem",
+            "subTopic": "Effective potential V_eff = V(r) + L^2/(2mu r^2), orbit equation",
+            "topicPhase": "Topic 7",
+            "scope": "JAM+JEST",
+            "source": "Goldstein / Kleppner",
+            "videoUrl": "",
+            "duration": "",
+            "book": "Goldstein Ch. 3, full chapter",
+            "focus": "Deriving Kepler's laws from Lagrangian, energy equation, turning points, bound vs unbound orbits",
+            "timing": "Phase A \u2014 by early Oct",
+            "notes": "Near-guaranteed NAT problem: finding orbit radius, velocity at perihelion/aphelion"
+          },
+          {
+            "id": "S2-Topic7-b",
+            "chapter": "Central Force (Alternate)",
+            "subTopic": "Orbital stability, Bertrand's theorem, precessing orbits",
+            "topicPhase": "Topic 7",
+            "scope": "JAM+JEST",
+            "source": "NPTEL \u2014 Prof. V. Balakrishnan",
+            "videoUrl": "https://www.youtube.com/watch?v=Q6Gw08pwhws",
+            "duration": "",
+            "book": "Goldstein Ch. 3",
+            "focus": "NPTEL Classical Physics: condition for stable circular orbits d2V_eff/dr2 > 0, small radial oscillations",
+            "timing": "Phase A \u2014 by early Oct",
+            "notes": "Regularly tested in JEST Part B"
+          }
+        ]
+      },
+      {
+        "boxTitle": "Small Oscillations & Normal Modes",
+        "examScopeHeader": "",
+        "scopeKey": "JAM_JEST",
+        "lectures": [
+          {
+            "id": "S2-Bonus7-a1",
+            "chapter": "Small Oscillations",
+            "subTopic": "Small oscillations basic theory, T and V matrices, secular equation",
+            "topicPhase": "Bonus #7",
+            "scope": "JEST-edge",
+            "source": "Pravegaa Education",
+            "videoUrl": "https://www.youtube.com/watch?v=iFfwgC9mMDM",
+            "duration": "",
+            "book": "Goldstein, Small Osc. Ch.",
+            "focus": "Pravegaa Small Oscillation Lec 1: setting up T_ij and V_ij matrices, solving det(V - omega^2 T) = 0",
+            "timing": "Phase A-Bonus \u2014 slack time",
+            "notes": "Uses eigenvalue linear algebra from Topic 1; high return on effort"
+          },
+          {
+            "id": "S2-Bonus7-a2",
+            "chapter": "Small Oscillations",
+            "subTopic": "2-DOF & 3-DOF coupled systems, normal frequencies & eigenvectors",
+            "topicPhase": "Bonus #7",
+            "scope": "JEST-edge",
+            "source": "Pravegaa Education",
+            "videoUrl": "https://www.youtube.com/watch?v=0_cFq6UDPJ4",
+            "duration": "",
+            "book": "Goldstein, Small Osc. Ch.",
+            "focus": "Pravegaa Small Oscillation Lec 2: coupled pendula, coupled spring-mass, finding normal modes",
+            "timing": "Phase A-Bonus \u2014 slack time",
+            "notes": "Classic JEST Part C NAT question type"
+          },
+          {
+            "id": "S2-Bonus7-a3",
+            "chapter": "Small Oscillations",
+            "subTopic": "Triatomic molecule vibrations, zero-frequency rigid modes",
+            "topicPhase": "Bonus #7",
+            "scope": "JEST-edge",
+            "source": "Pravegaa Education",
+            "videoUrl": "https://www.youtube.com/watch?v=OvSzxl9hLbA",
+            "duration": "",
+            "book": "Goldstein, Small Osc. Ch.",
+            "focus": "Pravegaa Small Oscillation Lec 3: linear symmetric triatomic molecule (CO2 model), normal mode shapes",
+            "timing": "Phase A-Bonus \u2014 slack time",
+            "notes": "Directly connects classical normal modes to phonons in Solid State"
+          },
+          {
+            "id": "S2-Bonus7-gen",
+            "chapter": "Small Oscillations",
+            "subTopic": "Comprehensive small oscillations lecture & exam problem walkthrough",
+            "topicPhase": "Bonus #7",
+            "scope": "JEST-edge",
+            "source": "Pravegaa Education",
+            "videoUrl": "https://www.youtube.com/watch?v=c6sgRkopPDo",
+            "duration": "",
+            "book": "Goldstein, Small Osc. Ch.",
+            "focus": "Pravegaa full-length session: CSIR NET & JEST small oscillation problems",
+            "timing": "Phase A-Bonus \u2014 slack time",
+            "notes": "Problem solving drill"
+          },
+          {
+            "id": "S2-Bonus7-qip",
+            "chapter": "Mechanics & STR Revision",
+            "subTopic": "Revision of Small Oscillations and Special Relativity",
+            "topicPhase": "Bonus #7 / STR",
+            "scope": "JEST-edge",
+            "source": "Pravegaa Education",
+            "videoUrl": "https://www.youtube.com/watch?v=pDlYWvQvvqw",
+            "duration": "",
+            "book": "Goldstein",
+            "focus": "Atul Gaurav: QIP revision lecture 2 covering small oscillations and relativistic mechanics",
+            "timing": "Phase A-Bonus \u2014 slack time",
+            "notes": "Consolidates both topics"
+          }
+        ]
+      },
+      {
+        "boxTitle": "Rigid Body Dynamics & Moments of Inertia",
+        "examScopeHeader": "",
+        "scopeKey": "JAM_JEST",
+        "lectures": [
+          {
+            "id": "S2-Supplemental-a",
+            "chapter": "Rigid Body Dynamics",
+            "subTopic": "Moment of inertia tensor, principal moments, Euler equations",
+            "topicPhase": "Supplemental",
+            "scope": "JEST-only (low)",
+            "source": "Goldstein Reference",
+            "videoUrl": "",
+            "duration": "",
+            "book": "Goldstein, Rigid Body Ch.",
+            "focus": "Calculate moment of inertia tensor, diagonalize for principal axes, Euler angles",
+            "timing": "Phase B, Tier 3 \u2014 post-JAM",
+            "notes": "Cut this first if JEST lands in March; attempt only if genuinely ahead"
+          }
+        ]
+      }
+    ]
+  },
+  "special-relativity": {
+    "unitTitle": "UNIT 3: SPECIAL THEORY OF RELATIVITY (STR)",
+    "sheetName": "Unit 3 - Special Relativity",
+    "topicBoxes": [
+      {
+        "boxTitle": "STR Postulates, Lorentz Transformations, Kinematics & E = mc^2",
+        "examScopeHeader": "",
+        "scopeKey": "JAM_JEST",
+        "lectures": [
+          {
+            "id": "S3-Topic8-a1",
+            "chapter": "STR Basics",
+            "subTopic": "Mod-01 Lec-01 Problem with Classical Physics",
+            "topicPhase": "Topic 8",
+            "scope": "JAM-partial",
+            "source": "NPTEL \u2014 Prof. Shiva Prasad",
+            "videoUrl": "https://www.youtube.com/watch?v=0nHovWsWZTw",
+            "duration": "",
+            "book": "Modern Physics / Resnick",
+            "focus": "Lec 1: Galilean relativity failure, ether hypothesis, constancy of speed of light c",
+            "timing": "Phase A \u2014 by mid-Dec",
+            "notes": "Historical and conceptual foundation"
+          },
+          {
+            "id": "S3-Topic8-a2",
+            "chapter": "STR Basics",
+            "subTopic": "Mod-01 Lec-02 Michelson-Morley Experiment",
+            "topicPhase": "Topic 8",
+            "scope": "JAM-partial",
+            "source": "NPTEL \u2014 Prof. Shiva Prasad",
+            "videoUrl": "https://www.youtube.com/watch?v=A3jSjWgv7Zs",
+            "duration": "",
+            "book": "Modern Physics / Resnick",
+            "focus": "Lec 2: Experimental setup, fringe shift calculations, null result significance",
+            "timing": "Phase A \u2014 by mid-Dec",
+            "notes": "Classic experiment questions in JAM"
+          },
+          {
+            "id": "S3-Topic8-a3",
+            "chapter": "STR Basics",
+            "subTopic": "Mod-01 Lec-03 Postulates of STR & Galilean Transformation",
+            "topicPhase": "Topic 8",
+            "scope": "JAM-partial",
+            "source": "NPTEL \u2014 Prof. Shiva Prasad",
+            "videoUrl": "https://www.youtube.com/watch?v=JygZofoFNfE",
+            "duration": "",
+            "book": "Modern Physics / Resnick",
+            "focus": "Lec 3: Einstein postulates, failure of Galilean transformations for electromagnetism",
+            "timing": "Phase A \u2014 by mid-Dec",
+            "notes": "Foundational postulates"
+          },
+          {
+            "id": "S3-Topic8-a4",
+            "chapter": "STR Basics",
+            "subTopic": "Mod-01 Lec-04 Look out for a New Transformation",
+            "topicPhase": "Topic 8",
+            "scope": "JAM-partial",
+            "source": "NPTEL \u2014 Prof. Shiva Prasad",
+            "videoUrl": "https://www.youtube.com/watch?v=BqIQhFS52po",
+            "duration": "",
+            "book": "Modern Physics / Resnick",
+            "focus": "Lec 4: Deriving transformation preserving spherical wavefronts x^2+y^2+z^2-c^2 t^2 = 0",
+            "timing": "Phase A \u2014 by mid-Dec",
+            "notes": "Mathematical derivation step"
+          },
+          {
+            "id": "S3-Topic8-a5",
+            "chapter": "STR Basics",
+            "subTopic": "Mod-01 Lec-05 Lorentz Transformation",
+            "topicPhase": "Topic 8",
+            "scope": "JAM-partial",
+            "source": "NPTEL \u2014 Prof. Shiva Prasad",
+            "videoUrl": "https://www.youtube.com/watch?v=q-lVg6EPjYY",
+            "duration": "",
+            "book": "Modern Physics / Resnick",
+            "focus": "Lec 5: Complete Lorentz boost formulas, inverse transformations, matrix form",
+            "timing": "Phase A \u2014 by mid-Dec",
+            "notes": "Universal formula for relativistic coordinates"
+          },
+          {
+            "id": "S3-Topic8-a6",
+            "chapter": "STR Basics",
+            "subTopic": "Mod-01 Lec-06 Length Contraction & Time Dilation",
+            "topicPhase": "Topic 8",
+            "scope": "JAM-partial",
+            "source": "NPTEL \u2014 Prof. Shiva Prasad",
+            "videoUrl": "https://www.youtube.com/watch?v=xZUvnweICJk",
+            "duration": "",
+            "book": "Modern Physics / Resnick",
+            "focus": "Lec 6: Proper length, proper time, relativity of simultaneity, derivations",
+            "timing": "Phase A \u2014 by mid-Dec",
+            "notes": "Core scoring NAT problem in JAM"
+          },
+          {
+            "id": "S3-Topic8-a7",
+            "chapter": "STR Basics",
+            "subTopic": "Mod-01 Lec-07 Examples of Length Contraction & Time Dilation",
+            "topicPhase": "Topic 8",
+            "scope": "JAM-partial",
+            "source": "NPTEL \u2014 Prof. Shiva Prasad",
+            "videoUrl": "https://www.youtube.com/watch?v=F5zFwPDFhYw",
+            "duration": "",
+            "book": "Modern Physics / Resnick",
+            "focus": "Lec 7: Muon decay in atmosphere, twin paradox resolution, practical problems",
+            "timing": "Phase A \u2014 by mid-Dec",
+            "notes": "Speed and accuracy training"
+          },
+          {
+            "id": "S3-Topic8-a8",
+            "chapter": "STR Basics",
+            "subTopic": "Mod-01 Lec-08 Velocity Transformation and Examples",
+            "topicPhase": "Topic 8",
+            "scope": "JAM-partial",
+            "source": "NPTEL \u2014 Prof. Shiva Prasad",
+            "videoUrl": "https://www.youtube.com/watch?v=GBIbC1RLrPA",
+            "duration": "",
+            "book": "Modern Physics / Resnick",
+            "focus": "Lec 8: Einstein velocity addition formula u = (u'+v)/(1+u'v/c^2), speed of light invariance",
+            "timing": "Phase A \u2014 by mid-Dec",
+            "notes": "STOP HERE FOR JAM. Concludes core Phase A pass"
+          }
+        ]
+      },
+      {
+        "boxTitle": "STR 4-Vectors, Relativistic Dynamics & Relativistic Lagrangian",
+        "examScopeHeader": "",
+        "scopeKey": "JAM_JEST",
+        "lectures": [
+          {
+            "id": "S3-Bonus6-a10",
+            "chapter": "STR Dynamics",
+            "subTopic": "Mod-01 Lec-10 Problem involving Light & Causality",
+            "topicPhase": "Bonus #6",
+            "scope": "JEST-edge",
+            "source": "NPTEL \u2014 Prof. Shiva Prasad",
+            "videoUrl": "https://www.youtube.com/watch?v=rdkV6bCx8ck",
+            "duration": "",
+            "book": "Goldstein Relativity Ch.",
+            "focus": "Lec 10: Causality condition, spacelike, timelike, and lightlike intervals",
+            "timing": "Phase A-Bonus \u2014 slack time",
+            "notes": "Spacetime interval invariant Delta(s)^2"
+          },
+          {
+            "id": "S3-Bonus6-a11",
+            "chapter": "STR Dynamics",
+            "subTopic": "Mod-01 Lec-11 Causality & Need to Redefine Momentum",
+            "topicPhase": "Bonus #6",
+            "scope": "JEST-edge",
+            "source": "NPTEL \u2014 Prof. Shiva Prasad",
+            "videoUrl": "https://www.youtube.com/watch?v=5me5nv2T9Ng",
+            "duration": "",
+            "book": "Goldstein Relativity Ch.",
+            "focus": "Lec 11: Failure of Newtonian momentum in relativistic collisions, p = gamma m0 v",
+            "timing": "Phase A-Bonus \u2014 slack time",
+            "notes": "Relativistic conservation of momentum"
+          },
+          {
+            "id": "S3-Bonus6-a12",
+            "chapter": "STR 4-Vectors",
+            "subTopic": "Mod-01 Lec-12 Minkowski Space and Four Vectors",
+            "topicPhase": "Bonus #6",
+            "scope": "JEST-edge",
+            "source": "NPTEL \u2014 Prof. Shiva Prasad",
+            "videoUrl": "https://www.youtube.com/watch?v=-akQMo03vCk",
+            "duration": "",
+            "book": "Goldstein Relativity Ch.",
+            "focus": "Lec 12: Minkowski metric, 4-displacement, proper time tau, scalar invariants",
+            "timing": "Phase A-Bonus \u2014 slack time",
+            "notes": "Standard 4-vector formalism"
+          },
+          {
+            "id": "S3-Bonus6-a15",
+            "chapter": "STR 4-Vectors",
+            "subTopic": "Mod-01 Lec-15 Momentum Energy Four Vector",
+            "topicPhase": "Bonus #6",
+            "scope": "JEST-edge",
+            "source": "NPTEL \u2014 Prof. Shiva Prasad",
+            "videoUrl": "https://www.youtube.com/watch?v=VyXIPWZKc0g",
+            "duration": "",
+            "book": "Goldstein Relativity Ch.",
+            "focus": "Lec 15: 4-momentum P_mu = (E/c, p), P_mu P^mu = m0^2 c^2, energy-momentum relation",
+            "timing": "Phase A-Bonus \u2014 slack time",
+            "notes": "Used in all high-energy relativistic problems"
+          },
+          {
+            "id": "S3-Bonus6-a16",
+            "chapter": "STR Collisions",
+            "subTopic": "Mod-01 Lec-16 Relook at Collision Problems",
+            "topicPhase": "Bonus #6",
+            "scope": "JEST-edge",
+            "source": "NPTEL \u2014 Prof. Shiva Prasad",
+            "videoUrl": "https://www.youtube.com/watch?v=oAEarf7X-mw",
+            "duration": "",
+            "book": "Goldstein Relativity Ch.",
+            "focus": "Lec 16: Center of momentum frame, particle creation threshold energy, Compton scattering",
+            "timing": "Phase A-Bonus \u2014 slack time",
+            "notes": "High-frequency problem type in JEST Part B"
+          },
+          {
+            "id": "S3-Bonus6-a20",
+            "chapter": "Relativistic Dynamics",
+            "subTopic": "Mod-01 Lec-20 Force in Relativity & Relativistic Lagrangian",
+            "topicPhase": "Bonus #6",
+            "scope": "JEST-edge",
+            "source": "NPTEL \u2014 Prof. Shiva Prasad",
+            "videoUrl": "https://www.youtube.com/watch?v=ITSnIK2bphw",
+            "duration": "",
+            "book": "Goldstein Relativity Ch.",
+            "focus": "Lec 20: Minkowski force 4-vector, relativistic Lagrangian L = -m0 c^2 / gamma",
+            "timing": "Phase A-Bonus \u2014 slack time",
+            "notes": "Advanced theoretical synthesis"
+          }
+        ]
+      }
+    ]
+  },
+  "electromagnetism": {
+    "unitTitle": "UNIT 4: ELECTROMAGNETIC THEORY (EMT)",
+    "sheetName": "Unit 4 - Electromagnetism",
+    "topicBoxes": [
+      {
+        "boxTitle": "Electrostatics, Gauss's Law, Potential & Capacitance",
+        "examScopeHeader": "",
+        "scopeKey": "JAM_JEST",
+        "lectures": [
+          {
+            "id": "S4-Topic9-b6",
+            "chapter": "Electrostatics",
+            "subTopic": "Mod-02 Lec-06 Electric Field Potential",
+            "topicPhase": "Topic 9",
+            "scope": "JAM-partial",
+            "source": "NPTEL \u2014 Prof. D.K. Ghosh",
+            "videoUrl": "https://www.youtube.com/watch?v=PMpoamNGceM",
+            "duration": "",
+            "book": "Griffiths Ch. 2",
+            "focus": "Lec 6: Electric field of continuous distributions, potential calculation, superposition",
+            "timing": "Phase A \u2014 by mid-Dec",
+            "notes": "Foundational electrostatics"
+          },
+          {
+            "id": "S4-Topic9-b7",
+            "chapter": "Electrostatics",
+            "subTopic": "Mod-02 Lec-07 Gauss's Law, Potential",
+            "topicPhase": "Topic 9",
+            "scope": "JAM-partial",
+            "source": "NPTEL \u2014 Prof. D.K. Ghosh",
+            "videoUrl": "https://www.youtube.com/watch?v=JCfhChaJvCo",
+            "duration": "",
+            "book": "Griffiths Ch. 2",
+            "focus": "Lec 7: Gauss's law applications (sphere, cylinder, plane), potential discontinuity",
+            "timing": "Phase A \u2014 by mid-Dec",
+            "notes": "Standard NAT calculation in JAM"
+          },
+          {
+            "id": "S4-Topic9-b8",
+            "chapter": "Electrostatics",
+            "subTopic": "Mod-02 Lec-08 Electric Field and Potential (contd)",
+            "topicPhase": "Topic 9",
+            "scope": "JAM-partial",
+            "source": "NPTEL \u2014 Prof. D.K. Ghosh",
+            "videoUrl": "https://www.youtube.com/watch?v=yBCTLNZ6fdE",
+            "duration": "",
+            "book": "Griffiths Ch. 2",
+            "focus": "Lec 8: Field of charged disk, infinite line, ring on axis, dipole potential",
+            "timing": "Phase A \u2014 by mid-Dec",
+            "notes": "Field calculation fluency"
+          },
+          {
+            "id": "S4-Topic9-b9",
+            "chapter": "Electrostatics",
+            "subTopic": "Mod-02 Lec-09 Potential and Potential Energy",
+            "topicPhase": "Topic 9",
+            "scope": "JAM-partial",
+            "source": "NPTEL \u2014 Prof. D.K. Ghosh",
+            "videoUrl": "https://www.youtube.com/watch?v=xoAU2J_JeoM",
+            "duration": "",
+            "book": "Griffiths Ch. 2",
+            "focus": "Lec 9: Electrostatic energy U = 1/2 eps0 int(E^2 dV), energy of charged sphere",
+            "timing": "Phase A \u2014 by mid-Dec",
+            "notes": "Energy calculations in capacitors and charges"
+          }
+        ]
+      },
+      {
+        "boxTitle": "Boundary Value Problems, Laplace/Poisson Equations & Method of Images",
+        "examScopeHeader": "",
+        "scopeKey": "JAM_JEST",
+        "lectures": [
+          {
+            "id": "S4-Bonus3-b13",
+            "chapter": "Boundary Value Problems",
+            "subTopic": "Mod-02 Lec-13 Poisson and Laplace Equation",
+            "topicPhase": "Bonus #3",
+            "scope": "JEST-edge",
+            "source": "NPTEL \u2014 Prof. D.K. Ghosh",
+            "videoUrl": "https://www.youtube.com/watch?v=NED2Cl8u9Q0",
+            "duration": "",
+            "book": "Griffiths Ch. 3",
+            "focus": "Lec 13: Uniqueness theorems, boundary conditions, Laplace equation properties",
+            "timing": "Phase A-Bonus \u2014 slack time",
+            "notes": "Mathematical foundation of potential theory"
+          },
+          {
+            "id": "S4-Bonus3-b14",
+            "chapter": "Boundary Value Problems",
+            "subTopic": "Mod-02 Lec-14 Solutions of Laplace Equation (Cartesian)",
+            "topicPhase": "Bonus #3",
+            "scope": "JEST-edge",
+            "source": "NPTEL \u2014 Prof. D.K. Ghosh",
+            "videoUrl": "https://www.youtube.com/watch?v=NED2Cl8u9Q0",
+            "duration": "",
+            "book": "Griffiths Ch. 3",
+            "focus": "Lec 14: Separation of variables in Cartesian coordinates, rectangular channel potential",
+            "timing": "Phase A-Bonus \u2014 slack time",
+            "notes": "Classic JEST Part B problem type"
+          },
+          {
+            "id": "S4-Bonus3-b17",
+            "chapter": "Method of Images",
+            "subTopic": "Mod-02 Lec-17 Special Techniques: Method of Images (Plane)",
+            "topicPhase": "Bonus #3",
+            "scope": "JEST-edge",
+            "source": "NPTEL \u2014 Prof. D.K. Ghosh",
+            "videoUrl": "https://www.youtube.com/watch?v=NED2Cl8u9Q0",
+            "duration": "",
+            "book": "Griffiths Ch. 3",
+            "focus": "Lec 17: Point charge near infinite grounded plane, image charge, surface charge density",
+            "timing": "Phase A-Bonus \u2014 slack time",
+            "notes": "Near-guaranteed JEST Part B question"
+          },
+          {
+            "id": "S4-Bonus3-b18",
+            "chapter": "Method of Images",
+            "subTopic": "Mod-02 Lec-18 Method of Images (Spherical Geometry)",
+            "topicPhase": "Bonus #3",
+            "scope": "JEST-edge",
+            "source": "NPTEL \u2014 Prof. D.K. Ghosh",
+            "videoUrl": "https://www.youtube.com/watch?v=NED2Cl8u9Q0",
+            "duration": "",
+            "book": "Griffiths Ch. 3",
+            "focus": "Lec 18: Point charge outside grounded conducting sphere, image location d' = R^2/d and q' = -q(R/d)",
+            "timing": "Phase A-Bonus \u2014 slack time",
+            "notes": "High-frequency problem in CSIR-NET and JEST"
+          }
+        ]
+      },
+      {
+        "boxTitle": "Magnetostatics, Amp\u00e8re's Law & Magnetic Vector Potential",
+        "examScopeHeader": "",
+        "scopeKey": "JAM_JEST",
+        "lectures": [
+          {
+            "id": "S4-Topic9-m23",
+            "chapter": "Magnetostatics",
+            "subTopic": "Mod-03 Lec-23 Equation of Continuity & Magnetostatics",
+            "topicPhase": "Topic 9",
+            "scope": "JAM-partial",
+            "source": "NPTEL \u2014 Prof. D.K. Ghosh",
+            "videoUrl": "https://www.youtube.com/watch?v=NED2Cl8u9Q0",
+            "duration": "",
+            "book": "Griffiths Ch. 5",
+            "focus": "Lec 23: Steady currents, div(J)=0, Biot-Savart law applications",
+            "timing": "Phase A \u2014 by mid-Dec",
+            "notes": "Core magnetostatics"
+          },
+          {
+            "id": "S4-Topic9-m24",
+            "chapter": "Vector Potential",
+            "subTopic": "Mod-03 Lec-24 Magnetic Vector Potential A",
+            "topicPhase": "Topic 9",
+            "scope": "JAM-partial",
+            "source": "NPTEL \u2014 Prof. D.K. Ghosh",
+            "videoUrl": "https://www.youtube.com/watch?v=NED2Cl8u9Q0",
+            "duration": "",
+            "book": "Griffiths Ch. 5",
+            "focus": "Lec 24: B = curl(A), Coulomb gauge div(A)=0, vector potential of straight wire and solenoid",
+            "timing": "Phase A \u2014 by mid-Dec",
+            "notes": "Standard NAT calculation question"
+          }
+        ]
+      },
+      {
+        "boxTitle": "Faraday's Law, Displacement Current, Maxwell's Equations & Gauges",
+        "examScopeHeader": "",
+        "scopeKey": "JAM_JEST",
+        "lectures": [
+          {
+            "id": "S4-Topic10-m29",
+            "chapter": "Faraday's Law",
+            "subTopic": "Mod-04 Lec-29 Faraday's Law and Inductance",
+            "topicPhase": "Topic 10",
+            "scope": "JAM+JEST",
+            "source": "NPTEL \u2014 Prof. D.K. Ghosh",
+            "videoUrl": "https://www.youtube.com/watch?v=NED2Cl8u9Q0",
+            "duration": "",
+            "book": "Griffiths Ch. 7",
+            "focus": "Lec 29: curl(E) = -dB/dt, motional EMF, mutual inductance M_12 = M_21",
+            "timing": "Phase A \u2014 by mid-Dec",
+            "notes": "Core scoring area for JAM and JEST"
+          },
+          {
+            "id": "S4-Topic10-m30",
+            "chapter": "Maxwell's Equations",
+            "subTopic": "Mod-04 Lec-30 Displacement Current & Complete Maxwell's Equations",
+            "topicPhase": "Topic 10",
+            "scope": "JAM+JEST",
+            "source": "NPTEL \u2014 Prof. D.K. Ghosh",
+            "videoUrl": "https://www.youtube.com/watch?v=NED2Cl8u9Q0",
+            "duration": "",
+            "book": "Griffiths Ch. 7",
+            "focus": "Lec 30: Ampere-Maxwell law, capacitor displacement current, Maxwell equations in vacuum and matter",
+            "timing": "Phase A \u2014 by mid-Dec",
+            "notes": "Milestone concept in electrodynamics"
+          },
+          {
+            "id": "S4-Topic10-m31",
+            "chapter": "Conservation Laws",
+            "subTopic": "Mod-04 Lec-31 Maxwell's Equations and Conservation Laws",
+            "topicPhase": "Topic 10",
+            "scope": "JAM+JEST",
+            "source": "NPTEL \u2014 Prof. D.K. Ghosh",
+            "videoUrl": "https://www.youtube.com/watch?v=NED2Cl8u9Q0",
+            "duration": "",
+            "book": "Griffiths Ch. 8",
+            "focus": "Lec 31: Poynting's theorem, energy conservation in EM fields, work done by Lorentz force",
+            "timing": "Phase A \u2014 by mid-Dec",
+            "notes": "High-frequency JEST Part B problem"
+          }
+        ]
+      },
+      {
+        "boxTitle": "Plane EM Wave Propagation, Reflection & Refraction",
+        "examScopeHeader": "",
+        "scopeKey": "JAM_JEST",
+        "lectures": [
+          {
+            "id": "S4-Topic11-m33",
+            "chapter": "EM Waves",
+            "subTopic": "Mod-04 Lec-33 Electromagnetic Waves in Free Space",
+            "topicPhase": "Topic 11",
+            "scope": "JAM+JEST",
+            "source": "NPTEL \u2014 Prof. D.K. Ghosh",
+            "videoUrl": "https://www.youtube.com/watch?v=NED2Cl8u9Q0",
+            "duration": "",
+            "book": "Griffiths Ch. 9",
+            "focus": "Lec 33: Wave equation, speed c = 1/sqrt(eps0 mu0), transverse E and B vectors, wave impedance",
+            "timing": "Phase A \u2014 by mid-Dec",
+            "notes": "Fundamental wave properties tested in JAM NAT"
+          },
+          {
+            "id": "S4-Topic11-m34",
+            "chapter": "EM Waves in Matter",
+            "subTopic": "Mod-04 Lec-34 EM Wave Propagation in Linear Dielectrics",
+            "topicPhase": "Topic 11",
+            "scope": "JAM+JEST",
+            "source": "NPTEL \u2014 Prof. D.K. Ghosh",
+            "videoUrl": "https://www.youtube.com/watch?v=NED2Cl8u9Q0",
+            "duration": "",
+            "book": "Griffiths Ch. 9",
+            "focus": "Lec 34: Refractive index n, reflection and transmission coefficients at normal incidence, Fresnel equations",
+            "timing": "Phase A \u2014 by mid-Dec",
+            "notes": "High-frequency NAT question: finding reflected power fraction"
+          }
+        ]
+      },
+      {
+        "boxTitle": "EM Waves in Dispersive & Conducting Media, Poynting Vector & Radiation",
+        "examScopeHeader": "",
+        "scopeKey": "JAM_JEST",
+        "lectures": [
+          {
+            "id": "S4-PhaseB-m35",
+            "chapter": "Conducting Media",
+            "subTopic": "Mod-04 Lec-35 Propagation of EM Waves in a Metal",
+            "topicPhase": "Phase B \u2013 Tier 1",
+            "scope": "JEST-only",
+            "source": "NPTEL \u2014 Prof. D.K. Ghosh",
+            "videoUrl": "https://www.youtube.com/watch?v=NED2Cl8u9Q0",
+            "duration": "",
+            "book": "Griffiths Ch. 9, Sec 4",
+            "focus": "Lec 35: Complex refractive index, skin depth delta = sqrt(2/(sigma omega mu)), attenuation of wave",
+            "timing": "Phase B, Tier 1 \u2014 post-JAM",
+            "notes": "Core differentiator between average and top JEST ranks"
+          },
+          {
+            "id": "S4-PhaseB-m39",
+            "chapter": "Radiation",
+            "subTopic": "Mod-05 Lec-39 Electric Dipole Radiation",
+            "topicPhase": "Phase B \u2013 Tier 1",
+            "scope": "JEST-only",
+            "source": "NPTEL \u2014 Prof. D.K. Ghosh",
+            "videoUrl": "https://www.youtube.com/watch?v=NED2Cl8u9Q0",
+            "duration": "",
+            "book": "Griffiths Ch. 11",
+            "focus": "Lec 39: Retarded potentials, radiated power P = (mu0 p0^2 omega^4)/(12 pi c), radiation resistance",
+            "timing": "Phase B, Tier 1 \u2014 post-JAM",
+            "notes": "Tested in JEST Part C NAT"
+          }
+        ]
+      }
+    ]
+  },
+  "waves-optics": {
+    "unitTitle": "UNIT 5: WAVES, OSCILLATIONS & OPTICS",
+    "sheetName": "Unit 5 - Waves & Optics",
+    "topicBoxes": [
+      {
+        "boxTitle": "Simple Harmonic Motion, Damped & Driven Oscillations, Resonance",
+        "examScopeHeader": "",
+        "scopeKey": "JAM_JEST",
+        "lectures": [
+          {
+            "id": "S5-Supp-a1",
+            "chapter": "Waves & Oscillations",
+            "subTopic": "Simple harmonic motion, energy conservation, phase portraits",
+            "topicPhase": "Supplemental",
+            "scope": "JAM+JEST",
+            "source": "NPTEL \u2014 Prof. M.S. Santhanam",
+            "videoUrl": "https://www.youtube.com/watch?v=xoJWoMQwTAw",
+            "duration": "",
+            "book": "French Vibrations / Hecht",
+            "focus": "NPTEL Waves Lec 1: SHM equation d2x/dt2 + omega0^2 x = 0, kinetic and potential energy",
+            "timing": "Phase A \u2014 by mid-Dec",
+            "notes": "Directly feeds Classical Mechanics Topic 6 & 7"
+          },
+          {
+            "id": "S5-Supp-a2",
+            "chapter": "Damped & Driven Waves",
+            "subTopic": "Damped oscillations, forced vibrations, amplitude resonance, Q-factor",
+            "topicPhase": "Supplemental",
+            "scope": "JAM+JEST",
+            "source": "NPTEL \u2014 Prof. M.S. Santhanam",
+            "videoUrl": "https://www.youtube.com/watch?v=xoJWoMQwTAw",
+            "duration": "",
+            "book": "French Vibrations / Hecht",
+            "focus": "NPTEL Waves Lec 2\u20135: damping coefficient gamma, steady-state response, resonance sharpness",
+            "timing": "Phase A \u2014 by mid-Dec",
+            "notes": "Common NAT question: calculating Q = omega0 / (2 gamma) and energy loss per cycle"
+          }
+        ]
+      },
+      {
+        "boxTitle": "Wave Propagation, Phase & Group Velocity, Dispersion",
+        "examScopeHeader": "",
+        "scopeKey": "JAM_JEST",
+        "lectures": [
+          {
+            "id": "S5-Supp-a3",
+            "chapter": "Wave Dispersion",
+            "subTopic": "Wave equation, phase and group velocities, dispersion relation omega(k)",
+            "topicPhase": "Supplemental",
+            "scope": "JAM+JEST",
+            "source": "NPTEL \u2014 Prof. M.S. Santhanam",
+            "videoUrl": "https://www.youtube.com/watch?v=xoJWoMQwTAw",
+            "duration": "",
+            "book": "French Vibrations / Hecht",
+            "focus": "NPTEL Waves: v_p vs v_g, relation v_g = v_p + k*(dv_p/dk), non-dispersive vs dispersive media",
+            "timing": "Phase A \u2014 by mid-Dec",
+            "notes": "Direct bridge to de Broglie wavepackets in Quantum Mechanics"
+          }
+        ]
+      },
+      {
+        "boxTitle": "Interference of Light: Division of Wavefront & Amplitude",
+        "examScopeHeader": "",
+        "scopeKey": "JAM_JEST",
+        "lectures": [
+          {
+            "id": "S5-Topic12-a1",
+            "chapter": "Interference",
+            "subTopic": "Young's double slit experiment, path difference, fringe shift",
+            "topicPhase": "Topic 12",
+            "scope": "JAM+JEST",
+            "source": "NPTEL \u2014 Prof. M.S. Santhanam",
+            "videoUrl": "https://www.youtube.com/watch?v=xoJWoMQwTAw",
+            "duration": "",
+            "book": "Hecht Optics Ch. 9",
+            "focus": "NPTEL Optics: spatial & temporal coherence, fringe width beta = lambda*D/d, inserting thin glass sheet",
+            "timing": "Phase A \u2014 by mid-Dec",
+            "notes": "Predictable scoring questions in JAM Part A & C"
+          },
+          {
+            "id": "S5-Topic12-a2",
+            "chapter": "Interference",
+            "subTopic": "Thin film interference, phase change on reflection, Newton's rings",
+            "topicPhase": "Topic 12",
+            "scope": "JAM+JEST",
+            "source": "NPTEL \u2014 Prof. M.S. Santhanam",
+            "videoUrl": "https://www.youtube.com/watch?v=xoJWoMQwTAw",
+            "duration": "",
+            "book": "Hecht Optics Ch. 9",
+            "focus": "NPTEL Optics: Stokes' relations, wedge-shaped films, dark center in reflected Newton rings",
+            "timing": "Phase A \u2014 by mid-Dec",
+            "notes": "Standard NAT calculation on ring radii"
+          }
+        ]
+      },
+      {
+        "boxTitle": "Diffraction of Light: Fraunhofer & Grating",
+        "examScopeHeader": "",
+        "scopeKey": "JAM_JEST",
+        "lectures": [
+          {
+            "id": "S5-Topic12-a3",
+            "chapter": "Diffraction",
+            "subTopic": "Fraunhofer single slit, intensity formula I = I0(sin beta / beta)^2, angular width",
+            "topicPhase": "Topic 12",
+            "scope": "JAM+JEST",
+            "source": "NPTEL \u2014 Prof. M.S. Santhanam",
+            "videoUrl": "https://www.youtube.com/watch?v=xoJWoMQwTAw",
+            "duration": "",
+            "book": "Hecht Optics Ch. 10",
+            "focus": "NPTEL Optics: central maximum width, secondary maxima conditions, Rayleigh criterion for resolution",
+            "timing": "Phase A \u2014 by mid-Dec",
+            "notes": "High-frequency NAT problem: finding central maximum angular spread"
+          },
+          {
+            "id": "S5-Topic12-a4",
+            "chapter": "Diffraction Grating",
+            "subTopic": "Diffraction grating equation (a+b)sin theta = m*lambda, dispersive & resolving power",
+            "topicPhase": "Topic 12",
+            "scope": "JAM+JEST",
+            "source": "NPTEL \u2014 Prof. M.S. Santhanam",
+            "videoUrl": "https://www.youtube.com/watch?v=xoJWoMQwTAw",
+            "duration": "",
+            "book": "Hecht Optics Ch. 10",
+            "focus": "NPTEL Optics: grating resolving power R = lambda / delta(lambda) = m*N, missing orders (a+b)/a = m/p",
+            "timing": "Phase A \u2014 by mid-Dec",
+            "notes": "Standard MCQ in JEST Part A and JAM"
+          }
+        ]
+      },
+      {
+        "boxTitle": "Polarisation of Light, Malus's Law & Wave Plates",
+        "examScopeHeader": "",
+        "scopeKey": "JAM_JEST",
+        "lectures": [
+          {
+            "id": "S5-Topic12-b1",
+            "chapter": "Polarisation of Light",
+            "subTopic": "Polarization states (linear, circular, elliptic), Malus's law, Brewster's law",
+            "topicPhase": "Topic 12",
+            "scope": "JAM+JEST",
+            "source": "Pravegaa Education",
+            "videoUrl": "https://www.youtube.com/watch?v=7tyis_4rGGw",
+            "duration": "",
+            "book": "Hecht Optics Ch. 8",
+            "focus": "Pravegaa Optics Lecture 10: polarization by reflection, Brewster angle tan(theta_B)=n, Malus law across polarizers",
+            "timing": "Phase A \u2014 by mid-Dec",
+            "notes": "High-yield scoring problem: transmission across 3 rotated polarizers"
+          },
+          {
+            "id": "S5-Topic12-b2",
+            "chapter": "Wave Plates",
+            "subTopic": "Birefringence, ordinary & extraordinary rays, quarter wave plate (QWP), half wave plate (HWP)",
+            "topicPhase": "Topic 12",
+            "scope": "JAM+JEST",
+            "source": "NPTEL \u2014 Prof. M.S. Santhanam",
+            "videoUrl": "https://www.youtube.com/watch?v=xoJWoMQwTAw",
+            "duration": "",
+            "book": "Hecht Optics Ch. 8",
+            "focus": "NPTEL Optics: phase retardation delta = 2pi/lambda * (n_e - n_o)*d, converting linear to circular polarization",
+            "timing": "Phase A \u2014 by mid-Dec",
+            "notes": "Frequently tested conceptual question"
+          }
+        ]
+      },
+      {
+        "boxTitle": "Geometrical Optics: Lenses, Mirrors & Optical Systems",
+        "examScopeHeader": "",
+        "scopeKey": "JAM_JEST",
+        "lectures": [
+          {
+            "id": "S5-Topic12-c",
+            "chapter": "Geometrical Optics",
+            "subTopic": "Thick and thin lenses, lensmaker formula, combination of lenses",
+            "topicPhase": "Topic 12 (light touch)",
+            "scope": "JAM+JEST",
+            "source": "NPTEL \u2014 Prof. M.S. Santhanam",
+            "videoUrl": "https://www.youtube.com/watch?v=xoJWoMQwTAw",
+            "duration": "",
+            "book": "Hecht Optics Ch. 5",
+            "focus": "NPTEL Optics: focal length 1/f = 1/f1 + 1/f2 - d/(f1*f2), magnification",
+            "timing": "Phase A \u2014 by mid-Dec",
+            "notes": "Light touch only; low weightage relative to wave optics"
+          }
+        ]
+      }
+    ]
+  },
+  "quantum-mechanics": {
+    "unitTitle": "UNIT 6: QUANTUM MECHANICS (QM)",
+    "sheetName": "Unit 6 - Quantum Mechanics",
+    "topicBoxes": [
+      {
+        "boxTitle": "Postulates of QM, Uncertainty Principle & Wavepackets",
+        "examScopeHeader": "",
+        "scopeKey": "JAM_JEST",
+        "lectures": [
+          {
+            "id": "S6-Topic13-a1",
+            "chapter": "Uncertainty Principle",
+            "subTopic": "Heisenberg uncertainty principle, wave packets, minimum uncertainty state",
+            "topicPhase": "Topic 13",
+            "scope": "JAM+JEST",
+            "source": "Pravegaa Education",
+            "videoUrl": "https://www.youtube.com/watch?v=B2PahZBgFg4",
+            "duration": "",
+            "book": "Griffiths QM Ch. 1\u20132",
+            "focus": "Pravegaa Lecture 10A: derivation of uncertainty principle, Gaussian wave packet dispersion, physical meaning",
+            "timing": "Phase A \u2014 by Jan 20 hard stop",
+            "notes": "Conceptual foundation for all quantum measurements"
+          },
+          {
+            "id": "S6-Topic13-b1",
+            "chapter": "QM Foundations",
+            "subTopic": "Introduction to Quantum Physics, postulates, statistical interpretation",
+            "topicPhase": "Topic 13",
+            "scope": "JAM+JEST",
+            "source": "NPTEL \u2014 Prof. V. Balakrishnan",
+            "videoUrl": "https://www.youtube.com/watch?v=TcmGYe39XG0",
+            "duration": "",
+            "book": "Griffiths QM Ch. 1",
+            "focus": "NPTEL Lecture 1: probability density |psi|^2, continuity equation for probability, normalization condition",
+            "timing": "Phase A \u2014 by Jan 20 hard stop",
+            "notes": "Rigorous introductory lecture"
+          }
+        ]
+      },
+      {
+        "boxTitle": "1D Potentials: Infinite Square Well, Finite Well, Barrier Tunneling",
+        "examScopeHeader": "",
+        "scopeKey": "JAM_JEST",
+        "lectures": [
+          {
+            "id": "S6-Topic13-b4",
+            "chapter": "1D Potentials",
+            "subTopic": "1D infinite potential well, finite well, symmetric & antisymmetric bound states",
+            "topicPhase": "Topic 13",
+            "scope": "JAM+JEST",
+            "source": "NPTEL \u2014 Prof. V. Balakrishnan",
+            "videoUrl": "https://www.youtube.com/watch?v=TcmGYe39XG0",
+            "duration": "",
+            "book": "Griffiths QM Ch. 2",
+            "focus": "NPTEL Lecture 4\u20137: wavefunctions, boundary matching at discontinuous boundaries, parity of eigenstates",
+            "timing": "Phase A \u2014 by Jan 20 hard stop",
+            "notes": "High-yield NAT problem: finding energy eigenvalues and transition wavelengths"
+          },
+          {
+            "id": "S6-Topic13-b8",
+            "chapter": "Tunneling & Barriers",
+            "subTopic": "Potential step, rectangular barrier tunneling, transmission coefficient T",
+            "topicPhase": "Topic 13",
+            "scope": "JAM+JEST",
+            "source": "NPTEL \u2014 Prof. V. Balakrishnan",
+            "videoUrl": "https://www.youtube.com/watch?v=TcmGYe39XG0",
+            "duration": "",
+            "book": "Griffiths QM Ch. 2",
+            "focus": "NPTEL Lecture 8\u201310: evanescent waves, reflection/transmission coefficients, Gamow alpha decay model",
+            "timing": "Phase A \u2014 by Jan 20 hard stop",
+            "notes": "Tested in JEST Part B: calculating exponential tunneling decay"
+          }
+        ]
+      },
+      {
+        "boxTitle": "Quantum Harmonic Oscillator: Analytic & Operator Methods",
+        "examScopeHeader": "",
+        "scopeKey": "JAM_JEST",
+        "lectures": [
+          {
+            "id": "S6-Topic13-b11",
+            "chapter": "Harmonic Oscillator",
+            "subTopic": "Harmonic oscillator: operator method (ladder operators a, a_dagger)",
+            "topicPhase": "Topic 13",
+            "scope": "JAM+JEST",
+            "source": "NPTEL \u2014 Prof. V. Balakrishnan",
+            "videoUrl": "https://www.youtube.com/watch?v=TcmGYe39XG0",
+            "duration": "",
+            "book": "Griffiths QM Ch. 2, Sec 3",
+            "focus": "NPTEL Lecture 11\u201313: raising and lowering operators, energy spectrum E_n = (n + 1/2) hbar omega, ground state derivation",
+            "timing": "Phase A \u2014 by Jan 20 hard stop",
+            "notes": "Crucial technique: calculating expectation values without integration"
+          },
+          {
+            "id": "S6-Topic13-b14",
+            "chapter": "Harmonic Oscillator",
+            "subTopic": "Analytic method: Frobenius series solution, Hermite polynomials H_n(xi)",
+            "topicPhase": "Topic 13",
+            "scope": "JAM+JEST",
+            "source": "NPTEL \u2014 Prof. V. Balakrishnan",
+            "videoUrl": "https://www.youtube.com/watch?v=TcmGYe39XG0",
+            "duration": "",
+            "book": "Griffiths QM Ch. 2, Sec 3",
+            "focus": "NPTEL Lecture 14\u201315: asymptotic behavior, termination of power series to yield quantization",
+            "timing": "Phase A \u2014 by Jan 20 hard stop",
+            "notes": "Deep mathematical insight into quantization"
+          }
+        ]
+      },
+      {
+        "boxTitle": "3D Central Potentials & Hydrogen Atom Spectrum",
+        "examScopeHeader": "",
+        "scopeKey": "JAM_JEST",
+        "lectures": [
+          {
+            "id": "S6-Topic13-b17",
+            "chapter": "3D Central Potentials",
+            "subTopic": "Separation of variables in spherical coordinates, angular equation, Y_l_m",
+            "topicPhase": "Topic 13",
+            "scope": "JAM+JEST",
+            "source": "NPTEL \u2014 Prof. V. Balakrishnan",
+            "videoUrl": "https://www.youtube.com/watch?v=TcmGYe39XG0",
+            "duration": "",
+            "book": "Griffiths QM Ch. 4",
+            "focus": "NPTEL Lecture 17\u201318: L^2 Y_l_m = l(l+1) hbar^2 Y_l_m, L_z Y_l_m = m hbar Y_l_m, effective radial potential",
+            "timing": "Phase A \u2014 by Jan 20 hard stop",
+            "notes": "Universal foundation for all 3D central force problems"
+          },
+          {
+            "id": "S6-Topic13-b19",
+            "chapter": "Hydrogen Atom",
+            "subTopic": "Radial equation, Laguerre polynomials, energy spectrum E_n = -13.6 eV / n^2",
+            "topicPhase": "Topic 13",
+            "scope": "JAM+JEST",
+            "source": "NPTEL \u2014 Prof. V. Balakrishnan",
+            "videoUrl": "https://www.youtube.com/watch?v=TcmGYe39XG0",
+            "duration": "",
+            "book": "Griffiths QM Ch. 4",
+            "focus": "NPTEL Lecture 19\u201320: radial wavefunctions R_nl(r), probability radial distribution P(r) = r^2 |R|^2, orbital degeneracy n^2",
+            "timing": "Phase A \u2014 by Jan 20 hard stop",
+            "notes": "Near-guaranteed question in JEST & JAM: calculating <r>, <1/r>, and transition frequencies"
+          }
+        ]
+      },
+      {
+        "boxTitle": "Matrix Formulation of QM, Dirac Notation & Operators",
+        "examScopeHeader": "",
+        "scopeKey": "JAM_JEST",
+        "lectures": [
+          {
+            "id": "S6-Bonus2-a1",
+            "chapter": "Matrix Formulation",
+            "subTopic": "Hilbert space, bra-ket algebra, representation of operators as matrices",
+            "topicPhase": "Bonus #2",
+            "scope": "JEST-edge",
+            "source": "Griffiths / Zettili Reference",
+            "videoUrl": "",
+            "duration": "",
+            "book": "Griffiths QM Ch. 3",
+            "focus": "Change of basis, unitary transformation matrix U, diagonalizing Hamiltonian matrix",
+            "timing": "Phase A-Bonus \u2014 slack time",
+            "notes": "Check notes: substantially covered if Unit 1 Linear Algebra was completed"
+          },
+          {
+            "id": "S6-Bonus2-a2",
+            "chapter": "Compatible Observables",
+            "subTopic": "Commutator [A, B], simultaneous eigenstates, generalized uncertainty relation",
+            "topicPhase": "Bonus #2",
+            "scope": "JEST-edge",
+            "source": "NPTEL \u2014 Prof. V. Balakrishnan",
+            "videoUrl": "https://www.youtube.com/watch?v=TcmGYe39XG0",
+            "duration": "",
+            "book": "Griffiths QM Ch. 3",
+            "focus": "NPTEL Lecture 1: delta(A)*delta(B) >= 1/2 |<[A, B]>|, complete set of commuting observables (CSCO)",
+            "timing": "Phase A-Bonus \u2014 slack time",
+            "notes": "Standard theoretical question in JEST Part B"
+          }
+        ]
+      },
+      {
+        "boxTitle": "Angular Momentum, Spin-1/2 & Clebsch-Gordan Coefficients",
+        "examScopeHeader": "",
+        "scopeKey": "JAM_JEST",
+        "lectures": [
+          {
+            "id": "S6-Bonus1-a1",
+            "chapter": "Angular Momentum Algebra",
+            "subTopic": "J^2 and J_z eigenvalues, ladder operators J_+ and J_- matrix elements",
+            "topicPhase": "Bonus #1",
+            "scope": "JEST-edge",
+            "source": "NPTEL \u2014 Prof. V. Balakrishnan",
+            "videoUrl": "https://www.youtube.com/watch?v=TcmGYe39XG0",
+            "duration": "",
+            "book": "Zettili QM Ch. 5 / Griffiths",
+            "focus": "NPTEL Lecture 21\u201323: general angular momentum j=0, 1/2, 1..., matrix representation in |j, m> basis",
+            "timing": "Phase A-Bonus \u2014 slack time",
+            "notes": "Highest-rated QM chapter by weightage in JEST"
+          },
+          {
+            "id": "S6-Bonus1-a2",
+            "chapter": "Addition of Angular Momenta",
+            "subTopic": "Addition of two spins, singlet and triplet states, Clebsch-Gordan coefficients",
+            "topicPhase": "Bonus #1",
+            "scope": "JEST-edge",
+            "source": "NPTEL \u2014 Prof. V. Balakrishnan",
+            "videoUrl": "https://www.youtube.com/watch?v=TcmGYe39XG0",
+            "duration": "",
+            "book": "Zettili QM Ch. 5 / Griffiths",
+            "focus": "NPTEL Lecture 24\u201326: coupling two spin-1/2 particles, total spin S=0 (singlet) and S=1 (triplet), CG tables",
+            "timing": "Phase A-Bonus \u2014 slack time",
+            "notes": "Classic JEST Part B problem: constructing coupled states |J, M>"
+          }
+        ]
+      },
+      {
+        "boxTitle": "Time-Independent Perturbation Theory & Variational Method",
+        "examScopeHeader": "",
+        "scopeKey": "JAM_JEST",
+        "lectures": [
+          {
+            "id": "S6-Bonus10-b1",
+            "chapter": "Perturbation Theory",
+            "subTopic": "Time-independent non-degenerate perturbation theory (1st and 2nd order)",
+            "topicPhase": "Bonus #10",
+            "scope": "JEST-edge",
+            "source": "NPTEL \u2014 Prof. S. Lakshmi Bala",
+            "videoUrl": "https://www.youtube.com/watch?v=pGerRhxNQJE",
+            "duration": "",
+            "book": "Griffiths QM Ch. 6",
+            "focus": "NPTEL Lecture 1: non-degenerate formula derivations, delta-potential perturbation in infinite well",
+            "timing": "Phase A-Bonus \u2014 slack time",
+            "notes": "Very frequent NAT question in JEST Part C"
+          },
+          {
+            "id": "S6-Bonus10-b2",
+            "chapter": "Degenerate Perturbation",
+            "subTopic": "Degenerate perturbation theory, lifting degeneracy, linear Stark effect in H-atom",
+            "topicPhase": "Bonus #10",
+            "scope": "JEST-edge",
+            "source": "NPTEL \u2014 Prof. S. Lakshmi Bala",
+            "videoUrl": "https://www.youtube.com/watch?v=pGerRhxNQJE",
+            "duration": "",
+            "book": "Griffiths QM Ch. 6",
+            "focus": "NPTEL Lecture 2\u20134: 2x2 and 3x3 secular equations, n=2 level splitting in electric field",
+            "timing": "Phase A-Bonus \u2014 slack time",
+            "notes": "Standard 3-mark question in JEST Part B"
+          },
+          {
+            "id": "S6-Bonus10-b3",
+            "chapter": "Variational Principle",
+            "subTopic": "Variational method, trial wavefunctions, upper bound on ground state energy",
+            "topicPhase": "Bonus #10",
+            "scope": "JEST-edge",
+            "source": "Griffiths / Zettili Reference",
+            "videoUrl": "",
+            "duration": "",
+            "book": "Griffiths QM Ch. 7",
+            "focus": "<H> >= E_0, optimizing parameter d<H>/d(alpha) = 0, application to 1D harmonic oscillator & helium",
+            "timing": "Phase A-Bonus \u2014 slack time",
+            "notes": "Tested in both JEST and TIFR"
+          }
+        ]
+      },
+      {
+        "boxTitle": "Time-Dependent Perturbation Theory & Fermi's Golden Rule",
+        "examScopeHeader": "",
+        "scopeKey": "JAM_JEST",
+        "lectures": [
+          {
+            "id": "S6-PhaseBTier1-qm",
+            "chapter": "Time-Dependent Perturbation",
+            "subTopic": "Time-dependent perturbation, transition rate, Fermi's Golden Rule",
+            "topicPhase": "Phase B \u2013 Tier 1",
+            "scope": "JEST-only",
+            "source": "NPTEL \u2014 Prof. S. Lakshmi Bala",
+            "videoUrl": "https://www.youtube.com/watch?v=pGerRhxNQJE",
+            "duration": "",
+            "book": "Griffiths QM Ch. 9",
+            "focus": "NPTEL Lecture 5\u20137: Dyson series, Fermi Golden rule derivation, absorption and stimulated emission",
+            "timing": "Phase B, Tier 1 \u2014 post-JAM",
+            "notes": "Explicitly tested in JEST Part B (not present in standard JAM)"
+          }
+        ]
+      },
+      {
+        "boxTitle": "Elementary Scattering Theory: Born Approximation & Partial Waves",
+        "examScopeHeader": "",
+        "scopeKey": "JAM_JEST",
+        "lectures": [
+          {
+            "id": "S6-PhaseBTier3-qm",
+            "chapter": "Scattering Theory",
+            "subTopic": "Born approximation, Yukawa potential, partial wave analysis, phase shifts",
+            "topicPhase": "Phase B \u2013 Tier 3",
+            "scope": "JEST-only (low)",
+            "source": "Griffiths QM Ch. 11",
+            "videoUrl": "",
+            "duration": "",
+            "book": "Griffiths QM Ch. 11 / Zettili",
+            "focus": "Born approximation integral, partial wave expansion of scattering amplitude, optical theorem",
+            "timing": "Phase B, Tier 3 \u2014 post-JAM",
+            "notes": "Cut first if JEST lands in March; attempt only if genuinely ahead"
+          }
+        ]
+      }
+    ]
+  },
+  "thermodynamics-statistical": {
+    "unitTitle": "UNIT 7: THERMODYNAMICS & STATISTICAL PHYSICS",
+    "sheetName": "Unit 7 - Thermo & Stat Mech",
+    "topicBoxes": [
+      {
+        "boxTitle": "Laws of Thermodynamics, Potentials & Maxwell Relations",
+        "examScopeHeader": "",
+        "scopeKey": "JAM_JEST",
+        "lectures": [
+          {
+            "id": "S7-Topic14-b1",
+            "chapter": "Laws of Thermodynamics",
+            "subTopic": "First & second laws, Carnot cycle, entropy, Clausius theorem",
+            "topicPhase": "Topic 14",
+            "scope": "JAM+JEST",
+            "source": "NPTEL \u2014 Prof. Girish S. Setlur",
+            "videoUrl": "https://www.youtube.com/watch?v=iud7fzXPJUs",
+            "duration": "",
+            "book": "Garg, Bansal, Ghosh Ch. 1\u20134",
+            "focus": "NPTEL Stat Mech Lec 1\u20134: reversible vs irreversible processes, entropy calculation for ideal gas mixing",
+            "timing": "Phase A \u2014 by Jan 20 hard stop",
+            "notes": "Standard JAM scoring section"
+          },
+          {
+            "id": "S7-Topic14-b2",
+            "chapter": "Maxwell Relations",
+            "subTopic": "Thermodynamic potentials (U, H, F, G), Legendre transforms, Maxwell relations",
+            "topicPhase": "Topic 14",
+            "scope": "JAM+JEST",
+            "source": "NPTEL \u2014 Prof. Girish S. Setlur",
+            "videoUrl": "https://www.youtube.com/watch?v=iud7fzXPJUs",
+            "duration": "",
+            "book": "Garg, Bansal, Ghosh Ch. 5\u20136",
+            "focus": "NPTEL Stat Mech Lec 5\u20138: deriving (dT/dV)_S = -(dP/dS)_V, TdS equations, Joule-Thomson coefficient",
+            "timing": "Phase A \u2014 by Jan 20 hard stop",
+            "notes": "High-frequency question in both JAM and JEST Part B"
+          }
+        ]
+      },
+      {
+        "boxTitle": "Kinetic Theory of Gases & Transport Phenomena",
+        "examScopeHeader": "",
+        "scopeKey": "JAM_JEST",
+        "lectures": [
+          {
+            "id": "S7-Topic14-b3",
+            "chapter": "Kinetic Theory",
+            "subTopic": "Maxwell speed distribution, v_rms = sqrt(3kT/m), equipartition of energy",
+            "topicPhase": "Topic 14",
+            "scope": "JAM+JEST",
+            "source": "NPTEL \u2014 Prof. Girish S. Setlur",
+            "videoUrl": "https://www.youtube.com/watch?v=iud7fzXPJUs",
+            "duration": "",
+            "book": "Garg, Bansal, Ghosh Ch. 7\u20139",
+            "focus": "NPTEL Stat Mech Lec 9\u201310: degrees of freedom, gamma = Cp/Cv calculation, mean free path lambda = 1/(sqrt(2) n pi d^2)",
+            "timing": "Phase A \u2014 by Jan 20 hard stop",
+            "notes": "Straightforward scoring in JAM NAT"
+          }
+        ]
+      },
+      {
+        "boxTitle": "Classical & Quantum Statistics: Basic Definitions",
+        "examScopeHeader": "",
+        "scopeKey": "JAM_JEST",
+        "lectures": [
+          {
+            "id": "S7-Topic15-b",
+            "chapter": "Statistics Basics",
+            "subTopic": "Phase space, distinguishability vs indistinguishability, MB, BE, FD distributions",
+            "topicPhase": "Topic 15",
+            "scope": "JAM-partial",
+            "source": "NPTEL \u2014 Prof. Girish S. Setlur",
+            "videoUrl": "https://www.youtube.com/watch?v=iud7fzXPJUs",
+            "duration": "",
+            "book": "Garg, Bansal, Ghosh Ch. 12",
+            "focus": "NPTEL Stat Mech Lec 11\u201313: distribution functions comparison, classical limit when e^((E-mu)/kT) >> 1",
+            "timing": "Phase A \u2014 by Jan 20 hard stop",
+            "notes": "STOP HERE FOR JAM. Full partition function derivations deferred to Bonus #5"
+          }
+        ]
+      },
+      {
+        "boxTitle": "Black Body Radiation: Planck's Law & Thermal Radiation",
+        "examScopeHeader": "",
+        "scopeKey": "JAM_JEST",
+        "lectures": [
+          {
+            "id": "S7-Topic16-b",
+            "chapter": "Black Body Radiation",
+            "subTopic": "Planck's radiation formula, Wien displacement, Stefan-Boltzmann law",
+            "topicPhase": "Topic 16",
+            "scope": "JAM+JEST",
+            "source": "NPTEL \u2014 Prof. Girish S. Setlur",
+            "videoUrl": "https://www.youtube.com/watch?v=iud7fzXPJUs",
+            "duration": "",
+            "book": "Garg, Bansal, Ghosh Ch. 11",
+            "focus": "NPTEL Stat Mech Lec 14: energy density u(nu) dnu, photon gas in a cavity, derivation of Stefan constant",
+            "timing": "Phase A \u2014 by Jan 20 hard stop",
+            "notes": "Regularly tested in NAT: calculating temperature from peak wavelength"
+          }
+        ]
+      },
+      {
+        "boxTitle": "Statistical Ensembles & Partition Functions",
+        "examScopeHeader": "",
+        "scopeKey": "JAM_JEST",
+        "lectures": [
+          {
+            "id": "S7-Bonus5-b1",
+            "chapter": "Statistical Ensembles",
+            "subTopic": "Microcanonical, Canonical & Grand Canonical ensembles, partition function Z",
+            "topicPhase": "Bonus #5",
+            "scope": "JEST-edge",
+            "source": "NPTEL \u2014 Prof. Girish S. Setlur",
+            "videoUrl": "https://www.youtube.com/watch?v=iud7fzXPJUs",
+            "duration": "",
+            "book": "Garg, Bansal, Ghosh + Reif",
+            "focus": "NPTEL Stat Mech Lec 15\u201318: connection between partition function and thermodynamic quantities (U = -d(ln Z)/d beta, S, Cv)",
+            "timing": "Phase A-Bonus \u2014 slack time",
+            "notes": "Blueprint rank #3 high-yield chapter \u2014 core JEST score generator"
+          },
+          {
+            "id": "S7-Bonus5-b2",
+            "chapter": "Ideal Gas & Oscillators",
+            "subTopic": "Partition function for classical ideal gas and 1D/3D quantum harmonic oscillators",
+            "topicPhase": "Bonus #5",
+            "scope": "JEST-edge",
+            "source": "NPTEL \u2014 Prof. Girish S. Setlur",
+            "videoUrl": "https://www.youtube.com/watch?v=iud7fzXPJUs",
+            "duration": "",
+            "book": "Reif / Pathria",
+            "focus": "NPTEL Stat Mech Lec 19\u201320: single-particle vs N-particle partition function Z_N = (Z_1)^N / N!, Einstein solid specific heat",
+            "timing": "Phase A-Bonus \u2014 slack time",
+            "notes": "Frequent NAT question: finding average energy <E> and heat capacity Cv"
+          }
+        ]
+      },
+      {
+        "boxTitle": "Quantum Gases: Degenerate Fermi Gas & Bose-Einstein Condensation",
+        "examScopeHeader": "",
+        "scopeKey": "JAM_JEST",
+        "lectures": [
+          {
+            "id": "S7-Bonus5-b3",
+            "chapter": "Fermi & Bose Gases",
+            "subTopic": "Degenerate Fermi gas, Fermi energy E_F, Fermi temperature, BEC transition",
+            "topicPhase": "Bonus #5",
+            "scope": "JEST-edge",
+            "source": "NPTEL \u2014 Prof. Girish S. Setlur",
+            "videoUrl": "https://www.youtube.com/watch?v=iud7fzXPJUs",
+            "duration": "",
+            "book": "Reif Ch. 9 / Pathria",
+            "focus": "NPTEL Stat Mech Lec 21\u201324: density of states in d dimensions g(E) ~ E^(d/2 - 1), chemical potential of fermion/boson gas",
+            "timing": "Phase A-Bonus \u2014 slack time",
+            "notes": "Tested in JEST Part B and C: calculating Fermi energy and BEC fraction N0/N"
+          }
+        ]
+      },
+      {
+        "boxTitle": "Statistics of Paramagnetism & Phase Transitions",
+        "examScopeHeader": "",
+        "scopeKey": "JAM_JEST",
+        "lectures": [
+          {
+            "id": "S7-Bonus5-b4",
+            "chapter": "Paramagnetism & Phase Transitions",
+            "subTopic": "Paramagnetism partition function, magnetization, Curie-Weiss law, phase transitions",
+            "topicPhase": "Phase B \u2013 Tier 3",
+            "scope": "JEST-only",
+            "source": "NPTEL \u2014 Prof. Girish S. Setlur",
+            "videoUrl": "https://www.youtube.com/watch?v=iud7fzXPJUs",
+            "duration": "",
+            "book": "Pathria / Reif",
+            "focus": "NPTEL Stat Mech Lec 25\u201326: two-level spin system partition function, magnetization M = N mu tanh(beta mu B), critical exponents",
+            "timing": "Phase B, Tier 3 \u2014 post-JAM",
+            "notes": "Attempt only if genuinely ahead"
+          }
+        ]
+      }
+    ]
+  },
+  "electronics-experimental": {
+    "unitTitle": "UNIT 8: ELECTRONICS & EXPERIMENTAL METHODS",
+    "sheetName": "Unit 8 - Electronics & Exp",
+    "topicBoxes": [
+      {
+        "boxTitle": "Semiconductor Devices: p-n Junction, Diodes & Zener Regulators",
+        "examScopeHeader": "",
+        "scopeKey": "JAM_JEST",
+        "lectures": [
+          {
+            "id": "S8-Topic17-b1",
+            "chapter": "Semiconductor Diodes",
+            "subTopic": "Semiconductor physics, carrier transport, p-n junction diode characteristics",
+            "topicPhase": "Topic 17",
+            "scope": "JAM+JEST",
+            "source": "NPTEL \u2014 Prof. D.C. Dube",
+            "videoUrl": "https://www.youtube.com/watch?v=g7vYop_46tU",
+            "duration": "",
+            "book": "Millman & Halkias Ch. 1\u20133",
+            "focus": "NPTEL Semiconductor Lec 1\u20134: drift and diffusion currents, depletion region width, forward/reverse bias, Zener diode",
+            "timing": "Phase A \u2014 by Jan 20 hard stop",
+            "notes": "High-frequency JAM question: calculating output voltage in Zener regulator circuits"
+          }
+        ]
+      },
+      {
+        "boxTitle": "Bipolar Junction Transistors (BJT): Biasing, Load Line & Amplifiers",
+        "examScopeHeader": "",
+        "scopeKey": "JAM_JEST",
+        "lectures": [
+          {
+            "id": "S8-Topic17-b2",
+            "chapter": "Transistor Amplifiers",
+            "subTopic": "BJT configurations, input/output characteristics, voltage divider bias, Q-point",
+            "topicPhase": "Topic 17",
+            "scope": "JAM+JEST",
+            "source": "NPTEL \u2014 Prof. D.C. Dube",
+            "videoUrl": "https://www.youtube.com/watch?v=g7vYop_46tU",
+            "duration": "",
+            "book": "Millman & Halkias Ch. 5\u20138",
+            "focus": "NPTEL Semiconductor Lec 5\u201310: transistor biasing, DC load line, small-signal CE amplifier voltage gain A_v",
+            "timing": "Phase A \u2014 by Jan 20 hard stop",
+            "notes": "Standard scoring question in JAM NAT"
+          }
+        ]
+      },
+      {
+        "boxTitle": "Operational Amplifiers (Op-Amps) & Linear Applications",
+        "examScopeHeader": "",
+        "scopeKey": "JAM_JEST",
+        "lectures": [
+          {
+            "id": "S8-Topic18-b1",
+            "chapter": "Operational Amplifiers",
+            "subTopic": "Op-Amp fundamentals, virtual ground concept, inverting & non-inverting amplifiers",
+            "topicPhase": "Topic 18",
+            "scope": "JAM+JEST",
+            "source": "NPTEL \u2014 Prof. D.C. Dube",
+            "videoUrl": "https://www.youtube.com/watch?v=g7vYop_46tU",
+            "duration": "",
+            "book": "Millman & Halkias Op-Amp Ch.",
+            "focus": "NPTEL Semiconductor Lec 31\u201335: closed loop voltage gain, inverting V_out = -(Rf/R1)Vin, non-inverting V_out = (1 + Rf/R1)Vin",
+            "timing": "Phase A \u2014 by Jan 20 hard stop",
+            "notes": "Near-guaranteed question in both JAM and JEST Part A"
+          },
+          {
+            "id": "S8-Topic18-b2",
+            "chapter": "Op-Amp Applications",
+            "subTopic": "Summing amplifier, difference amplifier, integrator, differentiator circuits",
+            "topicPhase": "Topic 18",
+            "scope": "JAM+JEST",
+            "source": "NPTEL \u2014 Prof. D.C. Dube",
+            "videoUrl": "https://www.youtube.com/watch?v=g7vYop_46tU",
+            "duration": "",
+            "book": "Millman & Halkias Op-Amp Ch.",
+            "focus": "NPTEL Semiconductor Lec 36\u201340: practical Op-Amp circuits, frequency response, CMRR, slew rate",
+            "timing": "Phase A \u2014 by Jan 20 hard stop",
+            "notes": "Standard calculation question in JAM NAT"
+          }
+        ]
+      },
+      {
+        "boxTitle": "Active Filters & Oscillator Circuits",
+        "examScopeHeader": "",
+        "scopeKey": "JAM_JEST",
+        "lectures": [
+          {
+            "id": "S8-PhaseBTier2-b",
+            "chapter": "Active Filters & Oscillators",
+            "subTopic": "Active filter design (low-pass/high-pass), Barkhausen criterion, Wien bridge",
+            "topicPhase": "Phase B \u2013 Tier 2",
+            "scope": "JEST-only",
+            "source": "NPTEL \u2014 Prof. D.C. Dube",
+            "videoUrl": "https://www.youtube.com/watch?v=g7vYop_46tU",
+            "duration": "",
+            "book": "Millman & Halkias",
+            "focus": "NPTEL Semiconductor final lectures: cutoff frequency f_c = 1/(2 pi R C), oscillator feedback loops",
+            "timing": "Phase B, Tier 2 \u2014 post-JAM",
+            "notes": "Steady scorer once covered"
+          }
+        ]
+      },
+      {
+        "boxTitle": "Digital Electronics: Logic Gates, Boolean Algebra & Flip-Flops",
+        "examScopeHeader": "",
+        "scopeKey": "JAM_JEST",
+        "lectures": [
+          {
+            "id": "S8-Topic18-dig",
+            "chapter": "Digital Electronics",
+            "subTopic": "Boolean algebra, De Morgan's laws, logic simplification, flip-flops",
+            "topicPhase": "Topic 18",
+            "scope": "JAM+JEST",
+            "source": "Standard Digital Notes",
+            "videoUrl": "",
+            "duration": "",
+            "book": "Digital Logic Design (Tocci / Leach)",
+            "focus": "Truth tables, NAND/NOR implementation, simplifying logic expressions using K-maps",
+            "timing": "Phase A \u2014 by Jan 20 hard stop",
+            "notes": "Predictable 1\u20132 questions in JAM Part A"
+          }
+        ]
+      },
+      {
+        "boxTitle": "Experimental Error Analysis & Calculator-Free Mental Arithmetic",
+        "examScopeHeader": "",
+        "scopeKey": "JAM_JEST",
+        "lectures": [
+          {
+            "id": "S8-Bonus11-exp",
+            "chapter": "Error Analysis & Fluency",
+            "subTopic": "Error propagation, uncertainty analysis, calculator-free mental arithmetic",
+            "topicPhase": "Bonus #11",
+            "scope": "JEST-edge",
+            "source": "NPTEL \u2014 Prof. Amal Kumar Das",
+            "videoUrl": "https://www.youtube.com/watch?v=m6E1NN4A-9s",
+            "duration": "",
+            "book": "Experimental Physics Notes",
+            "focus": "NPTEL Experimental Physics Lec 1\u20134: error propagation formula delta(z)/z = sqrt((a delta(x)/x)^2 + ...)",
+            "timing": "Phase A-Bonus \u2014 ongoing",
+            "notes": "JEST allows NO calculators \u2014 practice mental math during all practice"
+          }
+        ]
+      }
+    ]
+  },
+  "atomic-molecular": {
+    "unitTitle": "UNIT 9: ATOMIC & MOLECULAR PHYSICS",
+    "sheetName": "Unit 9 - Atomic & Molecular",
+    "topicBoxes": [
+      {
+        "boxTitle": "Bohr Model, Rydberg Constant & Vector Atom Model",
+        "examScopeHeader": "",
+        "scopeKey": "JAM_JEST",
+        "lectures": [
+          {
+            "id": "S9-Topic20atomich-a",
+            "chapter": "Bohr Model & Spectra",
+            "subTopic": "Bohr model of hydrogen, Rydberg constant, limitations, Frank-Hertz experiment",
+            "topicPhase": "Topic 20",
+            "scope": "JAM+JEST",
+            "source": "NPTEL \u2014 Prof. Amal Kumar Das",
+            "videoUrl": "https://www.youtube.com/watch?v=SCmtEhGVhSM",
+            "duration": "",
+            "book": "Arthur Beiser Modern Physics",
+            "focus": "NPTEL Atomic Physics Lec 1\u20136: Bohr radius a0, energy levels E_n = -R_inf / n^2, hydrogen-like ions (He+, Li++)",
+            "timing": "Phase A \u2014 by Jan 20 hard stop",
+            "notes": "Classic scoring questions in JAM and JEST Part A"
+          }
+        ]
+      },
+      {
+        "boxTitle": "Electron Spin, Stern-Gerlach Experiment & Spatial Quantization",
+        "examScopeHeader": "",
+        "scopeKey": "JAM_JEST",
+        "lectures": [
+          {
+            "id": "S9-Topic20-sg",
+            "chapter": "Spin & Stern-Gerlach",
+            "subTopic": "Stern-Gerlach experiment, space quantization of spin, Bohr magneton",
+            "topicPhase": "Topic 20",
+            "scope": "JAM+JEST",
+            "source": "NPTEL \u2014 Prof. Amal Kumar Das",
+            "videoUrl": "https://www.youtube.com/watch?v=SCmtEhGVhSM",
+            "duration": "",
+            "book": "Arthur Beiser Modern Physics",
+            "focus": "NPTEL Atomic Physics Lec 7\u20138: inhomogeneous magnetic field, beam splitting into 2s+1 = 2 components",
+            "timing": "Phase A \u2014 by Jan 20 hard stop",
+            "notes": "Proves quantum nature of electron spin"
+          }
+        ]
+      },
+      {
+        "boxTitle": "Coupling Schemes, Spectroscopic Term Symbols & Fine Structure",
+        "examScopeHeader": "",
+        "scopeKey": "JAM_JEST",
+        "lectures": [
+          {
+            "id": "S9-PhaseBTier1-a1",
+            "chapter": "Term Symbols",
+            "subTopic": "LS coupling, jj coupling, deriving spectroscopic term symbols ^(2S+1)L_J",
+            "topicPhase": "Phase B \u2013 Tier 1",
+            "scope": "JEST-only",
+            "source": "NPTEL \u2014 Prof. Amal Kumar Das",
+            "videoUrl": "https://www.youtube.com/watch?v=SCmtEhGVhSM",
+            "duration": "",
+            "book": "Arthur Beiser Modern Physics",
+            "focus": "NPTEL Atomic Physics Lec 9\u201313: Hund's rules (maximum S, maximum L, J=|L-S| or J=L+S), term symbols of carbon, nitrogen, oxygen",
+            "timing": "Phase B, Tier 1 \u2014 post-JAM",
+            "notes": "High-frequency question in JEST Part B and CSIR-NET"
+          },
+          {
+            "id": "S9-PhaseBTier1-a2",
+            "chapter": "Fine Structure & Zeeman",
+            "subTopic": "Spin-orbit coupling, alkali doublet spectra, normal & anomalous Zeeman effect",
+            "topicPhase": "Phase B \u2013 Tier 1",
+            "scope": "JEST-only",
+            "source": "NPTEL \u2014 Prof. Amal Kumar Das",
+            "videoUrl": "https://www.youtube.com/watch?v=SCmtEhGVhSM",
+            "duration": "",
+            "book": "Arthur Beiser Modern Physics",
+            "focus": "NPTEL Atomic Physics Lec 14\u201316: Land\u00e9 g-factor g = 1 + (J(J+1) + S(S+1) - L(L+1))/(2 J(J+1)), Zeeman energy shift, selection rules",
+            "timing": "Phase B, Tier 1 \u2014 post-JAM",
+            "notes": "Standard calculation question in JEST Part B"
+          }
+        ]
+      }
+    ]
+  },
+  "solid-state": {
+    "unitTitle": "UNIT 10: SOLID STATE / CONDENSED MATTER PHYSICS",
+    "sheetName": "Unit 10 - Solid State Physics",
+    "topicBoxes": [
+      {
+        "boxTitle": "Crystal Structure, Bravais Lattices, Miller Indices & Reciprocal Lattice",
+        "examScopeHeader": "",
+        "scopeKey": "JAM_JEST",
+        "lectures": [
+          {
+            "id": "S10-Topic19-a1",
+            "chapter": "Crystal Structure",
+            "subTopic": "Bravais lattices, primitive unit cell, Wigner-Seitz cell, Miller indices",
+            "topicPhase": "Topic 19",
+            "scope": "JAM+JEST",
+            "source": "NPTEL \u2014 Prof. Amal Kumar Das",
+            "videoUrl": "https://www.youtube.com/watch?v=Ofzd2ZqFvjo",
+            "duration": "",
+            "book": "Kittel Solid State Ch. 1",
+            "focus": "NPTEL Solid State Lec 1\u20134: crystal geometry, SC/BCC/FCC coordination numbers, packing fractions (0.52, 0.68, 0.74)",
+            "timing": "Phase A \u2014 by Jan 20 hard stop",
+            "notes": "Standard JAM scoring section"
+          },
+          {
+            "id": "S10-Topic19-a2",
+            "chapter": "Reciprocal Lattice",
+            "subTopic": "Reciprocal lattice vectors, reciprocal of SC, BCC (is FCC), FCC (is BCC)",
+            "topicPhase": "Topic 19",
+            "scope": "JAM+JEST",
+            "source": "NPTEL \u2014 Prof. Amal Kumar Das",
+            "videoUrl": "https://www.youtube.com/watch?v=Ofzd2ZqFvjo",
+            "duration": "",
+            "book": "Kittel Solid State Ch. 2",
+            "focus": "NPTEL Solid State Lec 5\u20137: interplanar spacing d = a/sqrt(h^2+k^2+l^2), Brillouin zone definition",
+            "timing": "Phase A \u2014 by Jan 20 hard stop",
+            "notes": "Crucial for wave vector k space in band theory"
+          }
+        ]
+      },
+      {
+        "boxTitle": "X-Ray Diffraction & Bragg's Law",
+        "examScopeHeader": "",
+        "scopeKey": "JAM_JEST",
+        "lectures": [
+          {
+            "id": "S10-Topic19-a3",
+            "chapter": "X-Ray Diffraction",
+            "subTopic": "Bragg's law, Laue diffraction condition, structure factor S_hkl",
+            "topicPhase": "Topic 19",
+            "scope": "JAM+JEST",
+            "source": "NPTEL \u2014 Prof. Amal Kumar Das",
+            "videoUrl": "https://www.youtube.com/watch?v=Ofzd2ZqFvjo",
+            "duration": "",
+            "book": "Kittel Solid State Ch. 2",
+            "focus": "NPTEL Solid State Lec 8\u201310: structure factor derivation, missing reflections in powder diffraction",
+            "timing": "Phase A \u2014 by Jan 20 hard stop",
+            "notes": "High-frequency NAT problem: finding lattice parameter a from Bragg angle"
+          }
+        ]
+      },
+      {
+        "boxTitle": "Free Electron Theory & Basic Band Theory",
+        "examScopeHeader": "",
+        "scopeKey": "JAM_JEST",
+        "lectures": [
+          {
+            "id": "S10-Topic19-a4",
+            "chapter": "Free Electron Theory",
+            "subTopic": "Free electron Fermi gas, Fermi momentum, Fermi energy, electronic heat capacity",
+            "topicPhase": "Topic 19",
+            "scope": "JAM+JEST",
+            "source": "NPTEL \u2014 Prof. Amal Kumar Das",
+            "videoUrl": "https://www.youtube.com/watch?v=Ofzd2ZqFvjo",
+            "duration": "",
+            "book": "Kittel Solid State Ch. 6",
+            "focus": "NPTEL Solid State Lec 11\u201313: density of states g(E) ~ sqrt(E), Fermi temperature T_F, Ohm's law from Drude",
+            "timing": "Phase A \u2014 by Jan 20 hard stop",
+            "notes": "Direct application of Fermi-Dirac statistics from Unit 7"
+          },
+          {
+            "id": "S10-Topic19-a5",
+            "chapter": "Band Theory Intro",
+            "subTopic": "Bloch theorem, Kronig-Penney model, origin of band gap at Brillouin zone boundary",
+            "topicPhase": "Topic 19",
+            "scope": "JAM+JEST",
+            "source": "NPTEL \u2014 Prof. Amal Kumar Das",
+            "videoUrl": "https://www.youtube.com/watch?v=Ofzd2ZqFvjo",
+            "duration": "",
+            "book": "Kittel Solid State Ch. 7",
+            "focus": "NPTEL Solid State Lec 14\u201316: periodic potential, opening of energy gap at k = +/- pi/a, conductors/semiconductors/insulators",
+            "timing": "Phase A \u2014 by Jan 20 hard stop",
+            "notes": "STOP HERE FOR JAM. Concludes core Phase A pass"
+          }
+        ]
+      },
+      {
+        "boxTitle": "Advanced Band Theory: Effective Mass, Tight-Binding & Phonons",
+        "examScopeHeader": "",
+        "scopeKey": "JAM_JEST",
+        "lectures": [
+          {
+            "id": "S10-PhaseBTier1-a1",
+            "chapter": "Effective Mass & Dispersion",
+            "subTopic": "Effective mass tensor, band velocity v = (1/hbar) dE/dk, tight binding model",
+            "topicPhase": "Phase B \u2013 Tier 1",
+            "scope": "JEST-only",
+            "source": "NPTEL \u2014 Prof. Amal Kumar Das",
+            "videoUrl": "https://www.youtube.com/watch?v=Ofzd2ZqFvjo",
+            "duration": "",
+            "book": "Kittel Solid State Ch. 7\u20138",
+            "focus": "NPTEL Solid State Lec 17\u201319: calculating m* from E(k) curves, electrons and holes, bandwidth in tight binding",
+            "timing": "Phase B, Tier 1 \u2014 post-JAM",
+            "notes": "One of the few chapters separating top JEST ranks from average"
+          },
+          {
+            "id": "S10-PhaseBTier1-a2",
+            "chapter": "Lattice Vibrations (Phonons)",
+            "subTopic": "1D monoatomic and diatomic lattice dynamics, acoustic and optical dispersion branches",
+            "topicPhase": "Phase B \u2013 Tier 1",
+            "scope": "JEST-only",
+            "source": "NPTEL \u2014 Prof. Amal Kumar Das",
+            "videoUrl": "https://www.youtube.com/watch?v=Ofzd2ZqFvjo",
+            "duration": "",
+            "book": "Kittel Solid State Ch. 4\u20135",
+            "focus": "NPTEL Solid State Lec 20\u201322: dispersion omega(k) = 2 sqrt(C/M) |sin(ka/2)|, acoustic branch omega -> 0 as k -> 0, optical branch, phonon momentum",
+            "timing": "Phase B, Tier 1 \u2014 post-JAM",
+            "notes": "High-frequency problem in JEST Part B and CSIR-NET"
+          }
+        ]
+      }
+    ]
+  },
+  "nuclear-particle": {
+    "unitTitle": "UNIT 11: NUCLEAR & PARTICLE PHYSICS",
+    "sheetName": "Unit 11 - Nuclear & Particle",
+    "topicBoxes": [
+      {
+        "boxTitle": "Nuclear Properties, Binding Energy & Liquid Drop Model",
+        "examScopeHeader": "",
+        "scopeKey": "JAM_JEST",
+        "lectures": [
+          {
+            "id": "S11-Topic20nuclear-a1",
+            "chapter": "Nuclear Properties",
+            "subTopic": "Nuclear radius, density, binding energy curve, liquid drop model",
+            "topicPhase": "Topic 20",
+            "scope": "JAM+JEST",
+            "source": "NPTEL \u2014 Prof. P. Poulose",
+            "videoUrl": "https://www.youtube.com/watch?v=H7OipY8RzX0",
+            "duration": "",
+            "book": "Arthur Beiser Nuclear Ch.",
+            "focus": "NPTEL Nuclear Physics Lec 1\u20134: Weizs\u00e4cker semi-empirical formula B = a_v A - a_s A^(2/3) - a_c Z(Z-1)/A^(1/3) - a_sym (A-2Z)^2/A + delta",
+            "timing": "Phase A \u2014 by Jan 20 hard stop",
+            "notes": "Very common NAT question: calculating most stable isobar Z for a given mass A"
+          }
+        ]
+      },
+      {
+        "boxTitle": "Nuclear Shell Model & Magic Numbers",
+        "examScopeHeader": "",
+        "scopeKey": "JAM_JEST",
+        "lectures": [
+          {
+            "id": "S11-Topic20nuclear-a2",
+            "chapter": "Nuclear Shell Model",
+            "subTopic": "Magic numbers, spin-orbit interaction, predicting nuclear spin-parity J^P",
+            "topicPhase": "Topic 20",
+            "scope": "JAM+JEST",
+            "source": "NPTEL \u2014 Prof. P. Poulose",
+            "videoUrl": "https://www.youtube.com/watch?v=H7OipY8RzX0",
+            "duration": "",
+            "book": "Arthur Beiser Nuclear Ch.",
+            "focus": "NPTEL Nuclear Physics Lec 5\u20136: single-particle shell states (1s1/2, 1p3/2, 1p1/2, 1d5/2...), ground state spin of odd-A nuclei",
+            "timing": "Phase A \u2014 by Jan 20 hard stop",
+            "notes": "Standard 1-mark or 3-mark MCQ in both exams"
+          }
+        ]
+      },
+      {
+        "boxTitle": "Radioactive Decay Laws, Decay Chains & Nuclear Reactions",
+        "examScopeHeader": "",
+        "scopeKey": "JAM_JEST",
+        "lectures": [
+          {
+            "id": "S11-Topic20nuclear-a3",
+            "chapter": "Radioactivity & Q-Value",
+            "subTopic": "Radioactive decay law, activity A = lambda*N, decay chains, Q-value calculation",
+            "topicPhase": "Topic 20 / Phase B",
+            "scope": "JAM+JEST",
+            "source": "NPTEL \u2014 Prof. P. Poulose",
+            "videoUrl": "https://www.youtube.com/watch?v=H7OipY8RzX0",
+            "duration": "",
+            "book": "Arthur Beiser Nuclear Ch.",
+            "focus": "NPTEL Nuclear Physics Lec 7\u201310: secular equilibrium N_A lambda_A = N_B lambda_B, alpha decay kinematics, beta decay spectrum, Q = (M_initial - M_final) c^2",
+            "timing": "Phase A \u2014 by Jan 20 / Phase B",
+            "notes": "Standard NAT calculation in JAM and JEST Part C"
+          }
+        ]
+      },
+      {
+        "boxTitle": "Particle Physics Basics, Quark Model & Conservation Laws",
+        "examScopeHeader": "",
+        "scopeKey": "JAM_JEST",
+        "lectures": [
+          {
+            "id": "S11-PhaseBTier3-np",
+            "chapter": "Particle Physics",
+            "subTopic": "Elementary particles, quark model, fundamental interactions, conservation laws",
+            "topicPhase": "Phase B \u2013 Tier 3",
+            "scope": "JEST-only (low)",
+            "source": "NPTEL \u2014 Prof. P. Poulose",
+            "videoUrl": "https://www.youtube.com/watch?v=H7OipY8RzX0",
+            "duration": "",
+            "book": "Arthur Beiser Modern Physics",
+            "focus": "NPTEL Nuclear Physics Lec 13\u201316: Gell-Mann-Nishijima relation Q = I_3 + (B + S)/2, allowed vs forbidden particle reactions",
+            "timing": "Phase B, Tier 3 \u2014 post-JAM",
+            "notes": "Cut first if JEST lands in March; attempt only if genuinely ahead"
+          }
+        ]
+      }
+    ]
+  }
+}

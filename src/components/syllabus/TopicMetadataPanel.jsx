@@ -1,5 +1,6 @@
-import { Clock3, Brain as BrainIcon, Gauge, Flag, History, Waypoints } from 'lucide-react'
+import { Clock3, Brain as BrainIcon, Gauge, Flag, History, Waypoints, BookMarked } from 'lucide-react'
 import SyllabusBadge from './SyllabusBadge'
+import { getScopeBadgeLabel } from '../../data/subjects.js'
 import {
   DIFFICULTY_STYLES,
   IMPORTANCE_STYLES,
@@ -38,6 +39,12 @@ export default function TopicMetadataPanel({ metadata }) {
       </MetaRow>
       <MetaRow icon={Flag} label="Priority">
         <SyllabusBadge label={metadata.priority} styleClass={PRIORITY_STYLES[metadata.priority]} />
+      </MetaRow>
+      <MetaRow icon={BookMarked} label="Exam scope">
+        <SyllabusBadge
+          label={getScopeBadgeLabel(metadata.examScope ?? 'JAM_JEST')}
+          styleClass="border-[#4fc1ff]/30 bg-[#4fc1ff]/10 text-[#4fc1ff]"
+        />
       </MetaRow>
       {metadata.roadmapPhase && <MetaRow icon={Waypoints} label="Roadmap order">
         <span className="text-xs font-medium text-[#e8e8e8]">{metadata.roadmapPhase}</span>

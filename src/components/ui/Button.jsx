@@ -11,10 +11,10 @@
  */
 
 const VARIANT_CLASSES = {
-  primary: 'border-[#0e639c] bg-[#0e639c] text-white hover:bg-[#1177bb]',
-  secondary: 'border-[#3c3c3c] bg-[#2d2d2d] text-[#cccccc] hover:bg-[#3c3c3c]',
-  ghost: 'border-transparent bg-transparent text-[#cccccc] hover:bg-[#2d2d2d]',
-  danger: 'border-[#f48771]/40 bg-[#f48771]/10 text-[#f48771] hover:bg-[#f48771]/20',
+  primary: 'border border-[var(--border-focus)] bg-[var(--accent)] text-[#0b1120] shadow-[0_0_0_1px_rgba(129,140,248,0.25)] hover:bg-[var(--accent-hover)]',
+  secondary: 'border border-[var(--border-subtle)] bg-[var(--bg-surface)] text-[var(--text-primary)] backdrop-blur-xl hover:bg-[rgba(24,28,42,0.9)]',
+  ghost: 'border-transparent bg-transparent text-[var(--text-secondary)] hover:bg-[rgba(255,255,255,0.04)]',
+  danger: 'border border-[rgba(248,113,113,0.35)] bg-[rgba(248,113,113,0.08)] text-[#fca5a5] hover:bg-[rgba(248,113,113,0.16)]',
 }
 
 export default function Button({

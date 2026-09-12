@@ -1,6 +1,7 @@
-import StorageService from './StorageService'
-import SettingsService from './SettingsService'
-import { createWorkspaceState } from '../types/Workspace'
+import StorageService from './StorageService.js'
+import SettingsService from './SettingsService.js'
+import { createWorkspaceState } from '../types/Workspace.js'
+import { getSubjectById, getChapterBySlug } from '../engine/blueprintService.js'
 
 /**
  * WORKSPACE SERVICE
@@ -21,24 +22,58 @@ import { createWorkspaceState } from '../types/Workspace'
 
 const STORAGE_KEY = 'workspace'
 
+function sanitizeWorkspaceState(state) {
+  const base = createWorkspaceState(state && typeof state === 'object' ? state : {})
+
+  const subjectId = typeof base.currentSubjectId === 'string' && base.currentSubjectId.trim() ? base.currentSubjectId.trim() : null
+  const subject = subjectId ? getSubjectById(subjectId) : null
+
+  let chapterSlug = typeof base.currentChapterSlug === 'string' && base.currentChapterSlug.trim() ? base.currentChapterSlug.trim() : null
+  if (subject && chapterSlug) {
+    const chapterMatch = getChapterBySlug(subject.id, chapterSlug)
+    if (!chapterMatch || !chapterMatch.chapter) {
+      chapterSlug = null
+    }
+  } else if (chapterSlug) {
+    chapterSlug = null
+  }
+
+  const next = createWorkspaceState({
+    ...base,
+    currentSubjectId: subject ? subject.id : null,
+    currentChapterSlug: chapterSlug,
+    currentTopicId: typeof base.currentTopicId === 'string' && base.currentTopicId.trim() ? base.currentTopicId.trim() : null,
+    currentResourceId: typeof base.currentResourceId === 'string' && base.currentResourceId.trim() ? base.currentResourceId.trim() : null,
+  })
+
+  return next
+}
+
 function readAll() {
   const stored = StorageService.get(STORAGE_KEY, null)
-  return createWorkspaceState(stored && typeof stored === 'object' ? stored : {})
+  return sanitizeWorkspaceState(stored)
 }
 
 function writeAll(state) {
-  return StorageService.set(STORAGE_KEY, state)
+  const sanitized = sanitizeWorkspaceState(state)
+  StorageService.set(STORAGE_KEY, sanitized)
+  return sanitized
+}
+
+/** Returns the raw persisted workspace state regardless of the restore toggle. */
+function get() {
+  return readAll()
 }
 
 /** Returns the current workspace, or a blank one if "Restore Last Workspace" is disabled. */
 function getState() {
   const restoreEnabled = SettingsService.getSetting('restoreLastWorkspace')
   if (restoreEnabled === false) return createWorkspaceState()
-  return readAll()
+  return get()
 }
 
 function update(changes) {
-  const next = createWorkspaceState({ ...readAll(), ...changes })
+  const next = sanitizeWorkspaceState({ ...get(), ...changes })
   writeAll(next)
   return next
 }
@@ -70,7 +105,9 @@ function subscribe(callback) {
 }
 
 export const WorkspaceService = {
+  get,
   getState,
+  update,
   setCurrentSubject,
   setCurrentChapter,
   setCurrentTopic,

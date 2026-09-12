@@ -1,4 +1,4 @@
-import StorageService from './StorageService'
+import StorageService from './StorageService.js'
 
 /**
  * SETTINGS SERVICE
@@ -41,6 +41,7 @@ export const DEFAULT_SETTINGS = {
   defaultExportFolder: '',
   maxRecentItems: 10,
   restoreLastWorkspace: true,
+  autoJumpToLastActiveTopicOnLaunch: true,
   openResourcesInNewTab: true,
   preferredBrowser: 'system',
 }

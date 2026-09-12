@@ -1,7 +1,7 @@
 import { useMemo } from 'react'
 import { Link } from 'react-router-dom'
 import { BookOpen, ChevronRight } from 'lucide-react'
-import { getSubjects } from '../engine/blueprintService'
+import { getSubjects } from '../data/subjects.js'
 
 function priorityStyle(priority) {
   const label = String(priority ?? '').toLowerCase()

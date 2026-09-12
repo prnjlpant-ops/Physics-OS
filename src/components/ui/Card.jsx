@@ -11,7 +11,7 @@
 export default function Card({ children, className = '', as: Component = 'div', ...rest }) {
   return (
     <Component
-      className={`rounded-lg border border-[#3c3c3c] bg-[#252526] p-4 ${className}`}
+      className={`rounded-2xl border border-[var(--border-subtle)] bg-[var(--bg-surface)] p-4 shadow-[var(--shadow-soft)] backdrop-blur-xl ${className}`}
       {...rest}
     >
       {children}

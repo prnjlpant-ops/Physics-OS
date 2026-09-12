@@ -2,12 +2,29 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+:root {
+  --bg-canvas: #090a0f;
+  --bg-surface: rgba(18, 20, 32, 0.75);
+  --bg-surface-strong: rgba(24, 28, 42, 0.92);
+  --bg-surface-soft: rgba(15, 17, 26, 0.7);
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-focus: rgba(129, 140, 248, 0.4);
+  --accent: #818cf8;
+  --accent-hover: #a5b4fc;
+  --text-primary: #f3f4f6;
+  --text-muted: #a5b4fc;
+  --text-secondary: rgba(255, 255, 255, 0.7);
+  --shadow-soft: 0 24px 48px rgba(2, 6, 23, 0.45);
+  --scrollbar-thumb: rgba(255, 255, 255, 0.12);
+  --scrollbar-thumb-hover: rgba(255, 255, 255, 0.2);
+}
+
 @theme {
-  --color-background: #0a0a0a;
-  --color-foreground: #fafafa;
-  --color-muted: #a1a1aa;
-  --color-border: #27272a;
-  --color-surface: #18181b;
+  --color-background: var(--bg-canvas);
+  --color-foreground: var(--text-primary);
+  --color-muted: var(--text-secondary);
+  --color-border: var(--border-subtle);
+  --color-surface: var(--bg-surface);
 }
 
 @layer base {
@@ -20,20 +37,48 @@
   html {
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
+    background: var(--bg-canvas);
+    color: var(--text-primary);
   }
 
   body {
     margin: 0;
     min-height: 100dvh;
-    background-color: var(--color-background);
-    color: var(--color-foreground);
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-      sans-serif;
+    background:
+      radial-gradient(circle at top, rgba(129, 140, 248, 0.12), transparent 34%),
+      var(--bg-canvas);
+    color: var(--text-primary);
+    font-family: Inter, 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
   #root {
     min-height: 100dvh;
+    background: var(--bg-canvas);
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb);
+    border-radius: 999px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+    transition: background 180ms ease;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--scrollbar-thumb-hover);
+    border: 2px solid transparent;
+    background-clip: padding-box;
+  }
+
+  ::-webkit-scrollbar-corner {
+    background: transparent;
   }
 }

@@ -1,21 +1,62 @@
 import { Link, useOutletContext } from 'react-router-dom'
-import { BookOpen, ListChecks, Sparkles } from 'lucide-react'
+import { BookOpen, FolderOpen, ListChecks, Sparkles } from 'lucide-react'
+
 function getChapterMetadata(chapter) {
   return { priority: chapter.priority ?? 'Medium', topicCount: chapter.topics?.length ?? 0 }
 }
 
+function buildSubjectZoteroUri(subject) {
+  const subjectKey = String(subject?.id ?? subject?.slug ?? '').trim().toLowerCase()
+  const map = {
+    'mathematical-methods': 'math-methods',
+    'classical-mechanics': 'classical-mechanics',
+    'electromagnetism': 'electromagnetism',
+    'quantum-mechanics': 'quantum-mechanics',
+    'thermodynamics': 'thermodynamics',
+  }
+
+  const key = map[subjectKey] || subjectKey || 'math-methods'
+  return `zotero://select/library/collections/${encodeURIComponent(key)}`
+}
+
 export default function SubjectOverviewPage() {
   const { subject } = useOutletContext()
+  const chapters = [...(subject.chapters ?? [])]
 
-  const totalTopics = (subject.chapters ?? []).reduce(
+  const totalTopics = chapters.reduce(
     (sum, chapter) => sum + getChapterMetadata(chapter).topicCount,
     0,
   )
+
   const stats = [
-    { label: 'Chapters', value: subject.chapters?.length ?? 0, icon: ListChecks },
+    { label: 'Chapters', value: chapters.length, icon: ListChecks },
     { label: 'Topics', value: totalTopics, icon: Sparkles },
-    { label: 'Priority', value: subject.priority ?? 'Medium', icon: BookOpen },
+    {
+      label: 'Priority',
+      value: subject.priority ? `${subject.priority} (${subject.priority === 'High' ? 'foundational' : 'guided'})` : 'Medium',
+      icon: BookOpen,
+    },
   ]
+
+  const handleOpenZotero = () => {
+    const uri = buildSubjectZoteroUri(subject)
+    if (typeof window !== 'undefined' && window.physicsOSDesktop?.window?.openExternal) {
+      window.physicsOSDesktop.window.openExternal(uri).catch(() => {
+        try {
+          window.open(uri, '_blank', 'noopener,noreferrer')
+        } catch {
+          // no-op: custom Zotero scheme is gracefully ignored in browser mode.
+        }
+      })
+      return
+    }
+
+    try {
+      window.open(uri, '_blank', 'noopener,noreferrer')
+    } catch {
+      // no-op: browser fallback only.
+    }
+  }
 
   return (
     <div className="flex flex-col gap-5">
@@ -27,9 +68,19 @@ export default function SubjectOverviewPage() {
               {subject.description ?? 'Blueprint-backed subject overview built from the current curriculum source.'}
             </p>
           </div>
-          <div className="rounded-md border border-[#0e639c]/40 bg-[#0e639c]/10 px-3 py-2 text-right text-xs text-[#4fc1ff]">
-            <p className="uppercase tracking-wide">Active subject</p>
-            <p className="mt-1 text-sm font-semibold text-[#e8e8e8]">{subject.name}</p>
+          <div className="flex items-center gap-2">
+            <button
+              type="button"
+              onClick={handleOpenZotero}
+              className="inline-flex items-center gap-2 rounded-md border border-[#22c55e]/20 bg-[#22c55e]/10 px-3 py-2 text-[11px] font-medium text-[#bbf7d0] transition hover:bg-[#22c55e]/15"
+            >
+              <FolderOpen size={13} />
+              Open in Zotero ↗
+            </button>
+            <div className="rounded-md border border-[#0e639c]/40 bg-[#0e639c]/10 px-3 py-2 text-right text-xs text-[#4fc1ff]">
+              <p className="uppercase tracking-wide">ACTIVE SUBJECT</p>
+              <p className="mt-1 text-sm font-semibold text-[#e8e8e8]">{subject.name}</p>
+            </div>
           </div>
         </div>
       </section>
@@ -49,7 +100,7 @@ export default function SubjectOverviewPage() {
       </div>
 
       <div className="flex flex-col gap-3">
-        {subject.chapters?.map((chapter) => {
+        {chapters.map((chapter) => {
           const meta = getChapterMetadata(chapter)
           return (
             <Link

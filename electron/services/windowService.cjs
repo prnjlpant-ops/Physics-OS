@@ -64,10 +64,14 @@ function isFullscreen(win) {
 /** Opens a URL in the OS default browser — never inside Physics OS's own BrowserWindow. */
 async function openExternal(url) {
   if (!url || typeof url !== 'string') return false
-  if (!/^https?:\/\//i.test(url)) {
-    throw new Error('Only http(s) links can be opened externally.')
+  const trimmed = url.trim()
+  const isCustomScheme = /^[a-z][a-z0-9+.-]*:/i.test(trimmed) && !/^javascript:/i.test(trimmed)
+
+  if (!/^https?:\/\//i.test(trimmed) && !isCustomScheme) {
+    throw new Error('Only http(s) and custom app links can be opened externally.')
   }
-  await shell.openExternal(url)
+
+  await shell.openExternal(trimmed)
   return true
 }
 

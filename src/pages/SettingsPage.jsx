@@ -427,6 +427,16 @@ export default function SettingsPage() {
           </label>
 
           <label className="flex items-center justify-between rounded-md border border-[#3c3c3c]/50 bg-[#1e1e1e] p-2.5">
+            <span className="text-xs text-[#cccccc]">Auto-jump directly to last active topic on launch</span>
+            <input
+              type="checkbox"
+              checked={studyPrefs.autoJumpToLastActiveTopicOnLaunch ?? true}
+              onChange={(event) => updatePreference('autoJumpToLastActiveTopicOnLaunch', event.target.checked)}
+              className="h-4 w-4 accent-[#0e639c]"
+            />
+          </label>
+
+          <label className="flex items-center justify-between rounded-md border border-[#3c3c3c]/50 bg-[#1e1e1e] p-2.5">
             <span className="text-xs text-[#cccccc]">Open Resources In New Tab</span>
             <input
               type="checkbox"

@@ -16,7 +16,7 @@
     "electron:wait": "wait-on tcp:5173 && cross-env NODE_ENV=development electron .",
     "electron:build": "vite build",
     "electron:start": "cross-env NODE_ENV=production electron .",
-    "package:win": "npm run build && electron-builder --win --publish never"
+    "package:win": "vite build && electron-builder --win"
   },
   "dependencies": {
     "lucide-react": "^0.525.0",
@@ -28,30 +28,22 @@
   "build": {
     "appId": "com.physicsos.desktop",
     "productName": "Physics OS",
-    "executableName": "physics-os",
     "directories": {
       "output": "release"
     },
-    "files": [
-      "dist/**/*",
-      "electron/**/*",
-      "package.json"
-    ],
     "win": {
       "target": [
-        "portable",
-        "nsis"
+        "nsis",
+        "portable"
       ],
-      "icon": "build/icon.ico"
+      "icon": "public/icon.ico"
     },
     "nsis": {
       "oneClick": false,
       "allowToChangeInstallationDirectory": true,
       "createDesktopShortcut": true,
-      "createStartMenuShortcut": true
-    },
-    "portable": {
-      "artifactName": "${productName}-Portable-${version}.exe"
+      "createStartMenuShortcut": true,
+      "shortcutName": "Physics OS"
     }
   },
   "devDependencies": {
